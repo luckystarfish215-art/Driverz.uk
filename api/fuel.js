@@ -46,7 +46,11 @@ export default async function handler(req, res) {
         // ==========================================
         if (mode === 'ev') {
             const searchRadius = Math.max(radius, 20);
-            const evReq = await fetch(`https://api.openchargemap.io/v3/poi/?output=json&latitude=${lat}&longitude=${lng}&distance=${searchRadius}&distanceunit=miles&maxresults=25&compact=true&key=${ocmKey}`);
+            const evUrl = `https://api.openchargemap.io/v3/poi/?output=json&latitude=${lat}&longitude=${lng}&distance=${searchRadius}&distanceunit=miles&maxresults=25&compact=true${ocmKey ? `&key=${ocmKey}` : ''}`;
+            const evReq = await fetch(evUrl, { signal: AbortSignal.timeout(5000) });
+            if (!evReq.ok) {
+                return res.status(502).json({ error: 'EV charger feed unavailable. Add OCM_API_KEY in Vercel or try again later.' });
+            }
             const evData = await evReq.json();
             
             let chargers = evData || [];
