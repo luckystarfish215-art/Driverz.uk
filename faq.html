@@ -1,33 +1,286 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ | Driverz UK</title>
-  <meta name="description" content="Frequently asked questions about Driverz UK fuel data, EV charging, location, cookies and analytics.">
-  <meta name="theme-color" content="#666666">
-  <link rel="canonical" href="https://www.driverz.uk/faq.html">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FAQ | Driverz.uk</title>
+  <meta name="description" content="Driverz FAQ: answers about UK fuel prices, EV charging data, location search, Costco exclusion, clean air zones, calculators, privacy and contact options.">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .faq-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .faq-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .faq-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.55}
+    .faq-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .faq-search{margin-top:16px;display:flex;gap:10px;align-items:center;background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:10px 12px}
+    .faq-search input{width:100%;border:0;background:transparent;outline:0;font:inherit;font-weight:750;color:#444;padding:8px}
+    .faq-search span{font-size:1.15rem;color:#777}
+    .faq-chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+    .faq-chip{border:1px solid #e8e8e8;background:#fff;border-radius:999px;padding:10px 13px;color:#555;font-weight:850;font-size:.92rem;cursor:pointer;transition:.16s ease;text-decoration:none}
+    .faq-chip:hover{background:#eaf6ff;border-color:#cfeeff;color:#333;transform:translateY(-1px)}
+    .faq-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .faq-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 8px;color:#444}
+    .faq-section>p{color:#666;line-height:1.55;margin:0 0 16px;max-width:760px}
+    .faq-list{display:grid;gap:10px;margin-top:14px}
+    .faq-item{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;overflow:hidden}
+    .faq-q{width:100%;border:0;background:transparent;text-align:left;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;font:inherit;font-weight:900;color:#444;letter-spacing:-.03em;cursor:pointer}
+    .faq-q span:first-child{line-height:1.25}
+    .faq-icon{width:30px;height:30px;border-radius:10px;background:#fff;border:1px solid #e7e7e7;display:grid;place-items:center;flex:0 0 auto;color:#666;font-weight:950;transition:.16s ease}
+    .faq-a{display:none;padding:0 18px 18px;color:#666;line-height:1.55}
+    .faq-a p{margin:0 0 10px}.faq-a p:last-child{margin-bottom:0}
+    .faq-a ul{margin:8px 0 0 18px;padding:0}.faq-a li{margin:6px 0}
+    .faq-item.is-open .faq-a{display:block}
+    .faq-item.is-open .faq-icon{transform:rotate(45deg);background:#eaf6ff;border-color:#cfeeff;color:#333}
+    .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .quick-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:16px;color:#666;line-height:1.5}
+    .quick-card b{display:block;color:#444;margin-bottom:6px;letter-spacing:-.03em}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem;text-decoration:none}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    .no-results{display:none;background:#fff;border:1px dashed #ddd;border-radius:22px;padding:20px;color:#666;line-height:1.55;margin:18px 0}
+    .is-hidden{display:none!important}
+    @media(max-width:850px){
+      .faq-hero{padding-top:28px}
+      .faq-section,.answer-panel{padding:20px;border-radius:24px}
+      .quick-grid{grid-template-columns:1fr}
+      .faq-q{padding:15px}
+      .faq-a{padding:0 15px 15px}
+    }
+  </style>
 </head>
 <body>
-<driverz-header></driverz-header>
+  <driverz-header></driverz-header>
 
-<main class="article">
-  <p class="eyebrow">FAQ</p>
-  <h1>Frequently asked questions</h1>
-  <details class="quick-answer" open><summary><strong>Where does fuel price data come from?</strong></summary><p>The site is structured to use official UK fuel price CSV data through the scheduled GitHub and Vercel workflow, with the live API route reading from the repository data file when available.</p></details>
-  <details class="quick-answer"><summary><strong>Do I need to share my location?</strong></summary><p>No. You can type a town, city or postcode. Location is only requested after you press the location button.</p></details>
-  <details class="quick-answer"><summary><strong>Why use a 3-mile comparison?</strong></summary><p>Three miles is a practical local default. You can widen the radius for longer journeys, but driving far to save a small amount on fuel may not be worth it.</p></details>
-  <details class="quick-answer"><summary><strong>Can I filter EV chargers by connector?</strong></summary><p>Yes. The EV search interface includes connector filtering for Type 2, CCS, CHAdeMO and Tesla-compatible options. Availability still depends on the external charger data feed.</p></details>
-  <details class="quick-answer"><summary><strong>How are cookies and analytics handled?</strong></summary><p>Essential preferences are stored locally. Google Analytics and Vercel Analytics are only loaded after a visitor accepts analytics cookies.</p></details>
-  <details class="quick-answer"><summary><strong>Can Driverz UK add more tools later?</strong></summary><p>Yes. The structure supports additional pages for traffic alerts, route planning, public APIs and more driver calculators.</p></details>
-</main>
+  <main>
+    <section class="faq-hero">
+      <div class="eyebrow">About</div>
+      <h1>Frequently asked questions</h1>
+      <p>Short answers about Driverz, fuel prices, EV charging data, location search, calculators, privacy and clean air zone guidance.</p>
+    </section>
 
-<driverz-footer></driverz-footer>
-<script src="/components.js"></script>
+    <section class="faq-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>Driverz is built as a simple UK driving utility. Use the fuel finder first, then use the calculators and guides when you need more detail.</p>
+        <div class="faq-search" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="faqSearch" type="search" placeholder="Search FAQ, for example EV prices, Costco, location, ULEZ..." autocomplete="off">
+        </div>
+      </div>
+
+      <nav class="faq-chips" aria-label="FAQ categories">
+        <a class="faq-chip" href="#fuel">Fuel prices</a>
+        <a class="faq-chip" href="#ev">EV data</a>
+        <a class="faq-chip" href="#location">Location & privacy</a>
+        <a class="faq-chip" href="#tools">Tools</a>
+        <a class="faq-chip" href="#charges">Rules & charges</a>
+        <a class="faq-chip" href="#site">Site & contact</a>
+      </nav>
+
+      <div class="no-results" id="noResults">No FAQ results found. Try another word, or use the contact page to suggest a question we should add.</div>
+
+      <section class="faq-section" id="fuel" data-section>
+        <h2>Fuel prices</h2>
+        <p>Useful answers about petrol, diesel, station results and price accuracy.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Where does Driverz get fuel prices from?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Driverz uses available UK fuel price data feeds and local cached data where possible. Fuel prices can change quickly, so always check the pump price before filling up.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why can the price be different when I arrive?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Station prices may change after the latest data update. There can also be delays in reporting, missing fuel grades, temporary closures or local station changes.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>What does “Exclude Costco” mean?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Costco fuel stations usually require membership. The exclude option hides Costco results so the finder shows stations available to more drivers.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why are some fuel grades missing?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Not every station reports every fuel grade in the same way. E5, premium diesel and specialist grades may be missing or updated less consistently than standard petrol and diesel.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why show a 40L fill-up estimate?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Pence-per-litre is useful, but many drivers think in real fill-up costs. A 40L estimate gives a quick everyday comparison between stations.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="ev" data-section>
+        <h2>EV data</h2>
+        <p>EV charging information is useful, but it is usually less standardised than petrol and diesel data.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why does EV pricing sometimes show no data?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Many EV charging networks do not publish live pricing in a consistent public format. Driverz shows pricing where available and uses cleaner fallback messages when it is not listed.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why are EV connector types sometimes missing?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Some charger records include connector types such as CCS, Type 2 or CHAdeMO. Others only include basic location or operator data. If connector data is missing, Driverz hides that row instead of showing a technical error.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why does an EV price sometimes show FREE?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>If a charger price is listed as zero, Driverz displays FREE. Always check the charger app or operator terms before starting a charge.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>What connector filter should EV drivers use?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Use the connector your vehicle supports. The simple options planned for Driverz are Any, CCS, Type 2 and CHAdeMO, with rapid charging as a possible extra filter.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Is public charging usually more expensive than home charging?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Often yes. Home charging, especially on an off-peak tariff, is usually cheaper than rapid public charging. Use the EV Home Savings tool for a rough estimate.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="location" data-section>
+        <h2>Location & privacy</h2>
+        <p>Driverz works best with a local search, but the site should stay clear and respectful about location use.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why does Driverz ask for my location?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Location helps Driverz show nearby fuel prices and local driving information. You can also search manually by town, city or postcode instead.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Does Driverz automatically track my location?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No. The browser asks for permission first. Driverz should use a soft prompt before triggering the browser location request, so you can choose location search or manual search.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why does the site remember my location?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Remembering your last selected location makes the fuel finder faster on your next visit. This is stored in your browser, not used as an account login.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Can I use Driverz without sharing my location?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes. Use the search icon in the header or select a city from the location cloud.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="tools" data-section>
+        <h2>Tools & calculators</h2>
+        <p>Driverz tools are designed to give fast estimates first, then short explanations after the result.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Why are calculators shown before long articles?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Most visitors want the result first. Driverz puts the tool at the top, then adds quick answers, assumptions and related links underneath for context.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Are calculator results exact?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No. They are estimates based on the values you enter. Real-world costs can change because of driving style, weather, traffic, tyres, fuel quality, charging losses and local prices.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>What does the Share result button do?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>On supported devices, it opens the native share sheet so you can share a result by message, email, notes or other apps. If native sharing is unavailable, the site can fall back to copying a text result.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Are mileage tracker entries uploaded anywhere?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>The mileage tracker is designed to save entries in your browser only. Clearing browser storage may remove saved entries, so export CSV if you want a backup.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="charges" data-section>
+        <h2>Rules, ULEZ & clean air zones</h2>
+        <p>Driverz guides aim to make common UK driving rules easier to understand, but official sources should always be checked for legal decisions.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Is ULEZ the same as the Congestion Charge?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No. ULEZ is based on vehicle emissions. The Congestion Charge is a traffic charge in central London. A journey can sometimes involve more than one charge.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Are Clean Air Zone rules the same in every city?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No. Rules vary by city and vehicle type. Some zones mainly affect commercial vehicles, while others may affect private cars depending on emissions.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Can Driverz tell me if I must pay a charge?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Driverz can explain the difference between common charge types and link to official checkers. For payment decisions, use the official city or GOV.UK checker.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Are the driving rules pages legal advice?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>No. They are practical summaries. Always follow the Highway Code, road signs, police instructions and official guidance.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section" id="site" data-section>
+        <h2>Site, contact & advertising</h2>
+        <p>Questions about corrections, partnerships and how Driverz is intended to operate.</p>
+        <div class="faq-list">
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>How do I report a wrong price or station issue?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Use the contact page and choose fuel correction or site feedback. Include the station name, location, fuel grade, price shown and the price you saw.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Can I advertise on Driverz?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes. Driverz is designed for low-clutter, utility-focused sponsorships. Good-fit partners include breakdown cover, EV charging, tyres, garages, insurance, parking and driver services.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Will Driverz have too many ads?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>The goal is to keep Driverz fast and useful. Ads or sponsors should be minimal, clearly labelled and placed around the utility experience rather than interrupting it.</p></div>
+          </article>
+          <article class="faq-item" data-faq>
+            <button class="faq-q" type="button"><span>Is Driverz free to use?</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes, the site is intended as a free driving utility. Future advertising or sponsorship should help support the site without making the experience cluttered.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2>Useful links</h2>
+        <div class="quick-grid">
+          <div class="quick-card"><b>Need to calculate a journey?</b>Use the trip cost calculator to estimate fuel used, return trip cost and cost per mile.</div>
+          <div class="quick-card"><b>Trying to understand a term?</b>Use the glossary for quick explanations of E10, kWh, ULEZ, MPG, VED and more.</div>
+          <div class="quick-card"><b>Found an issue?</b>Use the contact page and include enough detail so it can be checked.</div>
+        </div>
+        <div class="source-links">
+          <a href="/">Fuel Price Finder</a>
+          <a href="/trip-calculator.html">Trip Calculator</a>
+          <a href="/glossary.html">Glossary</a>
+          <a href="/clean-air-zones.html">Clean Air Zones</a>
+          <a href="/terms.html">Terms & Privacy</a>
+          <a href="/contact.html">Contact Driverz</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+
+  <script>
+    const items = Array.from(document.querySelectorAll('[data-faq]'));
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', () => item.classList.toggle('is-open'));
+    });
+
+    const search = document.getElementById('faqSearch');
+    const noResults = document.getElementById('noResults');
+    const sections = Array.from(document.querySelectorAll('[data-section]'));
+
+    function filterFaq(){
+      const q = (search.value || '').trim().toLowerCase();
+      let visibleCount = 0;
+      items.forEach(item => {
+        const match = !q || item.textContent.toLowerCase().includes(q);
+        item.classList.toggle('is-hidden', !match);
+        if(match) visibleCount++;
+      });
+      sections.forEach(section => {
+        const sectionItems = Array.from(section.querySelectorAll('[data-faq]'));
+        const hasVisible = sectionItems.some(item => !item.classList.contains('is-hidden'));
+        section.classList.toggle('is-hidden', !!q && !hasVisible);
+      });
+      noResults.style.display = q && visibleCount === 0 ? 'block' : 'none';
+    }
+
+    search.addEventListener('input', filterFaq);
+  </script>
 </body>
 </html>
