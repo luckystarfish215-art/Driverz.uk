@@ -104,7 +104,7 @@ export default async function handler(req, res) {
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
                 allPrices: cost || 'EV pricing varies by operator',
-                connectors: connectors || 'Connector details unavailable'
+                ...(connectors ? { connectors } : {})
             });
         }
 
