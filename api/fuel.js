@@ -48,6 +48,40 @@ function evCostToPrice(costText) {
     return { price: match ? match[0] : '65', unit: 'p/kWh' };
 }
 
+function evDisplayPrice(costText) {
+    const raw = String(costText || '').trim();
+    const lower = raw.toLowerCase();
+    if (!raw) return 'price not listed';
+    if (lower.includes('free') || /^0+(\.0+)?\s*(p|p\/kwh|£|gbp)?/.test(lower) || lower.includes('0.0p')) return 'FREE';
+    const match = lower.match(/\d+(?:\.\d+)?/);
+    if (!match) return 'price not listed';
+    const num = parseFloat(match[0]);
+    if (!Number.isFinite(num)) return 'price not listed';
+    if (lower.includes('£') || lower.includes('gbp')) return `£${num.toFixed(2)}/kWh`;
+    return `${num.toFixed(num % 1 ? 1 : 0)}p/kWh`;
+}
+
+function evNearbyPriceSummary(chargers, selectedId) {
+    const seen = new Set();
+    return (chargers || [])
+        .filter(c => c && c.ID !== selectedId)
+        .sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999))
+        .map(c => {
+            const title = (c.AddressInfo?.Title || 'EV charger').replace(/\s+/g, ' ').trim();
+            const shortTitle = title.length > 26 ? title.slice(0, 24).trim() + '…' : title;
+            const price = evDisplayPrice(c.UsageCost || '');
+            return `${shortTitle} ${price}`;
+        })
+        .filter(item => {
+            const key = item.toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .slice(0, 5)
+        .join(' · ');
+}
+
 export default async function handler(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const lat = parseFloat(url.searchParams.get('lat')) || 51.5074;
@@ -89,10 +123,12 @@ export default async function handler(req, res) {
                 validChargers = [chargers[0]];
             }
             
+            validChargers.sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999));
             const charger = validChargers[0];
             const cost = charger.UsageCost || "";
             const parsedCost = evCostToPrice(cost);
             const connectors = evConnectorSummary(charger);
+            const nearbyEvPrices = evNearbyPriceSummary(validChargers, charger.ID);
             
             return res.status(200).json({
                 price: parsedCost.price,
@@ -103,7 +139,7 @@ export default async function handler(req, res) {
                 lat: charger.AddressInfo.Latitude, lng: charger.AddressInfo.Longitude,
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
-                allPrices: cost || 'EV pricing varies by operator',
+                allPrices: nearbyEvPrices,
                 ...(connectors ? { connectors } : {})
             });
         }
