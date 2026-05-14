@@ -27,6 +27,27 @@ function splitCSV(row) {
     return result;
 }
 
+function evConnectorSummary(charger) {
+    const names = new Set();
+    const conns = charger.Connections || [];
+    conns.forEach(conn => {
+        const title = conn.ConnectionType?.Title || conn.ConnectionType?.FormalName || '';
+        const clean = title.replace(/Type 2 Mennekes/i, 'Type 2').replace(/Combined Charging System/i, 'CCS').replace(/CHAdeMO/i, 'CHAdeMO').trim();
+        if (clean) names.add(clean);
+    });
+    const preferred = ['CCS', 'Type 2', 'CHAdeMO'];
+    const ordered = [...preferred.filter(x => [...names].some(n => n.toLowerCase().includes(x.toLowerCase()))), ...[...names].filter(n => !preferred.some(p => n.toLowerCase().includes(p.toLowerCase())))];
+    return [...new Set(ordered)].slice(0, 5).join(' · ');
+}
+
+function evCostToPrice(costText) {
+    const cost = String(costText || '').trim().toLowerCase();
+    if (!cost || cost.includes('free')) return { price: cost.includes('free') ? 'FREE' : '65', unit: 'p/kWh' };
+    if (/^0+(\.0+)?\s*(p|p\/kwh|£|gbp)?/.test(cost) || cost.includes('0.0p')) return { price: 'FREE', unit: '' };
+    const match = cost.match(/\d+(?:\.\d+)?/);
+    return { price: match ? match[0] : '65', unit: 'p/kWh' };
+}
+
 export default async function handler(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const lat = parseFloat(url.searchParams.get('lat')) || 51.5074;
@@ -35,7 +56,6 @@ export default async function handler(req, res) {
     
     const radius = parseFloat(url.searchParams.get('radius')) || 5;
     const excludeCostco = url.searchParams.get('excludeCostco') === 'true';
-    const connector = (url.searchParams.get('connector') || 'any').toLowerCase();
 
     const clientId = (process.env.FUEL_CLIENT_ID || "").replace(/\s/g, "");
     const clientSecret = (process.env.FUEL_CLIENT_SECRET || "").replace(/\s/g, "");
@@ -58,12 +78,6 @@ export default async function handler(req, res) {
             if (excludeCostco) {
                 chargers = chargers.filter(c => !(c.AddressInfo?.Title || '').toLowerCase().includes('costco'));
             }
-            if (connector && connector !== 'any') {
-                chargers = chargers.filter(c => (c.Connections || []).some(conn => {
-                    const title = (conn.ConnectionType?.Title || '').toLowerCase();
-                    return title.includes(connector) || (connector === 'ccs' && title.includes('combo')) || (connector === 'tesla' && title.includes('tesla'));
-                }));
-            }
             
             if (!chargers || chargers.length === 0) {
                 return res.status(404).json({ error: "No chargers found nearby" });
@@ -76,31 +90,21 @@ export default async function handler(req, res) {
             }
             
             const charger = validChargers[0];
-            const cost = (charger.UsageCost || "").toLowerCase();
-            const isFree = cost.includes("free") || cost === "0";
+            const cost = charger.UsageCost || "";
+            const parsedCost = evCostToPrice(cost);
+            const connectors = evConnectorSummary(charger);
             
             return res.status(200).json({
-                price: isFree ? "FREE" : (cost.match(/\d+/) || ["65"])[0],
-                unit: isFree ? "" : "p/kWh",
+                price: parsedCost.price,
+                unit: parsedCost.price === "FREE" ? "" : parsedCost.unit,
                 name: charger.AddressInfo.Title || "EV Charger",
                 dist: `${charger.AddressInfo.Distance.toFixed(1)} mi`,
                 updated: "Live Feed",
                 lat: charger.AddressInfo.Latitude, lng: charger.AddressInfo.Longitude,
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
-                allPrices: charger.UsageCost || 'EV pricing varies by operator',
-                results: validChargers.slice(0, 8).map(c => {
-                    const cCost = (c.UsageCost || '').toLowerCase();
-                    const cFree = cCost.includes('free') || cCost === '0';
-                    return {
-                        name: c.AddressInfo.Title || 'EV Charger',
-                        dist: `${c.AddressInfo.Distance.toFixed(1)} mi`,
-                        price: cFree ? 'FREE' : ((cCost.match(/\d+/) || ['Varies'])[0]),
-                        unit: cFree ? '' : 'p/kWh',
-                        opening: 'Check operator',
-                        allPrices: c.UsageCost || ((c.Connections || []).map(x => x.ConnectionType?.Title).filter(Boolean).join(' · '))
-                    };
-                })
+                allPrices: cost || 'EV pricing varies by operator',
+                connectors: connectors || 'Connector details unavailable'
             });
         }
 
@@ -262,15 +266,7 @@ export default async function handler(req, res) {
             opening: best.opening || "Opening times unavailable",
             address: best.address || "",
             allPrices: best.allPrices || "",
-            phone: best.phone || "",
-            results: (stationsInRadius.length > 0 ? stationsInRadius : validStations).slice(0, 8).map(s => ({
-                name: s.name || s.brand || 'Fuel Station',
-                dist: `${parseFloat(s.dist).toFixed(1)} mi`,
-                price: `${parseFloat(s.price).toFixed(1)}`,
-                unit: 'p',
-                opening: s.opening || '',
-                allPrices: s.allPrices || ''
-            }))
+            phone: best.phone || ""
         });
         
     } catch (error) {
