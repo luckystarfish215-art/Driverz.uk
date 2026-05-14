@@ -1,1 +1,167 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trip Cost Calculator | driverz.uk</title><meta name="description" content="Estimate UK journey fuel cost."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>Trip cost calculator</h1><p>Estimate fuel cost using distance, MPG and fuel price.</p><section class="card"><form class="tool-form" onsubmit="event.preventDefault();calc()"><div class="field"><label>Distance / miles</label><input id="distance" type="number" step="any" value="120"></div><div class="field"><label>MPG</label><input id="mpg" type="number" step="any" value="45"></div><div class="field"><label>Fuel price p/litre</label><input id="price" type="number" step="any" value="139.9"></div><button class="btn" type="submit">Calculate</button></form><div class="result" id="result">Enter values and calculate.</div></section><div class="quick-answer"><b>Driverz design note:</b> tools stay simple, fast and focused. No unnecessary articles before the calculator.</div></main><script>function calc(){const result=document.getElementById('result');const litres=(distance.value/mpg.value)*4.54609;result.innerHTML='Estimated fuel used: <b>'+litres.toFixed(1)+' litres</b><br>Estimated cost: <b>£'+(litres*price.value/100).toFixed(2)+'</b>';}calc();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trip Cost Calculator | driverz.uk</title>
+  <meta name="description" content="Estimate UK journey fuel cost using distance, MPG and fuel price.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .tool-head{margin-bottom:22px}.tool-head h1{margin-bottom:12px}.tool-head p{max-width:680px;color:#666;font-size:1.05rem}.trip-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:16px;align-items:start}.result-panel{background:#f7f7f7;border:1px solid var(--line);border-radius:20px;padding:18px}.result-panel h2{font-size:1rem;letter-spacing:0;margin:0 0 12px;color:#666;text-transform:uppercase}.big-cost{font-size:clamp(2.5rem,8vw,4.8rem);line-height:.9;letter-spacing:-.08em;font-weight:950;margin:6px 0 12px;color:#555}.result-list{display:grid;gap:9px;margin:16px 0}.result-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5e5e5;padding-bottom:9px;color:#666}.result-row b{color:#555}.trip-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;color:#666;font-size:.94rem}.trip-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary-btn{border:1px solid #ddd;background:#fff;color:#555}.tool-support{margin-top:18px}.tool-support .quick-answer{margin:16px 0}.related-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.related-tools a{border:1px solid #ddd;background:#fff;border-radius:999px;padding:9px 12px;font-weight:800;color:#555}@media(max-width:760px){.trip-layout{grid-template-columns:1fr}.tool-head{margin-bottom:16px}.card{padding:18px}.result-panel{order:-1}.result-row{display:grid;grid-template-columns:1fr auto}.trip-actions .btn{width:100%;justify-content:center}.related-tools a{width:100%;text-align:center}.big-cost{font-size:3.4rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="article">
+    <div class="tool-head">
+      <h1>Trip cost calculator</h1>
+      <p>Work out the estimated fuel cost for a UK journey. Enter the distance, your vehicle MPG and the fuel price per litre.</p>
+    </div>
+
+    <section class="card">
+      <div class="trip-layout">
+        <form class="tool-form" onsubmit="event.preventDefault(); calc();">
+          <div class="field">
+            <label for="distance">Distance / miles</label>
+            <input id="distance" type="number" inputmode="decimal" min="0" step="any" value="120">
+          </div>
+
+          <div class="field">
+            <label for="tripType">Trip type</label>
+            <select id="tripType">
+              <option value="1">One way</option>
+              <option value="2">Return trip</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mpg">Vehicle MPG</label>
+            <input id="mpg" type="number" inputmode="decimal" min="1" step="any" value="45">
+          </div>
+
+          <div class="field">
+            <label for="price">Fuel price p/litre</label>
+            <input id="price" type="number" inputmode="decimal" min="0" step="any" value="139.9">
+          </div>
+
+          <button class="btn" type="submit">Calculate</button>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <h2>Estimated trip cost</h2>
+          <div class="big-cost" id="mainCost">£0.00</div>
+          <div class="result-list">
+            <div class="result-row"><span>Total distance</span><b id="totalDistance">0 miles</b></div>
+            <div class="result-row"><span>Fuel used</span><b id="fuelUsed">0 litres</b></div>
+            <div class="result-row"><span>Cost per mile</span><b id="costPerMile">0p</b></div>
+          </div>
+          <div class="trip-note" id="tripNote">Enter values to estimate your journey cost.</div>
+          <div class="trip-actions">
+            <button class="btn" type="button" onclick="shareResult()">Share result</button>
+            <button class="btn secondary-btn" type="button" onclick="resetDefaults()">Reset</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tool-support">
+      <div class="quick-answer">
+        <b>Quick answer:</b> Trip fuel cost depends mainly on distance, MPG and the live pump price. Motorway driving, traffic, tyre pressure and heavy loads can change the real cost.
+      </div>
+
+      <h2>Related tools</h2>
+      <div class="related-tools">
+        <a href="/">Find nearby fuel</a>
+        <a href="/cpm-tracker.html">Cost per mile</a>
+        <a href="/ev-vs-petrol.html">EV vs petrol cost</a>
+        <a href="/driving-costs-guide.html">Driving costs guide</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let lastShareText = '';
+
+    function numberValue(id, fallback = 0) {
+      const el = document.getElementById(id);
+      const value = parseFloat(el && el.value);
+      return Number.isFinite(value) ? value : fallback;
+    }
+
+    function money(value) {
+      return '£' + value.toFixed(2);
+    }
+
+    function calc() {
+      const distance = Math.max(0, numberValue('distance'));
+      const tripMultiplier = numberValue('tripType', 1);
+      const mpg = Math.max(1, numberValue('mpg', 45));
+      const price = Math.max(0, numberValue('price', 0));
+      const totalMiles = distance * tripMultiplier;
+      const litres = (totalMiles / mpg) * 4.54609;
+      const cost = litres * price / 100;
+      const ppm = totalMiles > 0 ? (cost / totalMiles) * 100 : 0;
+      const approxRange = litres > 0 ? (40 / litres) * totalMiles : 0;
+
+      document.getElementById('mainCost').textContent = money(cost);
+      document.getElementById('totalDistance').textContent = totalMiles.toFixed(totalMiles % 1 ? 1 : 0) + ' miles';
+      document.getElementById('fuelUsed').textContent = litres.toFixed(1) + ' litres';
+      document.getElementById('costPerMile').textContent = ppm.toFixed(1) + 'p';
+      document.getElementById('tripNote').innerHTML = 'A standard 40L fill-up at this price costs about <b>' + money(price * 40 / 100) + '</b>. With this MPG, 40L is roughly <b>' + approxRange.toFixed(0) + ' miles</b>.';
+
+      lastShareText = 'Driverz trip cost estimate: ' + money(cost) + ' for ' + totalMiles.toFixed(totalMiles % 1 ? 1 : 0) + ' miles. Fuel used: ' + litres.toFixed(1) + 'L. Cost per mile: ' + ppm.toFixed(1) + 'p.';
+    }
+
+    async function shareResult() {
+      calc();
+      const shareData = {
+        title: 'Driverz trip cost estimate',
+        text: lastShareText,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (error) {
+          if (error && error.name === 'AbortError') return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(lastShareText + ' ' + window.location.href);
+        const note = document.getElementById('tripNote');
+        note.innerHTML = 'Result copied to clipboard.';
+        setTimeout(calc, 1800);
+      } catch (error) {
+        alert(lastShareText);
+      }
+    }
+
+    function resetDefaults() {
+      document.getElementById('distance').value = 120;
+      document.getElementById('tripType').value = 1;
+      document.getElementById('mpg').value = 45;
+      document.getElementById('price').value = 139.9;
+      calc();
+    }
+
+    ['distance', 'tripType', 'mpg', 'price'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', calc);
+      if (el) el.addEventListener('change', calc);
+    });
+
+    calc();
+  </script>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
