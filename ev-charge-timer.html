@@ -1,1 +1,255 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EV Charge Timer | driverz.uk</title><meta name="description" content="Estimate EV charging time."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>EV charge timer</h1><p>Simple estimate based on battery size, current charge and charger power.</p><section class="card"><form class="tool-form" onsubmit="event.preventDefault();calc()"><div class="field"><label>Battery size kWh</label><input id="battery" type="number" step="any" value="60"></div><div class="field"><label>Current charge %</label><input id="start" type="number" step="any" value="20"></div><div class="field"><label>Target charge %</label><input id="target" type="number" step="any" value="80"></div><div class="field"><label>Charger power kW</label><input id="power" type="number" step="any" value="7"></div><button class="btn" type="submit">Calculate</button></form><div class="result" id="result">Enter values and calculate.</div></section><div class="quick-answer"><b>Driverz design note:</b> tools stay simple, fast and focused. No unnecessary articles before the calculator.</div></main><script>function calc(){const result=document.getElementById('result');const need=battery.value*((target.value-start.value)/100);result.innerHTML='Energy needed: <b>'+need.toFixed(1)+' kWh</b><br>Estimated time: <b>'+(need/power.value).toFixed(1)+' hours</b>';}calc();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EV Charge Timer | driverz.uk</title>
+  <meta name="description" content="Estimate EV charging time, added range and charging cost from battery percentage, charger power and electricity price.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .tool-shell{max-width:980px;margin:0 auto;padding:22px 16px 48px;color:#4b5563}
+    .tool-hero{margin:10px 0 18px}
+    .tool-kicker{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a8594;margin-bottom:8px}
+    .tool-hero h1{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:0 0 12px;color:#4a5563;letter-spacing:-.06em}
+    .tool-hero p{font-size:1.05rem;line-height:1.55;max-width:720px;margin:0;color:#687386}
+    .tool-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:18px;align-items:start}
+    .tool-panel,.result-panel,.info-card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 16px 40px rgba(15,23,42,.06);padding:18px}
+    .tool-panel h2,.result-panel h2,.info-card h2{font-size:1.05rem;margin:0 0 14px;color:#4a5563}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field label{font-size:.84rem;font-weight:800;color:#687386}
+    .field input,.field select{width:100%;box-sizing:border-box;border:1px solid #d7dce3;border-radius:16px;padding:12px 13px;font:inherit;color:#4b5563;background:#f8fafc;outline:none}
+    .field input:focus,.field select:focus{border-color:#8bbce8;background:#fff;box-shadow:0 0 0 4px rgba(92,174,239,.13)}
+    .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn.primary{background:#4b5563;color:#fff;border-color:#4b5563}
+    .btn.ghost{background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb}
+    .result-main{border-radius:22px;background:#f4f7fb;padding:18px;margin-bottom:12px}
+    .result-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#7a8594;margin-bottom:6px}
+    .result-value{font-size:clamp(2.2rem,10vw,4.7rem);line-height:.92;font-weight:950;letter-spacing:-.07em;color:#4a5563}
+    .result-sub{margin-top:8px;color:#687386;font-weight:700}
+    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .metric{border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .metric span{display:block;font-size:.78rem;font-weight:800;color:#7a8594;margin-bottom:4px}
+    .metric b{font-size:1.08rem;color:#4b5563}
+    .quick-answer{margin-top:18px;background:#eef6ff;border:1px solid #d7ebff;border-radius:22px;padding:16px;color:#4b5563}
+    .quick-answer b{color:#4a5563}
+    .comparison-list{display:grid;gap:10px;margin-top:12px}
+    .compare-row{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .compare-row .type{font-weight:900;color:#4b5563}
+    .compare-row .desc{font-size:.86rem;color:#687386}
+    .compare-row .price{font-weight:950;color:#4a5563}
+    .related-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .related-tools a{display:block;text-decoration:none;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:14px;color:#4b5563;font-weight:850}
+    .small-note{font-size:.86rem;line-height:1.5;color:#7a8594;margin-top:12px}
+    @media(max-width:760px){.tool-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.compare-row{grid-template-columns:1fr}.compare-row .price{font-size:1.25rem}.related-tools{grid-template-columns:1fr}.tool-shell{padding-top:14px}.tool-hero h1{font-size:2.45rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+  <main class="tool-shell">
+    <section class="tool-hero">
+      <div class="tool-kicker">Driverz utility</div>
+      <h1>EV charge timer</h1>
+      <p>Estimate how long an EV charge will take, how much range it adds, and what the charging session may cost.</p>
+    </section>
+
+    <section class="tool-grid">
+      <div class="tool-panel">
+        <h2>Estimate charge time</h2>
+        <form class="tool-form" onsubmit="event.preventDefault();calcChargeTimer();">
+          <div class="form-grid">
+            <div class="field">
+              <label for="battery">Battery size, kWh</label>
+              <input id="battery" type="number" min="1" step="any" value="60" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="eff">Efficiency, miles/kWh</label>
+              <input id="eff" type="number" min="0.1" step="any" value="3.5" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="start">Current charge, %</label>
+              <input id="start" type="number" min="0" max="100" step="any" value="20" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="target">Target charge, %</label>
+              <input id="target" type="number" min="0" max="100" step="any" value="80" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="preset">Charger type</label>
+              <select id="preset">
+                <option value="2.3">3-pin plug, 2.3kW</option>
+                <option value="7.4" selected>Home wallbox, 7.4kW</option>
+                <option value="11">AC charger, 11kW</option>
+                <option value="22">Fast AC, 22kW</option>
+                <option value="50">Rapid DC, 50kW</option>
+                <option value="150">Ultra-rapid DC, 150kW</option>
+                <option value="custom">Custom power</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="power">Charger power, kW</label>
+              <input id="power" type="number" min="0.1" step="any" value="7.4" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="price">Electricity price, p/kWh</label>
+              <input id="price" type="number" min="0" step="any" value="24" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="loss">Charging loss, %</label>
+              <input id="loss" type="number" min="0" max="40" step="any" value="10" inputmode="decimal">
+            </div>
+          </div>
+          <div class="tool-actions">
+            <button class="btn primary" type="submit">Calculate</button>
+            <button class="btn ghost" type="button" id="shareBtn">Share result</button>
+          </div>
+        </form>
+        <p class="small-note">Tip: charging speed normally slows as the battery gets closer to full, especially on rapid chargers. This is a practical estimate, not a guaranteed charging time.</p>
+      </div>
+
+      <div class="result-panel" aria-live="polite">
+        <h2>Your result</h2>
+        <div id="result">
+          <div class="result-main">
+            <div class="result-label">Estimated time</div>
+            <div class="result-value">—</div>
+            <div class="result-sub">Enter values and calculate.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-answer">
+      <b>Quick answer:</b> a 7kW home wallbox is usually good for overnight charging. Rapid chargers are much faster, but the car may not charge at the full advertised power for the whole session.
+    </section>
+
+    <section class="info-card" style="margin-top:18px">
+      <h2>Common charger examples</h2>
+      <div class="comparison-list">
+        <div class="compare-row"><div class="type">3-pin</div><div class="desc">Useful as a backup, but slow for regular EV charging.</div><div class="price">2.3kW</div></div>
+        <div class="compare-row"><div class="type">Home</div><div class="desc">Typical UK home wallbox speed, often used overnight.</div><div class="price">7kW</div></div>
+        <div class="compare-row"><div class="type">Rapid</div><div class="desc">Faster public charging for longer trips and quicker top-ups.</div><div class="price">50kW+</div></div>
+      </div>
+    </section>
+
+    <nav class="related-tools" aria-label="Related tools">
+      <a href="/ev-home-savings.html">EV home savings</a>
+      <a href="/ev-vs-petrol.html">EV vs petrol cost</a>
+      <a href="/trip-calculator.html">Trip cost calculator</a>
+    </nav>
+  </main>
+
+  <script>
+    let latestShareText = '';
+    const money = (n) => Number.isFinite(n) ? '£' + n.toFixed(2) : '—';
+    const kwh = (n) => Number.isFinite(n) ? n.toFixed(1) + ' kWh' : '—';
+    const miles = (n) => Number.isFinite(n) ? n.toFixed(0) + ' miles' : '—';
+
+    function numberFrom(id){
+      const value = parseFloat(document.getElementById(id).value);
+      return Number.isFinite(value) ? value : 0;
+    }
+
+    function formatTime(hours){
+      if(!Number.isFinite(hours) || hours < 0) return '—';
+      const totalMinutes = Math.round(hours * 60);
+      const h = Math.floor(totalMinutes / 60);
+      const m = totalMinutes % 60;
+      if(h <= 0) return `${m} min`;
+      if(m === 0) return `${h} hr`;
+      return `${h} hr ${m} min`;
+    }
+
+    function finishTime(hours){
+      if(!Number.isFinite(hours) || hours < 0) return '—';
+      const d = new Date(Date.now() + hours * 60 * 60 * 1000);
+      return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    }
+
+    function calcChargeTimer(){
+      const battery = numberFrom('battery');
+      const eff = numberFrom('eff');
+      const start = Math.min(100, Math.max(0, numberFrom('start')));
+      const target = Math.min(100, Math.max(0, numberFrom('target')));
+      const power = numberFrom('power');
+      const price = numberFrom('price');
+      const loss = Math.min(40, Math.max(0, numberFrom('loss')));
+      const result = document.getElementById('result');
+
+      if(target <= start || battery <= 0 || power <= 0){
+        result.innerHTML = `
+          <div class="result-main">
+            <div class="result-label">Check values</div>
+            <div class="result-value">—</div>
+            <div class="result-sub">Target charge should be higher than current charge, and charger power must be above zero.</div>
+          </div>
+        `;
+        latestShareText = '';
+        return;
+      }
+
+      const batteryEnergy = battery * ((target - start) / 100);
+      const energyFromCharger = batteryEnergy / (1 - (loss / 100));
+      const hours = energyFromCharger / power;
+      const addedRange = batteryEnergy * eff;
+      const cost = energyFromCharger * price / 100;
+      const timeText = formatTime(hours);
+      const finish = finishTime(hours);
+
+      result.innerHTML = `
+        <div class="result-main">
+          <div class="result-label">Estimated time</div>
+          <div class="result-value">${timeText}</div>
+          <div class="result-sub">From ${start.toFixed(0)}% to ${target.toFixed(0)}% at ${power.toFixed(1)}kW.</div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><span>Energy into battery</span><b>${kwh(batteryEnergy)}</b></div>
+          <div class="metric"><span>Energy from charger</span><b>${kwh(energyFromCharger)}</b></div>
+          <div class="metric"><span>Added range</span><b>${miles(addedRange)}</b></div>
+          <div class="metric"><span>Estimated cost</span><b>${price === 0 ? 'FREE' : money(cost)}</b></div>
+          <div class="metric"><span>Finish around</span><b>${finish}</b></div>
+          <div class="metric"><span>Charging loss used</span><b>${loss.toFixed(0)}%</b></div>
+        </div>
+        <p class="small-note">Real charging can be slower if the charger is shared, the battery is cold, or the car reduces speed near a high state of charge.</p>
+      `;
+
+      latestShareText = `Driverz EV charge timer\nFrom ${start.toFixed(0)}% to ${target.toFixed(0)}%\nEstimated time: ${timeText}\nEnergy needed: ${kwh(energyFromCharger)}\nAdded range: ${miles(addedRange)}\nEstimated cost: ${price === 0 ? 'FREE' : money(cost)}\nFinish around: ${finish}`;
+    }
+
+    document.getElementById('preset').addEventListener('change', (event) => {
+      if(event.target.value !== 'custom'){
+        document.getElementById('power').value = event.target.value;
+        calcChargeTimer();
+      }
+    });
+    document.getElementById('power').addEventListener('input', () => {
+      const preset = document.getElementById('preset');
+      const power = document.getElementById('power').value;
+      if(!Array.from(preset.options).some(opt => opt.value === power && opt.value !== 'custom')) preset.value = 'custom';
+    });
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if(!latestShareText) calcChargeTimer();
+      if(navigator.share){
+        try{ await navigator.share({title:'Driverz EV Charge Timer', text:latestShareText, url:location.href}); }
+        catch(e){}
+      }else{
+        try{ await navigator.clipboard.writeText(latestShareText + '\n' + location.href); alert('Result copied to clipboard.'); }
+        catch(e){ alert(latestShareText); }
+      }
+    });
+
+    ['battery','eff','start','target','power','price','loss'].forEach(id => {
+      document.getElementById(id).addEventListener('input', calcChargeTimer);
+      document.getElementById(id).addEventListener('change', calcChargeTimer);
+    });
+    calcChargeTimer();
+  </script>
+  <driverz-footer></driverz-footer>
+</body>
+</html>
