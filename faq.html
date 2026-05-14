@@ -1,82 +1,33 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FAQ | Driverz UK</title>
-  <meta name="description" content="Frequently asked questions about Driverz UK fuel search, EV charging filters, location use and analytics cookies." />
-  <link rel="canonical" href="https://www.driverz.uk/faq.html" />
-  <meta property="og:title" content="FAQ | Driverz UK" />
-  <meta property="og:description" content="Frequently asked questions about Driverz UK fuel search, EV charging filters, location use and analytics cookies." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.driverz.uk/faq.html" />
+  <meta name="description" content="Frequently asked questions about Driverz UK fuel data, EV charging, location, cookies and analytics.">
+  <meta name="theme-color" content="#666666">
+  <link rel="canonical" href="https://www.driverz.uk/faq.html">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html#top" aria-label="Driverz UK home">
-        <span class="brand-mark">D</span>
-        <span>Driverz UK</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html#fuel-finder">Fuel Finder</a>
-        <a href="utilities.html">Utilities</a>
-      <a href="guides.html">Guides</a>
-        <a href="glossary.html">Glossary</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="emergency.html">Emergency</a>
-        <a class="button small" href="index.html#fuel-finder">Find fuel</a>
-      </div>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="page-hero">
-      <p class="eyebrow">FAQ</p>
-      <h1>Frequently asked questions.</h1>
-      <p>Quick answers about fuel data, EV filters, location permissions and privacy.</p>
-    </section>
+<driverz-header></driverz-header>
 
-    <section class="content-section">
-      <div class="faq-list">
-        <details open><summary>Where does the fuel price data come from?</summary><p>The site is prepared to use official UK fuel price CSV data through your scheduled GitHub workflow.</p></details>
-        <details><summary>Does Driverz UK automatically fetch my location?</summary><p>No. Location is only requested when the visitor presses “Use my location”. Visitors can type a postcode or town instead.</p></details>
-        <details><summary>Why is there a 3-mile compare button?</summary><p>Three miles is a useful default for local fuel decisions. It keeps the list small and practical while still allowing radius changes.</p></details>
-        <details><summary>Can EV drivers filter by connector?</summary><p>Yes. The interface includes connector filtering for Type 2, CCS, CHAdeMO and Tesla compatible options. Live charging availability would need a suitable charging data provider later.</p></details>
-        <details><summary>How are analytics handled?</summary><p>Google Analytics and Vercel Analytics are only loaded after the visitor accepts analytics cookies.</p></details>
-        <details><summary>Is this a replacement for emergency services?</summary><p>No. Emergency pages are quick guidance only. In immediate danger, call 999.</p></details>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div>
-      <strong>Driverz UK</strong>
-      <p>Fuel prices, route help and essential driving tools.</p>
-    </div>
-    <div class="footer-links">
-      <a href="guides.html">Guides</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="emergency.html">Emergency</a>
-      <button class="link-button" type="button" id="cookie-settings">Cookie settings</button>
-    </div>
-  </footer>
+<main class="article">
+  <p class="eyebrow">FAQ</p>
+  <h1>Frequently asked questions</h1>
+  <details class="quick-answer" open><summary><strong>Where does fuel price data come from?</strong></summary><p>The site is structured to use official UK fuel price CSV data through the scheduled GitHub and Vercel workflow, with the live API route reading from the repository data file when available.</p></details>
+  <details class="quick-answer"><summary><strong>Do I need to share my location?</strong></summary><p>No. You can type a town, city or postcode. Location is only requested after you press the location button.</p></details>
+  <details class="quick-answer"><summary><strong>Why use a 3-mile comparison?</strong></summary><p>Three miles is a practical local default. You can widen the radius for longer journeys, but driving far to save a small amount on fuel may not be worth it.</p></details>
+  <details class="quick-answer"><summary><strong>Can I filter EV chargers by connector?</strong></summary><p>Yes. The EV search interface includes connector filtering for Type 2, CCS, CHAdeMO and Tesla-compatible options. Availability still depends on the external charger data feed.</p></details>
+  <details class="quick-answer"><summary><strong>How are cookies and analytics handled?</strong></summary><p>Essential preferences are stored locally. Google Analytics and Vercel Analytics are only loaded after a visitor accepts analytics cookies.</p></details>
+  <details class="quick-answer"><summary><strong>Can Driverz UK add more tools later?</strong></summary><p>Yes. The structure supports additional pages for traffic alerts, route planning, public APIs and more driver calculators.</p></details>
+</main>
 
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite">
-    <div>
-      <h2 id="cookie-title">Privacy & cookies</h2>
-      <p>We use essential cookies for site preferences. With your consent, we also use Google Analytics and Vercel Analytics to understand site usage.</p>
-    </div>
-    <div class="cookie-actions">
-      <button class="button ghost" id="reject-analytics" type="button">Reject analytics</button>
-      <button class="button" id="accept-analytics" type="button">Accept analytics</button>
-    </div>
-  </div>
-  <script src="script.js" defer></script>
+<driverz-footer></driverz-footer>
+<script src="/components.js"></script>
 </body>
 </html>

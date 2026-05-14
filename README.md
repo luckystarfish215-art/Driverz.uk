@@ -1,18 +1,17 @@
-# Driverz UK updated site files
+# Driverz UK
 
-Pages included:
+Clean UK driver tools site prepared for Vercel.
 
-- `index.html` — homepage with Fuel Finder hero, 3-mile comparison, EV connector filter, FAQ preview and emergency preview
-- `utilities.html
-- guides.html` — Guides & Glossary page entry point
-- `glossary.html` — UK driving glossary
-- `about.html` — About Driverz UK
-- `faq.html` — FAQ page
-- `emergency.html` — Emergency contacts and roadside checklist
-- `styles.css` — shared styling
-- `script.js` — Fuel Finder demo interactions, cookie consent, Google Analytics and Vercel Analytics loading after consent
-- `vercel.json` — Vercel headers
-- `data/fuel-prices.csv` — placeholder demo CSV
+Included in this repack:
+
+- Fixed broken references from the previous mixed package.
+- Restored one consistent layout using `/assets/style.css`, `/assets/app.js` and `/components.js`.
+- Homepage fuel finder with default 3-mile compare list.
+- EV connector filter UI.
+- Utilities page with share button and clipboard fallback.
+- Separate Guides, Glossary, About, FAQ and Emergency pages.
+- Cookie consent banner. Google Analytics `G-4FBD17BW7V` and Vercel Analytics only load after analytics consent.
+- Clean Vercel configuration with security headers.
 
 Preview locally:
 
@@ -21,3 +20,5 @@ python3 -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
+
+Deploy by uploading this folder to GitHub and connecting it to Vercel.

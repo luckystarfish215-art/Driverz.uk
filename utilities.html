@@ -1,114 +1,45 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Utilities | Driverz UK</title>
-  <meta name="description" content="Useful UK driver utilities including fuel cost estimates, journey checks, tyre reminders and quick share tools." />
-  <link rel="canonical" href="https://www.driverz.uk/utilities.html" />
-  <meta property="og:title" content="Utilities | Driverz UK" />
-  <meta property="og:description" content="Useful UK driver utilities including fuel cost estimates, journey checks, tyre reminders and quick share tools." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.driverz.uk/utilities.html" />
+  <meta name="description" content="Quick UK driver utilities including trip cost, mileage, EV comparison, charge timer and shareable helper links.">
+  <meta name="theme-color" content="#666666">
+  <link rel="canonical" href="https://www.driverz.uk/utilities.html">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html#top" aria-label="Driverz UK home">
-        <span class="brand-mark">D</span>
-        <span>Driverz UK</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html#fuel-finder">Fuel Finder</a>
-        <a href="utilities.html">Utilities</a>
-        <a href="guides.html">Guides</a>
-        <a href="glossary.html">Glossary</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="emergency.html">Emergency</a>
-        <a class="button small" href="index.html#fuel-finder">Find fuel</a>
-      </div>
-    </nav>
-  </header>
+<driverz-header></driverz-header>
 
-  <main id="main">
-    <section class="page-hero">
-      <p class="eyebrow">Utilities</p>
-      <h1>Handy tools for UK drivers.</h1>
-      <p>Quick checks and helper tools for fuel cost, journey planning, tyres, reminders and sharing Driverz UK with another driver.</p>
-      <div class="share-panel" aria-label="Share this page">
-        <div>
-          <strong>Share Driverz UK utilities</strong>
-          <p>Send this page to someone who may need quick driver tools.</p>
-        </div>
-        <button class="button share-button" type="button" data-title="Driverz UK Utilities" data-text="Useful UK driver tools from Driverz UK" data-url="https://www.driverz.uk/utilities.html">Share page</button>
-        <span class="copy-status" role="status" aria-live="polite"></span>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="utility-grid">
-        <article class="utility-card">
-          <p class="eyebrow">Estimate</p>
-          <h2>Fuel cost estimate</h2>
-          <p>Use this space later for a simple cost calculator using distance, MPG/kWh and current price data.</p>
-          <a class="button ghost small" href="index.html#fuel-finder">Find fuel prices</a>
-        </article>
-        <article class="utility-card">
-          <p class="eyebrow">Checklist</p>
-          <h2>Before-you-go checks</h2>
-          <ul class="check-list">
-            <li>Fuel or battery level</li>
-            <li>Tyre condition and pressure</li>
-            <li>Lights and washer fluid</li>
-            <li>Route, weather and delays</li>
-          </ul>
-        </article>
-        <article class="utility-card">
-          <p class="eyebrow">Reminder</p>
-          <h2>MOT, tax and insurance</h2>
-          <p>A future version can link to official checks and optional reminders, without needing a Driverz UK account.</p>
-        </article>
-        <article class="utility-card">
-          <p class="eyebrow">Safety</p>
-          <h2>Emergency quick link</h2>
-          <p>Keep roadside help, 999/101/111 guidance and breakdown safety notes easy to find.</p>
-          <a class="button ghost small" href="emergency.html">Open emergency page</a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div>
-      <strong>Driverz UK</strong>
-      <p>Fuel prices, route help and essential driving tools.</p>
-    </div>
-    <div class="footer-links">
-      <a href="utilities.html">Utilities</a>
-      <a href="guides.html">Guides</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="emergency.html">Emergency</a>
-      <button class="link-button" type="button" id="cookie-settings">Cookie settings</button>
-    </div>
-  </footer>
-
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite">
-    <div>
-      <h2 id="cookie-title">Privacy & cookies</h2>
-      <p>We use essential cookies for site preferences. With your consent, we also use Google Analytics and Vercel Analytics to understand site usage.</p>
-    </div>
-    <div class="cookie-actions">
-      <button class="button ghost" id="reject-analytics" type="button">Reject analytics</button>
-      <button class="button" id="accept-analytics" type="button">Accept analytics</button>
-    </div>
+<main class="article">
+  <p class="eyebrow">Utilities</p>
+  <h1>Driver tools you can use quickly</h1>
+  <p class="quick-answer">Use this page as the clean hub for practical calculators and official-service shortcuts. Share it with another driver using the button below.</p>
+  <div class="actions"><button class="btn accent" id="share-page" type="button">Share this page</button><span class="notice" id="share-status" role="status"></span></div>
+  <h2>Calculators</h2>
+  <div class="grid">
+    <article class="card"><h3>Trip cost calculator</h3><p>Estimate fuel or EV charging cost for a journey.</p><a class="btn light" href="/trip-calculator.html">Open</a></article>
+    <article class="card"><h3>CPM / mileage tracker</h3><p>Work out cost per mile for business or personal driving.</p><a class="btn light" href="/cpm-tracker.html">Open</a></article>
+    <article class="card"><h3>EV vs petrol</h3><p>Compare everyday running costs between electric and petrol driving.</p><a class="btn light" href="/ev-vs-petrol.html">Open</a></article>
+    <article class="card"><h3>EV home savings</h3><p>Estimate savings from home charging versus public charging.</p><a class="btn light" href="/ev-home-savings.html">Open</a></article>
+    <article class="card"><h3>EV charge timer</h3><p>Estimate how long a charge session could take.</p><a class="btn light" href="/ev-charge-timer.html">Open</a></article>
+    <article class="card"><h3>Clean Air Zones</h3><p>Check whether a route or city may need extra planning.</p><a class="btn light" href="/clean-air-zones.html">Open</a></article>
   </div>
-  <script src="script.js" defer></script>
+  <h2>Official driver services</h2>
+  <div class="service-grid">
+    <a class="card" href="https://www.gov.uk/check-mot-status" target="_blank" rel="noopener"><h3>Check MOT status ↗</h3><p>Open the official GOV.UK MOT checker.</p></a>
+    <a class="card" href="https://www.gov.uk/check-vehicle-tax" target="_blank" rel="noopener"><h3>Check vehicle tax ↗</h3><p>Open the official GOV.UK vehicle tax checker.</p></a>
+    <a class="card" href="https://www.gov.uk/pay-dartford-crossing-charge" target="_blank" rel="noopener"><h3>Pay Dartford Charge ↗</h3><p>Go to the official Dart Charge payment page.</p></a>
+    <a class="card" href="https://www.gov.uk/report-pothole" target="_blank" rel="noopener"><h3>Report a pothole ↗</h3><p>Find the correct local council reporting page.</p></a>
+  </div>
+</main>
+
+<driverz-footer></driverz-footer>
+<script src="/components.js"></script>
 </body>
 </html>

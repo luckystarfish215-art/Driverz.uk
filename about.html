@@ -1,90 +1,38 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>About Driverz UK | Fuel prices and driver tools</title>
-  <meta name="description" content="About Driverz UK, a clean UK driver tools website for fuel prices, EV charging filters and practical roadside information." />
-  <link rel="canonical" href="https://www.driverz.uk/about.html" />
-  <meta property="og:title" content="About Driverz UK | Fuel prices and driver tools" />
-  <meta property="og:description" content="About Driverz UK, a clean UK driver tools website for fuel prices, EV charging filters and practical roadside information." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.driverz.uk/about.html" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Driverz UK | Simple fuel prices and driver tools</title>
+  <meta name="description" content="About Driverz UK, a clean driver tools site for fuel prices, EV charging, guides and essential UK driver help.">
+  <meta name="theme-color" content="#666666">
+  <link rel="canonical" href="https://www.driverz.uk/about.html">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html#top" aria-label="Driverz UK home">
-        <span class="brand-mark">D</span>
-        <span>Driverz UK</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html#fuel-finder">Fuel Finder</a>
-        <a href="utilities.html">Utilities</a>
-      <a href="guides.html">Guides</a>
-        <a href="glossary.html">Glossary</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="emergency.html">Emergency</a>
-        <a class="button small" href="index.html#fuel-finder">Find fuel</a>
-      </div>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="page-hero">
-      <p class="eyebrow">About Driverz UK</p>
-      <h1>Built for simple driving decisions.</h1>
-      <p>Driverz UK helps drivers quickly compare fuel, understand options nearby and find useful UK driving information without clutter.</p>
-    </section>
+<driverz-header></driverz-header>
 
-    <section class="content-section">
-      <div class="two-column">
-        <div><h2>What Driverz UK is for</h2></div>
-        <div>
-          <p>The aim is to make the first visit immediately useful: fuel search first, comparison second, supporting guides and emergency information nearby.</p>
-          <p>The site is designed to work with your GitHub/Vercel fuel data workflow and can grow into traffic alerts, route planning and local driving tools later.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section alt">
-      <div class="tool-grid">
-        <article class="tool-card"><h3>Clean homepage</h3><p>Fuel Finder sits in the hero so visitors see the main value immediately.</p></article>
-        <article class="tool-card"><h3>Useful comparison</h3><p>Nearby cards and a compare table help people choose quickly.</p></article>
-        <article class="tool-card"><h3>Privacy aware</h3><p>Location is requested only after a user chooses it, and analytics loads after consent.</p></article>
-        <article class="tool-card"><h3>Expandable</h3><p>The structure supports future maps, traffic alerts and deeper local guides.</p></article>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div>
-      <strong>Driverz UK</strong>
-      <p>Fuel prices, route help and essential driving tools.</p>
-    </div>
-    <div class="footer-links">
-      <a href="guides.html">Guides</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="emergency.html">Emergency</a>
-      <button class="link-button" type="button" id="cookie-settings">Cookie settings</button>
-    </div>
-  </footer>
-
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite">
-    <div>
-      <h2 id="cookie-title">Privacy & cookies</h2>
-      <p>We use essential cookies for site preferences. With your consent, we also use Google Analytics and Vercel Analytics to understand site usage.</p>
-    </div>
-    <div class="cookie-actions">
-      <button class="button ghost" id="reject-analytics" type="button">Reject analytics</button>
-      <button class="button" id="accept-analytics" type="button">Accept analytics</button>
-    </div>
+<main class="article">
+  <p class="eyebrow">About Driverz</p>
+  <h1>Built for simple UK driving decisions</h1>
+  <div class="quick-answer">Driverz UK is designed to help drivers make quick choices: where to refuel, what to compare nearby, and where to find essential help without clutter.</div>
+  <h2>What Driverz UK focuses on</h2>
+  <div class="grid">
+    <article class="card"><h3>Fuel prices first</h3><p>The homepage puts fuel search and comparison close to the top so visitors can act immediately.</p></article>
+    <article class="card"><h3>Practical tools</h3><p>Utilities support trip costs, EV charging decisions and common UK driving checks.</p></article>
+    <article class="card"><h3>Plain-English guidance</h3><p>Guides and glossary pages explain fuel, EV and road terms simply.</p></article>
   </div>
-  <script src="script.js" defer></script>
+  <h2>Privacy approach</h2>
+  <p>Location is not requested automatically on page load. Visitors can search manually or choose the location button. Analytics only load after analytics cookies are accepted.</p>
+  <h2>Roadmap</h2>
+  <p>The site is prepared for scheduled fuel CSV updates, EV connector filtering, a 3-mile comparison view, more UK driving guides and future traffic or route-support integrations.</p>
+</main>
+
+<driverz-footer></driverz-footer>
+<script src="/components.js"></script>
 </body>
 </html>
