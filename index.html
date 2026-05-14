@@ -19,6 +19,10 @@
         <h2 class="station-name" id="station-name">Checking nearby prices…</h2>
         <div class="meta"><span class="chip" id="distance">-- mi</span><span class="chip" id="updated">Updated today</span><span class="chip" id="hours">Opening times unavailable</span></div>
         <p class="notice" id="address">Tap search in the header, search a town or postcode, or use your current location.</p>
+        <div class="quick-calc" id="quick-calc" hidden>
+          <div class="quick-calc-label">Quick calculation</div>
+          <div class="quick-calc-lines" id="quick-calc-lines"></div>
+        </div>
         <div class="actions"><a class="btn" id="directions" target="_blank" rel="noopener">Directions</a><button class="btn light" type="button" onclick="navigator.share?navigator.share({title:'driverz.uk',url:location.href}):navigator.clipboard.writeText(location.href)">Share</button><button class="btn light icon-action" type="button" id="result-search" aria-label="Search another place">⌕</button></div>
       </div>
       <aside class="other-price-card">
