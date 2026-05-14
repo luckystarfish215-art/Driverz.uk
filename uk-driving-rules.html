@@ -1,1 +1,200 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UK Driving Rules | driverz.uk</title><meta name="description" content="A plain-English guide to common UK driving rules."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">Guides & Glossary</div><h1>UK Driving Rules</h1><p>A plain-English guide to common UK driving rules.</p><div class="quick-answer"><b>Quick answer:</b> Keep this page practical: speeding, mobile phone use, MOT, insurance, tax, seatbelts and breakdown basics.</div><h2>What to know</h2><ul><li>Never treat a guide page as legal advice. Link to GOV.UK for official checks.</li><li>Make the highest-risk rules easiest to scan.</li><li>Use short warnings and examples rather than long essays.</li></ul><h2>Related tools</h2><div class="grid"><a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby prices.</p></a><a class="card" href="/trip-calculator.html"><h3>Trip Calculator</h3><p>Estimate journey cost.</p></a><a class="card" href="/emergency.html"><h3>Emergency Contacts</h3><p>Useful contacts in one place.</p></a></div></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UK Driving Rules | driverz.uk</title>
+  <meta name="description" content="Simple UK driving rules guide: speeding, phone use, seatbelts, insurance, tyres, motorway rules, drink driving and common penalties.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .guide-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .guide-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .guide-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.55}
+    .guide-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .rules-snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+    .rules-tile{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .rules-tile strong{display:block;font-size:1.15rem;letter-spacing:-.04em;color:#444;margin-bottom:6px}
+    .rules-tile span{display:block;color:#666;font-size:.94rem;line-height:1.45}
+    .guide-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .guide-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .guide-section h3{font-size:1.18rem;letter-spacing:-.035em;margin:18px 0 8px;color:#444}
+    .guide-section p,.guide-section li{color:#5f5f5f;line-height:1.58}
+    .guide-section ul{padding-left:20px;margin:10px 0 0}
+    .rule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .rule-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .rule-card b{display:block;color:#444;margin-bottom:6px}
+    .rule-card p{margin:0;color:#666;line-height:1.48}
+    .rule-card .penalty{display:inline-block;background:#eaf6ff;border:1px solid #cfeeff;border-radius:999px;padding:7px 10px;color:#444;font-weight:850;font-size:.9rem;margin-top:9px}
+    .rule-row-list{display:grid;gap:10px;margin-top:14px}
+    .rule-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:start;background:#f7f7f7;border:1px solid #ececec;border-radius:16px;padding:14px}
+    .rule-row b{color:#444;font-size:1rem}
+    .rule-row span{color:#666;line-height:1.45}
+    .speed-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    .speed-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .speed-card strong{display:block;font-size:1.65rem;letter-spacing:-.06em;color:#444;margin-bottom:4px}
+    .speed-card span{display:block;color:#666;line-height:1.35;font-size:.94rem}
+    .priority-note{background:#eaf6ff;border:1px solid #cfeeff;border-radius:22px;padding:18px;margin-top:14px}
+    .priority-note b{display:block;color:#3f3f3f;margin-bottom:5px}
+    .priority-note p{margin:0;color:#555}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    @media(max-width:850px){
+      .rules-snapshot,.rule-grid,.speed-list{grid-template-columns:1fr}
+      .rule-row{grid-template-columns:1fr;gap:6px}
+      .guide-shell{padding-bottom:42px}
+    }
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">Guides & Glossary</div>
+      <h1>UK Driving Rules</h1>
+      <p>Quick practical guidance for everyday UK driving rules, penalties and easy-to-forget safety checks.</p>
+    </section>
+
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>The most important everyday rules are simple: do not use a handheld phone, stay within the speed limit, wear seatbelts, keep the vehicle insured and roadworthy, and follow motorway signs including red X lane closures. Always check GOV.UK or The Highway Code for official wording.</p>
+      </div>
+
+      <div class="rules-snapshot" aria-label="Important UK driving rule snapshot">
+        <div class="rules-tile"><strong>Phone use</strong><span>Holding and using a phone while driving can mean £200 and 6 points.</span></div>
+        <div class="rules-tile"><strong>Speeding</strong><span>The minimum penalty is usually £100 and 3 points.</span></div>
+        <div class="rules-tile"><strong>Seatbelts</strong><span>Drivers and passengers must wear seatbelts where required.</span></div>
+        <div class="rules-tile"><strong>Insurance</strong><span>Driving uninsured can mean £300 and 6 points.</span></div>
+      </div>
+
+      <section class="guide-section">
+        <h2>Common penalties drivers ask about</h2>
+        <p>These are common fixed-penalty examples. Courts can give different penalties depending on the offence and circumstances.</p>
+        <div class="rule-row-list">
+          <div class="rule-row"><b>Speeding</b><span>Minimum penalty: £100 fine and 3 penalty points. More serious cases can go to court.</span></div>
+          <div class="rule-row"><b>Handheld phone use</b><span>£200 fine and 6 penalty points if you hold and use a phone, sat nav, tablet or similar device while driving.</span></div>
+          <div class="rule-row"><b>No insurance</b><span>Police can issue a £300 fixed penalty and 6 points. The vehicle can also be seized.</span></div>
+          <div class="rule-row"><b>Seatbelt offence</b><span>You can be fined up to £500 if you do not wear a seatbelt when required.</span></div>
+          <div class="rule-row"><b>Red X motorway lane</b><span>Do not drive in a lane closed by a red X. It can lead to a fine and penalty points.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Speed limits</h2>
+        <p>Always follow the signed limit. The national limits below are the usual limits for cars where no lower signed limit applies.</p>
+        <div class="speed-list" aria-label="Typical UK car speed limits">
+          <div class="speed-card"><strong>30 mph</strong><span>Built-up areas with street lights in England, Scotland and Northern Ireland, unless signs show otherwise.</span></div>
+          <div class="speed-card"><strong>20 mph</strong><span>Often applies in Wales on restricted roads, unless signs show otherwise.</span></div>
+          <div class="speed-card"><strong>60 mph</strong><span>Single carriageway national speed limit for cars.</span></div>
+          <div class="speed-card"><strong>70 mph</strong><span>Dual carriageway and motorway national speed limit for cars.</span></div>
+        </div>
+        <div class="priority-note"><b>Driverz tip</b><p>Variable motorway limits and local 20 mph zones can override the usual national limit. The sign on the road is what matters.</p></div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Mobile phone and device rules</h2>
+        <p>Do not hold and use a phone or similar device while driving. This includes when stopped in traffic or at traffic lights.</p>
+        <div class="rule-grid">
+          <div class="rule-card"><b>What counts?</b><p>Calling, texting, scrolling, taking photos, using apps, or touching a handheld device while driving can all cause problems.</p><span class="penalty">£200 + 6 points</span></div>
+          <div class="rule-card"><b>Hands-free still needs care</b><p>Hands-free use can still be unsafe if it distracts you or means you are not in proper control.</p></div>
+          <div class="rule-card"><b>New drivers</b><p>If you passed your test in the last 2 years, 6 points can mean losing your licence.</p></div>
+          <div class="rule-card"><b>Sat nav</b><p>Set your route before you drive. Do not hold and use the device while driving.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Seatbelts and child seats</h2>
+        <p>Drivers and passengers must wear seatbelts where fitted, unless an exemption applies. Drivers are responsible for making sure children are correctly restrained.</p>
+        <ul>
+          <li>Children normally need the correct child car seat until they are 135cm tall or 12 years old, whichever comes first.</li>
+          <li>Passengers aged 14 and over are generally responsible for wearing their own seatbelt.</li>
+          <li>Incorrect child restraints can create both safety and penalty risks.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section">
+        <h2>Insurance, MOT and vehicle condition</h2>
+        <p>Your vehicle must be insured, taxed where required, and kept in a roadworthy condition. A cheap journey can become very expensive if the basics are missed.</p>
+        <div class="rule-grid">
+          <div class="rule-card"><b>Insurance</b><p>Make sure you are insured to drive that specific vehicle, not just any vehicle.</p><span class="penalty">No insurance: £300 + 6 points</span></div>
+          <div class="rule-card"><b>MOT</b><p>Check the MOT due date before it expires. Some vehicles may be exempt, but most everyday cars need a valid MOT after 3 years.</p></div>
+          <div class="rule-card"><b>Tyres</b><p>Cars, light vans and light trailers need at least 1.6mm tread depth across the central three-quarters of the tyre and around the full circumference.</p></div>
+          <div class="rule-card"><b>Lights and plates</b><p>Keep lights, mirrors and number plates clean and working. Poor visibility can create safety and enforcement issues.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Motorway and smart motorway rules</h2>
+        <p>Motorways rely on clear lane discipline and fast reactions to signs. Red X signs, variable speed limits and emergency areas are there to protect people after incidents or breakdowns.</p>
+        <div class="rule-row-list">
+          <div class="rule-row"><b>Red X</b><span>A red X means the lane is closed. Move safely to another open lane.</span></div>
+          <div class="rule-row"><b>Variable limits</b><span>Follow the speed shown on motorway signs, even if it is lower than the normal motorway limit.</span></div>
+          <div class="rule-row"><b>Hard shoulder</b><span>Only use the hard shoulder in an emergency or when signs say it is open to traffic.</span></div>
+          <div class="rule-row"><b>Breakdown safety</b><span>If safe, leave the vehicle from the left side and stand behind a barrier away from traffic.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Drink and drug driving</h2>
+        <p>Drink or drug driving can lead to a driving ban, a fine, imprisonment and long-term insurance consequences. The safest rule is not to drive if alcohol or drugs may affect you.</p>
+        <div class="priority-note"><b>Driverz reminder</b><p>Even if you feel fine the next morning, you may still be over the legal limit or unfit to drive.</p></div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Easy-to-forget rules</h2>
+        <div class="rule-grid">
+          <div class="rule-card"><b>Fog lights</b><p>Use fog lights only when visibility is seriously reduced, and switch them off when conditions improve.</p></div>
+          <div class="rule-card"><b>Engine idling</b><p>Leaving the engine running unnecessarily can be an offence in some situations and wastes fuel.</p></div>
+          <div class="rule-card"><b>Middle-lane driving</b><p>Keep left unless overtaking. Sitting in the middle lane unnecessarily can lead to enforcement action.</p></div>
+          <div class="rule-card"><b>Parking signs</b><p>Read local signs carefully. Rules can change by time of day, permit area or vehicle type.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Quick answers</h2>
+        <div class="rule-grid">
+          <div class="rule-card"><b>Can I touch my phone at traffic lights?</b><p>No. Being stopped in traffic or at lights does not make handheld phone use safe or allowed.</p></div>
+          <div class="rule-card"><b>Is 70 mph always allowed on motorways?</b><p>No. Variable limits, roadworks and signed restrictions can reduce the limit.</p></div>
+          <div class="rule-card"><b>Do I need insurance if I only drive occasionally?</b><p>Yes. You need valid insurance for the vehicle and type of use whenever you drive.</p></div>
+          <div class="rule-card"><b>Are the rules the same across the UK?</b><p>Many core rules are similar, but some rules and limits differ by nation or local authority. Check official sources.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz pages</h2>
+        <div class="grid">
+          <a class="card" href="/emergency.html"><h3>Emergency Contacts</h3><p>Quick UK driver emergency numbers and accident checklist.</p></a>
+          <a class="card" href="/clean-air-zones.html"><h3>Clean Air Zones</h3><p>Understand ULEZ, CAZ and congestion charges.</p></a>
+          <a class="card" href="/driving-costs-guide.html"><h3>Driving Costs</h3><p>Understand the real cost of driving in the UK.</p></a>
+          <a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby petrol, diesel and EV prices.</p></a>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Useful official links</h2>
+        <p>This page is a simple practical guide, not legal advice. For official wording, check GOV.UK and The Highway Code.</p>
+        <div class="source-links">
+          <a href="https://www.gov.uk/guidance/the-highway-code" target="_blank" rel="noopener">The Highway Code ↗</a>
+          <a href="https://www.gov.uk/speed-limits" target="_blank" rel="noopener">Speed limits ↗</a>
+          <a href="https://www.gov.uk/speeding-penalties" target="_blank" rel="noopener">Speeding penalties ↗</a>
+          <a href="https://www.gov.uk/using-mobile-phones-when-driving-the-law" target="_blank" rel="noopener">Phone use law ↗</a>
+          <a href="https://www.gov.uk/seat-belts-law" target="_blank" rel="noopener">Seatbelt law ↗</a>
+          <a href="https://www.gov.uk/vehicle-insurance/driving-without-insurance" target="_blank" rel="noopener">Driving without insurance ↗</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
