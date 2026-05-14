@@ -1,1 +1,144 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact | driverz.uk</title><meta name="description" content="Contact Driverz for feedback, corrections, partnership and advertising enquiries."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">Contact</div><h1>Contact Driverz</h1><div class="quick-answer">Send feedback, corrections, data questions, partnership or advertising enquiries. Messages are sent securely using Formspree.</div><form class="contact-form" id="contact-form" action="https://formspree.io/f/mykodvaw" method="POST"><input type="hidden" name="_subject" id="formspree-subject" value="Driverz enquiry"><div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your name" required></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="field"><label for="subject">Subject</label><input id="subject" name="subject" placeholder="Feedback, correction or advertising" required></div><div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="7" placeholder="Write your message…" required></textarea></div><button class="btn accent" type="submit">Send message</button><p class="small-muted">For advertising enquiries, use the Advertise page button and the subject will be filled automatically.</p></form></main><script>const qs=new URLSearchParams(location.search);const subject=document.getElementById('subject');const hiddenSubject=document.getElementById('formspree-subject');if(qs.get('subject'))subject.value=qs.get('subject');function syncSubject(){hiddenSubject.value=subject.value.trim()||'Driverz enquiry';}subject.addEventListener('input',syncSubject);syncSubject();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact Driverz | driverz.uk</title>
+  <meta name="description" content="Contact Driverz for feedback, data corrections, partnership, advertising and general enquiries.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .contact-page{max-width:1040px;margin:0 auto;padding:44px 18px 64px}
+    .contact-hero{margin-bottom:22px}.contact-hero h1{font-size:clamp(2.6rem,8vw,5.8rem);line-height:.86;letter-spacing:-.085em;margin:8px 0 16px;color:#3f3f3f}.contact-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.58}
+    .contact-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:18px;align-items:start}.contact-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,.05)}
+    .contact-panel h2{font-size:clamp(1.45rem,4vw,2.5rem);letter-spacing:-.06em;line-height:.96;margin:0 0 10px;color:#444}.contact-panel p{color:#666;line-height:1.55;margin:0 0 14px}.contact-panel p:last-child{margin-bottom:0}
+    .contact-form{display:grid;gap:14px;background:#fff;border:0;border-radius:0;padding:0;box-shadow:none}.field label{display:block;font-weight:900;font-size:.86rem;margin-bottom:6px;color:#555}.field input,.field select,.field textarea{width:100%;border:1px solid #ddd;border-radius:16px;padding:13px 14px;background:#fff;color:#333;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#8fd2ff;box-shadow:0 0 0 4px rgba(98,183,255,.18)}.field textarea{min-height:150px;resize:vertical}.form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.form-actions .btn{justify-content:center}.privacy-note{font-size:.9rem;color:#777;line-height:1.5;background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:13px}
+    .contact-card-list{display:grid;gap:12px;margin-top:14px}.contact-card{display:block;background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:17px;color:inherit;text-decoration:none;transition:.16s ease}.contact-card:hover{transform:translateY(-1px);background:#f3f9ff;border-color:#d7efff}.contact-card b{display:block;color:#444;letter-spacing:-.035em;margin-bottom:5px}.contact-card span{display:block;color:#666;line-height:1.45}.reply-box{background:#eaf6ff;border:1px solid #cfeeff;border-radius:22px;padding:18px;color:#35546b;font-weight:750;line-height:1.52;margin-bottom:18px}.small-muted{font-size:.9rem;color:#777}.contact-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.mini-contact{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}.mini-contact b{display:block;color:#444;margin-bottom:5px}.mini-contact span{display:block;color:#666;font-size:.94rem;line-height:1.4}.success-hint{display:none;background:#eefbea;border:1px solid #d5f0ce;color:#245b1e;border-radius:18px;padding:14px;font-weight:800;line-height:1.45}.source-links a{display:inline-flex;margin:7px 8px 0 0;border:1px solid #ddd;border-radius:999px;padding:9px 12px;background:#fff;color:#444;font-weight:850;font-size:.9rem}
+    @media(max-width:850px){.contact-page{padding-top:34px}.contact-layout,.contact-mini-grid{grid-template-columns:1fr}.contact-panel{padding:20px;border-radius:24px}.form-actions .btn{width:100%}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="eyebrow">Contact</div>
+      <h1>Contact Driverz</h1>
+      <p>Send feedback, report a data issue, suggest a new tool, or ask about partnerships and advertising. Keep the message short and practical — we will route it to the right topic.</p>
+    </section>
+
+    <section class="contact-layout">
+      <div class="contact-panel">
+        <h2>Send a message</h2>
+        <p class="small-muted">This form uses Formspree. A copy of your message will be sent to the site owner.</p>
+
+        <div class="success-hint" id="success-hint">Thanks — your message has been sent.</div>
+
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mykodvaw" method="POST">
+          <input type="hidden" name="_subject" id="formspree-subject" value="Driverz enquiry">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="type">What is this about?</label>
+            <select id="type" name="enquiry_type" required>
+              <option value="General enquiry">General enquiry</option>
+              <option value="Fuel price or station correction">Fuel price or station correction</option>
+              <option value="Tool suggestion or bug report">Tool suggestion or bug report</option>
+              <option value="Advertising enquiry">Advertising enquiry</option>
+              <option value="Partnership enquiry">Partnership enquiry</option>
+              <option value="Privacy or data question">Privacy or data question</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Your name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" placeholder="Example: Advertising enquiry" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you found, what you need, or what you would like to suggest…" required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn accent" type="submit">Send message</button>
+            <a class="btn light" href="advertise.html">Advertise with Driverz</a>
+          </div>
+
+          <div class="privacy-note">Please do not send sensitive personal information. Location and fuel data questions are easier to check if you include the town, station name, fuel type and approximate time.</div>
+        </form>
+      </div>
+
+      <aside class="contact-panel">
+        <div class="reply-box">For urgent roadside problems, use the Emergency Contacts page first. The contact form is not monitored as an emergency service.</div>
+        <h2>What to include</h2>
+        <div class="contact-card-list">
+          <div class="contact-card"><b>Fuel price correction</b><span>Include station name, location, fuel type, displayed price and the price you saw.</span></div>
+          <div class="contact-card"><b>Tool feedback</b><span>Tell us which calculator you used and what felt confusing or missing.</span></div>
+          <div class="contact-card"><b>Advertising enquiry</b><span>Include your company name, campaign type, target location and preferred contact details.</span></div>
+          <div class="contact-card"><b>Partnership idea</b><span>Tell us how your data, product or service could help UK drivers.</span></div>
+        </div>
+
+        <div class="contact-mini-grid">
+          <div class="mini-contact"><b>Useful pages</b><span><a href="about.html">About</a> · <a href="terms.html">Terms & Privacy</a></span></div>
+          <div class="mini-contact"><b>Driver help</b><span><a href="emergency.html">Emergency contacts</a> · <a href="faq.html">FAQ</a></span></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const qs = new URLSearchParams(location.search);
+      const type = document.getElementById('type');
+      const subject = document.getElementById('subject');
+      const hiddenSubject = document.getElementById('formspree-subject');
+      const form = document.getElementById('contact-form');
+      const successHint = document.getElementById('success-hint');
+
+      const subjectParam = qs.get('subject');
+      if (subjectParam) subject.value = subjectParam;
+
+      const typeParam = (subjectParam || qs.get('type') || '').toLowerCase();
+      if (typeParam.includes('advert')) type.value = 'Advertising enquiry';
+      else if (typeParam.includes('partner')) type.value = 'Partnership enquiry';
+      else if (typeParam.includes('privacy') || typeParam.includes('data')) type.value = 'Privacy or data question';
+      else if (typeParam.includes('bug') || typeParam.includes('tool')) type.value = 'Tool suggestion or bug report';
+      else if (typeParam.includes('fuel') || typeParam.includes('station')) type.value = 'Fuel price or station correction';
+
+      function syncSubject(){
+        const cleanSubject = subject.value.trim() || type.value || 'Driverz enquiry';
+        hiddenSubject.value = 'Driverz: ' + cleanSubject;
+      }
+
+      type.addEventListener('change', () => {
+        if (!subject.value.trim()) subject.value = type.value;
+        syncSubject();
+      });
+      subject.addEventListener('input', syncSubject);
+      syncSubject();
+
+      form.addEventListener('submit', () => {
+        try { localStorage.setItem('driverz_contact_last_type', type.value); } catch(e) {}
+        successHint.style.display = 'block';
+      });
+    })();
+  </script>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
