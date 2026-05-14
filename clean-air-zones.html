@@ -1,1 +1,175 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Clean Air Zones | driverz.uk</title><meta name="description" content="ULEZ, CAZ and congestion charge basics for UK drivers."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">Guides & Glossary</div><h1>Clean Air Zones</h1><p>ULEZ, CAZ and congestion charge basics for UK drivers.</p><div class="quick-answer"><b>Quick answer:</b> Clean Air Zone rules depend on city, vehicle type and emissions standard. Always check the official local checker before travelling.</div><h2>What to know</h2><ul><li>Separate London ULEZ from other CAZ schemes.</li><li>Show charge, zone and vehicle-type reminders.</li><li>Later this can become a checker/tool rather than just a guide.</li></ul><h2>Related tools</h2><div class="grid"><a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby prices.</p></a><a class="card" href="/trip-calculator.html"><h3>Trip Calculator</h3><p>Estimate journey cost.</p></a><a class="card" href="/emergency.html"><h3>Emergency Contacts</h3><p>Useful contacts in one place.</p></a></div></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Clean Air Zones UK | driverz.uk</title>
+  <meta name="description" content="Simple UK Clean Air Zones guide: ULEZ, CAZ, London Congestion Charge, city differences, exemptions, penalties and how to check before driving.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .guide-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .guide-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .guide-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.55}
+    .guide-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .zone-snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+    .zone-tile{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .zone-tile strong{display:block;font-size:1.15rem;letter-spacing:-.04em;color:#444;margin-bottom:6px}
+    .zone-tile span{display:block;color:#666;font-size:.94rem;line-height:1.45}
+    .guide-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .guide-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .guide-section h3{font-size:1.18rem;letter-spacing:-.035em;margin:18px 0 8px;color:#444}
+    .guide-section p,.guide-section li{color:#5f5f5f;line-height:1.58}
+    .guide-section ul{padding-left:20px;margin:10px 0 0}
+    .compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .compare-card,.zone-card,.myth-card,.qa-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .compare-card b,.zone-card b,.myth-card b,.qa-card b{display:block;color:#444;margin-bottom:6px}
+    .compare-card p,.zone-card p,.myth-card p,.qa-card p{margin:0;color:#666;line-height:1.48}
+    .pill-note{display:inline-flex;align-items:center;background:#eaf6ff;border:1px solid #cfeeff;border-radius:999px;padding:7px 10px;color:#444;font-weight:850;font-size:.88rem;margin-top:9px}
+    .city-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .zone-card .meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    .zone-card .meta span{background:#fff;border:1px solid #e6e6e6;border-radius:999px;padding:7px 9px;color:#555;font-size:.86rem;font-weight:800}
+    .check-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;counter-reset:steps}
+    .step-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:16px;position:relative}
+    .step-card:before{counter-increment:steps;content:counter(steps);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:999px;background:#eaf6ff;border:1px solid #cfeeff;font-weight:950;color:#444;margin-bottom:10px}
+    .step-card b{display:block;color:#444;margin-bottom:6px}
+    .step-card p{margin:0;color:#666;line-height:1.48}
+    .qa-grid,.myth-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .warning-panel{background:#fff7e8;border:1px solid #ffe1a8;border-radius:22px;padding:18px;margin-top:14px}
+    .warning-panel b{display:block;color:#444;margin-bottom:5px}
+    .warning-panel p{margin:0;color:#5d5d5d}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    @media(max-width:850px){
+      .zone-snapshot,.compare-grid,.city-grid,.check-steps,.qa-grid,.myth-grid{grid-template-columns:1fr}
+      .guide-shell{padding-bottom:42px}
+    }
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">Guides & Glossary</div>
+      <h1>Clean Air Zones</h1>
+      <p>ULEZ, CAZ and congestion charges explained simply for UK drivers. The aim is quick clarity: will this journey cost you money today?</p>
+    </section>
+
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>Clean Air Zone charges depend on the city, vehicle type and emissions standard. London uses its own ULEZ and Congestion Charge systems, while English Clean Air Zones use the GOV.UK checker. Always check your number plate before travelling.</p>
+      </div>
+
+      <div class="zone-snapshot" aria-label="Clean air zone quick snapshot">
+        <div class="zone-tile"><strong>ULEZ</strong><span>London emissions charge for vehicles that do not meet ULEZ standards.</span></div>
+        <div class="zone-tile"><strong>CAZ</strong><span>Clean Air Zones outside London. Rules vary by city and vehicle class.</span></div>
+        <div class="zone-tile"><strong>Congestion</strong><span>London traffic charge. It is separate from ULEZ and may apply even to clean vehicles.</span></div>
+        <div class="zone-tile"><strong>Check first</strong><span>Use the official checker before entering a zone, especially with vans or older cars.</span></div>
+      </div>
+
+      <section class="guide-section">
+        <h2>ULEZ, CAZ and Congestion Charge are not the same thing</h2>
+        <p>Many drivers mix them together, but they answer different questions.</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <b>ULEZ</b>
+            <p>Ultra Low Emission Zone. Mainly about vehicle emissions standards in London.</p>
+            <span class="pill-note">Emissions-based</span>
+          </div>
+          <div class="compare-card">
+            <b>Clean Air Zone</b>
+            <p>City clean air schemes outside London. Some classes affect cars; others mainly affect taxis, vans, buses and HGVs.</p>
+            <span class="pill-note">City-specific</span>
+          </div>
+          <div class="compare-card">
+            <b>Congestion Charge</b>
+            <p>Central London traffic charge. It is not an emissions charge, so cleaner vehicles may still need to pay.</p>
+            <span class="pill-note">Traffic-based</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Current English Clean Air Zones</h2>
+        <p>Clean Air Zones are grouped into classes. Class D can include cars, while Classes B and C mainly affect larger or commercial vehicles depending on the local scheme.</p>
+        <div class="city-grid">
+          <div class="zone-card"><b>Bath</b><p>Class C zone. Mainly affects higher-emission taxis, vans, minibuses, buses, coaches and HGVs.</p><div class="meta"><span>Class C</span><span>Cars usually not charged</span></div></div>
+          <div class="zone-card"><b>Birmingham</b><p>Class D zone. Private cars may be charged if they do not meet required emissions standards.</p><div class="meta"><span>Class D</span><span>Cars may be charged</span></div></div>
+          <div class="zone-card"><b>Bradford</b><p>Class C zone. Focuses mainly on taxis, vans, minibuses, buses, coaches and HGVs.</p><div class="meta"><span>Class C</span><span>Cars usually not charged</span></div></div>
+          <div class="zone-card"><b>Bristol</b><p>Class D zone. Private cars may be charged if non-compliant.</p><div class="meta"><span>Class D</span><span>Cars may be charged</span></div></div>
+          <div class="zone-card"><b>Portsmouth</b><p>Class B zone. Private cars, motorcycles and vans are not charged under the Portsmouth CAZ.</p><div class="meta"><span>Class B</span><span>Cars not charged</span></div></div>
+          <div class="zone-card"><b>Sheffield</b><p>Class C zone. Mainly affects taxis, vans, minibuses, buses, coaches and HGVs.</p><div class="meta"><span>Class C</span><span>Cars usually not charged</span></div></div>
+          <div class="zone-card"><b>Tyneside</b><p>Newcastle and Gateshead Class C zone. Mainly affects commercial and larger vehicles.</p><div class="meta"><span>Class C</span><span>Cars usually not charged</span></div></div>
+          <div class="zone-card"><b>London</b><p>London is different. Use TfL tools for ULEZ, LEZ and Congestion Charge instead of the GOV.UK CAZ checker.</p><div class="meta"><span>TfL system</span><span>Check separately</span></div></div>
+        </div>
+        <div class="warning-panel">
+          <b>Important</b>
+          <p>Charges and exemptions can change. Treat this as a simple guide, then confirm your exact vehicle on the official checker before driving.</p>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>How to check before you drive</h2>
+        <div class="check-steps">
+          <div class="step-card"><b>Know the city</b><p>Check whether your journey enters a CAZ, ULEZ, LEZ or Congestion Charge area.</p></div>
+          <div class="step-card"><b>Check the plate</b><p>Use your vehicle registration number on the official checker for that city.</p></div>
+          <div class="step-card"><b>Pay on time</b><p>If a charge applies, pay through the official site. Avoid unofficial payment websites.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Common myths</h2>
+        <div class="myth-grid">
+          <div class="myth-card"><b>“Electric cars never pay city charges.”</b><p>Not always. EVs may avoid emissions charges, but congestion or tunnel charges can still apply.</p></div>
+          <div class="myth-card"><b>“All Clean Air Zones charge cars.”</b><p>No. Some zones focus on taxis, vans, buses, coaches and HGVs rather than private cars.</p></div>
+          <div class="myth-card"><b>“ULEZ and Congestion Charge are the same.”</b><p>No. ULEZ is emissions-based; Congestion Charge is a central London traffic charge.</p></div>
+          <div class="myth-card"><b>“If my car passes MOT, it is CAZ exempt.”</b><p>Not necessarily. MOT roadworthiness is different from emissions-zone compliance.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Quick answers</h2>
+        <div class="qa-grid">
+          <div class="qa-card"><b>Do private cars pay in every Clean Air Zone?</b><p>No. Birmingham and Bristol are the main English CAZ examples where private cars may be charged if non-compliant.</p></div>
+          <div class="qa-card"><b>Does ULEZ run all day?</b><p>London ULEZ operates 24 hours a day, every day except Christmas Day.</p></div>
+          <div class="qa-card"><b>Is Congestion Charge separate?</b><p>Yes. You may need to pay Congestion Charge even if your vehicle meets ULEZ standards.</p></div>
+          <div class="qa-card"><b>What emissions standards usually matter?</b><p>For many CAZ checks, petrol cars generally need Euro 4 and diesel cars generally need Euro 6, but always confirm officially.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Useful official links</h2>
+        <p>Use these official services for final checks and payments.</p>
+        <div class="source-links">
+          <a href="https://www.gov.uk/clean-air-zones" rel="noopener" target="_blank">GOV.UK CAZ checker</a>
+          <a href="https://www.gov.uk/guidance/driving-in-a-clean-air-zone" rel="noopener" target="_blank">GOV.UK CAZ guidance</a>
+          <a href="https://tfl.gov.uk/modes/driving/check-your-vehicle/" rel="noopener" target="_blank">TfL vehicle checker</a>
+          <a href="https://tfl.gov.uk/modes/driving/congestion-charge" rel="noopener" target="_blank">TfL Congestion Charge</a>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz tools</h2>
+        <div class="grid">
+          <a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby petrol, diesel and EV prices.</p></a>
+          <a class="card" href="/trip-calculator.html"><h3>Trip Cost Calculator</h3><p>Estimate the fuel cost of a journey.</p></a>
+          <a class="card" href="/ev-vs-petrol.html"><h3>EV vs Petrol</h3><p>Compare running costs for your mileage.</p></a>
+          <a class="card" href="/uk-driving-rules.html"><h3>UK Driving Rules</h3><p>Quick guide to common UK driving rules.</p></a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
