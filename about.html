@@ -1,38 +1,143 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Driverz UK | Simple fuel prices and driver tools</title>
-  <meta name="description" content="About Driverz UK, a clean driver tools site for fuel prices, EV charging, guides and essential UK driver help.">
-  <meta name="theme-color" content="#666666">
-  <link rel="canonical" href="https://www.driverz.uk/about.html">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About Driverz | driverz.uk</title>
+  <meta name="description" content="About Driverz: a fast, simple UK driving utility site for fuel prices, driving costs, EV tools, clean air zones, rules, glossary and emergency contacts.">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .about-hero{max-width:1040px;margin:0 auto;padding:42px 18px 14px}
+    .about-hero h1{font-size:clamp(2.5rem,8vw,6rem);line-height:.86;letter-spacing:-.09em;margin:8px 0 16px;color:#444}
+    .about-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.58}
+    .about-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .about-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .about-panel h2{font-size:clamp(1.55rem,4vw,2.8rem);line-height:.96;letter-spacing:-.06em;margin:0 0 12px;color:#444}
+    .about-panel h3{font-size:1.08rem;letter-spacing:-.035em;margin:0 0 7px;color:#444}
+    .about-panel p,.about-panel li{color:#5f5f5f;line-height:1.58}
+    .about-panel p{margin:0 0 12px}
+    .about-panel p:last-child{margin-bottom:0}
+    .quick-answer{background:#eaf6ff;border:1px solid #cfeeff;border-radius:22px;padding:18px;color:#35546b;font-size:1.05rem;font-weight:750;line-height:1.5;margin-top:18px}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .stat-card{background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:17px}
+    .stat-card b{display:block;font-size:1.85rem;line-height:1;letter-spacing:-.06em;color:#444;margin-bottom:6px}
+    .stat-card span{display:block;color:#666;font-weight:750;font-size:.92rem;line-height:1.35}
+    .tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .tool-card{display:block;text-decoration:none;background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:18px;transition:.16s ease}
+    .tool-card:hover{transform:translateY(-1px);background:#f3f9ff;border-color:#d7efff}
+    .tool-card b{display:block;color:#444;font-size:1.05rem;letter-spacing:-.03em;margin-bottom:6px}
+    .tool-card span{display:block;color:#666;line-height:1.48}
+    .step-list{display:grid;gap:10px;margin-top:14px}
+    .step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .step-num{width:44px;height:44px;border-radius:14px;background:#444;color:#fff;display:grid;place-items:center;font-weight:950;letter-spacing:-.04em}
+    .step strong{display:block;color:#444;margin-bottom:4px;letter-spacing:-.03em}
+    .step span{display:block;color:#666;line-height:1.45}
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .principle{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:16px;color:#666;line-height:1.5}
+    .principle b{display:block;color:#444;margin-bottom:6px;letter-spacing:-.03em}
+    .about-note{font-size:.92rem;color:#777;background:#fafafa;border:1px solid #eee;border-radius:18px;padding:14px;margin-top:14px}
+    @media(max-width:760px){
+      .about-hero{padding-top:28px}
+      .about-panel{padding:20px;border-radius:24px}
+      .stat-grid,.tool-grid,.principles{grid-template-columns:1fr}
+      .step{grid-template-columns:38px 1fr}.step-num{width:38px;height:38px;border-radius:12px}
+    }
+  </style>
 </head>
 <body>
-<driverz-header></driverz-header>
+  <driverz-header></driverz-header>
 
-<main class="article">
-  <p class="eyebrow">About Driverz</p>
-  <h1>Built for simple UK driving decisions</h1>
-  <div class="quick-answer">Driverz UK is designed to help drivers make quick choices: where to refuel, what to compare nearby, and where to find essential help without clutter.</div>
-  <h2>What Driverz UK focuses on</h2>
-  <div class="grid">
-    <article class="card"><h3>Fuel prices first</h3><p>The homepage puts fuel search and comparison close to the top so visitors can act immediately.</p></article>
-    <article class="card"><h3>Practical tools</h3><p>Utilities support trip costs, EV charging decisions and common UK driving checks.</p></article>
-    <article class="card"><h3>Plain-English guidance</h3><p>Guides and glossary pages explain fuel, EV and road terms simply.</p></article>
-  </div>
-  <h2>Privacy approach</h2>
-  <p>Location is not requested automatically on page load. Visitors can search manually or choose the location button. Analytics only load after analytics cookies are accepted.</p>
-  <h2>Roadmap</h2>
-  <p>The site is prepared for scheduled fuel CSV updates, EV connector filtering, a 3-mile comparison view, more UK driving guides and future traffic or route-support integrations.</p>
-</main>
+  <main>
+    <section class="about-hero">
+      <div class="eyebrow">About Driverz</div>
+      <h1>Fast UK driving tools, without the clutter.</h1>
+      <p>Driverz is a simple UK driving utility site built around quick answers: nearby fuel prices, driving cost calculators, EV charging estimates, clean air zone guidance, key driving rules and emergency information.</p>
+      <div class="quick-answer">Driverz is designed to feel more like a useful dashboard than a blog. Open it, get the driving information you need, and move on.</div>
+    </section>
 
-<driverz-footer></driverz-footer>
-<script src="/components.js"></script>
+    <section class="about-shell">
+      <div class="about-panel">
+        <h2>What Driverz helps with</h2>
+        <p>Most drivers do not need a long article when they are checking fuel, planning a trip or trying to understand a charge. Driverz keeps the useful part first.</p>
+        <div class="stat-grid">
+          <div class="stat-card"><b>Fuel</b><span>Find nearby petrol, diesel and EV information quickly.</span></div>
+          <div class="stat-card"><b>Costs</b><span>Estimate trip cost, pence per mile and EV savings.</span></div>
+          <div class="stat-card"><b>Rules</b><span>Check practical UK driving rules and common penalties.</span></div>
+          <div class="stat-card"><b>Help</b><span>Access emergency contacts and useful driver services.</span></div>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <h2>How to use the site</h2>
+        <div class="step-list">
+          <div class="step"><div class="step-num">1</div><div><strong>Search your location</strong><span>Use the header search, choose a popular location, or allow location access to find nearby fuel and charging information.</span></div></div>
+          <div class="step"><div class="step-num">2</div><div><strong>Choose what you need</strong><span>Switch between petrol, diesel and EV. Adjust the radius, exclude membership-only stations, or use the compare list when available.</span></div></div>
+          <div class="step"><div class="step-num">3</div><div><strong>Use the calculator tools</strong><span>Estimate trip costs, cost per mile, EV charging time, home charging savings and EV versus petrol running costs.</span></div></div>
+          <div class="step"><div class="step-num">4</div><div><strong>Read quick guides only when needed</strong><span>Guides and glossary pages are kept short, practical and UK-focused so they support the tools instead of hiding them.</span></div></div>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <h2>Tools on Driverz</h2>
+        <div class="tool-grid">
+          <a class="tool-card" href="/#fuel-card"><b>Fuel Price Finder</b><span>Find nearby fuel prices and see quick fill-up cost estimates.</span></a>
+          <a class="tool-card" href="/trip-calculator.html"><b>Trip Cost Calculator</b><span>Estimate journey cost, fuel used, return trips and cost per mile.</span></a>
+          <a class="tool-card" href="/cpm-tracker.html"><b>CPM / Mileage Tracker</b><span>Calculate real-world MPG, pence per mile and export mileage entries.</span></a>
+          <a class="tool-card" href="/ev-vs-petrol.html"><b>EV vs Petrol</b><span>Compare monthly and yearly running costs for petrol and electric driving.</span></a>
+          <a class="tool-card" href="/ev-home-savings.html"><b>EV Home Charging Savings</b><span>Estimate savings from home charging versus public charging.</span></a>
+          <a class="tool-card" href="/ev-charge-timer.html"><b>EV Charge Timer</b><span>Estimate charging time, energy needed, cost and finish time.</span></a>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <h2>Guides and reference pages</h2>
+        <p>The guide section is designed as a quick reference layer for drivers, not a long-form article section.</p>
+        <div class="tool-grid">
+          <a class="tool-card" href="/fuel-guide.html"><b>Fuel Guide</b><span>E10, E5, diesel, premium fuel and AdBlue explained simply.</span></a>
+          <a class="tool-card" href="/driving-costs-guide.html"><b>Driving Costs</b><span>Fuel, insurance, tax, MOT, tyres, parking, EV charging and depreciation.</span></a>
+          <a class="tool-card" href="/uk-driving-rules.html"><b>UK Driving Rules</b><span>Speed limits, mobile phone rules, penalties, motorway rules and everyday checks.</span></a>
+          <a class="tool-card" href="/clean-air-zones.html"><b>Clean Air Zones</b><span>ULEZ, CAZ and congestion charges explained in practical terms.</span></a>
+          <a class="tool-card" href="/glossary.html"><b>Glossary</b><span>Short explanations for confusing UK fuel, EV, vehicle and road terms.</span></a>
+          <a class="tool-card" href="/emergency.html"><b>Emergency Contacts</b><span>UK driver emergency numbers, breakdown guidance and accident checklists.</span></a>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <h2>Why Driverz is simple</h2>
+        <div class="principles">
+          <div class="principle"><b>Utility first</b>Tools and answers come before long explanations.</div>
+          <div class="principle"><b>Mobile first</b>The site is designed for quick checks on a phone.</div>
+          <div class="principle"><b>Low clutter</b>No unnecessary articles before calculators and no noisy interface.</div>
+          <div class="principle"><b>UK-focused</b>Content is written for UK drivers, fuel types, charges and road rules.</div>
+          <div class="principle"><b>Fast by design</b>Pages are lightweight so they remain useful on mobile data.</div>
+          <div class="principle"><b>Practical wording</b>Guides are written to answer what drivers usually need to know quickly.</div>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <h2>Data and accuracy</h2>
+        <p>Fuel, EV and driving information can change quickly. Driverz is designed to make available data easier to understand, but prices, opening hours, charger details and rules should always be checked before making important decisions.</p>
+        <p>EV charging data can be incomplete because connector details, live pricing and availability depend on what each charging data source provides.</p>
+        <div class="about-note">Driverz is an independent utility site. It is not an official government service, fuel retailer, charging network or emergency service provider.</div>
+      </div>
+
+      <div class="about-panel">
+        <h2>Privacy approach</h2>
+        <p>Location is used to show nearby driving information. Where possible, preferences such as selected location, radius, fuel type and EV settings are stored in your browser so the site feels faster next time.</p>
+        <p>Future analytics and cookie settings should be handled with a small, clear consent choice, not a disruptive full-screen popup.</p>
+        <div class="tool-grid">
+          <a class="tool-card" href="/terms.html"><b>Terms & Privacy</b><span>Read the current site terms, privacy notes and data accuracy disclaimer.</span></a>
+          <a class="tool-card" href="/contact.html"><b>Contact Driverz</b><span>Send feedback, report an issue or ask about advertising.</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
 </body>
 </html>
