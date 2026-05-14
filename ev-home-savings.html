@@ -1,1 +1,224 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EV Home Charging Savings | driverz.uk</title><meta name="description" content="Compare EV home and public charging costs."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>EV home charging savings</h1><p>Compare rough home charging cost against public charging.</p><section class="card"><form class="tool-form" onsubmit="event.preventDefault();calc()"><div class="field"><label>Miles per month</label><input id="miles" type="number" step="any" value="800"></div><div class="field"><label>EV miles/kWh</label><input id="eff" type="number" step="any" value="3.5"></div><div class="field"><label>Home p/kWh</label><input id="home" type="number" step="any" value="24"></div><div class="field"><label>Public p/kWh</label><input id="public" type="number" step="any" value="69"></div><button class="btn" type="submit">Calculate</button></form><div class="result" id="result">Enter values and calculate.</div></section><div class="quick-answer"><b>Driverz design note:</b> tools stay simple, fast and focused. No unnecessary articles before the calculator.</div></main><script>function calc(){const result=document.getElementById('result');const kwh=miles.value/eff.value;result.innerHTML='Monthly energy: <b>'+kwh.toFixed(0)+' kWh</b><br>Home: <b>£'+(kwh*home.value/100).toFixed(2)+'</b><br>Public: <b>£'+(kwh*public.value/100).toFixed(2)+'</b><br>Possible saving: <b>£'+(kwh*(public.value-home.value)/100).toFixed(2)+'</b>';}calc();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EV Home Charging Savings | driverz.uk</title>
+  <meta name="description" content="Estimate how much you could save by charging an EV at home compared with public charging in the UK.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .tool-shell{max-width:980px;margin:0 auto;padding:22px 16px 48px;color:#4b5563}
+    .tool-hero{margin:10px 0 18px}
+    .tool-kicker{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a8594;margin-bottom:8px}
+    .tool-hero h1{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:0 0 12px;color:#4a5563;letter-spacing:-.06em}
+    .tool-hero p{font-size:1.05rem;line-height:1.55;max-width:700px;margin:0;color:#687386}
+    .tool-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:18px;align-items:start}
+    .tool-panel,.result-panel,.info-card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 16px 40px rgba(15,23,42,.06);padding:18px}
+    .tool-panel h2,.result-panel h2,.info-card h2{font-size:1.05rem;margin:0 0 14px;color:#4a5563}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field label{font-size:.84rem;font-weight:800;color:#687386}
+    .field input,.field select{width:100%;box-sizing:border-box;border:1px solid #d7dce3;border-radius:16px;padding:12px 13px;font:inherit;color:#4b5563;background:#f8fafc;outline:none}
+    .field input:focus,.field select:focus{border-color:#8bbce8;background:#fff;box-shadow:0 0 0 4px rgba(92,174,239,.13)}
+    .range-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+    input[type="range"]{width:100%}
+    .range-value{font-weight:950;color:#4a5563;background:#f4f7fb;border:1px solid #e5e7eb;border-radius:14px;padding:8px 10px;min-width:54px;text-align:center}
+    .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn.primary{background:#4b5563;color:#fff;border-color:#4b5563}
+    .btn.ghost{background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb}
+    .result-main{border-radius:22px;background:#f4f7fb;padding:18px;margin-bottom:12px}
+    .saving-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#7a8594;margin-bottom:6px}
+    .saving-value{font-size:clamp(2rem,9vw,4.3rem);line-height:.92;font-weight:950;letter-spacing:-.07em;color:#4a5563}
+    .saving-sub{margin-top:8px;color:#687386;font-weight:700}
+    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .metric{border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .metric span{display:block;font-size:.78rem;font-weight:800;color:#7a8594;margin-bottom:4px}
+    .metric b{font-size:1.08rem;color:#4b5563}
+    .quick-answer{margin-top:18px;background:#eef6ff;border:1px solid #d7ebff;border-radius:22px;padding:16px;color:#4b5563}
+    .quick-answer b{color:#4a5563}
+    .comparison-list{display:grid;gap:10px;margin-top:12px}
+    .compare-row{display:grid;grid-template-columns:100px 1fr auto;gap:12px;align-items:center;border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .compare-row .type{font-weight:900;color:#4b5563}
+    .compare-row .desc{font-size:.86rem;color:#687386}
+    .compare-row .price{font-weight:950;color:#4a5563}
+    .related-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .related-tools a{display:block;text-decoration:none;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:14px;color:#4b5563;font-weight:850}
+    .small-note{font-size:.86rem;line-height:1.5;color:#7a8594;margin-top:12px}
+    @media(max-width:760px){.tool-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.compare-row{grid-template-columns:1fr}.compare-row .price{font-size:1.25rem}.related-tools{grid-template-columns:1fr}.tool-shell{padding-top:14px}.tool-hero h1{font-size:2.45rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+  <main class="tool-shell">
+    <section class="tool-hero">
+      <div class="tool-kicker">Driverz utility</div>
+      <h1>EV home charging savings</h1>
+      <p>Estimate how much cheaper home charging could be compared with public charging. Useful if you are considering an EV, changing tariff, or checking your monthly charging budget.</p>
+    </section>
+
+    <section class="tool-grid">
+      <div class="tool-panel">
+        <h2>Compare charging costs</h2>
+        <form class="tool-form" onsubmit="event.preventDefault();calcHomeSavings();">
+          <div class="form-grid">
+            <div class="field">
+              <label for="miles">Monthly miles</label>
+              <input id="miles" type="number" min="0" step="any" value="800" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="eff">EV efficiency, miles/kWh</label>
+              <input id="eff" type="number" min="0.1" step="any" value="3.5" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="home">Home electricity, p/kWh</label>
+              <input id="home" type="number" min="0" step="any" value="24" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="publicRate">Public charging, p/kWh</label>
+              <input id="publicRate" type="number" min="0" step="any" value="69" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="battery">Battery size, kWh</label>
+              <input id="battery" type="number" min="0" step="any" value="60" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="topup">Typical top-up, kWh</label>
+              <input id="topup" type="number" min="0" step="any" value="20" inputmode="decimal">
+            </div>
+            <div class="field" style="grid-column:1/-1">
+              <label for="publicShare">Public charging share</label>
+              <div class="range-row">
+                <input id="publicShare" type="range" min="0" max="100" value="25">
+                <span class="range-value" id="publicShareLabel">25%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <button class="btn primary" type="submit">Calculate</button>
+            <button class="btn ghost" type="button" id="shareBtn">Share result</button>
+          </div>
+        </form>
+        <p class="small-note">Tip: many EV drivers get the biggest saving from overnight or dedicated EV tariffs. Public rapid charging is usually more expensive.</p>
+      </div>
+
+      <div class="result-panel" aria-live="polite">
+        <h2>Your result</h2>
+        <div id="result">
+          <div class="result-main">
+            <div class="saving-label">Potential saving</div>
+            <div class="saving-value">—</div>
+            <div class="saving-sub">Enter values and calculate.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-answer">
+      <b>Quick answer:</b> home charging is usually the cheapest way to run an EV. The saving is largest when your monthly mileage is high and public charging prices are much higher than your home tariff.
+    </section>
+
+    <section class="info-card" style="margin-top:18px">
+      <h2>What affects home charging savings?</h2>
+      <div class="comparison-list">
+        <div class="compare-row"><div class="type">Tariff</div><div class="desc">A lower overnight or EV tariff can reduce your cost per mile significantly.</div><div class="price">p/kWh</div></div>
+        <div class="compare-row"><div class="type">Efficiency</div><div class="desc">Miles per kWh changes with speed, weather, tyres and driving style.</div><div class="price">mi/kWh</div></div>
+        <div class="compare-row"><div class="type">Public use</div><div class="desc">More public rapid charging usually increases monthly EV running costs.</div><div class="price">share</div></div>
+      </div>
+    </section>
+
+    <nav class="related-tools" aria-label="Related tools">
+      <a href="/ev-vs-petrol.html">EV vs petrol cost</a>
+      <a href="/ev-charge-timer.html">EV charge timer</a>
+      <a href="/trip-calculator.html">Trip cost calculator</a>
+    </nav>
+  </main>
+
+  <script>
+    let latestShareText = '';
+    const money = (n) => Number.isFinite(n) ? '£' + n.toFixed(2) : '—';
+    const ppm = (n) => Number.isFinite(n) ? n.toFixed(1) + 'p/mile' : '—';
+    const kwhText = (n) => Number.isFinite(n) ? n.toFixed(0) + ' kWh' : '—';
+
+    function numberFrom(id){
+      const value = parseFloat(document.getElementById(id).value);
+      return Number.isFinite(value) ? value : 0;
+    }
+
+    function calcHomeSavings(){
+      const monthlyMiles = numberFrom('miles');
+      const eff = numberFrom('eff');
+      const homeP = numberFrom('home');
+      const publicP = numberFrom('publicRate');
+      const battery = numberFrom('battery');
+      const topup = numberFrom('topup');
+      const publicShare = numberFrom('publicShare') / 100;
+      const homeShare = 1 - publicShare;
+
+      document.getElementById('publicShareLabel').textContent = Math.round(publicShare * 100) + '%';
+
+      const monthlyKwh = eff > 0 ? monthlyMiles / eff : NaN;
+      const allHomeMonthly = monthlyKwh * homeP / 100;
+      const allPublicMonthly = monthlyKwh * publicP / 100;
+      const mixedMonthly = monthlyKwh * ((homeP * homeShare) + (publicP * publicShare)) / 100;
+      const monthlySavingVsPublic = allPublicMonthly - allHomeMonthly;
+      const yearlySavingVsPublic = monthlySavingVsPublic * 12;
+      const mixedCostPerMile = monthlyMiles > 0 ? mixedMonthly * 100 / monthlyMiles : NaN;
+      const homeCostPerMile = monthlyMiles > 0 ? allHomeMonthly * 100 / monthlyMiles : NaN;
+      const publicCostPerMile = monthlyMiles > 0 ? allPublicMonthly * 100 / monthlyMiles : NaN;
+      const homeTopup = topup * homeP / 100;
+      const publicTopup = topup * publicP / 100;
+      const fullHome = battery * homeP / 100;
+      const fullPublic = battery * publicP / 100;
+
+      const savingText = yearlySavingVsPublic >= 0 ? 'Home could save' : 'Public could be cheaper by';
+      const savingAbs = Math.abs(yearlySavingVsPublic);
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-main">
+          <div class="saving-label">${savingText}</div>
+          <div class="saving-value">${money(savingAbs)}</div>
+          <div class="saving-sub">per year versus charging the same mileage fully in public.</div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><span>Monthly energy</span><b>${kwhText(monthlyKwh)}</b></div>
+          <div class="metric"><span>Mixed monthly cost</span><b>${money(mixedMonthly)}</b></div>
+          <div class="metric"><span>All home monthly</span><b>${money(allHomeMonthly)}</b></div>
+          <div class="metric"><span>All public monthly</span><b>${money(allPublicMonthly)}</b></div>
+          <div class="metric"><span>Home cost/mile</span><b>${ppm(homeCostPerMile)}</b></div>
+          <div class="metric"><span>Public cost/mile</span><b>${ppm(publicCostPerMile)}</b></div>
+          <div class="metric"><span>${topup.toFixed(0)}kWh home top-up</span><b>${money(homeTopup)}</b></div>
+          <div class="metric"><span>${topup.toFixed(0)}kWh public top-up</span><b>${money(publicTopup)}</b></div>
+          <div class="metric"><span>Full battery at home</span><b>${money(fullHome)}</b></div>
+          <div class="metric"><span>Full battery public</span><b>${money(fullPublic)}</b></div>
+        </div>
+        <p class="small-note">This estimate uses ${Math.round(homeShare * 100)}% home charging and ${Math.round(publicShare * 100)}% public charging.</p>
+      `;
+
+      latestShareText = `Driverz EV home charging estimate\nMonthly miles: ${monthlyMiles}\nMonthly energy: ${kwhText(monthlyKwh)}\nAll home: ${money(allHomeMonthly)}/month (${ppm(homeCostPerMile)})\nAll public: ${money(allPublicMonthly)}/month (${ppm(publicCostPerMile)})\nPotential yearly home saving: ${money(savingAbs)}`;
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if(!latestShareText) calcHomeSavings();
+      if(navigator.share){
+        try{ await navigator.share({title:'Driverz EV Home Charging Savings', text:latestShareText, url:location.href}); }
+        catch(e){}
+      }else{
+        try{ await navigator.clipboard.writeText(latestShareText + '\n' + location.href); alert('Result copied to clipboard.'); }
+        catch(e){ alert(latestShareText); }
+      }
+    });
+
+    ['miles','eff','home','publicRate','battery','topup','publicShare'].forEach(id => {
+      document.getElementById(id).addEventListener('input', calcHomeSavings);
+      document.getElementById(id).addEventListener('change', calcHomeSavings);
+    });
+    calcHomeSavings();
+  </script>
+  <driverz-footer></driverz-footer>
+</body>
+</html>
