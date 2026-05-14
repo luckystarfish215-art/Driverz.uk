@@ -1,1 +1,183 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CPM Mileage Tracker | driverz.uk</title><meta name="description" content="Calculate cost per mile for UK driving."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>Cost per mile tracker</h1><p>Work out your true fuel cost per mile.</p><section class="card"><form class="tool-form" onsubmit="event.preventDefault();calc()"><div class="field"><label>MPG</label><input id="mpg" type="number" step="any" value="45"></div><div class="field"><label>Fuel price p/litre</label><input id="price" type="number" step="any" value="139.9"></div><div class="field"><label>Monthly miles</label><input id="miles" type="number" step="any" value="800"></div><button class="btn" type="submit">Calculate</button></form><div class="result" id="result">Enter values and calculate.</div></section><div class="quick-answer"><b>Driverz design note:</b> tools stay simple, fast and focused. No unnecessary articles before the calculator.</div></main><script>function calc(){const result=document.getElementById('result');const ppm=(4.54609/mpg.value)*price.value;result.innerHTML='Fuel cost per mile: <b>'+ppm.toFixed(1)+'p</b><br>Monthly fuel estimate: <b>£'+(ppm*miles.value/100).toFixed(2)+'</b>';}calc();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cost Per Mile Calculator | driverz.uk</title>
+  <meta name="description" content="Calculate fuel cost per mile for UK driving using MPG, fuel price and mileage.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .tool-head{margin-bottom:22px}.tool-head h1{margin-bottom:12px}.tool-head p{max-width:700px;color:#666;font-size:1.05rem}.cpm-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.9fr);gap:16px;align-items:start}.result-panel{background:#f7f7f7;border:1px solid var(--line);border-radius:20px;padding:18px}.result-panel h2{font-size:1rem;letter-spacing:0;margin:0 0 12px;color:#666;text-transform:uppercase}.big-cost{font-size:clamp(2.5rem,8vw,4.8rem);line-height:.9;letter-spacing:-.08em;font-weight:950;margin:6px 0 12px;color:#555}.result-list{display:grid;gap:9px;margin:16px 0}.result-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5e5e5;padding-bottom:9px;color:#666}.result-row b{color:#555}.cpm-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;color:#666;font-size:.94rem}.tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary-btn{border:1px solid #ddd;background:#fff;color:#555}.tool-support{margin-top:18px}.tool-support .quick-answer{margin:16px 0}.related-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.related-tools a{border:1px solid #ddd;background:#fff;border-radius:999px;padding:9px 12px;font-weight:800;color:#555}.assumption-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.mini-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;color:#666}.mini-stat b{display:block;color:#555;font-size:1.1rem;margin-top:4px}@media(max-width:760px){.cpm-layout{grid-template-columns:1fr}.tool-head{margin-bottom:16px}.card{padding:18px}.result-panel{order:-1}.result-row{display:grid;grid-template-columns:1fr auto}.tool-actions .btn{width:100%;justify-content:center}.related-tools a{width:100%;text-align:center}.big-cost{font-size:3.4rem}.assumption-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="article">
+    <div class="tool-head">
+      <h1>Cost per mile calculator</h1>
+      <p>Work out your fuel cost per mile, monthly fuel spend and estimated yearly fuel cost using MPG and pump price.</p>
+    </div>
+
+    <section class="card">
+      <div class="cpm-layout">
+        <form class="tool-form" onsubmit="event.preventDefault(); calc();">
+          <div class="field">
+            <label for="mpg">Vehicle MPG</label>
+            <input id="mpg" type="number" inputmode="decimal" min="1" step="any" value="45">
+          </div>
+
+          <div class="field">
+            <label for="price">Fuel price p/litre</label>
+            <input id="price" type="number" inputmode="decimal" min="0" step="any" value="139.9">
+          </div>
+
+          <div class="field">
+            <label for="monthlyMiles">Monthly miles</label>
+            <input id="monthlyMiles" type="number" inputmode="decimal" min="0" step="any" value="800">
+          </div>
+
+          <div class="field">
+            <label for="extraCost">Other running cost p/mile <span style="font-weight:600;color:#888">optional</span></label>
+            <input id="extraCost" type="number" inputmode="decimal" min="0" step="any" value="0">
+          </div>
+
+          <button class="btn" type="submit">Calculate</button>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <h2>Fuel cost per mile</h2>
+          <div class="big-cost" id="mainCost">0.0p</div>
+          <div class="result-list">
+            <div class="result-row"><span>Monthly fuel cost</span><b id="monthlyCost">£0.00</b></div>
+            <div class="result-row"><span>Yearly fuel cost</span><b id="yearlyCost">£0.00</b></div>
+            <div class="result-row"><span>Total cost per mile</span><b id="totalPpm">0.0p</b></div>
+            <div class="result-row"><span>Fuel economy</span><b id="litresPer100km">0.0 L/100km</b></div>
+          </div>
+          <div class="cpm-note" id="cpmNote">Enter values to estimate your cost per mile.</div>
+          <div class="tool-actions">
+            <button class="btn" type="button" onclick="shareResult()">Share result</button>
+            <button class="btn secondary-btn" type="button" onclick="resetDefaults()">Reset</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="assumption-grid">
+        <div class="mini-stat">40L fill-up<b id="fillCost">£0.00</b></div>
+        <div class="mini-stat">Approx range from 40L<b id="range40">0 miles</b></div>
+        <div class="mini-stat">Fuel used / month<b id="monthlyLitres">0 litres</b></div>
+      </div>
+    </section>
+
+    <section class="tool-support">
+      <div class="quick-answer">
+        <b>Quick answer:</b> Cost per mile is mainly affected by your MPG and the pump price. Short trips, heavy traffic, low tyre pressure and extra weight can increase the real cost.
+      </div>
+
+      <h2>How to use this</h2>
+      <p>Use the fuel-only result for simple trip planning. Add an optional extra pence-per-mile figure if you also want to include a rough allowance for tyres, servicing or other running costs.</p>
+
+      <h2>Related tools</h2>
+      <div class="related-tools">
+        <a href="/">Find nearby fuel</a>
+        <a href="/trip-calculator.html">Trip cost calculator</a>
+        <a href="/ev-vs-petrol.html">EV vs petrol cost</a>
+        <a href="/driving-costs-guide.html">Driving costs guide</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let lastShareText = '';
+
+    function numberValue(id, fallback = 0) {
+      const el = document.getElementById(id);
+      const value = parseFloat(el && el.value);
+      return Number.isFinite(value) ? value : fallback;
+    }
+
+    function money(value) {
+      return '£' + value.toFixed(2);
+    }
+
+    function calc() {
+      const mpg = Math.max(1, numberValue('mpg', 45));
+      const price = Math.max(0, numberValue('price', 0));
+      const monthlyMiles = Math.max(0, numberValue('monthlyMiles', 0));
+      const extraCost = Math.max(0, numberValue('extraCost', 0));
+
+      const fuelPpm = (4.54609 / mpg) * price;
+      const totalPpmValue = fuelPpm + extraCost;
+      const monthlyFuel = fuelPpm * monthlyMiles / 100;
+      const yearlyFuel = monthlyFuel * 12;
+      const monthlyLitresValue = (monthlyMiles / mpg) * 4.54609;
+      const range = (40 / 4.54609) * mpg;
+      const l100 = 282.481 / mpg;
+
+      document.getElementById('mainCost').textContent = fuelPpm.toFixed(1) + 'p';
+      document.getElementById('monthlyCost').textContent = money(monthlyFuel);
+      document.getElementById('yearlyCost').textContent = money(yearlyFuel);
+      document.getElementById('totalPpm').textContent = totalPpmValue.toFixed(1) + 'p';
+      document.getElementById('litresPer100km').textContent = l100.toFixed(1) + ' L/100km';
+      document.getElementById('fillCost').textContent = money(price * 40 / 100);
+      document.getElementById('range40').textContent = range.toFixed(0) + ' miles';
+      document.getElementById('monthlyLitres').textContent = monthlyLitresValue.toFixed(1) + ' litres';
+
+      const extraText = extraCost > 0 ? ' Including your extra running cost, total is ' + totalPpmValue.toFixed(1) + 'p per mile.' : '';
+      document.getElementById('cpmNote').innerHTML = 'At <b>' + price.toFixed(1) + 'p/litre</b> and <b>' + mpg.toFixed(1) + ' MPG</b>, fuel costs about <b>' + fuelPpm.toFixed(1) + 'p per mile</b>.' + extraText;
+
+      lastShareText = 'Driverz cost per mile estimate: fuel ' + fuelPpm.toFixed(1) + 'p/mile; monthly fuel ' + money(monthlyFuel) + ' for ' + monthlyMiles.toFixed(monthlyMiles % 1 ? 1 : 0) + ' miles; yearly fuel ' + money(yearlyFuel) + '.';
+    }
+
+    async function shareResult() {
+      calc();
+      const shareData = {
+        title: 'Driverz cost per mile estimate',
+        text: lastShareText,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (error) {
+          if (error && error.name === 'AbortError') return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(lastShareText + ' ' + window.location.href);
+        const note = document.getElementById('cpmNote');
+        note.innerHTML = 'Result copied to clipboard.';
+        setTimeout(calc, 1800);
+      } catch (error) {
+        alert(lastShareText);
+      }
+    }
+
+    function resetDefaults() {
+      document.getElementById('mpg').value = 45;
+      document.getElementById('price').value = 139.9;
+      document.getElementById('monthlyMiles').value = 800;
+      document.getElementById('extraCost').value = 0;
+      calc();
+    }
+
+    ['mpg', 'price', 'monthlyMiles', 'extraCost'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', calc);
+      if (el) el.addEventListener('change', calc);
+    });
+
+    calc();
+  </script>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
