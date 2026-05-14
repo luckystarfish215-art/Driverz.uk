@@ -1,1 +1,90 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About Driverz | driverz.uk</title><meta name="description" content="What Driverz does and how to use the UK driver utility tools."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">About Driverz</div><h1>Fast UK driving tools, without the clutter.</h1><div class="quick-answer">Driverz is built to help UK drivers make quick decisions: find nearby fuel, compare running costs, understand key rules and access useful driver services.</div><h2>How to use Driverz</h2><div class="link-card-list"><a class="card" href="/#fuel-card"><h3>1. Search your area</h3><p>Enter a town, city or postcode, or tap the location button to find nearby fuel stations.</p></a><a class="card" href="/#fuel-card"><h3>2. Choose fuel type</h3><p>Switch between petrol, diesel and EV. Tap the mini price pill to cycle quickly.</p></a><a class="card" href="/trip-calculator.html"><h3>3. Estimate journey cost</h3><p>Use the tools to estimate trip cost, CPM, EV charging and petrol comparisons.</p></a><a class="card" href="/emergency.html"><h3>4. Keep useful pages ready</h3><p>Emergency contacts and UK driver services are designed to be simple under pressure.</p></a></div><h2>What tools are included?</h2><table class="table"><tr><th>Area</th><th>What it does</th></tr><tr><td>Fuel Price Finder</td><td>Shows nearby petrol and diesel prices from the site data feed.</td></tr><tr><td>EV tools</td><td>Helps compare charging and petrol costs. Live EV pricing depends on available charging feeds.</td></tr><tr><td>Cost tools</td><td>Trip cost, CPM and savings calculators for quick personal estimates.</td></tr><tr><td>Guides</td><td>Short explanations for fuel types, clean air zones, UK rules and driving-cost terms.</td></tr><tr><td>Driver Services</td><td>Quick links to emergency contacts and official UK motoring services.</td></tr></table><h2>Design principle</h2><p>Driverz should feel closer to a utility dashboard than a blog. The goal is simple: search first, useful result second, extra tools only when needed.</p></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>About Driverz UK | Fuel prices and driver tools</title>
+  <meta name="description" content="About Driverz UK, a clean UK driver tools website for fuel prices, EV charging filters and practical roadside information." />
+  <link rel="canonical" href="https://www.driverz.uk/about.html" />
+  <meta property="og:title" content="About Driverz UK | Fuel prices and driver tools" />
+  <meta property="og:description" content="About Driverz UK, a clean UK driver tools website for fuel prices, EV charging filters and practical roadside information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.driverz.uk/about.html" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#top" aria-label="Driverz UK home">
+        <span class="brand-mark">D</span>
+        <span>Driverz UK</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#fuel-finder">Fuel Finder</a>
+        <a href="utilities.html">Utilities</a>
+      <a href="guides.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="emergency.html">Emergency</a>
+        <a class="button small" href="index.html#fuel-finder">Find fuel</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">About Driverz UK</p>
+      <h1>Built for simple driving decisions.</h1>
+      <p>Driverz UK helps drivers quickly compare fuel, understand options nearby and find useful UK driving information without clutter.</p>
+    </section>
+
+    <section class="content-section">
+      <div class="two-column">
+        <div><h2>What Driverz UK is for</h2></div>
+        <div>
+          <p>The aim is to make the first visit immediately useful: fuel search first, comparison second, supporting guides and emergency information nearby.</p>
+          <p>The site is designed to work with your GitHub/Vercel fuel data workflow and can grow into traffic alerts, route planning and local driving tools later.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt">
+      <div class="tool-grid">
+        <article class="tool-card"><h3>Clean homepage</h3><p>Fuel Finder sits in the hero so visitors see the main value immediately.</p></article>
+        <article class="tool-card"><h3>Useful comparison</h3><p>Nearby cards and a compare table help people choose quickly.</p></article>
+        <article class="tool-card"><h3>Privacy aware</h3><p>Location is requested only after a user chooses it, and analytics loads after consent.</p></article>
+        <article class="tool-card"><h3>Expandable</h3><p>The structure supports future maps, traffic alerts and deeper local guides.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Driverz UK</strong>
+      <p>Fuel prices, route help and essential driving tools.</p>
+    </div>
+    <div class="footer-links">
+      <a href="guides.html">Guides</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="emergency.html">Emergency</a>
+      <button class="link-button" type="button" id="cookie-settings">Cookie settings</button>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite">
+    <div>
+      <h2 id="cookie-title">Privacy & cookies</h2>
+      <p>We use essential cookies for site preferences. With your consent, we also use Google Analytics and Vercel Analytics to understand site usage.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="button ghost" id="reject-analytics" type="button">Reject analytics</button>
+      <button class="button" id="accept-analytics" type="button">Accept analytics</button>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0f172a" />
   <link rel="stylesheet" href="styles.css" />
-  <title>UK Driving Glossary | Driverz UK</title>
-  <meta name="description" content="Plain-English glossary for UK fuel, EV charging and driver terms." />
-  <link rel="canonical" href="https://www.driverz.uk/glossary.html" />
-  <meta property="og:title" content="UK Driving Glossary | Driverz UK" />
-  <meta property="og:description" content="Plain-English glossary for UK fuel, EV charging and driver terms." />
+  <title>FAQ | Driverz UK</title>
+  <meta name="description" content="Frequently asked questions about Driverz UK fuel search, EV charging filters, location use and analytics cookies." />
+  <link rel="canonical" href="https://www.driverz.uk/faq.html" />
+  <meta property="og:title" content="FAQ | Driverz UK" />
+  <meta property="og:description" content="Frequently asked questions about Driverz UK fuel search, EV charging filters, location use and analytics cookies." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.driverz.uk/glossary.html" />
+  <meta property="og:url" content="https://www.driverz.uk/faq.html" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -36,21 +36,19 @@
   </header>
   <main id="main">
     <section class="page-hero">
-      <p class="eyebrow">Glossary</p>
-      <h1>UK driving terms, explained clearly.</h1>
-      <p>A quick reference for common petrol, diesel, EV charging and road terms.</p>
+      <p class="eyebrow">FAQ</p>
+      <h1>Frequently asked questions.</h1>
+      <p>Quick answers about fuel data, EV filters, location permissions and privacy.</p>
     </section>
 
     <section class="content-section">
-      <div class="glossary-list">
-        <article><h2>E10</h2><p>Standard UK petrol containing up to 10% renewable ethanol.</p></article>
-        <article><h2>E5</h2><p>Petrol containing up to 5% ethanol, often sold as super unleaded.</p></article>
-        <article><h2>B7</h2><p>Standard UK diesel containing up to 7% biodiesel.</p></article>
-        <article><h2>CCS</h2><p>Common rapid EV charging connector used by many modern electric cars.</p></article>
-        <article><h2>Type 2</h2><p>Common AC charging connector used at many home, workplace and public chargers.</p></article>
-        <article><h2>CHAdeMO</h2><p>Rapid charging connector used by some older EV models.</p></article>
-        <article><h2>p/litre</h2><p>Pence per litre, the normal way UK fuel prices are shown.</p></article>
-        <article><h2>kWh</h2><p>Kilowatt-hour, the unit used to price and measure EV charging energy.</p></article>
+      <div class="faq-list">
+        <details open><summary>Where does the fuel price data come from?</summary><p>The site is prepared to use official UK fuel price CSV data through your scheduled GitHub workflow.</p></details>
+        <details><summary>Does Driverz UK automatically fetch my location?</summary><p>No. Location is only requested when the visitor presses “Use my location”. Visitors can type a postcode or town instead.</p></details>
+        <details><summary>Why is there a 3-mile compare button?</summary><p>Three miles is a useful default for local fuel decisions. It keeps the list small and practical while still allowing radius changes.</p></details>
+        <details><summary>Can EV drivers filter by connector?</summary><p>Yes. The interface includes connector filtering for Type 2, CCS, CHAdeMO and Tesla compatible options. Live charging availability would need a suitable charging data provider later.</p></details>
+        <details><summary>How are analytics handled?</summary><p>Google Analytics and Vercel Analytics are only loaded after the visitor accepts analytics cookies.</p></details>
+        <details><summary>Is this a replacement for emergency services?</summary><p>No. Emergency pages are quick guidance only. In immediate danger, call 999.</p></details>
       </div>
     </section>
   </main>
