@@ -1,1 +1,211 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EV vs Petrol Cost | driverz.uk</title><meta name="description" content="Compare EV and petrol driving costs."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>EV vs petrol cost</h1><p>A quick running-cost comparison for everyday driving.</p><section class="card"><form class="tool-form" onsubmit="event.preventDefault();calc()"><div class="field"><label>Monthly miles</label><input id="miles" type="number" step="any" value="800"></div><div class="field"><label>Petrol MPG</label><input id="mpg" type="number" step="any" value="45"></div><div class="field"><label>Petrol p/litre</label><input id="petrol" type="number" step="any" value="139.9"></div><div class="field"><label>EV miles/kWh</label><input id="eff" type="number" step="any" value="3.5"></div><div class="field"><label>Electricity p/kWh</label><input id="elec" type="number" step="any" value="24"></div><button class="btn" type="submit">Calculate</button></form><div class="result" id="result">Enter values and calculate.</div></section><div class="quick-answer"><b>Driverz design note:</b> tools stay simple, fast and focused. No unnecessary articles before the calculator.</div></main><script>function calc(){const result=document.getElementById('result');const petrolCost=(miles.value/mpg.value)*4.54609*petrol.value/100;const evCost=(miles.value/eff.value)*elec.value/100;result.innerHTML='Petrol estimate: <b>£'+petrolCost.toFixed(2)+'</b><br>EV estimate: <b>£'+evCost.toFixed(2)+'</b><br>Difference: <b>£'+Math.abs(petrolCost-evCost).toFixed(2)+'</b>';}calc();</script><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EV vs Petrol Cost | driverz.uk</title>
+  <meta name="description" content="Compare EV and petrol running costs for UK driving. Estimate monthly cost, yearly cost, pence per mile and potential EV savings.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .tool-shell{max-width:980px;margin:0 auto;padding:22px 16px 48px;color:#4b5563}
+    .tool-hero{margin:10px 0 18px}
+    .tool-kicker{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a8594;margin-bottom:8px}
+    .tool-hero h1{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:0 0 12px;color:#4a5563;letter-spacing:-.06em}
+    .tool-hero p{font-size:1.05rem;line-height:1.55;max-width:680px;margin:0;color:#687386}
+    .tool-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:18px;align-items:start}
+    .tool-panel,.result-panel,.info-card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 16px 40px rgba(15,23,42,.06);padding:18px}
+    .tool-panel h2,.result-panel h2,.info-card h2{font-size:1.05rem;margin:0 0 14px;color:#4a5563}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field label{font-size:.84rem;font-weight:800;color:#687386}
+    .field input,.field select{width:100%;box-sizing:border-box;border:1px solid #d7dce3;border-radius:16px;padding:12px 13px;font:inherit;color:#4b5563;background:#f8fafc;outline:none}
+    .field input:focus,.field select:focus{border-color:#8bbce8;background:#fff;box-shadow:0 0 0 4px rgba(92,174,239,.13)}
+    .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn.primary{background:#4b5563;color:#fff;border-color:#4b5563}
+    .btn.ghost{background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb}
+    .result-main{border-radius:22px;background:#f4f7fb;padding:18px;margin-bottom:12px}
+    .saving-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#7a8594;margin-bottom:6px}
+    .saving-value{font-size:clamp(2rem,9vw,4.3rem);line-height:.92;font-weight:950;letter-spacing:-.07em;color:#4a5563}
+    .saving-sub{margin-top:8px;color:#687386;font-weight:700}
+    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .metric{border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .metric span{display:block;font-size:.78rem;font-weight:800;color:#7a8594;margin-bottom:4px}
+    .metric b{font-size:1.1rem;color:#4b5563}
+    .comparison-list{display:grid;gap:10px;margin-top:12px}
+    .compare-row{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:center;border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}
+    .compare-row .type{font-weight:900;color:#4b5563}
+    .compare-row .desc{font-size:.86rem;color:#687386}
+    .compare-row .price{font-weight:950;color:#4a5563}
+    .quick-answer{margin-top:18px;background:#eef6ff;border:1px solid #d7ebff;border-radius:22px;padding:16px;color:#4b5563}
+    .quick-answer b{color:#4a5563}
+    .related-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .related-tools a{display:block;text-decoration:none;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:14px;color:#4b5563;font-weight:850}
+    .small-note{font-size:.86rem;line-height:1.5;color:#7a8594;margin-top:12px}
+    @media(max-width:760px){.tool-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.compare-row{grid-template-columns:1fr}.compare-row .price{font-size:1.25rem}.related-tools{grid-template-columns:1fr}.tool-shell{padding-top:14px}.tool-hero h1{font-size:2.45rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+  <main class="tool-shell">
+    <section class="tool-hero">
+      <div class="tool-kicker">Driverz utility</div>
+      <h1>EV vs petrol cost</h1>
+      <p>Compare everyday running costs for a petrol car and an EV. Enter your mileage, fuel price and electricity rate to see the monthly and yearly difference.</p>
+    </section>
+
+    <section class="tool-grid">
+      <div class="tool-panel">
+        <h2>Compare running costs</h2>
+        <form class="tool-form" onsubmit="event.preventDefault();calcEvVsPetrol();">
+          <div class="form-grid">
+            <div class="field">
+              <label for="miles">Monthly miles</label>
+              <input id="miles" type="number" min="0" step="any" value="800" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="petrol">Petrol price, p/litre</label>
+              <input id="petrol" type="number" min="0" step="any" value="139.9" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="mpg">Petrol efficiency, MPG</label>
+              <input id="mpg" type="number" min="1" step="any" value="45" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="elec">Electricity price, p/kWh</label>
+              <input id="elec" type="number" min="0" step="any" value="24" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="eff">EV efficiency, miles/kWh</label>
+              <input id="eff" type="number" min="0.1" step="any" value="3.5" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="chargeType">Charging style</label>
+              <select id="chargeType">
+                <option value="home">Mostly home charging</option>
+                <option value="mixed">Mixed home/public</option>
+                <option value="public">Mostly public charging</option>
+              </select>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <button class="btn primary" type="submit">Calculate</button>
+            <button class="btn ghost" type="button" id="shareBtn">Share result</button>
+          </div>
+        </form>
+        <p class="small-note">Tip: home EV charging is often cheaper than public rapid charging. Public charger prices vary by network and location.</p>
+      </div>
+
+      <div class="result-panel" aria-live="polite">
+        <h2>Your result</h2>
+        <div id="result">
+          <div class="result-main">
+            <div class="saving-label">Potential saving</div>
+            <div class="saving-value">—</div>
+            <div class="saving-sub">Enter values and calculate.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-answer">
+      <b>Quick answer:</b> EVs are usually cheaper per mile when charged at home, but the result changes if you mainly use expensive public rapid chargers.
+    </section>
+
+    <section class="info-card" style="margin-top:18px">
+      <h2>What affects the comparison?</h2>
+      <div class="comparison-list">
+        <div class="compare-row"><div class="type">Fuel price</div><div class="desc">Higher petrol prices make EV running costs look stronger.</div><div class="price">p/litre</div></div>
+        <div class="compare-row"><div class="type">Charging</div><div class="desc">Home charging is usually much cheaper than motorway rapid charging.</div><div class="price">p/kWh</div></div>
+        <div class="compare-row"><div class="type">Efficiency</div><div class="desc">MPG and miles/kWh can change a lot depending on speed, weather and driving style.</div><div class="price">real-world</div></div>
+      </div>
+    </section>
+
+    <nav class="related-tools" aria-label="Related tools">
+      <a href="/trip-calculator.html">Trip cost calculator</a>
+      <a href="/cpm-tracker.html">CPM / mileage tracker</a>
+      <a href="/ev-home-savings.html">EV home savings</a>
+    </nav>
+  </main>
+
+  <script>
+    let latestShareText = '';
+    const money = (n) => Number.isFinite(n) ? '£' + n.toFixed(2) : '—';
+    const ppm = (n) => Number.isFinite(n) ? n.toFixed(1) + 'p/mile' : '—';
+
+    function numberFrom(id){
+      const value = parseFloat(document.getElementById(id).value);
+      return Number.isFinite(value) ? value : 0;
+    }
+
+    function calcEvVsPetrol(){
+      const monthlyMiles = numberFrom('miles');
+      const mpg = numberFrom('mpg');
+      const petrolP = numberFrom('petrol');
+      const evEff = numberFrom('eff');
+      const elecP = numberFrom('elec');
+      const chargeType = document.getElementById('chargeType').value;
+
+      const petrolMonthly = mpg > 0 ? (monthlyMiles / mpg) * 4.54609 * petrolP / 100 : NaN;
+      const evMonthly = evEff > 0 ? (monthlyMiles / evEff) * elecP / 100 : NaN;
+      const petrolYear = petrolMonthly * 12;
+      const evYear = evMonthly * 12;
+      const savingMonthly = petrolMonthly - evMonthly;
+      const savingYear = savingMonthly * 12;
+      const petrolPpm = monthlyMiles > 0 ? (petrolMonthly * 100) / monthlyMiles : NaN;
+      const evPpm = monthlyMiles > 0 ? (evMonthly * 100) / monthlyMiles : NaN;
+      const fill40 = petrolP * 40 / 100;
+      const top20 = elecP * 20 / 100;
+
+      const savingText = savingYear >= 0 ? 'EV could save' : 'Petrol could be cheaper by';
+      const savingAbs = Math.abs(savingYear);
+      const chargingNote = chargeType === 'public'
+        ? 'Mostly public charging selected. Rapid charging can reduce or remove EV savings.'
+        : chargeType === 'mixed'
+          ? 'Mixed charging selected. Your real cost depends on the share of home and public charging.'
+          : 'Mostly home charging selected. This is often the cheapest EV scenario.';
+
+      document.getElementById('result').innerHTML = `
+        <div class="result-main">
+          <div class="saving-label">${savingText}</div>
+          <div class="saving-value">${money(savingAbs)}</div>
+          <div class="saving-sub">per year based on ${monthlyMiles.toLocaleString()} miles/month.</div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><span>Petrol monthly</span><b>${money(petrolMonthly)}</b></div>
+          <div class="metric"><span>EV monthly</span><b>${money(evMonthly)}</b></div>
+          <div class="metric"><span>Petrol cost/mile</span><b>${ppm(petrolPpm)}</b></div>
+          <div class="metric"><span>EV cost/mile</span><b>${ppm(evPpm)}</b></div>
+          <div class="metric"><span>40L petrol fill-up</span><b>${money(fill40)}</b></div>
+          <div class="metric"><span>20kWh EV top-up</span><b>${money(top20)}</b></div>
+        </div>
+        <p class="small-note">${chargingNote}</p>
+      `;
+
+      latestShareText = `Driverz EV vs petrol estimate\nMonthly miles: ${monthlyMiles}\nPetrol: ${money(petrolMonthly)}/month (${ppm(petrolPpm)})\nEV: ${money(evMonthly)}/month (${ppm(evPpm)})\nYearly difference: ${money(savingAbs)} ${savingYear >= 0 ? 'EV saving' : 'petrol advantage'}`;
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if(!latestShareText) calcEvVsPetrol();
+      if(navigator.share){
+        try{ await navigator.share({title:'Driverz EV vs Petrol Cost', text:latestShareText, url:location.href}); }
+        catch(e){}
+      }else{
+        try{ await navigator.clipboard.writeText(latestShareText + '\n' + location.href); alert('Result copied to clipboard.'); }
+        catch(e){ alert(latestShareText); }
+      }
+    });
+
+    ['miles','mpg','petrol','eff','elec','chargeType'].forEach(id => {
+      document.getElementById(id).addEventListener('input', calcEvVsPetrol);
+      document.getElementById(id).addEventListener('change', calcEvVsPetrol);
+    });
+    calcEvVsPetrol();
+  </script>
+  <driverz-footer></driverz-footer>
+</body>
+</html>
