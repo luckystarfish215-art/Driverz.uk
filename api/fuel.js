@@ -27,6 +27,25 @@ function splitCSV(row) {
     return result;
 }
 
+
+function parseFuelPrice(value) {
+    if (value === null || typeof value === 'undefined') return NaN;
+    const n = parseFloat(String(value).replace(/[^0-9.]/g, ''));
+    return Number.isFinite(n) ? n : NaN;
+}
+
+function isValidFuelPrice(value) {
+    const n = parseFuelPrice(value);
+    // Petrol and diesel prices are pence per litre. Reject impossible/outlier values.
+    return Number.isFinite(n) && n >= 80 && n <= 300;
+}
+
+function formatFuelChip(label, value) {
+    const n = parseFuelPrice(value);
+    if (!isValidFuelPrice(n)) return null;
+    return `${label} ${n.toFixed(1)}p`;
+}
+
 function evConnectorSummary(charger) {
     const names = new Set();
     const conns = charger.Connections || [];
@@ -207,7 +226,7 @@ export default async function handler(req, res) {
                     const sLng = parseFloat(cols[17]);
                     const price = parseFloat(mode === 'diesel' ? cols[24] : cols[21]);
 
-                    if (!isNaN(sLat) && !isNaN(sLng) && !isNaN(price) && price > 0) {
+                    if (!isNaN(sLat) && !isNaN(sLng) && isValidFuelPrice(price)) {
                         const dist = getDistance(lat, lng, sLat, sLng);
                         if (dist <= apiRadius) { 
                             
@@ -223,9 +242,12 @@ export default async function handler(req, res) {
                             else if (cols[dayOffset] && cols[dayOffset+1]) opening = `${cols[dayOffset]}–${cols[dayOffset+1]}`;
                             const address = [cols[11], cols[12], cols[13], cols[10]].filter(Boolean).join(', ');
                             const prices = [];
-                            if (cols[21]) prices.push(`E10 ${parseFloat(cols[21]).toFixed(1)}p`);
-                            if (cols[18]) prices.push(`E5 ${parseFloat(cols[18]).toFixed(1)}p`);
-                            if (cols[24]) prices.push(`Diesel ${parseFloat(cols[24]).toFixed(1)}p`);
+                            const e10 = formatFuelChip('E10', cols[21]);
+                            const e5 = formatFuelChip('E5', cols[18]);
+                            const diesel = formatFuelChip('Diesel', cols[24]);
+                            if (e10) prices.push(e10);
+                            if (e5) prices.push(e5);
+                            if (diesel) prices.push(diesel);
                             stations.push({
                                 name: cleanName,
                                 price: price, 
@@ -266,9 +288,18 @@ export default async function handler(req, res) {
             if (s.prices) {
                 p = mode === 'diesel' ? s.prices.B7 : s.prices.E10;
                 s.price = p;
+
+                const livePrices = [];
+                const e10 = formatFuelChip('E10', s.prices.E10);
+                const e5 = formatFuelChip('E5', s.prices.E5);
+                const diesel = formatFuelChip('Diesel', s.prices.B7);
+                if (e10) livePrices.push(e10);
+                if (e5) livePrices.push(e5);
+                if (diesel) livePrices.push(diesel);
+                s.allPrices = s.allPrices || livePrices.join(' · ');
             }
 
-            if (!p || isNaN(parseFloat(p))) return false;
+            if (!isValidFuelPrice(p)) return false;
             
             s.lat = latVal;
             s.lng = lngVal;
