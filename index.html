@@ -1,131 +1,50 @@
-<!doctype html>
-<html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Driverz UK | Fuel prices and driver tools without the clutter</title>
-  <meta name="description" content="Compare nearby petrol, diesel and EV charging options, use simple driving tools, and find UK driver guidance without the clutter.">
-  <meta name="theme-color" content="#666666">
-  <link rel="canonical" href="https://www.driverz.uk/">
-  <link rel="icon" href="/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<driverz-header></driverz-header>
-
-<main>
-  <section class="hero" id="top">
-    <div class="hero-inner">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>driverz.uk | UK fuel prices and driver tools</title><meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header>
+<section class="fuel-hero" id="fuel-card">
+  <div class="fuel-hero-inner">
+    <div class="fuel-hero-top">
       <div>
-        <p class="eyebrow">UK driver tools</p>
-        <h1>Fuel prices, without the clutter.</h1>
-        <p class="hero-copy">Find nearby petrol, diesel and EV charging options. Start with a town, postcode or your current location, then compare useful choices within your radius.</p>
-        <div class="actions">
-          <a class="btn accent" href="#fuel-card">Start fuel search</a>
-          <a class="btn" href="/utilities.html">Open utilities</a>
-          <a class="btn light" href="/emergency.html">Emergency help</a>
-        </div>
-        <p class="notice">Your location is only requested when you press the location button. You can always search by town or postcode instead.</p>
-      </div>
-      <div class="hero-panel">
-        <div class="hero-panel-label">Default compare radius</div>
-        <div class="hero-panel-value">3 miles</div>
-        <p>Designed for quick local checks. Increase the radius when planning a longer journey.</p>
+        <div class="eyebrow">UK fuel price finder</div>
+        <h1>Find cheaper fuel nearby.</h1>
+        <p class="hero-copy">Search petrol, diesel and EV charging in seconds. No clutter, just the useful result first.</p>
       </div>
     </div>
-  </section>
 
-  <section class="main-card-wrap" id="fuel-card" aria-label="Fuel finder">
-    <div class="station-card">
-      <div>
-        <div class="price-row">
-          <div class="mode-pill" aria-label="Search type">
-            <button type="button" data-mode="petrol" class="active">Petrol</button>
-            <button type="button" data-mode="diesel">Diesel</button>
-            <button type="button" data-mode="ev">EV</button>
-          </div>
-        </div>
-        <div class="price"><span id="main-price">--</span><span class="unit" id="main-unit"></span></div>
-        <h2 class="station-name" id="station-name">Search a location to begin</h2>
-        <div class="meta">
-          <span class="chip" id="distance">--</span>
-          <span class="chip" id="updated">Updated today</span>
-          <span class="chip" id="hours">Opening times unavailable</span>
-        </div>
-        <p id="address">Type a place in the search box above or use your location.</p>
-        <p class="notice" id="all-prices">Fuel and EV data can change quickly. Always confirm price, availability and opening times before travelling.</p>
-        <div class="actions">
-          <a class="btn accent" id="directions" href="https://www.google.com/maps" target="_blank" rel="noopener">Get directions</a>
-          <button class="btn light" id="compare-3" type="button">Compare within 3 miles</button>
-        </div>
+    <form class="hero-search" id="hero-search">
+      <input id="hero-place" autocomplete="postal-code" placeholder="Search town, city or postcode">
+      <button class="btn" type="submit">Search</button>
+      <button class="btn icon-only" id="hero-use-location" type="button" aria-label="Use my location">⌖</button>
+    </form>
+
+    <div class="fuel-controls">
+      <div class="mode-pill"><button class="active" data-mode="petrol" type="button">Petrol</button><button data-mode="diesel" type="button">Diesel</button><button data-mode="ev" type="button">EV</button></div>
+      <div class="radius-control"><div class="range-head"><span>Radius</span><strong id="radius-value">5 mi</strong></div><input class="range" id="radius" type="range" min="1" max="30" value="5"></div>
+      <label class="toggle-row compact"><input type="checkbox" id="exclude-costco"> <span>Exclude Costco <small>(Membership Only)</small></span></label>
+    </div>
+
+    <section class="station-card hero-station-card">
+      <div class="result-main">
+        <div class="price-row"><div class="price" id="main-price">--</div><div class="unit" id="main-unit">p</div></div>
+        <h2 class="station-name" id="station-name">Checking nearby prices…</h2>
+        <div class="meta"><span class="chip" id="distance">-- mi</span><span class="chip" id="updated">Updated today</span><span class="chip" id="hours">Opening times unavailable</span></div>
+        <p class="notice" id="address">Search a city, town or postcode, or use your current location.</p>
+        <div class="actions"><a class="btn" id="directions" target="_blank" rel="noopener">Directions</a><button class="btn light" type="button" onclick="navigator.share?navigator.share({title:'driverz.uk',url:location.href}):navigator.clipboard.writeText(location.href)">Share</button></div>
       </div>
-      <aside class="side-panel">
-        <div class="range-head"><span>Search radius</span><strong id="radius-value">3 mi</strong></div>
-        <input class="range" id="radius" type="range" min="1" max="20" value="3" step="1">
-        <label class="toggle-row"><input id="exclude-costco" type="checkbox"><span>Exclude Costco<br><small>Useful if membership is required</small></span></label>
-        <div class="field" id="connector-field" style="margin-top:16px;display:none">
-          <label for="connector-type">EV connector</label>
-          <select id="connector-type">
-            <option value="any">Any connector</option>
-            <option value="type 2">Type 2</option>
-            <option value="ccs">CCS</option>
-            <option value="chademo">CHAdeMO</option>
-            <option value="tesla">Tesla compatible</option>
-          </select>
-        </div>
-        <div class="mini-grid">
-          <div class="mini"><b>Compare</b><span id="compare-count">Ready</span></div>
-          <div class="mini"><b>Mode</b><span id="side-mode">Petrol</span></div>
-        </div>
+      <aside class="other-price-card">
+        <div class="mini-label">Other fuel prices</div>
+        <div class="price-chips" id="all-prices">Loading…</div>
       </aside>
-    </div>
-  </section>
+    </section>
+  </div>
+</section>
 
-  <section class="section" id="compare">
-    <p class="eyebrow">Smart comparison</p>
-    <h2>Closest and cheapest at a glance</h2>
-    <p class="section-intro">A 3-mile list is a useful default for local searches. For longer journeys, widen the radius and check opening times before driving out of your way.</p>
-    <div class="table-wrap">
-      <table class="table" aria-label="Compare nearby stations">
-        <thead><tr><th>Station / charger</th><th>Distance</th><th>Price</th><th>Details</th></tr></thead>
-        <tbody id="compare-body"><tr><td colspan="4">Search to show comparison results.</td></tr></tbody>
-      </table>
-    </div>
-  </section>
+<section class="insight-quote" aria-label="Driverz quick tip">
+  <div class="insight-inner">
+    <div class="insight-label">Driverz quick tip</div>
+    <p id="tip-text">Check tyre pressure when tyres are cold for the most accurate reading.</p>
+  </div>
+</section>
 
-  <section class="section">
-    <p class="eyebrow">Driver tools</p>
-    <h2>Useful tools in one clean place</h2>
-    <div class="grid">
-      <article class="card"><h3>Fuel finder</h3><p>Search by postcode, town or live location and compare nearby options.</p><a class="btn light" href="#fuel-card">Find fuel</a></article>
-      <article class="card"><h3>Utilities</h3><p>Trip cost, CPM mileage, EV comparison, charge timer and other helpful calculators.</p><a class="btn light" href="/utilities.html">Open utilities</a></article>
-      <article class="card"><h3>Guides & glossary</h3><p>Plain-English help for UK fuel, EV charging, clean air zones and driving terms.</p><a class="btn light" href="/guides.html">Read guides</a></article>
-    </div>
-  </section>
+<section class="cloud-section"><div class="city-cloud"><h2>Popular UK locations</h2><span class="city-tag xl" data-city="London">London</span><span class="city-tag lg" data-city="Birmingham">Birmingham</span><span class="city-tag lg" data-city="Manchester">Manchester</span><span class="city-tag md" data-city="Glasgow">Glasgow</span><span class="city-tag md" data-city="Reading">Reading</span><span class="city-tag md" data-city="Leeds">Leeds</span><span class="city-tag md" data-city="Liverpool">Liverpool</span><span class="city-tag md" data-city="Bristol">Bristol</span><span class="city-tag sm" data-city="Oxford">Oxford</span><span class="city-tag sm" data-city="Cambridge">Cambridge</span><span class="city-tag sm" data-city="Brighton">Brighton</span><span class="city-tag sm" data-city="Southampton">Southampton</span><span class="city-tag sm" data-city="Cardiff">Cardiff</span><span class="city-tag sm" data-city="Edinburgh">Edinburgh</span><span class="city-tag sm" data-city="Newcastle">Newcastle</span><span class="city-tag sm" data-city="Nottingham">Nottingham</span><span class="city-tag sm" data-city="Leicester">Leicester</span><span class="city-tag sm" data-city="Coventry">Coventry</span><span class="city-tag sm" data-city="York">York</span><span class="city-tag sm" data-city="Norwich">Norwich</span><span class="city-tag sm" data-city="Plymouth">Plymouth</span><span class="city-tag sm" data-city="Aberdeen">Aberdeen</span><span class="city-tag sm" data-city="Swansea">Swansea</span><span class="city-tag sm" data-city="Milton Keynes">Milton Keynes</span><span class="city-tag sm" data-city="Newbury">Newbury</span></div></section>
 
-  <section class="insight-quote">
-    <div class="insight-inner">
-      <div class="insight-label">Driverz UK principle</div>
-      <p>Quick answers first. Useful detail when you need it.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <p class="eyebrow">Quick links</p>
-    <h2>Essential UK driver help</h2>
-    <div class="grid">
-      <article class="card"><h3>Emergency contacts</h3><p>What to do after a breakdown, collision or motorway incident.</p><a class="btn light" href="/emergency.html">Open emergency page</a></article>
-      <article class="card"><h3>FAQ</h3><p>Answers about fuel data, location, cookies and planned features.</p><a class="btn light" href="/faq.html">Read FAQ</a></article>
-      <article class="card"><h3>About Driverz</h3><p>The purpose of Driverz UK and how the site is designed to stay simple.</p><a class="btn light" href="/about.html">About us</a></article>
-    </div>
-  </section>
-</main>
-<script src="/assets/app.js"></script>
-
-<driverz-footer></driverz-footer>
-<script src="/components.js"></script>
-</body>
-</html>
+<section class="section"><h2>Tools that stay useful.</h2><p class="section-intro">Driverz keeps the calculator first, then adds short practical answers below. Fast decisions first, supporting guidance second.</p><div class="grid"><a class="card" href="/trip-calculator.html"><h3>Trip cost calculator</h3><p>Estimate journey cost using today’s fuel price.</p></a><a class="card" href="/ev-vs-petrol.html"><h3>EV vs petrol</h3><p>Compare energy costs in plain English.</p></a><a class="card" href="/emergency.html"><h3>Emergency contacts</h3><p>Important UK driver numbers and accident checklist.</p></a></div></section>
+<script src="/assets/app.js" defer></script><driverz-footer></driverz-footer></body></html>
