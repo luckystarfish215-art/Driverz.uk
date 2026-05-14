@@ -17,11 +17,36 @@ function setStatus(t){$('station-name').textContent=t}
 function setActiveMode(mode){document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));const label=$('cycle-label');if(label)label.textContent=MODE_LABEL[mode]||mode;localStorage.setItem('lastMode',mode)}
 function updateCyclePrice(){const cp=$('cycle-price');if(cp)cp.textContent=localStorage.getItem('lastPrice_'+state.mode)||(($('main-price')?.textContent||'--')+($('main-unit')?.textContent||''));window.dispatchEvent(new Event('driverz:price-updated'))}
 function renderOtherPrices(text){const el=$('all-prices');if(!el)return;el.innerHTML='';const value=text||'Prices vary by fuel type';const parts=value.split('·').map(x=>x.trim()).filter(Boolean);if(parts.length>1){parts.forEach(part=>{const chip=document.createElement('span');chip.className='price-chip';chip.textContent=part;el.appendChild(chip)})}else{const chip=document.createElement('span');chip.className='price-chip wide';chip.textContent=value;el.appendChild(chip)}}
-function showData(d){$('main-price').textContent=d.price==='FREE'?'FREE':parseFloat(d.price).toFixed(1);$('main-unit').textContent=d.price==='FREE'?'':(d.unit||'p');$('station-name').textContent=d.name||'Station found';$('distance').textContent=d.dist||'--';$('updated').textContent=d.updated?`Updated ${d.updated}`:'Updated today';$('hours').textContent=d.opening||'Opening times unavailable';$('address').textContent=d.address||state.label;renderOtherPrices(d.allPrices);const maps=`https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}`;$('directions').href=maps;localStorage.setItem('lastPrice_'+state.mode, $('main-price').textContent + $('main-unit').textContent);localStorage.setItem('lastMode', state.mode);saveLocation();savePrefs();updateCyclePrice()}
+function formatMainPrice(d){
+  const raw = d.price;
+  const n = typeof raw === 'number' ? raw : parseFloat(String(raw).replace(/[^0-9.]/g,''));
+  if (state.mode === 'ev' && (raw === 'FREE' || n === 0)) return {price:'FREE', unit:''};
+  if (raw === 'FREE') return {price:'FREE', unit:''};
+  return {price:Number.isFinite(n)?n.toFixed(1):'--', unit:d.unit||'p'};
+}
+function showData(d){
+  const formatted = formatMainPrice(d);
+  $('main-price').textContent = formatted.price;
+  $('main-unit').textContent = formatted.unit;
+  $('station-name').textContent=d.name||'Station found';
+  $('distance').textContent=d.dist||'--';
+  $('updated').textContent=d.updated?`Updated ${d.updated}`:'Updated today';
+  $('hours').textContent=d.opening||'Opening times unavailable';
+  $('address').textContent=d.address||state.label;
+  const extra = [];
+  if (d.allPrices) extra.push(d.allPrices);
+  if (d.connectors) extra.push(`Connectors ${d.connectors}`);
+  renderOtherPrices(extra.join(' · '));
+  const maps=`https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}`;
+  $('directions').href=maps;
+  localStorage.setItem('lastPrice_'+state.mode, $('main-price').textContent + $('main-unit').textContent);
+  localStorage.setItem('lastMode', state.mode);
+  saveLocation();savePrefs();updateCyclePrice()
+}
 async function loadFuel(){document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';updateCyclePrice()}finally{document.body.classList.remove('loading')}}
 async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[key]){const c=CITIES[q]||CITIES[key];return {lat:c[0],lng:c[1],label:q}}const res=await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=${encodeURIComponent(q)}`);const data=await res.json();if(data[0])return{lat:+data[0].lat,lng:+data[0].lon,label:q};throw new Error('Place not found')}
-async function searchPlace(q){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();loadFuel()}catch(e){setStatus(e.message)}}
+async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
 function useLocation(){if(!navigator.geolocation){setStatus('Location is not available in this browser. Search manually instead.');return}setStatus('Finding your location…');navigator.geolocation.getCurrentPosition(pos=>{state.lat=pos.coords.latitude;state.lng=pos.coords.longitude;state.label='Your location';saveLocation();loadFuel()},()=>{setStatus('Location permission was not granted. Using your saved location instead.');loadFuel()},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})}
-function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').value=state.radius;$('radius-value').textContent=state.radius+' mi'}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{$('radius-value').textContent=e.target.value+' mi';state.radius=+e.target.value;savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city)));const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'));else if(p.get('city')) searchPlace(p.get('city'));else loadFuel()}
+function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').value=state.radius;$('radius-value').textContent=state.radius+' mi'}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{$('radius-value').textContent=e.target.value+' mi';state.radius=+e.target.value;savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
 document.addEventListener('DOMContentLoaded',init);
