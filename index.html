@@ -22,7 +22,7 @@
         <div class="actions"><a class="btn" id="directions" target="_blank" rel="noopener">Directions</a><button class="btn light" type="button" onclick="navigator.share?navigator.share({title:'driverz.uk',url:location.href}):navigator.clipboard.writeText(location.href)">Share</button><button class="btn light icon-action" type="button" id="result-search" aria-label="Search another place">⌕</button></div>
       </div>
       <aside class="other-price-card">
-        <div class="mini-label">Other fuel prices</div>
+        <div class="mini-label" id="other-price-label">Other fuel prices</div>
         <div class="price-chips" id="all-prices">Loading…</div>
       </aside>
     </section>
