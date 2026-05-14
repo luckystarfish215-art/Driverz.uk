@@ -1,32 +1,24 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>driverz.uk | UK fuel prices and driver tools</title><meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header>
 <section class="fuel-hero" id="fuel-card">
   <div class="fuel-hero-inner">
-    <div class="fuel-hero-top">
+    <div class="fuel-hero-top compact-hero-title">
       <div>
         <div class="eyebrow">UK fuel price finder</div>
         <h1>Find cheaper fuel nearby.</h1>
-        <p class="hero-copy">Search petrol, diesel and EV charging in seconds. No clutter, just the useful result first.</p>
+        <p class="hero-copy">Search from the header, or use your location. The cheapest useful result comes first.</p>
       </div>
     </div>
 
-    <form class="hero-search" id="hero-search">
-      <input id="hero-place" autocomplete="postal-code" placeholder="Search town, city or postcode">
-      <button class="btn" type="submit">Search</button>
-      <button class="btn icon-only" id="hero-use-location" type="button" aria-label="Use my location">⌖</button>
-    </form>
-
-    <div class="fuel-controls">
+    <div class="fuel-type-row">
       <div class="mode-pill"><button class="active" data-mode="petrol" type="button">Petrol</button><button data-mode="diesel" type="button">Diesel</button><button data-mode="ev" type="button">EV</button></div>
-      <div class="radius-control"><div class="range-head"><span>Radius</span><strong id="radius-value">5 mi</strong></div><input class="range" id="radius" type="range" min="1" max="30" value="5"></div>
-      <label class="toggle-row compact"><input type="checkbox" id="exclude-costco"> <span>Exclude Costco <small>(Membership Only)</small></span></label>
     </div>
 
-    <section class="station-card hero-station-card">
+    <section class="station-card hero-station-card priority-price-card">
       <div class="result-main">
         <div class="price-row"><div class="price" id="main-price">--</div><div class="unit" id="main-unit">p</div></div>
         <h2 class="station-name" id="station-name">Checking nearby prices…</h2>
         <div class="meta"><span class="chip" id="distance">-- mi</span><span class="chip" id="updated">Updated today</span><span class="chip" id="hours">Opening times unavailable</span></div>
-        <p class="notice" id="address">Search a city, town or postcode, or use your current location.</p>
+        <p class="notice" id="address">Tap search in the header, search a town or postcode, or use your current location.</p>
         <div class="actions"><a class="btn" id="directions" target="_blank" rel="noopener">Directions</a><button class="btn light" type="button" onclick="navigator.share?navigator.share({title:'driverz.uk',url:location.href}):navigator.clipboard.writeText(location.href)">Share</button></div>
       </div>
       <aside class="other-price-card">
@@ -34,6 +26,11 @@
         <div class="price-chips" id="all-prices">Loading…</div>
       </aside>
     </section>
+
+    <div class="fuel-controls below-price-controls">
+      <div class="radius-control"><div class="range-head"><span>Search radius</span><strong id="radius-value">5 mi</strong></div><input class="range" id="radius" type="range" min="1" max="30" value="5"></div>
+      <label class="toggle-row compact"><input type="checkbox" id="exclude-costco"> <span>Exclude Costco <small>(Membership Only)</small></span></label>
+    </div>
   </div>
 </section>
 
