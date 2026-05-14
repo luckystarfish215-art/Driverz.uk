@@ -1,1 +1,177 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Driving Costs Guide | driverz.uk</title><meta name="description" content="Understand the main costs of running a UK car."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">Guides & Glossary</div><h1>Driving Costs Guide</h1><p>Understand the main costs of running a UK car.</p><div class="quick-answer"><b>Quick answer:</b> The real cost of driving is fuel plus insurance, tax, MOT, tyres, servicing, parking, tolls and depreciation.</div><h2>What to know</h2><ul><li>Track pence per mile, not just monthly fuel spend.</li><li>Tyres and servicing affect both safety and MPG.</li><li>Use Driverz tools to compare cost changes quickly.</li></ul><h2>Related tools</h2><div class="grid"><a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby prices.</p></a><a class="card" href="/trip-calculator.html"><h3>Trip Calculator</h3><p>Estimate journey cost.</p></a><a class="card" href="/emergency.html"><h3>Emergency Contacts</h3><p>Useful contacts in one place.</p></a></div></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Driving Costs Guide | driverz.uk</title>
+  <meta name="description" content="Simple UK driving costs guide: fuel, insurance, road tax, MOT, servicing, tyres, parking, depreciation and EV charging costs.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .guide-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .guide-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .guide-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.55}
+    .guide-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .cost-snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+    .cost-tile{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .cost-tile strong{display:block;font-size:1.2rem;letter-spacing:-.04em;color:#444;margin-bottom:6px}
+    .cost-tile span{display:block;color:#666;font-size:.94rem;line-height:1.45}
+    .guide-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .guide-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .guide-section h3{font-size:1.18rem;letter-spacing:-.035em;margin:18px 0 8px;color:#444}
+    .guide-section p,.guide-section li{color:#5f5f5f;line-height:1.58}
+    .guide-section ul{padding-left:20px;margin:10px 0 0}
+    .cost-row-list{display:grid;gap:10px;margin-top:14px}
+    .cost-row{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:start;background:#f7f7f7;border:1px solid #ececec;border-radius:16px;padding:14px}
+    .cost-row b{color:#444;font-size:1rem}
+    .cost-row span{color:#666;line-height:1.45}
+    .quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .quick-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .quick-card b{display:block;color:#444;margin-bottom:6px}
+    .quick-card p{margin:0;color:#666;line-height:1.48}
+    .priority-note{background:#eaf6ff;border:1px solid #cfeeff;border-radius:22px;padding:18px;margin-top:14px}
+    .priority-note b{display:block;color:#3f3f3f;margin-bottom:5px}
+    .priority-note p{margin:0;color:#555}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    @media(max-width:850px){
+      .cost-snapshot,.quick-grid{grid-template-columns:1fr}
+      .cost-row{grid-template-columns:1fr;gap:6px}
+      .guide-shell{padding-bottom:42px}
+    }
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">Guides & Glossary</div>
+      <h1>Driving Costs</h1>
+      <p>Fuel is only one part of the real cost of driving. This guide helps you understand the everyday costs that affect UK drivers.</p>
+    </section>
+
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>The real cost of driving is fuel plus insurance, vehicle tax, MOT, servicing, tyres, parking, tolls, clean air charges and depreciation. For many drivers, insurance and depreciation can be bigger than fuel.</p>
+      </div>
+
+      <div class="cost-snapshot" aria-label="Driving cost snapshot">
+        <div class="cost-tile"><strong>Fuel</strong><span>Usually the most visible day-to-day cost.</span></div>
+        <div class="cost-tile"><strong>Insurance</strong><span>Often one of the largest yearly costs.</span></div>
+        <div class="cost-tile"><strong>Maintenance</strong><span>MOT, servicing, tyres, brakes and repairs.</span></div>
+        <div class="cost-tile"><strong>Charges</strong><span>Parking, tolls, ULEZ, CAZ and congestion charges.</span></div>
+      </div>
+
+      <section class="guide-section">
+        <h2>The main costs to track</h2>
+        <p>Instead of only looking at the pump price, it is better to understand your total cost per mile. This makes it easier to compare vehicles, journeys and driving habits.</p>
+        <div class="cost-row-list">
+          <div class="cost-row"><b>Fuel or electricity</b><span>Petrol, diesel or EV charging costs change with price, efficiency, mileage and where you fill or charge.</span></div>
+          <div class="cost-row"><b>Insurance</b><span>Your age, vehicle, postcode, claims history, mileage and parking location can all affect the premium.</span></div>
+          <div class="cost-row"><b>Vehicle tax</b><span>Vehicle Excise Duty depends on vehicle type, age, emissions and tax rules. Always check the current rate for your vehicle.</span></div>
+          <div class="cost-row"><b>MOT & servicing</b><span>Regular checks protect safety and can reduce expensive surprise repairs later.</span></div>
+          <div class="cost-row"><b>Tyres & brakes</b><span>Worn tyres and brakes are safety issues, but they are also recurring running costs.</span></div>
+          <div class="cost-row"><b>Parking & road charges</b><span>City parking, private car parks, tolls and clean air zones can change the cost of a journey.</span></div>
+          <div class="cost-row"><b>Depreciation</b><span>The loss in vehicle value is easy to ignore, but it can be one of the biggest long-term costs.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Fuel costs</h2>
+        <p>Fuel cost depends on three things: price per litre, vehicle efficiency and distance. A cheaper station is useful, but the saving can disappear if you drive too far out of your way.</p>
+        <div class="quick-grid">
+          <div class="quick-card"><b>Best number to track</b><p>Use pence per mile, not just monthly spend. It shows how much each mile really costs.</p></div>
+          <div class="quick-card"><b>Small habits matter</b><p>Tyre pressure, smooth driving and removing unnecessary weight can all affect fuel use.</p></div>
+        </div>
+        <div class="priority-note"><b>Driverz tip</b><p>When comparing stations, consider the return journey cost as well as the pump price.</p></div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Insurance costs</h2>
+        <p>Insurance can vary heavily between drivers and vehicles. It is not just about the car; where it is kept, how many miles you drive and your claim history can also matter.</p>
+        <ul>
+          <li>Compare quotes before renewal, not after the policy has already rolled over.</li>
+          <li>Check whether annual mileage is realistic.</li>
+          <li>Consider voluntary excess carefully. A higher excess may reduce the premium, but increases what you pay after a claim.</li>
+          <li>Young or new drivers may find telematics policies useful, but they should check the conditions first.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section">
+        <h2>Tax, MOT and servicing</h2>
+        <p>Vehicle tax, MOT and servicing are not daily costs, but they should still be budgeted for. A cheap car can become expensive if it needs frequent repairs or has high tax.</p>
+        <div class="quick-grid">
+          <div class="quick-card"><b>Vehicle tax</b><p>Check the current tax class and rate for your exact vehicle before buying.</p></div>
+          <div class="quick-card"><b>MOT history</b><p>A vehicle with repeated advisories may cost more to keep safe and roadworthy.</p></div>
+          <div class="quick-card"><b>Servicing</b><p>Regular servicing can protect reliability, fuel efficiency and resale value.</p></div>
+          <div class="quick-card"><b>Tyres</b><p>Tyres affect safety, braking and fuel economy. Check tread and pressure regularly.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Parking, tolls and city charges</h2>
+        <p>For city drivers, the cost of parking and road charging can be as important as fuel. Some journeys may include parking fees, tolls, congestion charges or clean air zone charges.</p>
+        <ul>
+          <li>Check clean air or congestion charges before driving into a city centre.</li>
+          <li>Compare park-and-ride options for longer city visits.</li>
+          <li>Read private parking signs carefully before leaving the vehicle.</li>
+          <li>Remember that airport and event parking can change the total trip cost significantly.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section">
+        <h2>EV running costs</h2>
+        <p>EV running cost depends heavily on where you charge. Home charging is often cheaper than public rapid charging, but public charging can still be useful for long journeys.</p>
+        <div class="quick-grid">
+          <div class="quick-card"><b>Home charging</b><p>Usually best for low cost and convenience when you have access to a driveway or home charger.</p></div>
+          <div class="quick-card"><b>Public charging</b><p>Costs vary by operator, charging speed and location. Rapid chargers are often more expensive.</p></div>
+          <div class="quick-card"><b>Efficiency</b><p>EV cost per mile depends on miles per kWh, driving speed, weather and charging losses.</p></div>
+          <div class="quick-card"><b>Compare fairly</b><p>Compare petrol p/mile with EV p/mile rather than only comparing fill-up and top-up totals.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Quick answers</h2>
+        <div class="quick-grid">
+          <div class="quick-card"><b>Is fuel the biggest driving cost?</b><p>Not always. Insurance and depreciation can be larger, especially for newer or higher-value vehicles.</p></div>
+          <div class="quick-card"><b>What is pence per mile?</b><p>It is the cost of driving one mile. It is one of the simplest ways to compare real running costs.</p></div>
+          <div class="quick-card"><b>Can tyre pressure affect fuel cost?</b><p>Yes. Underinflated tyres can increase fuel use and tyre wear.</p></div>
+          <div class="quick-card"><b>Are EVs always cheaper to run?</b><p>EVs can be cheaper per mile, especially with home charging, but the result depends on electricity price, efficiency and charging habits.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz tools</h2>
+        <div class="grid">
+          <a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby petrol, diesel and EV prices.</p></a>
+          <a class="card" href="/trip-calculator.html"><h3>Trip Cost Calculator</h3><p>Estimate the fuel cost of a journey.</p></a>
+          <a class="card" href="/cpm-tracker.html"><h3>CPM / Mileage Tracker</h3><p>Track real-world cost per mile and MPG.</p></a>
+          <a class="card" href="/ev-vs-petrol.html"><h3>EV vs Petrol</h3><p>Compare EV and petrol running costs.</p></a>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Useful official links</h2>
+        <p>For vehicle-specific tax, MOT and charge information, always check the official service or local authority source.</p>
+        <div class="source-links">
+          <a href="https://www.gov.uk/check-vehicle-tax" target="_blank" rel="noopener">Check vehicle tax ↗</a>
+          <a href="https://www.gov.uk/check-mot-history" target="_blank" rel="noopener">Check MOT history ↗</a>
+          <a href="https://www.gov.uk/clean-air-zones" target="_blank" rel="noopener">Clean Air Zones ↗</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
