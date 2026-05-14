@@ -24,6 +24,34 @@ function formatMainPrice(d){
   if (raw === 'FREE') return {price:'FREE', unit:''};
   return {price:Number.isFinite(n)?n.toFixed(1):'--', unit:d.unit||'p'};
 }
+
+function parseDistanceMiles(value){
+  const n=parseFloat(String(value||'').replace(/[^0-9.]/g,''));
+  return Number.isFinite(n)?n:0;
+}
+function renderQuickCalc(d, formatted){
+  const box=$('quick-calc');
+  const lines=$('quick-calc-lines');
+  if(!box||!lines)return;
+  const n=typeof d.price==='number'?d.price:parseFloat(String(d.price||'').replace(/[^0-9.]/g,''));
+  const miles=parseDistanceMiles(d.dist);
+  if(!Number.isFinite(n)||miles<=0){box.hidden=true;lines.innerHTML='';return;}
+  const returnMiles=miles*2;
+  let html='';
+  if(state.mode==='ev'){
+    const free=(d.price==='FREE'||n===0);
+    const topUp=free?0:(n*20/100);
+    const driveCost=free?0:(returnMiles*0.30*n/100);
+    html=`<span>A standard 20kWh top-up costs ${free?'FREE':'about £'+topUp.toFixed(2)}.</span><span>Estimated energy to drive here and back: ${driveCost===0?'FREE':'£'+driveCost.toFixed(2)}.</span>`;
+  }else{
+    const fill=n*40/100;
+    const driveCost=(returnMiles/40)*4.54609*n/100;
+    html=`<span>A standard 40L fill-up costs about £${fill.toFixed(2)}.</span><span>Estimated fuel to drive here and back: £${driveCost.toFixed(2)}.</span>`;
+  }
+  lines.innerHTML=html;
+  box.hidden=false;
+}
+
 function showData(d){
   const formatted = formatMainPrice(d);
   $('main-price').textContent = formatted.price;
@@ -33,6 +61,7 @@ function showData(d){
   $('updated').textContent=d.updated?`Updated ${d.updated}`:'Updated today';
   $('hours').textContent=d.opening||'Opening times unavailable';
   $('address').textContent=d.address||state.label;
+  renderQuickCalc(d, formatted);
   const extra = [];
   if (d.allPrices) extra.push(d.allPrices);
   if (d.connectors) extra.push(`Connectors ${d.connectors}`);
@@ -43,7 +72,7 @@ function showData(d){
   localStorage.setItem('lastMode', state.mode);
   saveLocation();savePrefs();updateCyclePrice()
 }
-async function loadFuel(){document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';updateCyclePrice()}finally{document.body.classList.remove('loading')}}
+async function loadFuel(){document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';const qc=$('quick-calc');if(qc)qc.hidden=true;updateCyclePrice()}finally{document.body.classList.remove('loading')}}
 async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[key]){const c=CITIES[q]||CITIES[key];return {lat:c[0],lng:c[1],label:q}}const res=await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=${encodeURIComponent(q)}`);const data=await res.json();if(data[0])return{lat:+data[0].lat,lng:+data[0].lon,label:q};throw new Error('Place not found')}
 async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
