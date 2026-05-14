@@ -1,49 +1,218 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UK Driving Glossary | Driverz UK</title>
-  <meta name="description" content="A simple glossary of UK driving, fuel and EV charging terms for everyday drivers.">
-  <meta name="theme-color" content="#666666">
-  <link rel="canonical" href="https://www.driverz.uk/glossary.html">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Driverz Glossary | driverz.uk</title>
+  <meta name="description" content="Simple UK driving, fuel and EV glossary. Clear explanations for E10, E5, MPG, ULEZ, CAZ, kWh, BHP, torque and common driving terms.">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .guide-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .guide-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .guide-hero p{font-size:1.08rem;color:#666;max-width:760px;margin:0;line-height:1.55}
+    .guide-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .glossary-search{margin-top:16px;display:flex;gap:10px;align-items:center;background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:10px 12px}
+    .glossary-search input{width:100%;border:0;background:transparent;outline:0;font:inherit;font-weight:750;color:#444;padding:8px}
+    .glossary-search span{font-size:1.15rem;color:#777}
+    .popular-terms{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+    .term-chip{border:1px solid #e8e8e8;background:#fff;border-radius:999px;padding:10px 13px;color:#555;font-weight:850;font-size:.92rem;cursor:pointer;transition:.16s ease}
+    .term-chip:hover{background:#eaf6ff;border-color:#cfeeff;color:#333;transform:translateY(-1px)}
+    .guide-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .guide-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .guide-section p,.guide-section li{color:#5f5f5f;line-height:1.58}
+    .term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .term-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:16px}
+    .term-card b{display:block;color:#444;font-size:1.05rem;letter-spacing:-.03em;margin-bottom:6px}
+    .term-card p{margin:0;color:#666;line-height:1.48}
+    .confusion-grid{display:grid;gap:10px;margin-top:14px}
+    .confusion-row{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start;background:#f7f7f7;border:1px solid #ececec;border-radius:16px;padding:14px}
+    .confusion-row b{color:#444}
+    .confusion-row span{color:#666;line-height:1.45}
+    .quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .quick-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .quick-card b{display:block;color:#444;margin-bottom:6px}
+    .quick-card p{margin:0;color:#666;line-height:1.48}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    .is-hidden{display:none!important}
+    @media(max-width:850px){
+      .term-grid,.quick-grid{grid-template-columns:1fr}
+      .confusion-row{grid-template-columns:1fr;gap:6px}
+      .guide-shell{padding-bottom:42px}
+      .glossary-search{border-radius:16px}
+    }
+  </style>
 </head>
 <body>
-<driverz-header></driverz-header>
+  <driverz-header></driverz-header>
 
-<main class="article">
-  <p class="eyebrow">Glossary</p>
-  <h1>UK driving terms, explained simply</h1>
-  <div class="quick-answer">Short definitions for common fuel, EV and UK driving terms.</div>
-  <h2>Fuel terms</h2>
-  <table class="table"><tbody>
-    <tr><th>E10</th><td>Regular unleaded petrol containing up to 10% renewable ethanol.</td></tr>
-    <tr><th>E5</th><td>Super unleaded petrol containing up to 5% ethanol. Often used by older or performance vehicles.</td></tr>
-    <tr><th>B7</th><td>Standard diesel containing up to 7% biodiesel.</td></tr>
-    <tr><th>ppl</th><td>Pence per litre, the normal way UK fuel prices are displayed.</td></tr>
-  </tbody></table>
-  <h2 id="ev">EV terms</h2>
-  <table class="table"><tbody>
-    <tr><th>Type 2</th><td>A common AC charging connector used by many UK and European EVs.</td></tr>
-    <tr><th>CCS</th><td>A common rapid DC charging connector for many modern EVs.</td></tr>
-    <tr><th>CHAdeMO</th><td>A rapid DC connector used by some older EVs.</td></tr>
-    <tr><th>kWh</th><td>Kilowatt-hour, the unit used for battery capacity and EV charging energy.</td></tr>
-    <tr><th>p/kWh</th><td>Pence per kilowatt-hour, a common EV charging price format.</td></tr>
-  </tbody></table>
-  <h2>Road and service terms</h2>
-  <table class="table"><tbody>
-    <tr><th>MOT</th><td>The annual roadworthiness test required for most vehicles over three years old.</td></tr>
-    <tr><th>VED</th><td>Vehicle Excise Duty, commonly called road tax or vehicle tax.</td></tr>
-    <tr><th>CAZ</th><td>Clean Air Zone. Some vehicles may need to pay to enter certain zones.</td></tr>
-  </tbody></table>
-</main>
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">Guides & Glossary</div>
+      <h1>Driverz Glossary</h1>
+      <p>Simple explanations for common UK driving, fuel and EV terms. Built for quick answers, not long dictionary reading.</p>
+    </section>
 
-<driverz-footer></driverz-footer>
-<script src="/components.js"></script>
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>This glossary explains common UK driver terms in plain English, including fuel labels, EV charging words, driving charges and vehicle terms.</p>
+        <div class="glossary-search" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="glossarySearch" type="search" placeholder="Search terms, for example ULEZ, E10, kWh, MPG..." autocomplete="off">
+        </div>
+      </div>
+
+      <div class="popular-terms" aria-label="Popular glossary terms">
+        <button class="term-chip" data-term="ULEZ">ULEZ</button>
+        <button class="term-chip" data-term="MPG">MPG</button>
+        <button class="term-chip" data-term="E10">E10</button>
+        <button class="term-chip" data-term="kWh">kWh</button>
+        <button class="term-chip" data-term="CAZ">CAZ</button>
+        <button class="term-chip" data-term="AdBlue">AdBlue</button>
+        <button class="term-chip" data-term="PCN">PCN</button>
+        <button class="term-chip" data-term="BHP">BHP</button>
+      </div>
+
+      <section class="guide-section glossary-group">
+        <h2>Fuel terms</h2>
+        <div class="term-grid">
+          <div class="term-card" data-keywords="E10 petrol ethanol standard fuel"><b>E10</b><p>Standard petrol containing up to 10% renewable ethanol. Most modern petrol cars can use E10.</p></div>
+          <div class="term-card" data-keywords="E5 super unleaded petrol ethanol premium"><b>E5</b><p>Petrol containing up to 5% ethanol. In the UK it is usually sold as super unleaded for vehicles that cannot use E10.</p></div>
+          <div class="term-card" data-keywords="B7 diesel biodiesel pump label"><b>B7</b><p>Standard diesel containing up to 7% biodiesel. You may see B7 labels on diesel pumps.</p></div>
+          <div class="term-card" data-keywords="MPG miles per gallon fuel economy"><b>MPG</b><p>Miles per gallon. Higher MPG usually means the vehicle travels further for the same amount of fuel.</p></div>
+          <div class="term-card" data-keywords="pence per litre ppl fuel price"><b>p/litre</b><p>Pence per litre. A petrol price of 139.9p means £1.399 per litre.</p></div>
+          <div class="term-card" data-keywords="premium fuel super unleaded high octane"><b>Premium fuel</b><p>Higher-octane petrol or branded diesel. It may help some engines, but many standard cars do not need it.</p></div>
+          <div class="term-card" data-keywords="octane ron petrol rating"><b>Octane / RON</b><p>A petrol rating linked to resistance to engine knock. Standard UK unleaded is commonly labelled 95 RON.</p></div>
+          <div class="term-card" data-keywords="AdBlue diesel exhaust fluid SCR"><b>AdBlue</b><p>A diesel exhaust fluid used by many modern diesel vehicles to reduce nitrogen oxide emissions. It goes in a separate AdBlue tank, not the diesel tank.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section glossary-group">
+        <h2>EV terms</h2>
+        <div class="term-grid">
+          <div class="term-card" data-keywords="kWh kilowatt hour battery capacity energy"><b>kWh</b><p>Kilowatt-hour. Used to measure EV battery capacity and electricity used for charging.</p></div>
+          <div class="term-card" data-keywords="kW kilowatt charger speed power"><b>kW</b><p>Kilowatt. Used to describe charging speed or motor power. Higher kW usually means faster charging if the vehicle supports it.</p></div>
+          <div class="term-card" data-keywords="CCS connector rapid charging"><b>CCS</b><p>A common rapid-charging connector used by many modern EVs in the UK and Europe.</p></div>
+          <div class="term-card" data-keywords="Type 2 connector home public charging"><b>Type 2</b><p>A common AC charging connector used for many home, workplace and public chargers.</p></div>
+          <div class="term-card" data-keywords="CHAdeMO connector older rapid charging"><b>CHAdeMO</b><p>An older rapid-charging connector used by some EVs. It is less common on newer models than CCS.</p></div>
+          <div class="term-card" data-keywords="rapid charger fast ultra rapid EV"><b>Rapid charging</b><p>Public high-power charging, usually used during longer journeys. It is often more expensive than home charging.</p></div>
+          <div class="term-card" data-keywords="regenerative braking regen EV"><b>Regenerative braking</b><p>An EV system that recovers energy when slowing down and sends some of it back to the battery.</p></div>
+          <div class="term-card" data-keywords="range anxiety EV battery distance"><b>Range anxiety</b><p>Worry about whether an EV has enough battery range to complete a journey or reach a charger.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section glossary-group">
+        <h2>Rules, charges and documents</h2>
+        <div class="term-grid">
+          <div class="term-card" data-keywords="ULEZ ultra low emission zone London"><b>ULEZ</b><p>Ultra Low Emission Zone. A charge zone for vehicles that do not meet required emissions standards.</p></div>
+          <div class="term-card" data-keywords="CAZ clean air zone city charge"><b>CAZ</b><p>Clean Air Zone. A city area where some higher-emission vehicles may need to pay a daily charge.</p></div>
+          <div class="term-card" data-keywords="Congestion Charge London traffic charge"><b>Congestion Charge</b><p>A charge for driving in a defined central London zone during charging hours. It is separate from ULEZ.</p></div>
+          <div class="term-card" data-keywords="VED vehicle tax road tax"><b>VED</b><p>Vehicle Excise Duty, often called road tax. The amount depends on vehicle type, emissions and registration details.</p></div>
+          <div class="term-card" data-keywords="MOT annual test vehicle roadworthiness"><b>MOT</b><p>The annual roadworthiness test required for most vehicles over three years old.</p></div>
+          <div class="term-card" data-keywords="PCN penalty charge notice parking bus lane clean air"><b>PCN</b><p>Penalty Charge Notice. Often used for parking, bus lane, congestion or clean air zone penalties.</p></div>
+          <div class="term-card" data-keywords="penalty points licence driving offence"><b>Penalty points</b><p>Points added to a driving licence after certain offences. Too many points can lead to disqualification.</p></div>
+          <div class="term-card" data-keywords="NCD no claims discount insurance bonus"><b>No claims discount</b><p>An insurance discount based on claim-free driving history. It can reduce premiums but rules vary by insurer.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section glossary-group">
+        <h2>Vehicle terms</h2>
+        <div class="term-grid">
+          <div class="term-card" data-keywords="BHP brake horsepower engine power"><b>BHP</b><p>Brake horsepower. A measure of engine power often used in car specifications.</p></div>
+          <div class="term-card" data-keywords="torque pulling power Nm acceleration"><b>Torque</b><p>Pulling force from the engine or motor. Higher torque can help acceleration and towing ability.</p></div>
+          <div class="term-card" data-keywords="hybrid HEV petrol electric"><b>Hybrid</b><p>A vehicle using both an engine and electric motor. Many hybrids do not need to be plugged in.</p></div>
+          <div class="term-card" data-keywords="plug-in hybrid PHEV charging petrol electric"><b>Plug-in hybrid / PHEV</b><p>A hybrid with a larger battery that can be charged from an external power source.</p></div>
+          <div class="term-card" data-keywords="tyre tread depth legal limit"><b>Tyre tread</b><p>The grooves in a tyre that help grip the road and clear water. Low tread increases risk and can be illegal.</p></div>
+          <div class="term-card" data-keywords="start stop system fuel saving idle"><b>Start-stop</b><p>A system that switches the engine off when stationary and restarts it when needed to reduce fuel use.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Popular confusions</h2>
+        <div class="confusion-grid">
+          <div class="confusion-row"><b>ULEZ vs Congestion Charge</b><span>ULEZ is based on emissions compliance. Congestion Charge is mainly a traffic charge for driving in a zone at certain times.</span></div>
+          <div class="confusion-row"><b>kW vs kWh</b><span>kW is charging speed or power. kWh is energy used or battery capacity.</span></div>
+          <div class="confusion-row"><b>E10 vs E5</b><span>E10 has up to 10% ethanol. E5 has up to 5% ethanol and is often sold as super unleaded.</span></div>
+          <div class="confusion-row"><b>Hybrid vs plug-in hybrid</b><span>A normal hybrid usually charges itself while driving. A plug-in hybrid can also be charged from a socket or charger.</span></div>
+          <div class="confusion-row"><b>PCN vs speeding fine</b><span>A PCN often relates to parking, bus lanes or charging zones. Speeding penalties are handled differently and may involve points.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Quick answers</h2>
+        <div class="quick-grid">
+          <div class="quick-card"><b>What does MPG mean?</b><p>Miles per gallon. It shows how far a vehicle can travel using one gallon of fuel.</p></div>
+          <div class="quick-card"><b>Is premium petrol worth it?</b><p>Usually not for standard vehicles unless the manufacturer recommends it or your vehicle benefits from higher-octane fuel.</p></div>
+          <div class="quick-card"><b>What does p/kWh mean?</b><p>Pence per kilowatt-hour. It is a common way to show EV charging cost.</p></div>
+          <div class="quick-card"><b>Does every EV use the same connector?</b><p>No. Many modern EVs use CCS for rapid charging and Type 2 for slower AC charging, but you should check your vehicle.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz tools</h2>
+        <div class="grid">
+          <a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby petrol, diesel and EV prices.</p></a>
+          <a class="card" href="/fuel-guide.html"><h3>Fuel Guide</h3><p>Understand E10, E5, diesel, premium fuel and AdBlue.</p></a>
+          <a class="card" href="/driving-costs-guide.html"><h3>Driving Costs</h3><p>Understand the real cost of running a vehicle.</p></a>
+          <a class="card" href="/clean-air-zones.html"><h3>Clean Air Zones</h3><p>Understand ULEZ, CAZ and congestion charges.</p></a>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Useful official links</h2>
+        <p>For vehicle-specific rules, charges and fuel compatibility, always check official sources or your vehicle handbook.</p>
+        <div class="source-links">
+          <a href="https://www.gov.uk/check-vehicle-tax" target="_blank" rel="noopener">Check vehicle tax ↗</a>
+          <a href="https://www.gov.uk/check-mot-history" target="_blank" rel="noopener">Check MOT history ↗</a>
+          <a href="https://www.gov.uk/guidance/e10-petrol-explained" target="_blank" rel="noopener">E10 petrol guidance ↗</a>
+          <a href="https://www.gov.uk/clean-air-zones" target="_blank" rel="noopener">Clean Air Zones ↗</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+  <script>
+    (function(){
+      const search = document.getElementById('glossarySearch');
+      const cards = Array.from(document.querySelectorAll('.term-card'));
+      const groups = Array.from(document.querySelectorAll('.glossary-group'));
+      function normalise(value){ return (value || '').toLowerCase().trim(); }
+      function applyFilter(value){
+        const q = normalise(value);
+        cards.forEach(card => {
+          const text = normalise(card.textContent + ' ' + (card.dataset.keywords || ''));
+          card.classList.toggle('is-hidden', !!q && !text.includes(q));
+        });
+        groups.forEach(group => {
+          const visible = Array.from(group.querySelectorAll('.term-card')).some(card => !card.classList.contains('is-hidden'));
+          group.classList.toggle('is-hidden', !!q && !visible);
+        });
+      }
+      if(search){
+        search.addEventListener('input', () => applyFilter(search.value));
+      }
+      document.querySelectorAll('.term-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          if(search){
+            search.value = chip.dataset.term || chip.textContent.trim();
+            applyFilter(search.value);
+            search.scrollIntoView({behavior:'smooth', block:'center'});
+            setTimeout(() => search.focus(), 250);
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
