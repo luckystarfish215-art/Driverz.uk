@@ -1,1 +1,182 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Terms & Privacy | driverz.uk</title><meta name="description" content="Terms of use and privacy information for Driverz."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><h1>Terms of Use</h1><div class="safety-box"><h3>Safety Warning</h3><p>Do not use this website while operating a moving vehicle. Always pull over safely, or ask a passenger to use the site.</p></div><p>Welcome to driverz.uk. By using this service, you agree to the following terms.</p><h2>1. Data Accuracy</h2><p>Fuel prices, EV charging costs, opening times, distances and external links are provided for guidance only. Prices and availability can change quickly. Always verify prices, opening hours and restrictions before travelling.</p><h2>2. Use of Service</h2><p>You may use this site for personal, non-commercial use. Automated scraping, abuse of endpoints or attempts to overload the service are prohibited.</p><h2>3. External Services</h2><p>Driverz may link to third-party websites and official services. We are not responsible for the accuracy, availability or policies of third-party sites.</p><h1 id="privacy_policy" style="margin-top:80px">Privacy Policy</h1><p>We respect your privacy. This policy explains how Driverz handles basic usage information.</p><h2>Location Data</h2><p>If you choose to use your current location, your browser provides approximate GPS coordinates so the site can show nearby results. Location is used for the search request and is not intended to identify you personally.</p><h2>Cookies and Local Storage</h2><p>The site may use browser storage to remember simple preferences such as fuel type, search area or display choices. You can clear this data in your browser settings.</p><h2>Analytics</h2><p>Analytics code may be added after launch to understand general site usage and improve the service. Any analytics should be configured with privacy and performance in mind.</p><h2>Contact</h2><p>For corrections, feedback or privacy questions, please use the contact page.</p></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terms & Privacy | driverz.uk</title>
+  <meta name="description" content="Terms of use, privacy policy, cookies, local storage, location data and data accuracy information for Driverz.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .terms-page{max-width:1040px;margin:0 auto;padding:44px 18px 64px}
+    .terms-hero{margin-bottom:22px}
+    .terms-hero h1{font-size:clamp(2.6rem,8vw,5.9rem);line-height:.86;letter-spacing:-.085em;margin:8px 0 16px;color:#3f3f3f}
+    .terms-hero p{font-size:1.08rem;color:#666;max-width:780px;margin:0;line-height:1.58}
+    .terms-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start}
+    .terms-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .terms-panel h2{font-size:clamp(1.45rem,4vw,2.55rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .terms-panel h3{font-size:1.06rem;letter-spacing:-.035em;margin:18px 0 7px;color:#444}
+    .terms-panel p,.terms-panel li{color:#626262;line-height:1.58}
+    .terms-panel p{margin:0 0 12px}.terms-panel p:last-child{margin-bottom:0}
+    .terms-panel ul{margin:10px 0 0;padding-left:1.15rem}.terms-panel li{margin:7px 0}
+    .safety-box{background:#fff6e6;border:1px solid #ffe0a3;border-radius:22px;padding:18px;margin:18px 0;color:#684700}
+    .safety-box b{display:block;color:#4b3400;letter-spacing:-.03em;margin-bottom:6px}
+    .quick-answer{background:#eaf6ff;border:1px solid #cfeeff;border-radius:22px;padding:18px;color:#35546b;font-size:1.02rem;font-weight:750;line-height:1.5;margin-top:18px}
+    .summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .summary-card{background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:17px}
+    .summary-card b{display:block;color:#444;letter-spacing:-.035em;margin-bottom:6px}
+    .summary-card span{display:block;color:#666;line-height:1.45;font-size:.95rem}
+    .terms-nav{position:sticky;top:82px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.05)}
+    .terms-nav b{display:block;color:#444;letter-spacing:-.035em;margin-bottom:10px}
+    .terms-nav a{display:block;text-decoration:none;color:#666;font-weight:800;font-size:.92rem;padding:9px 10px;border-radius:12px}
+    .terms-nav a:hover{background:#f3f9ff;color:#444}
+    .link-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.link-row a{display:inline-flex;border:1px solid #ddd;border-radius:999px;padding:10px 13px;background:#fff;color:#444;font-weight:850;font-size:.9rem;text-decoration:none}.link-row a:hover{background:#f7f7f7}
+    .small-muted{font-size:.92rem;color:#777}.updated-pill{display:inline-flex;background:#f3f3f3;border:1px solid #e6e6e6;border-radius:999px;padding:8px 12px;color:#666;font-weight:850;font-size:.9rem;margin-top:14px}
+    @media(max-width:860px){.terms-page{padding-top:34px}.terms-layout{grid-template-columns:1fr}.terms-nav{position:static;order:-1}.summary-grid{grid-template-columns:1fr}.terms-panel{padding:20px;border-radius:24px}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="terms-page">
+    <section class="terms-hero">
+      <div class="eyebrow">Terms & Privacy</div>
+      <h1>Clear rules for a simple driving utility.</h1>
+      <p>Driverz is designed to provide quick UK driving information. This page explains the basic terms of use, data accuracy limits, privacy approach, cookies, browser storage and location use.</p>
+      <span class="updated-pill">Last updated: May 2026</span>
+      <div class="quick-answer">Quick answer: use Driverz as a helpful guide, not as the only source for safety, legal, price or journey decisions. Always check official sources when the result matters.</div>
+    </section>
+
+    <section class="terms-layout">
+      <div>
+        <section class="terms-panel" id="summary">
+          <h2>Simple summary</h2>
+          <p>This summary is here to make the important points easier to understand. The fuller terms below still apply.</p>
+          <div class="summary-grid">
+            <div class="summary-card"><b>Use safely</b><span>Do not use Driverz while operating a moving vehicle.</span></div>
+            <div class="summary-card"><b>Check before travelling</b><span>Fuel prices, charger data, opening hours and charges can change.</span></div>
+            <div class="summary-card"><b>Location is optional</b><span>Location helps show nearby results. You can search manually instead.</span></div>
+            <div class="summary-card"><b>Preferences may be saved</b><span>Your browser may remember location, radius, fuel type and display choices.</span></div>
+            <div class="summary-card"><b>Analytics may be used</b><span>Analytics and advertising tools should only be enabled with consent where required.</span></div>
+            <div class="summary-card"><b>External links differ</b><span>Third-party websites and official services have their own terms and privacy policies.</span></div>
+          </div>
+        </section>
+
+        <section class="terms-panel" id="terms">
+          <h2>Terms of use</h2>
+          <div class="safety-box"><b>Safety warning</b>Do not use this website while driving or operating a vehicle. Pull over safely first, or ask a passenger to use it.</div>
+
+          <h3>1. Using Driverz</h3>
+          <p>By using Driverz, you agree to use the site responsibly and only for lawful purposes. Driverz is provided as an information and utility service for UK drivers.</p>
+
+          <h3>2. Guidance only</h3>
+          <p>Fuel prices, EV charging prices, station details, opening times, distances, route estimates, calculator results, clean air zone information, penalties and guide content are provided for general guidance only. They may be incomplete, delayed or inaccurate.</p>
+
+          <h3>3. No professional advice</h3>
+          <p>Driverz does not provide legal, financial, insurance, mechanical, medical or emergency advice. For official rules, fines, taxes, charges or emergency instructions, use the relevant official service or contact the appropriate authority.</p>
+
+          <h3>4. No guarantee of availability</h3>
+          <p>Driverz may change, pause, remove or update features at any time. Data feeds, external APIs and third-party services may be unavailable without notice.</p>
+
+          <h3>5. Acceptable use</h3>
+          <p>You must not misuse Driverz, attempt to overload the service, bypass restrictions, scrape data aggressively, interfere with site security, or use the site in a way that could harm the service or other users.</p>
+
+          <h3>6. External links and services</h3>
+          <p>Driverz may link to official services, maps, data providers, charging networks, advertisers or other third-party websites. Those services are controlled by their own operators and may have separate terms, prices and privacy policies.</p>
+
+          <h3>7. Advertising and sponsorship</h3>
+          <p>Driverz may include advertising, sponsorships, affiliate links or partner placements in the future. Sponsored content should be presented clearly and should not affect the aim of keeping the site simple and useful.</p>
+
+          <h3>8. Liability</h3>
+          <p>To the maximum extent permitted by law, Driverz is not responsible for losses caused by reliance on incomplete or outdated information, third-party services, data feed problems, calculation assumptions, service interruptions or user misuse.</p>
+        </section>
+
+        <section class="terms-panel" id="privacy">
+          <h2>Privacy policy</h2>
+          <p>Driverz aims to keep privacy simple. The site should collect only what is useful for providing and improving the service.</p>
+
+          <h3>Information you provide</h3>
+          <p>If you use the contact form, you may provide your name, email address, enquiry type, subject and message. This information is used to respond to your enquiry.</p>
+
+          <h3>Location information</h3>
+          <p>If you choose to use current location, your browser may share approximate coordinates so Driverz can show nearby fuel or EV results. You can deny location access and search manually instead.</p>
+          <p>Location preferences may be stored locally in your browser so Driverz can remember your selected area, radius and fuel type next time.</p>
+
+          <h3>Calculator inputs</h3>
+          <p>Calculator pages may process values such as mileage, MPG, fuel price, electricity price, battery size or trip distance. Some tools may store entries in your browser only, for example mileage tracker entries, unless a future feature clearly says otherwise.</p>
+
+          <h3>Server and technical information</h3>
+          <p>Like most websites, hosting providers may process technical information such as IP address, browser type, device information, timestamps, requested pages and error logs for security, performance and reliability.</p>
+        </section>
+
+        <section class="terms-panel" id="cookies">
+          <h2>Cookies and browser storage</h2>
+          <p>Driverz may use cookies and local browser storage to support basic functionality, remember preferences and improve the service.</p>
+          <ul>
+            <li><strong>Essential storage:</strong> used for settings such as selected location, fuel type, radius, EV connector preference or cookie choice.</li>
+            <li><strong>Analytics cookies:</strong> may be used after analytics is added to understand general usage and improve performance.</li>
+            <li><strong>Advertising cookies:</strong> may be used in the future if advertising networks are added, subject to consent where required.</li>
+          </ul>
+          <p>You can clear cookies and local storage in your browser settings. If you do this, Driverz may forget your saved preferences.</p>
+        </section>
+
+        <section class="terms-panel" id="data">
+          <h2>Data accuracy</h2>
+          <p>Driverz uses available data sources and calculations to make driving information easier to understand. However, real-world information changes quickly.</p>
+          <ul>
+            <li>Fuel prices may change before the site updates.</li>
+            <li>EV charger prices, availability and connector details may be missing or operator-dependent.</li>
+            <li>Opening hours may change due to holidays, maintenance or local conditions.</li>
+            <li>Distance and cost estimates depend on assumptions and may not match real driving conditions.</li>
+            <li>Clean air zone, congestion charge, tax and driving rule information should be checked against official sources.</li>
+          </ul>
+          <p>Before making an important journey, payment or legal decision, check the station, operator or official authority directly.</p>
+        </section>
+
+        <section class="terms-panel" id="rights">
+          <h2>Your choices</h2>
+          <p>You can control many privacy choices from your browser and device settings.</p>
+          <ul>
+            <li>Allow or block location permission.</li>
+            <li>Clear saved location, radius, fuel type and calculator entries from browser storage.</li>
+            <li>Accept or reject non-essential cookies if a consent banner is shown.</li>
+            <li>Use the contact page for privacy questions or data correction requests.</li>
+          </ul>
+          <div class="link-row">
+            <a href="/contact.html?subject=Privacy%20question">Contact about privacy</a>
+            <a href="/faq.html">Read the FAQ</a>
+          </div>
+        </section>
+
+        <section class="terms-panel" id="contact">
+          <h2>Contact</h2>
+          <p>For privacy questions, data corrections, fuel station issues, advertising enquiries or general feedback, use the contact page.</p>
+          <p class="small-muted">Please do not send sensitive personal information through the contact form.</p>
+          <div class="link-row">
+            <a href="/contact.html">Contact Driverz</a>
+            <a href="/about.html">About Driverz</a>
+            <a href="/emergency.html">Emergency contacts</a>
+          </div>
+        </section>
+      </div>
+
+      <aside class="terms-nav" aria-label="Terms and privacy navigation">
+        <b>On this page</b>
+        <a href="#summary">Summary</a>
+        <a href="#terms">Terms of use</a>
+        <a href="#privacy">Privacy policy</a>
+        <a href="#cookies">Cookies & storage</a>
+        <a href="#data">Data accuracy</a>
+        <a href="#rights">Your choices</a>
+        <a href="#contact">Contact</a>
+      </aside>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
