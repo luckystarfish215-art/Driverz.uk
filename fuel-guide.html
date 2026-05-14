@@ -1,1 +1,171 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fuel Guide | driverz.uk</title><meta name="description" content="A simple UK guide to petrol, diesel, E10, E5 and premium fuel."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header><main class="article"><div class="eyebrow">Guides & Glossary</div><h1>Fuel Guide</h1><p>A simple UK guide to petrol, diesel, E10, E5 and premium fuel.</p><div class="quick-answer"><b>Quick answer:</b> Use E10 for most petrol cars made since 2011 unless your vehicle requires E5. Diesel drivers should compare B7 prices and avoid misfuelling.</div><h2>What to know</h2><ul><li>Petrol E10 is the standard grade at most UK forecourts.</li><li>E5 often costs more and is mainly useful for incompatible or specialist vehicles.</li><li>Premium fuel may help some engines, but it is not automatically better value for every car.</li></ul><h2>Related tools</h2><div class="grid"><a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby prices.</p></a><a class="card" href="/trip-calculator.html"><h3>Trip Calculator</h3><p>Estimate journey cost.</p></a><a class="card" href="/emergency.html"><h3>Emergency Contacts</h3><p>Useful contacts in one place.</p></a></div></main><driverz-footer></driverz-footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fuel Guide | driverz.uk</title>
+  <meta name="description" content="Simple UK fuel guide: E10, E5, diesel, premium fuel, AdBlue and practical tips for choosing the right fuel.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <style>
+    .guide-hero{max-width:1040px;margin:0 auto;padding:42px 18px 16px}
+    .guide-hero h1{font-size:clamp(2.4rem,7vw,5.4rem);line-height:.88;letter-spacing:-.08em;margin:8px 0 16px;color:#3f3f3f}
+    .guide-hero p{font-size:1.08rem;color:#666;max-width:720px;margin:0}
+    .guide-shell{max-width:1040px;margin:0 auto;padding:18px 18px 58px}
+    .answer-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05);margin-bottom:18px}
+    .answer-panel h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px;color:#444}
+    .answer-panel p{color:#555;margin:0;line-height:1.55}
+    .fuel-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+    .fuel-choice{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .fuel-choice strong{display:block;font-size:1.25rem;letter-spacing:-.04em;color:#444;margin-bottom:8px}
+    .fuel-choice span{display:block;color:#666;font-size:.95rem;line-height:1.45}
+    .guide-section{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .guide-section h2{font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.06em;line-height:.96;margin:0 0 12px;color:#444}
+    .guide-section h3{font-size:1.18rem;letter-spacing:-.035em;margin:18px 0 8px;color:#444}
+    .guide-section p,.guide-section li{color:#5f5f5f;line-height:1.58}
+    .guide-section ul{padding-left:20px;margin:10px 0 0}
+    .mini-table{display:grid;gap:10px;margin-top:14px}
+    .fuel-row{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:start;background:#f7f7f7;border:1px solid #ececec;border-radius:16px;padding:14px}
+    .fuel-row b{color:#444;font-size:1rem}
+    .fuel-row span{color:#666;line-height:1.45}
+    .myth-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .myth-card{background:#f7f7f7;border:1px solid #ececec;border-radius:18px;padding:15px}
+    .myth-card b{display:block;color:#444;margin-bottom:6px}
+    .myth-card p{margin:0;color:#666}
+    .quick-list{display:grid;gap:10px;margin-top:14px}
+    .quick-item{background:#f7f7f7;border:1px solid #ececec;border-radius:16px;padding:14px}
+    .quick-item b{display:block;color:#444;margin-bottom:5px}
+    .quick-item p{margin:0;color:#666}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    @media(max-width:850px){
+      .fuel-choice-grid,.myth-grid{grid-template-columns:1fr}
+      .fuel-row{grid-template-columns:1fr;gap:6px}
+      .guide-shell{padding-bottom:42px}
+    }
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">Guides & Glossary</div>
+      <h1>Fuel Guide</h1>
+      <p>A simple UK guide to petrol, diesel, E10, E5, premium fuel and the small choices that affect running cost.</p>
+    </section>
+
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>Most modern petrol cars can use E10. If your vehicle is not compatible with E10, use E5 super grade. Diesel drivers should use the correct diesel grade and avoid misfuelling. Premium fuel is not automatically better value unless your vehicle recommends or benefits from it.</p>
+      </div>
+
+      <div class="fuel-choice-grid">
+        <div class="fuel-choice">
+          <strong>E10 petrol</strong>
+          <span>Usually the standard petrol choice for most modern petrol cars in the UK.</span>
+        </div>
+        <div class="fuel-choice">
+          <strong>E5 petrol</strong>
+          <span>Usually sold as super grade petrol and useful for older or incompatible vehicles.</span>
+        </div>
+        <div class="fuel-choice">
+          <strong>Diesel</strong>
+          <span>For diesel vehicles only. Always check before filling to avoid costly misfuelling.</span>
+        </div>
+      </div>
+
+      <section class="guide-section">
+        <h2>What the pump labels mean</h2>
+        <p>UK forecourts use labels to help drivers choose the correct fuel. The letter shows the fuel family and the number shows the maximum renewable fuel blend.</p>
+        <div class="mini-table">
+          <div class="fuel-row"><b>E10</b><span>Petrol containing up to 10% ethanol. This is the standard petrol grade for most modern petrol vehicles.</span></div>
+          <div class="fuel-row"><b>E5</b><span>Petrol containing up to 5% ethanol. Often sold as super grade petrol and commonly used by vehicles that cannot use E10.</span></div>
+          <div class="fuel-row"><b>B7</b><span>Diesel containing up to 7% biodiesel. This is the common diesel label at UK pumps.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>E10 vs E5: which should you use?</h2>
+        <p>For most drivers, E10 is the normal choice. Most petrol vehicles on UK roads can use E10, and cars built since 2011 are generally compatible. If your car is older, imported, specialist, classic, or you are not sure, check compatibility first.</p>
+        <h3>Use E10 if:</h3>
+        <ul>
+          <li>Your vehicle is compatible with E10.</li>
+          <li>You want the usual standard petrol option.</li>
+          <li>Your handbook or manufacturer does not require super grade fuel.</li>
+        </ul>
+        <h3>Use E5 if:</h3>
+        <ul>
+          <li>Your vehicle is not E10 compatible.</li>
+          <li>You drive an older, classic or specialist petrol vehicle.</li>
+          <li>Your manufacturer recommends higher octane fuel.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section">
+        <h2>Is premium fuel worth it?</h2>
+        <p>Premium fuel can be useful for some performance engines or vehicles where the manufacturer recommends higher octane petrol. For many everyday cars, the extra cost may not deliver enough benefit to make it better value.</p>
+        <div class="quick-list">
+          <div class="quick-item"><b>Best rule</b><p>Follow your vehicle handbook first.</p></div>
+          <div class="quick-item"><b>Value check</b><p>If premium fuel costs more, compare whether MPG or performance actually improves for your driving.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Diesel basics</h2>
+        <p>Diesel vehicles must use diesel fuel. Putting petrol into a diesel vehicle, or diesel into a petrol vehicle, can cause serious damage. If you realise the mistake before driving, do not start the engine. Ask the forecourt or a recovery service for help.</p>
+        <h3>AdBlue</h3>
+        <p>Many modern diesel vehicles also use AdBlue to reduce emissions. AdBlue is not fuel and must go into the separate AdBlue tank, not the diesel tank.</p>
+      </section>
+
+      <section class="guide-section">
+        <h2>Common fuel mistakes</h2>
+        <div class="myth-grid">
+          <div class="myth-card"><b>“Premium is always better”</b><p>Not always. It depends on the engine and whether the extra cost produces a real benefit.</p></div>
+          <div class="myth-card"><b>“All petrol cars can use E10”</b><p>Most can, but not all. Older and specialist vehicles may need E5.</p></div>
+          <div class="myth-card"><b>“E5 and E10 labels are brand names”</b><p>No. They describe ethanol content in petrol.</p></div>
+          <div class="myth-card"><b>“AdBlue is a diesel additive”</b><p>It is used by emissions systems, but it does not go into the diesel tank.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Quick fuel-saving tips</h2>
+        <ul>
+          <li>Check tyre pressure when tyres are cold.</li>
+          <li>Remove unused roof boxes and heavy items.</li>
+          <li>Accelerate smoothly and avoid unnecessary hard braking.</li>
+          <li>Compare nearby prices before filling up.</li>
+          <li>Avoid driving far out of your way unless the saving is worth the extra fuel.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz tools</h2>
+        <div class="grid">
+          <a class="card" href="/"><h3>Fuel Price Finder</h3><p>Find nearby petrol, diesel and EV prices.</p></a>
+          <a class="card" href="/trip-calculator.html"><h3>Trip Cost Calculator</h3><p>Estimate the fuel cost of a journey.</p></a>
+          <a class="card" href="/cpm-tracker.html"><h3>CPM / Mileage Tracker</h3><p>Work out your real cost per mile.</p></a>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Useful official links</h2>
+        <p>For vehicle-specific compatibility, always check the official checker or your vehicle handbook.</p>
+        <div class="source-links">
+          <a href="https://www.gov.uk/guidance/e10-petrol-explained" target="_blank" rel="noopener">GOV.UK E10 petrol explained ↗</a>
+          <a href="https://www.gov.uk/check-vehicle-e10-petrol" target="_blank" rel="noopener">Check E10 compatibility ↗</a>
+          <a href="https://www.gov.uk/government/news/new-labelling-requirements-to-help-motorists-pick-the-right-fuel-at-home-and-abroad" target="_blank" rel="noopener">Fuel pump labels ↗</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>
