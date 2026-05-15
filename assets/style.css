@@ -210,3 +210,18 @@
 .compare-price{font-size:1.45rem;font-weight:1000;letter-spacing:-.05em;color:#555;line-height:1}
 .compare-info strong{display:block;font-size:1rem;color:#555;letter-spacing:-.03em;margin-bottom:4px}.compare-info div{color:#666;font-size:.9rem;font-weight:750}.compare-info small{display:block;color:#777;margin-top:4px;line-height:1.25}.compare-actions{display:flex;align-items:center;gap:8px;justify-content:flex-end}.compare-actions em{font-style:normal;background:#eef7ff;color:#357199;border-radius:999px;padding:7px 9px;font-size:.75rem;font-weight:900;white-space:nowrap}.compare-map{padding:10px 13px}
 @media(max-width:650px){.compare-toggle{display:grid;grid-template-columns:1fr auto}.compare-toggle small{grid-column:1/2}.compare-row{grid-template-columns:1fr;gap:8px}.compare-price{font-size:1.8rem}.compare-actions{justify-content:space-between}.compare-map{justify-content:center;min-width:130px}}
+
+
+/* Compare list: always visible, no confusing expand/collapse control */
+.compare-toggle {
+  cursor: default;
+  pointer-events: none;
+}
+.compare-toggle .plus,
+.compare-toggle .toggle-icon,
+.compare-toggle::after {
+  display: none !important;
+}
+.compare-list[hidden] {
+  display: block;
+}

@@ -64,10 +64,11 @@ function renderCompare(compareData){
   if(!wrap||!list||!toggle)return;
   const rows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,5);
   const fallback=!!(compareData && !Array.isArray(compareData) && compareData.fallback);
-  if(!rows.length){wrap.hidden=true;list.hidden=true;toggle.setAttribute('aria-expanded','false');list.innerHTML='';return;}
+  if(!rows.length){wrap.hidden=true;list.innerHTML='';return;}
   const noun=state.mode==='ev'?'chargers':'stations';
   const title=fallback?(state.mode==='ev'?'Closest nearby chargers':'Closest nearby stations'):(state.mode==='ev'?'Compare nearby chargers':'Compare nearby stations');
-  toggle.querySelector('span').textContent=title;
+  const titleEl = toggle.querySelector('span');
+  if (titleEl) titleEl.textContent = title;
   if(summary) summary.textContent=fallback?`No ${noun} within ${formatRadius(state.radius)} — showing the closest ${rows.length} options`:`Top ${rows.length} nearby ${noun} within ${formatRadius(state.radius)}`;
   list.innerHTML=rows.map((item,i)=>{
     const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
@@ -85,6 +86,7 @@ function renderCompare(compareData){
     </article>`;
   }).join('');
   wrap.hidden=false;
+  list.hidden=false;
 }
 
 function showData(d){
@@ -113,5 +115,5 @@ async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[ke
 async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
 function useLocation(){if(!navigator.geolocation){setStatus('Location is not available in this browser. Search manually instead.');return}setStatus('Finding your location…');navigator.geolocation.getCurrentPosition(pos=>{state.lat=pos.coords.latitude;state.lng=pos.coords.longitude;state.label='Your location';saveLocation();loadFuel()},()=>{setStatus('Location permission was not granted. Using your saved location instead.');loadFuel()},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})}
-function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});$('compare-toggle')?.addEventListener('click',()=>{const list=$('compare-list');if(!list)return;const open=list.hidden;list.hidden=!open;$('compare-toggle').setAttribute('aria-expanded',open?'true':'false')});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
+function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
 document.addEventListener('DOMContentLoaded',init);
