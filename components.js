@@ -12,3 +12,30 @@ class DriverzHeader extends HTMLElement{connectedCallback(){
 customElements.define('driverz-header',DriverzHeader);
 class DriverzFooter extends HTMLElement{connectedCallback(){const y=new Date().getFullYear();this.innerHTML=`<footer class="site-footer" id="site-footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-col"><h4>Tools</h4><a href="/">Fuel Price Finder</a><a href="/trip-calculator.html">Trip Cost Calculator</a><a href="/cpm-tracker.html">CPM / Mileage Tracker</a><a href="/ev-vs-petrol.html">EV vs Petrol</a><a href="/ev-home-savings.html">EV Home Savings</a><a href="/ev-charge-timer.html">EV Charge Timer</a></div><div class="footer-col"><h4>Guides & Glossary</h4><a href="/fuel-guide.html">Fuel Guide</a><a href="/driving-costs-guide.html">Driving Costs</a><a href="/uk-driving-rules.html">UK Driving Rules</a><a href="/clean-air-zones.html">Clean Air Zones</a><a href="/glossary.html">Glossary</a></div><div class="footer-col"><h4>Driver Services</h4><a href="/emergency.html">Emergency Contacts</a><a href="https://www.gov.uk/check-mot-status" target="_blank" rel="noopener">Check MOT Status ↗</a><a href="https://www.gov.uk/check-vehicle-tax" target="_blank" rel="noopener">Check Vehicle Tax ↗</a><a href="https://www.gov.uk/pay-dartford-crossing-charge" target="_blank" rel="noopener">Pay Dartford Charge ↗</a><a href="https://www.gov.uk/report-pothole" target="_blank" rel="noopener">Report a Pothole ↗</a></div><div class="footer-col"><h4>About</h4><a href="/about.html">About Driverz</a><a href="/contact.html">Contact</a><a href="/advertise.html">Advertise</a><a href="/terms.html">Terms & Privacy</a></div><div class="footer-col"><h4>Quick Cities</h4><a href="/?city=London#fuel-card">London</a><a href="/?city=Birmingham#fuel-card">Birmingham</a><a href="/?city=Manchester#fuel-card">Manchester</a><a href="/?city=Reading#fuel-card">Reading</a><a href="/?city=Glasgow#fuel-card">Glasgow</a></div></div><div class="footer-bottom"><span>© ${y} driverz.uk — Drive smarter.</span><span>Fuel data can change quickly. Always confirm price, availability and opening times before travelling.</span></div></div></footer>`;}}
 customElements.define('driverz-footer',DriverzFooter);
+
+
+class DriverzCookieConsent extends HTMLElement{connectedCallback(){
+  const key='driverzCookieChoice';
+  const choice=localStorage.getItem(key);
+  if(choice==='reject'){window['ga-disable-G-4FBD17BW7V']=true;}
+  if(choice){this.remove();return;}
+  this.innerHTML=`<div class="cookie-consent" role="region" aria-label="Privacy and cookie notice">
+    <div class="cookie-copy"><strong>Privacy choices</strong><span>Driverz uses cookies and local browser storage for analytics, saved preferences and optional location features.</span></div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn accept">Accept</button>
+      <button type="button" class="cookie-btn reject">Reject</button>
+      <a href="/terms.html">Privacy</a>
+    </div>
+  </div>`;
+  const accept=()=>{localStorage.setItem(key,'accept');this.remove();};
+  const reject=()=>{localStorage.setItem(key,'reject');window['ga-disable-G-4FBD17BW7V']=true;this.remove();};
+  this.querySelector('.accept')?.addEventListener('click',accept);
+  this.querySelector('.reject')?.addEventListener('click',reject);
+}}
+customElements.define('driverz-cookie-consent',DriverzCookieConsent);
+
+document.addEventListener('DOMContentLoaded',()=>{
+  if(!document.querySelector('driverz-cookie-consent')){
+    document.body.appendChild(document.createElement('driverz-cookie-consent'));
+  }
+});
