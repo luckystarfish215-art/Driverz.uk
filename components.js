@@ -14,11 +14,37 @@ class DriverzFooter extends HTMLElement{connectedCallback(){const y=new Date().g
 customElements.define('driverz-footer',DriverzFooter);
 
 
+function loadDriverzAnalytics(){
+  if(window.driverzAnalyticsLoaded)return;
+  window.driverzAnalyticsLoaded=true;
+
+  const s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-4FBD17BW7V';
+  document.head.appendChild(s);
+
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+
+  gtag('js', new Date());
+  gtag('config', 'G-4FBD17BW7V');
+}
+
 class DriverzCookieConsent extends HTMLElement{connectedCallback(){
   const key='driverzCookieChoice';
   const choice=localStorage.getItem(key);
-  if(choice==='reject'){window['ga-disable-G-4FBD17BW7V']=true;}
-  if(choice){this.remove();return;}
+
+  if(choice==='accept'){
+    loadDriverzAnalytics();
+    this.remove();
+    return;
+  }
+
+  if(choice==='reject'){
+    window['ga-disable-G-4FBD17BW7V']=true;
+    this.remove();
+    return;
+  }
   this.innerHTML=`<div class="cookie-consent" role="region" aria-label="Privacy and cookie notice">
     <div class="cookie-copy"><strong>Privacy choices</strong><span>Driverz uses cookies and local browser storage for analytics, saved preferences and optional location features.</span></div>
     <div class="cookie-actions">
@@ -27,7 +53,11 @@ class DriverzCookieConsent extends HTMLElement{connectedCallback(){
       <a href="/terms.html">Privacy</a>
     </div>
   </div>`;
-  const accept=()=>{localStorage.setItem(key,'accept');this.remove();};
+  const accept=()=>{
+    localStorage.setItem(key,'accept');
+    loadDriverzAnalytics();
+    this.remove();
+  };
   const reject=()=>{localStorage.setItem(key,'reject');window['ga-disable-G-4FBD17BW7V']=true;this.remove();};
   this.querySelector('.accept')?.addEventListener('click',accept);
   this.querySelector('.reject')?.addEventListener('click',reject);
