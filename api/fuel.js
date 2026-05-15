@@ -101,11 +101,13 @@ function evNearbyPriceSummary(chargers, selectedId) {
         .join(' · ');
 }
 
-function fuelCompareRows(stations, best) {
+function fuelCompareRows(stations, best, sortMode = 'price') {
     const seen = new Set();
     return (stations || [])
         .filter(s => s && isValidFuelPrice(s.price))
-        .sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist || 999) - parseFloat(b.dist || 999))
+        .sort((a, b) => sortMode === 'distance'
+            ? (parseFloat(a.dist || 999) - parseFloat(b.dist || 999) || parseFloat(a.price) - parseFloat(b.price))
+            : (parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist || 999) - parseFloat(b.dist || 999)))
         .filter(s => {
             const key = `${(s.name || s.brand || '').toLowerCase()}|${(s.address || '').toLowerCase()}|${s.lat}|${s.lng}`;
             if (seen.has(key)) return false;
@@ -378,8 +380,12 @@ export default async function handler(req, res) {
             validStations.sort((a, b) => parseFloat(a.dist) - parseFloat(b.dist));
             best = validStations[0];
         }
-        const compareSource = stationsInRadius.length > 0 ? stationsInRadius : validStations;
-        const compare = fuelCompareRows(compareSource, best);
+        const compareFallback = stationsInRadius.length === 0;
+        const compareSource = compareFallback ? validStations : stationsInRadius;
+        const compare = {
+            fallback: compareFallback,
+            items: fuelCompareRows(compareSource, best, compareFallback ? 'distance' : 'price')
+        };
         
         return res.status(200).json({
             price: best.price.toString(), 
