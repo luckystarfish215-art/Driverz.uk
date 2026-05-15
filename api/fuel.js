@@ -101,6 +101,61 @@ function evNearbyPriceSummary(chargers, selectedId) {
         .join(' · ');
 }
 
+function fuelCompareRows(stations, best) {
+    const seen = new Set();
+    return (stations || [])
+        .filter(s => s && isValidFuelPrice(s.price))
+        .sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist || 999) - parseFloat(b.dist || 999))
+        .filter(s => {
+            const key = `${(s.name || s.brand || '').toLowerCase()}|${(s.address || '').toLowerCase()}|${s.lat}|${s.lng}`;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .slice(0, 5)
+        .map(s => ({
+            price: parseFuelPrice(s.price).toFixed(1),
+            unit: 'p',
+            priceText: `${parseFuelPrice(s.price).toFixed(1)}p`,
+            name: s.name || s.brand || 'Fuel station',
+            dist: Number.isFinite(parseFloat(s.dist)) ? `${parseFloat(s.dist).toFixed(1)} mi` : '',
+            opening: s.opening || 'Opening times unavailable',
+            address: s.address || '',
+            lat: s.lat,
+            lng: s.lng,
+            isBest: best && Math.abs(parseFloat(s.lat) - parseFloat(best.lat)) < 0.00001 && Math.abs(parseFloat(s.lng) - parseFloat(best.lng)) < 0.00001
+        }));
+}
+
+function evCompareRows(chargers, selectedId) {
+    const seen = new Set();
+    return (chargers || [])
+        .filter(c => c && c.AddressInfo)
+        .sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999))
+        .filter(c => {
+            const key = `${(c.AddressInfo?.Title || '').toLowerCase()}|${c.AddressInfo?.Latitude}|${c.AddressInfo?.Longitude}`;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .slice(0, 5)
+        .map(c => {
+            const price = evDisplayPrice(c.UsageCost || '');
+            const connectors = evConnectorSummary(c);
+            return {
+                priceText: price === 'price not listed' ? 'Price not listed' : price,
+                name: c.AddressInfo.Title || 'EV charger',
+                dist: Number.isFinite(c.AddressInfo.Distance) ? `${c.AddressInfo.Distance.toFixed(1)} mi` : '',
+                opening: 'Check operator',
+                address: [c.AddressInfo.AddressLine1, c.AddressInfo.Town, c.AddressInfo.Postcode].filter(Boolean).join(', '),
+                lat: c.AddressInfo.Latitude,
+                lng: c.AddressInfo.Longitude,
+                connectors,
+                isBest: c.ID === selectedId
+            };
+        });
+}
+
 export default async function handler(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const lat = parseFloat(url.searchParams.get('lat')) || 51.5074;
@@ -148,6 +203,7 @@ export default async function handler(req, res) {
             const parsedCost = evCostToPrice(cost);
             const connectors = evConnectorSummary(charger);
             const nearbyEvPrices = evNearbyPriceSummary(validChargers, charger.ID);
+            const compare = evCompareRows(validChargers, charger.ID);
             
             return res.status(200).json({
                 price: parsedCost.price,
@@ -159,6 +215,7 @@ export default async function handler(req, res) {
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
                 allPrices: nearbyEvPrices,
+                compare,
                 ...(connectors ? { connectors } : {})
             });
         }
@@ -321,6 +378,8 @@ export default async function handler(req, res) {
             validStations.sort((a, b) => parseFloat(a.dist) - parseFloat(b.dist));
             best = validStations[0];
         }
+        const compareSource = stationsInRadius.length > 0 ? stationsInRadius : validStations;
+        const compare = fuelCompareRows(compareSource, best);
         
         return res.status(200).json({
             price: best.price.toString(), 
@@ -333,6 +392,7 @@ export default async function handler(req, res) {
             opening: best.opening || "Opening times unavailable",
             address: best.address || "",
             allPrices: best.allPrices || "",
+            compare,
             phone: best.phone || ""
         });
         
