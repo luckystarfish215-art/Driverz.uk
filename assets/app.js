@@ -59,15 +59,16 @@ function mapHref(item){
   const q=encodeURIComponent([item?.name,item?.address].filter(Boolean).join(', '));
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
-function renderCompare(items){
+function renderCompare(compareData){
   const wrap=$('compare-nearby'), list=$('compare-list'), toggle=$('compare-toggle'), summary=$('compare-summary');
   if(!wrap||!list||!toggle)return;
-  const rows=Array.isArray(items)?items.filter(Boolean).slice(0,5):[];
+  const rows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,5);
+  const fallback=!!(compareData && !Array.isArray(compareData) && compareData.fallback);
   if(!rows.length){wrap.hidden=true;list.hidden=true;toggle.setAttribute('aria-expanded','false');list.innerHTML='';return;}
   const noun=state.mode==='ev'?'chargers':'stations';
-  const title=state.mode==='ev'?'Compare nearby chargers':'Compare nearby stations';
+  const title=fallback?(state.mode==='ev'?'Closest nearby chargers':'Closest nearby stations'):(state.mode==='ev'?'Compare nearby chargers':'Compare nearby stations');
   toggle.querySelector('span').textContent=title;
-  if(summary) summary.textContent=`Top ${rows.length} nearby ${noun} within ${formatRadius(state.radius)}`;
+  if(summary) summary.textContent=fallback?`No ${noun} within ${formatRadius(state.radius)} — showing the closest ${rows.length} options`:`Top ${rows.length} nearby ${noun} within ${formatRadius(state.radius)}`;
   list.innerHTML=rows.map((item,i)=>{
     const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
     const connectors=item.connectors?`<span>${item.connectors}</span>`:'';
