@@ -31,6 +31,14 @@
       </aside>
     </section>
 
+    <section class="compare-nearby" id="compare-nearby" hidden>
+      <button class="compare-toggle" id="compare-toggle" type="button" aria-expanded="false">
+        <span>Compare nearby stations</span>
+        <small id="compare-summary">Top nearby options within your radius</small>
+      </button>
+      <div class="compare-list" id="compare-list" hidden></div>
+    </section>
+
     <div class="fuel-controls below-price-controls">
       <div class="radius-control"><div class="range-head"><span>Search radius</span><strong id="radius-value">0.5 mi</strong></div><input class="range" id="radius" type="range" min="0.5" max="10" step="0.5" value="0.5"></div>
       <label class="toggle-row compact"><input type="checkbox" id="exclude-costco"> <span>Exclude Costco <small>(Membership Only)</small></span></label>
