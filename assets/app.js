@@ -54,6 +54,38 @@ function renderQuickCalc(d, formatted){
   box.hidden=false;
 }
 
+function mapHref(item){
+  if(item&&Number.isFinite(+item.lat)&&Number.isFinite(+item.lng)) return `https://www.google.com/maps/dir/?api=1&destination=${item.lat},${item.lng}`;
+  const q=encodeURIComponent([item?.name,item?.address].filter(Boolean).join(', '));
+  return `https://www.google.com/maps/search/?api=1&query=${q}`;
+}
+function renderCompare(items){
+  const wrap=$('compare-nearby'), list=$('compare-list'), toggle=$('compare-toggle'), summary=$('compare-summary');
+  if(!wrap||!list||!toggle)return;
+  const rows=Array.isArray(items)?items.filter(Boolean).slice(0,5):[];
+  if(!rows.length){wrap.hidden=true;list.hidden=true;toggle.setAttribute('aria-expanded','false');list.innerHTML='';return;}
+  const noun=state.mode==='ev'?'chargers':'stations';
+  const title=state.mode==='ev'?'Compare nearby chargers':'Compare nearby stations';
+  toggle.querySelector('span').textContent=title;
+  if(summary) summary.textContent=`Top ${rows.length} nearby ${noun} within ${formatRadius(state.radius)}`;
+  list.innerHTML=rows.map((item,i)=>{
+    const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
+    const connectors=item.connectors?`<span>${item.connectors}</span>`:'';
+    const badge=item.isBest?'<em>Best shown above</em>':'';
+    const href=mapHref(item);
+    return `<article class="compare-row">
+      <div class="compare-price">${price||'Price not listed'}</div>
+      <div class="compare-info">
+        <strong>${item.name||'Nearby option'}</strong>
+        <div>${[item.dist,item.opening,connectors?item.connectors:''].filter(Boolean).join(' · ')}</div>
+        ${item.address?`<small>${item.address}</small>`:''}
+      </div>
+      <div class="compare-actions">${badge}<a class="btn light compare-map" href="${href}" target="_blank" rel="noopener">Directions</a></div>
+    </article>`;
+  }).join('');
+  wrap.hidden=false;
+}
+
 function showData(d){
   const formatted = formatMainPrice(d);
   $('main-price').textContent = formatted.price;
@@ -68,16 +100,17 @@ function showData(d){
   if (d.allPrices) extra.push(d.allPrices);
   if (d.connectors) extra.push(`Connectors ${d.connectors}`);
   renderOtherPrices(extra.join(' · '));
+  renderCompare(d.compare||[]);
   const maps=`https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}`;
   $('directions').href=maps;
   localStorage.setItem('lastPrice_'+state.mode, $('main-price').textContent + $('main-unit').textContent);
   localStorage.setItem('lastMode', state.mode);
   saveLocation();savePrefs();updateCyclePrice()
 }
-async function loadFuel(){state.radius=clampRadius(state.radius);document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';const qc=$('quick-calc');if(qc)qc.hidden=true;updateCyclePrice()}finally{document.body.classList.remove('loading')}}
+async function loadFuel(){state.radius=clampRadius(state.radius);document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';const qc=$('quick-calc');if(qc)qc.hidden=true;renderCompare([]);updateCyclePrice()}finally{document.body.classList.remove('loading')}}
 async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[key]){const c=CITIES[q]||CITIES[key];return {lat:c[0],lng:c[1],label:q}}const res=await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=${encodeURIComponent(q)}`);const data=await res.json();if(data[0])return{lat:+data[0].lat,lng:+data[0].lon,label:q};throw new Error('Place not found')}
 async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
 function useLocation(){if(!navigator.geolocation){setStatus('Location is not available in this browser. Search manually instead.');return}setStatus('Finding your location…');navigator.geolocation.getCurrentPosition(pos=>{state.lat=pos.coords.latitude;state.lng=pos.coords.longitude;state.label='Your location';saveLocation();loadFuel()},()=>{setStatus('Location permission was not granted. Using your saved location instead.');loadFuel()},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})}
-function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
+function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});$('compare-toggle')?.addEventListener('click',()=>{const list=$('compare-list');if(!list)return;const open=list.hidden;list.hidden=!open;$('compare-toggle').setAttribute('aria-expanded',open?'true':'false')});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
 document.addEventListener('DOMContentLoaded',init);
