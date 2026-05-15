@@ -4,12 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About Driverz | driverz.uk</title>
-  <meta name="description" content="About Driverz: a fast, simple UK driving utility site for fuel prices, driving costs, EV tools, clean air zones, rules, glossary and emergency contacts.">
+  <meta name="description" content="About Driverz: a fast UK driving dashboard for nearby fuel prices, compare nearby stations, fill-up estimates, EV charger information, driving cost tools, clean air zones, rules and emergency contacts.">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FBD17BW7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4FBD17BW7V');
+  </script>
   <script src="/components.js" defer></script>
   <style>
     .about-hero{max-width:1040px;margin:0 auto;padding:42px 18px 14px}
@@ -48,7 +56,6 @@
       .step{grid-template-columns:38px 1fr}.step-num{width:38px;height:38px;border-radius:12px}
     }
   </style>
-  <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FBD17BW7V"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-4FBD17BW7V'); </script>
 </head>
 <body>
   <driverz-header></driverz-header>
@@ -57,8 +64,8 @@
     <section class="about-hero">
       <div class="eyebrow">About Driverz</div>
       <h1>Fast UK driving tools, without the clutter.</h1>
-      <p>Driverz is a simple UK driving utility site built around quick answers: nearby fuel prices, driving cost calculators, EV charging estimates, clean air zone guidance, key driving rules and emergency information.</p>
-      <div class="quick-answer">Driverz is designed to feel more like a useful dashboard than a blog. Open it, get the driving information you need, and move on.</div>
+      <p>Driverz is a simple UK driving utility site built around quick answers: nearby fuel prices, compare nearby stations, quick fill-up estimates, EV charging information, driving cost calculators, clean air zone guidance, key driving rules and emergency information.</p>
+      <div class="quick-answer">Driverz is designed to feel more like a useful dashboard than a blog: check nearby prices, compare options, estimate real costs, then move on.</div>
     </section>
 
     <section class="about-shell">
@@ -66,8 +73,8 @@
         <h2>What Driverz helps with</h2>
         <p>Most drivers do not need a long article when they are checking fuel, planning a trip or trying to understand a charge. Driverz keeps the useful part first.</p>
         <div class="stat-grid">
-          <div class="stat-card"><b>Fuel</b><span>Find nearby petrol, diesel and EV information quickly.</span></div>
-          <div class="stat-card"><b>Costs</b><span>Estimate trip cost, pence per mile and EV savings.</span></div>
+          <div class="stat-card"><b>Fuel</b><span>Find nearby petrol, diesel and EV options, then compare nearby stations or chargers.</span></div>
+          <div class="stat-card"><b>Costs</b><span>Estimate fill-up cost, trip cost, pence per mile and EV savings.</span></div>
           <div class="stat-card"><b>Rules</b><span>Check practical UK driving rules and common penalties.</span></div>
           <div class="stat-card"><b>Help</b><span>Access emergency contacts and useful driver services.</span></div>
         </div>
@@ -77,16 +84,27 @@
         <h2>How to use the site</h2>
         <div class="step-list">
           <div class="step"><div class="step-num">1</div><div><strong>Search your location</strong><span>Use the header search, choose a popular location, or allow location access to find nearby fuel and charging information.</span></div></div>
-          <div class="step"><div class="step-num">2</div><div><strong>Choose what you need</strong><span>Switch between petrol, diesel and EV. Adjust the radius, exclude membership-only stations, or use the compare list when available.</span></div></div>
+          <div class="step"><div class="step-num">2</div><div><strong>Choose what you need</strong><span>Switch between petrol, diesel and EV. Adjust the 0.5–10 mile radius, exclude membership-only stations, or compare nearby stations and chargers.</span></div></div>
           <div class="step"><div class="step-num">3</div><div><strong>Use the calculator tools</strong><span>Estimate trip costs, cost per mile, EV charging time, home charging savings and EV versus petrol running costs.</span></div></div>
           <div class="step"><div class="step-num">4</div><div><strong>Read quick guides only when needed</strong><span>Guides and glossary pages are kept short, practical and UK-focused so they support the tools instead of hiding them.</span></div></div>
         </div>
       </div>
 
       <div class="about-panel">
+        <h2>Newer Driverz features</h2>
+        <p>Driverz is being shaped around practical actions drivers actually use on mobile: check the best option first, compare nearby alternatives, and open directions when ready.</p>
+        <div class="stat-grid">
+          <div class="stat-card"><b>Compare nearby</b><span>See nearby stations or EV chargers with distance, price and directions links.</span></div>
+          <div class="stat-card"><b>Quick calculation</b><span>Convert pence-per-litre into real-world fill-up cost and estimated travel cost.</span></div>
+          <div class="stat-card"><b>EV details</b><span>Show EV prices as p/kWh, mark free charging clearly and display connector types when data is available.</span></div>
+          <div class="stat-card"><b>Remembered choices</b><span>Keep useful preferences such as location, radius, fuel type and filters in the browser.</span></div>
+        </div>
+      </div>
+
+      <div class="about-panel">
         <h2>Tools on Driverz</h2>
         <div class="tool-grid">
-          <a class="tool-card" href="/#fuel-card"><b>Fuel Price Finder</b><span>Find nearby fuel prices and see quick fill-up cost estimates.</span></a>
+          <a class="tool-card" href="/#fuel-card"><b>Fuel Price Finder</b><span>Find nearby prices, compare stations or chargers, check quick fill-up cost and open directions.</span></a>
           <a class="tool-card" href="/trip-calculator.html"><b>Trip Cost Calculator</b><span>Estimate journey cost, fuel used, return trips and cost per mile.</span></a>
           <a class="tool-card" href="/cpm-tracker.html"><b>CPM / Mileage Tracker</b><span>Calculate real-world MPG, pence per mile and export mileage entries.</span></a>
           <a class="tool-card" href="/ev-vs-petrol.html"><b>EV vs Petrol</b><span>Compare monthly and yearly running costs for petrol and electric driving.</span></a>
@@ -122,8 +140,8 @@
 
       <div class="about-panel">
         <h2>Data and accuracy</h2>
-        <p>Fuel, EV and driving information can change quickly. Driverz is designed to make available data easier to understand, but prices, opening hours, charger details and rules should always be checked before making important decisions.</p>
-        <p>EV charging data can be incomplete because connector details, live pricing and availability depend on what each charging data source provides.</p>
+        <p>Fuel, EV and driving information can change quickly. Driverz is designed to make available data easier to understand, with sanity checks for impossible fuel prices, but prices, opening hours, charger details and rules should always be checked before making important decisions.</p>
+        <p>EV charging data can be incomplete because connector details, live pricing and availability depend on what each charging data source provides. When connector or pricing data is not provided, Driverz avoids showing technical error messages and keeps the display clean.</p>
         <div class="about-note">Driverz is an independent utility site. It is not an official government service, fuel retailer, charging network or emergency service provider.</div>
       </div>
 
