@@ -1,5 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>driverz.uk | UK fuel prices and driver tools</title><meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script>
-</head><body><driverz-header></driverz-header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>driverz.uk | UK fuel prices and driver tools</title><meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js" defer></script></head><body><driverz-header></driverz-header>
 <section class="fuel-hero" id="fuel-card">
   <div class="fuel-hero-inner">
     <div class="fuel-hero-top compact-hero-title">
@@ -7,6 +6,18 @@
         <div class="eyebrow">UK fuel price finder</div>
         <h1>Find cheaper fuel nearby.</h1>
         <p class="hero-copy">Search from the header, or use your location. The cheapest useful result comes first.</p>
+      </div>
+    </div>
+
+
+    <div class="location-soft-prompt" id="location-soft-prompt" hidden>
+      <div>
+        <strong>Use your location?</strong>
+        <span>Show nearby fuel prices and chargers faster. Your choice is saved in this browser.</span>
+      </div>
+      <div class="location-prompt-actions">
+        <button class="btn" type="button" data-location-use>Use location</button>
+        <button class="btn light" type="button" data-location-dismiss>Search manually</button>
       </div>
     </div>
 
