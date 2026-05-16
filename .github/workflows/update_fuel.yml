@@ -7,6 +7,7 @@ on:
   # GOV fuel data updates are not real-time. Twice daily keeps the site fresh
   # without polling aggressively or wasting GitHub/Vercel resources.
   schedule:
+    - cron: '0 3 * * *'
     - cron: '23 10 * * *'
     - cron: '37 16 * * *'
   workflow_dispatch:
