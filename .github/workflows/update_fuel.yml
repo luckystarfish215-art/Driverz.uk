@@ -4,6 +4,8 @@ permissions:
   contents: write
 
 on:
+  # Three low-frequency refreshes daily keeps data fresh
+  # without aggressive polling or wasting resources.
   schedule:
     - cron: '0 3 * * *'
     - cron: '23 10 * * *'
@@ -65,14 +67,16 @@ jobs:
           fi
 
           HEADER=$(head -n 1 "$TEMP_FILE")
+
           if ! echo "$HEADER" | grep -q "forecourts.location.latitude" || \
              ! echo "$HEADER" | grep -q "prices.E10" || \
              ! echo "$HEADER" | grep -q "prices.B7"; then
-            echo "Downloaded CSV header does not look like expected fuel data. Keeping existing CSV."
+            echo "Downloaded CSV header does not look like expected fuel data."
             rm -f "$TEMP_FILE"
             exit 0
           fi
 
+          # If unchanged, do not overwrite timestamp
           if [ -f "$CURRENT_FILE" ] && cmp -s "$TEMP_FILE" "$CURRENT_FILE"; then
             echo "Fuel data unchanged. No timestamp update needed."
             rm -f "$TEMP_FILE"
@@ -80,7 +84,9 @@ jobs:
           fi
 
           mv "$TEMP_FILE" "$CURRENT_FILE"
+
           printf '{"updatedAt":"%s"}\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" > "$UPDATED_FILE"
+
           echo "Valid new CSV downloaded: ${LINE_COUNT} lines, ${BYTE_COUNT} bytes."
 
       - name: Commit only if fuel data changed
@@ -91,7 +97,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/fuel_data.csv data/fuel_updated.json
+          git add data/fuel_data.csv
+
+          if [ -f data/fuel_updated.json ]; then
+            git add data/fuel_updated.json
+          fi
 
           if git diff --cached --quiet; then
             echo "Fuel data unchanged. No commit needed."
