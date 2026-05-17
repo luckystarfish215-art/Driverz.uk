@@ -26,7 +26,7 @@ jobs:
       - name: Ensure data directory exists
         run: mkdir -p data
 
-      - name: Download, validate and mark dataset check
+      - name: Download and validate latest GOV fuel CSV
         shell: bash
         run: |
           set -euo pipefail
@@ -34,10 +34,8 @@ jobs:
           CSV_URL="https://www.fuel-finder.service.gov.uk/internal/v1.0.2/csv/get-latest-fuel-prices-csv"
           TEMP_FILE="data/fuel_data.new.csv"
           CURRENT_FILE="data/fuel_data.csv"
-          UPDATED_FILE="data/fuel_updated.json"
-          CHECKED_AT="$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
 
-          echo "Checking GOV fuel CSV at ${CHECKED_AT}"
+          echo "Checking GOV fuel CSV at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
           if ! curl --fail --silent --show-error --location \
             --connect-timeout 15 \
@@ -45,13 +43,13 @@ jobs:
             --user-agent "DriverzUKFuelUpdater/1.0 (+https://driverz.uk/contact.html)" \
             "$CSV_URL" \
             --output "$TEMP_FILE"; then
-            echo "Download failed. Keeping existing CSV and timestamp."
+            echo "Download failed. Keeping existing CSV."
             rm -f "$TEMP_FILE"
             exit 0
           fi
 
           if [ ! -s "$TEMP_FILE" ]; then
-            echo "Downloaded file is empty. Keeping existing CSV and timestamp."
+            echo "Downloaded file is empty. Keeping existing CSV."
             rm -f "$TEMP_FILE"
             exit 0
           fi
@@ -60,7 +58,7 @@ jobs:
           BYTE_COUNT=$(wc -c < "$TEMP_FILE")
 
           if [ "$LINE_COUNT" -lt 100 ] || [ "$BYTE_COUNT" -lt 50000 ]; then
-            echo "Downloaded CSV looks too small: ${LINE_COUNT} lines, ${BYTE_COUNT} bytes. Keeping existing CSV and timestamp."
+            echo "Downloaded CSV looks too small: ${LINE_COUNT} lines, ${BYTE_COUNT} bytes. Keeping existing CSV."
             rm -f "$TEMP_FILE"
             exit 0
           fi
@@ -70,24 +68,21 @@ jobs:
           if ! echo "$HEADER" | grep -q "forecourts.location.latitude" || \
              ! echo "$HEADER" | grep -q "prices.E10" || \
              ! echo "$HEADER" | grep -q "prices.B7"; then
-            echo "Downloaded CSV header does not look like expected fuel data. Keeping existing CSV and timestamp."
+            echo "Downloaded CSV header does not look like expected fuel data. Keeping existing CSV."
             rm -f "$TEMP_FILE"
             exit 0
           fi
 
           if [ -f "$CURRENT_FILE" ] && cmp -s "$TEMP_FILE" "$CURRENT_FILE"; then
-            echo "Fuel CSV unchanged, but GOV dataset was checked successfully."
+            echo "Fuel CSV unchanged. No commit needed."
             rm -f "$TEMP_FILE"
-            printf '{"checkedAt":"%s","unchanged":true}\n' "$CHECKED_AT" > "$UPDATED_FILE"
             exit 0
           fi
 
           mv "$TEMP_FILE" "$CURRENT_FILE"
-          printf '{"checkedAt":"%s","updatedAt":"%s","unchanged":false}\n' "$CHECKED_AT" "$CHECKED_AT" > "$UPDATED_FILE"
-
           echo "Valid new CSV downloaded: ${LINE_COUNT} lines, ${BYTE_COUNT} bytes."
 
-      - name: Commit dataset check if changed
+      - name: Commit only if fuel data changed
         shell: bash
         run: |
           set -euo pipefail
@@ -99,14 +94,10 @@ jobs:
             git add data/fuel_data.csv
           fi
 
-          if [ -f data/fuel_updated.json ]; then
-            git add data/fuel_updated.json
-          fi
-
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "Fuel data unchanged. No commit needed."
             exit 0
           fi
 
-          git commit -m "Update fuel dataset check"
+          git commit -m "Update fuel prices"
           git push
