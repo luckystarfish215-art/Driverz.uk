@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/:city([a-zA-Z][a-zA-Z-]+)",
-      "destination": "/?city=:city"
+      "destination": "/index.html"
     }
   ]
 }
