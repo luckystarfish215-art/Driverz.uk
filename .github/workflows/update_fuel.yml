@@ -78,61 +78,12 @@ jobs:
           if [ -f "$CURRENT_FILE" ] && cmp -s "$TEMP_FILE" "$CURRENT_FILE"; then
             echo "Fuel CSV unchanged, but GOV dataset was checked successfully."
             rm -f "$TEMP_FILE"
-
-            EXISTING_UPDATED_AT=""
-            if [ -f "$UPDATED_FILE" ]; then
-              EXISTING_UPDATED_AT=$(python3 - <<'PY'
-import json
-from pathlib import Path
-
-p = Path("data/fuel_updated.json")
-
-try:
-    d = json.loads(p.read_text())
-    print(d.get("updatedAt", ""))
-except Exception:
-    print("")
-PY
-)
-            fi
-
-            python3 - <<PY
-import json
-from pathlib import Path
-
-checked_at = "${CHECKED_AT}"
-updated_at = "${EXISTING_UPDATED_AT}"
-
-data = {
-    "checkedAt": checked_at,
-    "unchanged": True
-}
-
-if updated_at:
-    data["updatedAt"] = updated_at
-
-Path("${UPDATED_FILE}").write_text(json.dumps(data, separators=(",", ":")) + "\\n")
-PY
-
+            printf '{"checkedAt":"%s","unchanged":true}\n' "$CHECKED_AT" > "$UPDATED_FILE"
             exit 0
           fi
 
           mv "$TEMP_FILE" "$CURRENT_FILE"
-
-          python3 - <<PY
-import json
-from pathlib import Path
-
-checked_at = "${CHECKED_AT}"
-
-data = {
-    "checkedAt": checked_at,
-    "updatedAt": checked_at,
-    "unchanged": False
-}
-
-Path("${UPDATED_FILE}").write_text(json.dumps(data, separators=(",", ":")) + "\\n")
-PY
+          printf '{"checkedAt":"%s","updatedAt":"%s","unchanged":false}\n' "$CHECKED_AT" "$CHECKED_AT" > "$UPDATED_FILE"
 
           echo "Valid new CSV downloaded: ${LINE_COUNT} lines, ${BYTE_COUNT} bytes."
 
