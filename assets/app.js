@@ -148,5 +148,39 @@ function getCityFromPath(){
   return raw.replace(/-/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
 }
 
-function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};maybeShowLocationPrompt();document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);const pathCity=getCityFromPath();if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')){const cityName=p.get('city').replace(/-/g,' ');searchPlace(cityName,{updateUrl:false,scroll:false})}else if(pathCity){searchPlace(pathCity,{updateUrl:false,scroll:false})}else loadFuel()}
+
+function normaliseCityKey(name){
+  return String(name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+}
+const CITY_LOOKUP=Object.keys(CITIES).reduce((acc,name)=>{
+  acc[normaliseCityKey(name)]=name;
+  return acc;
+},{});
+function showPathCityNotFound(raw){
+  setStatus('Place not found');
+  const price=$('main-price'); if(price)price.textContent='--';
+  const unit=$('main-unit'); if(unit)unit.textContent='';
+  const distance=$('distance'); if(distance)distance.textContent='-- mi';
+  const updated=$('updated'); if(updated)updated.textContent='Try another UK city';
+  const hours=$('hours'); if(hours)hours.textContent='Location not recognised';
+  const address=$('address'); if(address)address.textContent=`We could not recognise "${raw}" as a supported UK location. Try search, use your current location, or choose a popular UK location below.`;
+  const directions=$('directions'); if(directions)directions.removeAttribute('href');
+  const qc=$('quick-calc'); if(qc)qc.hidden=true;
+  renderOtherPrices('Search a UK town, city or postcode');
+  renderCompare([]);
+  updateCyclePrice();
+}
+function searchPathCity(raw){
+  const match=CITY_LOOKUP[normaliseCityKey(raw)];
+  if(!match){
+    showPathCityNotFound(raw);
+    return;
+  }
+  const c=CITIES[match];
+  Object.assign(state,{lat:c[0],lng:c[1],label:match});
+  saveLocation();
+  loadFuel();
+}
+
+function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};maybeShowLocationPrompt();document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);const pathCity=getCityFromPath();if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')){const cityName=p.get('city').replace(/-/g,' ');searchPlace(cityName,{updateUrl:false,scroll:false})}else if(pathCity){searchPathCity(pathCity)}else loadFuel()}
 document.addEventListener('DOMContentLoaded',init);
