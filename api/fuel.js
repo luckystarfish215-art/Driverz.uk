@@ -28,6 +28,124 @@ function splitCSV(row) {
 }
 
 
+function formatAgeFromDate(date) {
+    if (!(date instanceof Date) || isNaN(date.getTime())) return 'today';
+    const diffMs = Date.now() - date.getTime();
+    if (diffMs < 0) return 'just now';
+    const minutes = Math.floor(diffMs / 60000);
+    if (minutes < 1) return 'just now';
+    if (minutes < 60) return `${minutes} min${minutes === 1 ? '' : 's'} ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 48) return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 14) return `${days} day${days === 1 ? '' : 's'} ago`;
+    return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+function getCsvUpdatedLabel(csvPath) {
+    const candidates = [
+        path.join(process.cwd(), 'data', 'fuel_updated.json'),
+        path.join(process.cwd(), 'fuel_updated.json')
+    ];
+
+    for (const file of candidates) {
+        try {
+            if (fs.existsSync(file)) {
+                const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+                const value = parsed.updatedAt || parsed.updated_at || parsed.timestamp;
+                if (value) return formatAgeFromDate(new Date(value));
+            }
+        } catch (e) {
+            console.log('Could not read fuel_updated.json');
+        }
+    }
+
+    try {
+        if (csvPath && fs.existsSync(csvPath)) {
+            return formatAgeFromDate(fs.statSync(csvPath).mtime);
+        }
+    } catch (e) {
+        console.log('Could not read CSV modified time');
+    }
+
+    return 'today';
+}
+
+function normaliseHeaderName(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function findHeaderIndex(headers, candidates, fallbackIndex) {
+    const normalised = headers.map(normaliseHeaderName);
+    const wanted = candidates.map(normaliseHeaderName);
+
+    for (const candidate of wanted) {
+        const exact = normalised.indexOf(candidate);
+        if (exact !== -1) return exact;
+    }
+
+    for (const candidate of wanted) {
+        const contains = normalised.findIndex(h => h.includes(candidate) || candidate.includes(h));
+        if (contains !== -1) return contains;
+    }
+
+    return fallbackIndex;
+}
+
+function buildCsvIndex(headers) {
+    return {
+        site: findHeaderIndex(headers, ['forecourts.siteName', 'forecourts.name', 'siteName', 'name'], 2),
+        brand: findHeaderIndex(headers, ['forecourts.brand', 'brand'], 3),
+        phone: findHeaderIndex(headers, ['forecourts.contact.telephone', 'telephone', 'phone'], 6),
+        postcode: findHeaderIndex(headers, ['forecourts.address.postcode', 'postcode'], 10),
+        line1: findHeaderIndex(headers, ['forecourts.address.line1', 'address.line1', 'line1'], 11),
+        line2: findHeaderIndex(headers, ['forecourts.address.line2', 'address.line2', 'line2'], 12),
+        town: findHeaderIndex(headers, ['forecourts.address.town', 'town'], 13),
+        lat: findHeaderIndex(headers, ['forecourts.location.latitude', 'location.latitude', 'latitude'], 16),
+        lng: findHeaderIndex(headers, ['forecourts.location.longitude', 'location.longitude', 'longitude'], 17),
+        e5: findHeaderIndex(headers, ['prices.E5', 'prices.E5.price', 'E5'], 18),
+        e5Updated: findHeaderIndex(headers, ['prices.E5.lastUpdated', 'prices.E5.updatedAt', 'prices.E5.updatedDate', 'prices.E5.lastUpdate', 'E5.lastUpdated'], 20),
+        e10: findHeaderIndex(headers, ['prices.E10', 'prices.E10.price', 'E10'], 21),
+        e10Updated: findHeaderIndex(headers, ['prices.E10.lastUpdated', 'prices.E10.updatedAt', 'prices.E10.updatedDate', 'prices.E10.lastUpdate', 'E10.lastUpdated'], 23),
+        b7: findHeaderIndex(headers, ['prices.B7', 'prices.B7.price', 'B7', 'diesel'], 24),
+        b7Updated: findHeaderIndex(headers, ['prices.B7.lastUpdated', 'prices.B7.updatedAt', 'prices.B7.updatedDate', 'prices.B7.lastUpdate', 'B7.lastUpdated', 'diesel.lastUpdated'], 26)
+    };
+}
+
+function getCol(cols, index, fallback = '') {
+    return Number.isInteger(index) && index >= 0 && index < cols.length ? cols[index] : fallback;
+}
+
+function parseStationDate(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return null;
+    const direct = new Date(raw);
+    if (!isNaN(direct.getTime())) return direct;
+
+    // Handles common UK date strings such as 27/01/2026 or 27-01-2026.
+    const uk = raw.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+    if (uk) {
+        const year = uk[3].length === 2 ? Number('20' + uk[3]) : Number(uk[3]);
+        const date = new Date(Date.UTC(year, Number(uk[2]) - 1, Number(uk[1]), Number(uk[4] || 0), Number(uk[5] || 0), Number(uk[6] || 0)));
+        if (!isNaN(date.getTime())) return date;
+    }
+
+    return null;
+}
+
+function formatStationUpdatedLabel(value) {
+    const date = parseStationDate(value);
+    if (!date) return '';
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    if (diffMs >= 0 && diffMs < 24 * 60 * 60 * 1000) return 'today';
+    if (diffMs >= 0 && diffMs < 48 * 60 * 60 * 1000) return 'yesterday';
+    const sameYear = date.getUTCFullYear() === now.getUTCFullYear();
+    return date.toLocaleDateString('en-US', sameYear
+        ? { month: 'short', day: 'numeric', timeZone: 'UTC' }
+        : { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+}
+
 function parseFuelPrice(value) {
     if (value === null || typeof value === 'undefined') return NaN;
     const n = parseFloat(String(value).replace(/[^0-9.]/g, ''));
@@ -212,7 +330,8 @@ export default async function handler(req, res) {
                 unit: parsedCost.price === "FREE" ? "" : parsedCost.unit,
                 name: charger.AddressInfo.Title || "EV Charger",
                 dist: `${charger.AddressInfo.Distance.toFixed(1)} mi`,
-                updated: "Live Feed",
+                updated: "Live feed",
+                datasetUpdated: "Live feed",
                 lat: charger.AddressInfo.Latitude, lng: charger.AddressInfo.Longitude,
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
@@ -270,28 +389,33 @@ export default async function handler(req, res) {
             }
 
             if (fs.existsSync(csvPath)) {
-                // 1 & 2. Fix the Time-Travel Bug and Double "Updated"
-                source = "today"; 
+                source = getCsvUpdatedLabel(csvPath);
 
                 const content = fs.readFileSync(csvPath, 'utf8');
-                const rows = content.split(/\r?\n/).slice(1);
+                const lines = content.split(/\r?\n/);
+                const headers = splitCSV(lines[0] || '');
+                const csvIndex = buildCsvIndex(headers);
+                const rows = lines.slice(1);
                 
                 rows.forEach(row => {
                     if (!row.trim()) return;
                     const cols = splitCSV(row);
                     if (cols.length < 25) return;
                     
-                    const sLat = parseFloat(cols[16]);
-                    const sLng = parseFloat(cols[17]);
-                    const price = parseFloat(mode === 'diesel' ? cols[24] : cols[21]);
+                    const sLat = parseFloat(getCol(cols, csvIndex.lat));
+                    const sLng = parseFloat(getCol(cols, csvIndex.lng));
+                    const priceIndex = mode === 'diesel' ? csvIndex.b7 : csvIndex.e10;
+                    const price = parseFloat(getCol(cols, priceIndex));
+                    const stationUpdatedRaw = getCol(cols, mode === 'diesel' ? csvIndex.b7Updated : csvIndex.e10Updated);
+                    const stationUpdated = formatStationUpdatedLabel(stationUpdatedRaw);
 
                     if (!isNaN(sLat) && !isNaN(sLng) && isValidFuelPrice(price)) {
                         const dist = getDistance(lat, lng, sLat, sLng);
                         if (dist <= apiRadius) { 
                             
                             // 3. Fix the Double Name Bug (e.g., Costco Costco)
-                            let brand = (cols[3] || '').trim();
-                            let site = (cols[2] || '').trim();
+                            let brand = (getCol(cols, csvIndex.brand) || '').trim();
+                            let site = (getCol(cols, csvIndex.site) || '').trim();
                             let cleanName = site.toLowerCase().includes(brand.toLowerCase()) ? site : `${brand} ${site}`.trim();
 
                             const today = new Date().getDay(); // 0 Sun - 6 Sat
@@ -299,11 +423,11 @@ export default async function handler(req, res) {
                             let opening = 'Opening times unavailable';
                             if ((cols[dayOffset+2] || '').toLowerCase() === 'true') opening = 'Open 24 hours';
                             else if (cols[dayOffset] && cols[dayOffset+1]) opening = `${cols[dayOffset]}–${cols[dayOffset+1]}`;
-                            const address = [cols[11], cols[12], cols[13], cols[10]].filter(Boolean).join(', ');
+                            const address = [getCol(cols, csvIndex.line1), getCol(cols, csvIndex.line2), getCol(cols, csvIndex.town), getCol(cols, csvIndex.postcode)].filter(Boolean).join(', ');
                             const prices = [];
-                            const e10 = formatFuelChip('E10', cols[21]);
-                            const e5 = formatFuelChip('E5', cols[18]);
-                            const diesel = formatFuelChip('Diesel', cols[24]);
+                            const e10 = formatFuelChip('E10', getCol(cols, csvIndex.e10));
+                            const e5 = formatFuelChip('E5', getCol(cols, csvIndex.e5));
+                            const diesel = formatFuelChip('Diesel', getCol(cols, csvIndex.b7));
                             if (e10) prices.push(e10);
                             if (e5) prices.push(e5);
                             if (diesel) prices.push(diesel);
@@ -316,7 +440,8 @@ export default async function handler(req, res) {
                                 opening,
                                 address,
                                 allPrices: prices.join(' · '),
-                                phone: cols[6] || ''
+                                phone: getCol(cols, csvIndex.phone) || '',
+                                stationUpdated
                             });
                         }
                     }
@@ -392,7 +517,9 @@ export default async function handler(req, res) {
             unit: "p", 
             name: best.name || best.brand || "Fuel Station",
             dist: `${best.dist.toFixed(1)} mi`, 
-            updated: source, 
+            updated: source,
+            datasetUpdated: source,
+            stationUpdated: best.stationUpdated || '', 
             lat: best.lat, 
             lng: best.lng,
             opening: best.opening || "Opening times unavailable",
