@@ -28,10 +28,10 @@ function ensureStationUpdatedChip(){
   after.insertAdjacentElement('afterend',chip);
   return chip;
 }
-function datasetUpdatedText(d){
-  const value=d.datasetUpdated||d.updated;
-  if(!value||String(value).toLowerCase()==='unknown')return 'Dataset checked unknown';
-  return String(value).toLowerCase().includes('live')?'Live feed':`Dataset checked ${value}`;
+function priceUpdatedText(d){
+  if(d.stationUpdated)return `Price updated ${d.stationUpdated}`;
+  if(d.updated&&String(d.updated).toLowerCase().includes('live'))return 'Live feed';
+  return 'Price update unknown';
 }
 function setActiveMode(mode){document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));const label=$('cycle-label');if(label)label.textContent=MODE_LABEL[mode]||mode;localStorage.setItem('lastMode',mode)}
 function updateCyclePrice(){const cp=$('cycle-price');if(cp)cp.textContent=localStorage.getItem('lastPrice_'+state.mode)||(($('main-price')?.textContent||'--')+($('main-unit')?.textContent||''));window.dispatchEvent(new Event('driverz:price-updated'))}
@@ -112,12 +112,9 @@ function showData(d){
   $('main-unit').textContent = formatted.unit;
   $('station-name').textContent=d.name||'Station found';
   $('distance').textContent=d.dist||'--';
-  $('updated').textContent=datasetUpdatedText(d);
+  $('updated').textContent=priceUpdatedText(d);
   const stationChip=ensureStationUpdatedChip();
-  if(stationChip){
-    if(d.stationUpdated){stationChip.hidden=false;stationChip.textContent=`Station updated ${d.stationUpdated}`;}
-    else{stationChip.hidden=true;stationChip.textContent='';}
-  }
+  if(stationChip){stationChip.hidden=true;stationChip.textContent='';}
   $('hours').textContent=d.opening||'Opening times unavailable';
   $('address').textContent=d.address||state.label;
   renderQuickCalc(d, formatted);
@@ -183,7 +180,7 @@ function showPathCityNotFound(raw){
   const price=$('main-price'); if(price)price.textContent='--';
   const unit=$('main-unit'); if(unit)unit.textContent='';
   const distance=$('distance'); if(distance)distance.textContent='-- mi';
-  const updated=$('updated'); if(updated)updated.textContent='Try another UK city';
+  const updated=$('updated'); if(updated)updated.textContent='Try another UK city'; const stationChip=$('station-updated'); if(stationChip){stationChip.hidden=true;stationChip.textContent='';}
   const hours=$('hours'); if(hours)hours.textContent='Location not recognised';
   const stationChip=$('station-updated'); if(stationChip)stationChip.hidden=true;
   const address=$('address'); if(address)address.textContent=`We could not recognise "${raw}" as a supported UK location. Try search, use your current location, or choose a popular UK location below.`;
