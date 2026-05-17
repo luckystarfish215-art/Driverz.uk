@@ -16,6 +16,23 @@ function saveLocation(){if(Number.isFinite(state.lat)&&Number.isFinite(state.lng
 function savePrefs(){state.radius=clampRadius(state.radius);localStorage.setItem('lastMode',state.mode);localStorage.setItem('driverzRadius',state.radius);localStorage.setItem('driverzExcludeCostco',state.excludeCostco?'1':'0')}
 const MODES=['petrol','diesel','ev'];const MODE_LABEL={petrol:'Petrol',diesel:'Diesel',ev:'EV'};const $=id=>document.getElementById(id);
 function setStatus(t){$('station-name').textContent=t}
+
+function ensureStationUpdatedChip(){
+  let chip=$('station-updated');
+  if(chip)return chip;
+  const after=$('updated');
+  if(!after||!after.parentNode)return null;
+  chip=document.createElement('span');
+  chip.className='chip';
+  chip.id='station-updated';
+  after.insertAdjacentElement('afterend',chip);
+  return chip;
+}
+function datasetUpdatedText(d){
+  const value=d.datasetUpdated||d.updated;
+  if(!value)return 'Dataset updated today';
+  return String(value).toLowerCase().includes('live')?'Live feed':`Dataset updated ${value}`;
+}
 function setActiveMode(mode){document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));const label=$('cycle-label');if(label)label.textContent=MODE_LABEL[mode]||mode;localStorage.setItem('lastMode',mode)}
 function updateCyclePrice(){const cp=$('cycle-price');if(cp)cp.textContent=localStorage.getItem('lastPrice_'+state.mode)||(($('main-price')?.textContent||'--')+($('main-unit')?.textContent||''));window.dispatchEvent(new Event('driverz:price-updated'))}
 function renderOtherPrices(text){const el=$('all-prices');if(!el)return;const label=$('other-price-label');if(label)label.textContent=state.mode==='ev'?'Other EV prices':'Other fuel prices';el.innerHTML='';let value=text;if(!value){value=state.mode==='ev'?'Nearby EV prices not listed':'Prices vary by fuel type'}const parts=value.split('·').map(x=>x.trim()).filter(Boolean);if(parts.length>1){parts.forEach(part=>{const chip=document.createElement('span');chip.className='price-chip';chip.textContent=part;el.appendChild(chip)})}else{const chip=document.createElement('span');chip.className='price-chip wide';chip.textContent=value;el.appendChild(chip)}}
@@ -95,7 +112,12 @@ function showData(d){
   $('main-unit').textContent = formatted.unit;
   $('station-name').textContent=d.name||'Station found';
   $('distance').textContent=d.dist||'--';
-  $('updated').textContent=d.updated?`Updated ${d.updated}`:'Updated today';
+  $('updated').textContent=datasetUpdatedText(d);
+  const stationChip=ensureStationUpdatedChip();
+  if(stationChip){
+    if(d.stationUpdated){stationChip.hidden=false;stationChip.textContent=`Station updated ${d.stationUpdated}`;}
+    else{stationChip.hidden=true;stationChip.textContent='';}
+  }
   $('hours').textContent=d.opening||'Opening times unavailable';
   $('address').textContent=d.address||state.label;
   renderQuickCalc(d, formatted);
@@ -110,7 +132,7 @@ function showData(d){
   localStorage.setItem('lastMode', state.mode);
   saveLocation();savePrefs();updateCyclePrice()
 }
-async function loadFuel(){state.radius=clampRadius(state.radius);document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';const qc=$('quick-calc');if(qc)qc.hidden=true;renderCompare([]);updateCyclePrice()}finally{document.body.classList.remove('loading')}}
+async function loadFuel(){state.radius=clampRadius(state.radius);document.body.classList.add('loading');setStatus('Checking nearby prices…');setActiveMode(state.mode);savePrefs();try{const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);const data=await res.json();if(!res.ok)throw new Error(data.error||'No result');showData(data)}catch(e){setStatus(e.message||'No station found nearby');$('main-price').textContent='--';$('main-unit').textContent='';const qc=$('quick-calc');if(qc)qc.hidden=true;const sc=$('station-updated');if(sc)sc.hidden=true;renderCompare([]);updateCyclePrice()}finally{document.body.classList.remove('loading')}}
 async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[key]){const c=CITIES[q]||CITIES[key];return {lat:c[0],lng:c[1],label:q}}const res=await fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=${encodeURIComponent(q)}`);const data=await res.json();if(data[0])return{lat:+data[0].lat,lng:+data[0].lon,label:q};throw new Error('Place not found')}
 async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
@@ -163,6 +185,7 @@ function showPathCityNotFound(raw){
   const distance=$('distance'); if(distance)distance.textContent='-- mi';
   const updated=$('updated'); if(updated)updated.textContent='Try another UK city';
   const hours=$('hours'); if(hours)hours.textContent='Location not recognised';
+  const stationChip=$('station-updated'); if(stationChip)stationChip.hidden=true;
   const address=$('address'); if(address)address.textContent=`We could not recognise "${raw}" as a supported UK location. Try search, use your current location, or choose a popular UK location below.`;
   const directions=$('directions'); if(directions)directions.removeAttribute('href');
   const qc=$('quick-calc'); if(qc)qc.hidden=true;
