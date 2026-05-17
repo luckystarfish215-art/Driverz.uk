@@ -52,23 +52,20 @@ function getCsvUpdatedLabel(csvPath) {
         try {
             if (fs.existsSync(file)) {
                 const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
-                const value = parsed.updatedAt || parsed.updated_at || parsed.timestamp;
-                if (value) return formatAgeFromDate(new Date(value));
+                const value = parsed.checkedAt || parsed.checked_at || parsed.updatedAt || parsed.updated_at || parsed.timestamp;
+                if (value) {
+                    const label = formatAgeFromDate(new Date(value));
+                    return label || 'unknown';
+                }
             }
         } catch (e) {
             console.log('Could not read fuel_updated.json');
         }
     }
 
-    try {
-        if (csvPath && fs.existsSync(csvPath)) {
-            return formatAgeFromDate(fs.statSync(csvPath).mtime);
-        }
-    } catch (e) {
-        console.log('Could not read CSV modified time');
-    }
-
-    return 'today';
+    // Do not use CSV file modified time as fallback.
+    // Some deployed/static hosts return an old build timestamp, which is misleading.
+    return 'unknown';
 }
 
 function normaliseHeaderName(value) {
