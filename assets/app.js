@@ -12,7 +12,7 @@ let state={
   label:localStorage.getItem('driverzLabel')||(hasSavedLocation?'Saved location':'Reading'),
   excludeCostco:localStorage.getItem('driverzExcludeCostco')==='1'
 };
-function saveLocation(){if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){localStorage.setItem('driverzLat',state.lat);localStorage.setItem('driverzLng',state.lng);localStorage.setItem('driverzLabel',state.label||'Your location');localStorage.setItem('driverzLocationSet','1')}}
+function saveLocation(){if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){localStorage.setItem('driverzLat',state.lat);localStorage.setItem('driverzLng',state.lng);localStorage.setItem('driverzLabel',state.label||'Your location');localStorage.setItem('driverzLocationSet','1');localStorage.setItem('driverzLocationPromptDismissed','1');const p=$('location-soft-prompt');if(p)p.hidden=true}}
 function savePrefs(){state.radius=clampRadius(state.radius);localStorage.setItem('lastMode',state.mode);localStorage.setItem('driverzRadius',state.radius);localStorage.setItem('driverzExcludeCostco',state.excludeCostco?'1':'0')}
 const MODES=['petrol','diesel','ev'];const MODE_LABEL={petrol:'Petrol',diesel:'Diesel',ev:'EV'};const $=id=>document.getElementById(id);
 function setStatus(t){$('station-name').textContent=t}
@@ -115,5 +115,28 @@ async function geocode(q){const key=q.replace(/\s+/g,'');if(CITIES[q]||CITIES[ke
 async function searchPlace(q, opts={}){setStatus('Finding '+q+'…');try{const g=await geocode(q);Object.assign(state,g);saveLocation();if(opts.updateUrl!==false){const url='/?city='+encodeURIComponent(q)+'#fuel-card';history.replaceState(null,'',url)}loadFuel();if(opts.scroll!==false){document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'})}}catch(e){setStatus(e.message)}}
 function cycleMode(){const i=MODES.indexOf(state.mode);state.mode=MODES[(i+1)%MODES.length];savePrefs();loadFuel()}
 function useLocation(){if(!navigator.geolocation){setStatus('Location is not available in this browser. Search manually instead.');return}setStatus('Finding your location…');navigator.geolocation.getCurrentPosition(pos=>{state.lat=pos.coords.latitude;state.lng=pos.coords.longitude;state.label='Your location';saveLocation();loadFuel()},()=>{setStatus('Location permission was not granted. Using your saved location instead.');loadFuel()},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})}
-function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')) searchPlace(p.get('city'),{updateUrl:false,scroll:false});else loadFuel()}
+
+function maybeShowLocationPrompt(){
+  const prompt=$('location-soft-prompt');
+  if(!prompt)return;
+  const params=new URLSearchParams(location.search);
+  if(hasSavedLocation||localStorage.getItem('driverzLocationPromptDismissed')==='1'||params.get('loc')||params.get('q')||params.get('city')||!navigator.geolocation)return;
+  const useBtn=prompt.querySelector('[data-location-use]');
+  const dismissBtn=prompt.querySelector('[data-location-dismiss]');
+  useBtn?.addEventListener('click',()=>{
+    localStorage.setItem('driverzLocationPromptDismissed','1');
+    prompt.hidden=true;
+    useLocation();
+  });
+  dismissBtn?.addEventListener('click',()=>{
+    localStorage.setItem('driverzLocationPromptDismissed','1');
+    prompt.hidden=true;
+  });
+  setTimeout(()=>{
+    if(localStorage.getItem('driverzLocationSet')==='1'||localStorage.getItem('driverzLocationPromptDismissed')==='1')return;
+    prompt.hidden=false;
+  },900);
+}
+
+function init(){if(!$('fuel-card'))return;window.DriverzFuel={cycleMode,searchPlace,useLocation};maybeShowLocationPrompt();document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;savePrefs();loadFuel()}));if($('radius')){$('radius').min='0.5';$('radius').max='10';$('radius').step='0.5';$('radius').value=state.radius;$('radius-value').textContent=formatRadius(state.radius)}if($('exclude-costco'))$('exclude-costco').checked=state.excludeCostco;$('exclude-costco')?.addEventListener('change',e=>{state.excludeCostco=e.target.checked;savePrefs();loadFuel()});$('radius')?.addEventListener('input',e=>{state.radius=clampRadius(e.target.value);e.target.value=state.radius;$('radius-value').textContent=formatRadius(state.radius);savePrefs();clearTimeout(window._r);window._r=setTimeout(loadFuel,350)});document.querySelectorAll('[data-city]').forEach(el=>el.addEventListener('click',()=>searchPlace(el.dataset.city,{updateUrl:true,scroll:true})));$('result-search')?.addEventListener('click',()=>{document.getElementById('header-search-toggle')?.click()});const p=new URLSearchParams(location.search);if(p.get('loc')) useLocation();else if(p.get('q')) searchPlace(p.get('q'),{updateUrl:false,scroll:false});else if(p.get('city')){const cityName=p.get('city').replace(/-/g,' ');searchPlace(cityName,{updateUrl:false,scroll:false})}else loadFuel()}
 document.addEventListener('DOMContentLoaded',init);
