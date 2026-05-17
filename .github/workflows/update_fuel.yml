@@ -144,7 +144,13 @@ PY
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/fuel_data.csv data/fuel_updated.json
+          if [ -f data/fuel_data.csv ]; then
+            git add data/fuel_data.csv
+          fi
+
+          if [ -f data/fuel_updated.json ]; then
+            git add data/fuel_updated.json
+          fi
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
