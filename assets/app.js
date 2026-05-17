@@ -30,8 +30,8 @@ function ensureStationUpdatedChip(){
 }
 function datasetUpdatedText(d){
   const value=d.datasetUpdated||d.updated;
-  if(!value)return 'Dataset updated today';
-  return String(value).toLowerCase().includes('live')?'Live feed':`Dataset updated ${value}`;
+  if(!value||String(value).toLowerCase()==='unknown')return 'Dataset checked unknown';
+  return String(value).toLowerCase().includes('live')?'Live feed':`Dataset checked ${value}`;
 }
 function setActiveMode(mode){document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));const label=$('cycle-label');if(label)label.textContent=MODE_LABEL[mode]||mode;localStorage.setItem('lastMode',mode)}
 function updateCyclePrice(){const cp=$('cycle-price');if(cp)cp.textContent=localStorage.getItem('lastPrice_'+state.mode)||(($('main-price')?.textContent||'--')+($('main-unit')?.textContent||''));window.dispatchEvent(new Event('driverz:price-updated'))}
