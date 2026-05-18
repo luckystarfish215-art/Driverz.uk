@@ -48,14 +48,24 @@ jobs:
           echo "Checking GOV fuel CSV at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo "Force update: ${FORCE_UPDATE}"
 
-          curl --fail --silent --show-error --location \
+          HTTP_CODE=$(curl --silent --show-error --location \
             --connect-timeout 15 \
             --max-time 60 \
             --header "Cache-Control: no-cache" \
             --header "Pragma: no-cache" \
-            --user-agent "DriverzUKFuelUpdater/1.0 (+https://driverz.uk/contact.html)" \
+            --user-agent "Mozilla/5.0 DriverzUKFuelUpdater/1.0 (+https://driverz.uk/contact.html)" \
+            --write-out "%{http_code}" \
             "$CSV_URL" \
-            --output "$TEMP_FILE"
+            --output "$TEMP_FILE")
+
+          echo "HTTP status: ${HTTP_CODE}"
+
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "GOV CSV download failed with HTTP ${HTTP_CODE}."
+            echo "Keeping existing CSV."
+            rm -f "$TEMP_FILE"
+            exit 0
+          fi
 
           if [ ! -s "$TEMP_FILE" ]; then
             echo "Downloaded file is empty."
@@ -117,7 +127,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/fuel_data.csv
+          if [ -f data/fuel_data.csv ]; then
+            git add data/fuel_data.csv
+          fi
 
           if [ -f data/force_refresh.txt ]; then
             git add data/force_refresh.txt
