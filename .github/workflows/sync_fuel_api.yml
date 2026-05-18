@@ -1,0 +1,90 @@
+name: Sync Fuel Prices From GOV API
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force commit/redeploy even if generated CSV is unchanged'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+concurrency:
+  group: sync-fuel-api
+  cancel-in-progress: false
+
+jobs:
+  sync-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      FUEL_FINDER_CLIENT_ID: ${{ secrets.FUEL_FINDER_CLIENT_ID }}
+      FUEL_FINDER_CLIENT_SECRET: ${{ secrets.FUEL_FINDER_CLIENT_SECRET }}
+      FUEL_FINDER_TOKEN_URL: ${{ secrets.FUEL_FINDER_TOKEN_URL }}
+      FUEL_FINDER_PFS_INFO_URL: ${{ secrets.FUEL_FINDER_PFS_INFO_URL }}
+      FUEL_FINDER_PFS_PRICES_URL: ${{ secrets.FUEL_FINDER_PFS_PRICES_URL }}
+      FUEL_FINDER_SCOPE: ${{ secrets.FUEL_FINDER_SCOPE || 'fuelfinder.read' }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Confirm branch
+        run: |
+          echo "Running on branch: ${GITHUB_REF_NAME}"
+          echo "For first test, run this workflow on the staging branch."
+
+      - name: Sync GOV API into local CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p data
+
+          if [ -f data/fuel_data.csv ]; then
+            echo "Current CSV SHA256:"
+            sha256sum data/fuel_data.csv
+          else
+            echo "No existing data/fuel_data.csv found"
+          fi
+
+          python3 scripts/sync_fuel_api.py
+
+          echo "Generated CSV SHA256:"
+          sha256sum data/fuel_data.csv
+          echo "Generated CSV line count:"
+          wc -l data/fuel_data.csv
+
+      - name: Add manual sync marker if requested
+        if: ${{ github.event.inputs.force_update == 'true' }}
+        run: |
+          date -u '+%Y-%m-%dT%H:%M:%SZ' > data/api_manual_sync.txt
+
+      - name: Commit generated CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/fuel_data.csv
+
+          if [ -f data/api_manual_sync.txt ]; then
+            git add data/api_manual_sync.txt
+          fi
+
+          if git diff --cached --quiet; then
+            echo "Generated CSV unchanged. No commit needed."
+            exit 0
+          fi
+
+          git commit -m "Sync fuel prices from GOV API"
+          git push
