@@ -65,8 +65,26 @@
     .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
     .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
     .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+
+    .motorway-sign-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 14px}
+    .motorway-sign-card{background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:15px;display:flex;flex-direction:column;gap:10px}
+    .motorway-sign-card b{color:#444;letter-spacing:-.03em}
+    .motorway-sign-card span{color:#666;font-size:.94rem;line-height:1.45}
+    .motorway-visual{height:92px;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .gantry-sign{background:#202020;border:6px solid #4c4c4c;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+    .red-x{width:54px;height:54px;position:relative}
+    .red-x:before,.red-x:after{content:"";position:absolute;left:22px;top:-6px;width:10px;height:66px;background:#ff3b30;border-radius:8px}
+    .red-x:before{transform:rotate(45deg)}.red-x:after{transform:rotate(-45deg)}
+    .speed-sign{background:#202020}
+    .speed-circle{width:62px;height:62px;border-radius:50%;background:#fff;border:8px solid #e02020;color:#111;display:flex;align-items:center;justify-content:center;font-weight:950;font-size:1.55rem;letter-spacing:-.05em}
+    .shoulder-sign{background:#202020;color:#fff;font-weight:950;letter-spacing:-.03em;text-align:center;font-size:1rem;line-height:1.15;padding:0 16px}
+    .shoulder-sign .arrow{font-size:2rem;display:block;color:#4db8ff;margin-bottom:2px}
+    .emergency-sign{background:#1f6fd6;color:#fff;gap:8px;flex-direction:column;font-weight:950}
+    .emergency-sign .sos{background:#fff;color:#1f6fd6;border-radius:999px;padding:7px 12px;font-size:1.05rem;letter-spacing:.02em}
+    .emergency-sign small{font-weight:850;color:rgba(255,255,255,.9)}
+    .sign-disclaimer{font-size:.9rem;color:#777;background:#fafafa;border:1px solid #eee;border-radius:16px;padding:13px;margin-top:10px}
     @media(max-width:850px){
-      .rules-snapshot,.rule-grid,.speed-list{grid-template-columns:1fr}
+      .rules-snapshot,.rule-grid,.speed-list,.motorway-sign-grid{grid-template-columns:1fr}
       .rule-row{grid-template-columns:1fr;gap:6px}
       .guide-shell{padding-bottom:42px}
     }
@@ -153,6 +171,32 @@
       <section class="guide-section">
         <h2>Motorway and smart motorway rules</h2>
         <p>Motorways rely on clear lane discipline and fast reactions to signs. Red X signs, variable speed limits and emergency areas are there to protect people after incidents or breakdowns.</p>
+
+        <div class="motorway-sign-grid" aria-label="Motorway and smart motorway sign examples">
+          <div class="motorway-sign-card">
+            <div class="motorway-visual gantry-sign" aria-hidden="true"><div class="red-x"></div></div>
+            <b>Red X</b>
+            <span>Lane closed. Do not drive in that lane. Move safely to an open lane.</span>
+          </div>
+          <div class="motorway-sign-card">
+            <div class="motorway-visual speed-sign" aria-hidden="true"><div class="speed-circle">50</div></div>
+            <b>Variable speed limit</b>
+            <span>Follow the speed shown above the lane, even when it is lower than 70 mph.</span>
+          </div>
+          <div class="motorway-sign-card">
+            <div class="motorway-visual shoulder-sign" aria-hidden="true"><span class="arrow">↓</span>Hard shoulder<br>open</div>
+            <b>Hard shoulder opened</b>
+            <span>Use it only when signs clearly show it is open as a running lane.</span>
+          </div>
+          <div class="motorway-sign-card">
+            <div class="motorway-visual emergency-sign" aria-hidden="true"><div class="sos">SOS</div><small>Emergency area</small></div>
+            <b>Emergency area</b>
+            <span>Use only for breakdowns or emergencies. Contact National Highways before rejoining.</span>
+          </div>
+        </div>
+
+        <div class="sign-disclaimer">These graphics are simplified Driverz illustrations to help recognition. Always follow the real signs on the road and official Highway Code wording.</div>
+
         <div class="rule-row-list">
           <div class="rule-row"><b>Red X</b><span>A red X means the lane is closed. Move safely to another open lane.</span></div>
           <div class="rule-row"><b>Variable limits</b><span>Follow the speed shown on motorway signs, even if it is lower than the normal motorway limit.</span></div>
@@ -202,6 +246,7 @@
         <p>This page is a simple practical guide, not legal advice. For official wording, check GOV.UK and The Highway Code.</p>
         <div class="source-links">
           <a href="https://www.gov.uk/guidance/the-highway-code" target="_blank" rel="noopener">The Highway Code ↗</a>
+          <a href="https://www.gov.uk/government/publications/know-your-traffic-signs/motorway-signs-signals-and-road-markings" target="_blank" rel="noopener">Motorway signs ↗</a>
           <a href="https://www.gov.uk/speed-limits" target="_blank" rel="noopener">Speed limits ↗</a>
           <a href="https://www.gov.uk/speeding-penalties" target="_blank" rel="noopener">Speeding penalties ↗</a>
           <a href="https://www.gov.uk/using-mobile-phones-when-driving-the-law" target="_blank" rel="noopener">Phone use law ↗</a>
