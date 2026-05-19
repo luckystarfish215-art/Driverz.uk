@@ -66,16 +66,26 @@
     .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
     .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
 
-    .smart-sign-highlight{background:#f7f7f7;border:1px solid #ececec;border-radius:22px;padding:18px;margin:16px 0 12px}
-    .smart-sign-highlight h3{margin:0 0 10px;color:#444}
-    .smart-sign-box{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:center}
-    .gantry-visual{height:96px;border-radius:18px;background:#1f1f1f;border:6px solid #4a4a4a;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-    .speed-roundel{width:66px;height:66px;border-radius:50%;background:#fff;border:8px solid #e02020;display:flex;align-items:center;justify-content:center;color:#111;font-size:1.65rem;font-weight:950;letter-spacing:-.06em}
-    .smart-sign-copy b{display:block;color:#444;margin-bottom:6px}
-    .smart-sign-copy p{margin:0;color:#666;line-height:1.48}
+    .motorway-sign-list{display:grid;gap:12px;margin-top:16px}
+    .motorway-sign-item{display:grid;grid-template-columns:138px 1fr;gap:16px;align-items:center;background:#f7f7f7;border:1px solid #ececec;border-radius:20px;padding:15px}
+    .motorway-sign-copy b{display:block;color:#444;font-size:1.05rem;letter-spacing:-.03em;margin-bottom:6px}
+    .motorway-sign-copy span{display:block;color:#666;line-height:1.48}
+    .sign-visual{height:92px;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#222;border:5px solid #4b4b4b;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+    .national-limit-sign{width:72px;height:72px;border-radius:50%;background:#f8f8f8;position:relative;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+    .national-limit-sign:after{content:"";position:absolute;left:29px;top:-8px;width:14px;height:88px;background:#1f1f1f;transform:rotate(45deg);border-radius:9px}
+    .red-x-sign{width:62px;height:62px;position:relative}
+    .red-x-sign:before,.red-x-sign:after{content:"";position:absolute;left:25px;top:-8px;width:12px;height:78px;background:#ff3b30;border-radius:8px}
+    .red-x-sign:before{transform:rotate(45deg)}.red-x-sign:after{transform:rotate(-45deg)}
+    .variable-limit-sign{width:68px;height:68px;border-radius:50%;background:#fff;border:8px solid #e02020;color:#111;display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:950;letter-spacing:-.06em}
+    .shoulder-open-sign{color:#fff;text-align:center;font-weight:950;line-height:1.12;letter-spacing:-.03em;font-size:1rem;padding:0 10px}
+    .shoulder-open-sign .arrow{display:block;color:#4db8ff;font-size:2rem;line-height:1;margin-bottom:2px}
+    .emergency-area-sign{background:#1f6fd6;border-color:#1255aa;color:#fff;flex-direction:column;gap:6px}
+    .emergency-area-sign .sos{background:#fff;color:#1f6fd6;border-radius:999px;padding:7px 13px;font-weight:950;letter-spacing:.02em}
+    .emergency-area-sign small{font-weight:850;color:rgba(255,255,255,.94)}
+    .sign-note{background:#fafafa;border:1px solid #eee;border-radius:16px;padding:13px;margin-top:12px;color:#777;font-size:.92rem;line-height:1.45}
     @media(max-width:850px){
       .rules-snapshot,.rule-grid,.speed-list{grid-template-columns:1fr}
-      .rule-row,.smart-sign-box{grid-template-columns:1fr;gap:6px}
+      .rule-row,.motorway-sign-item{grid-template-columns:1fr;gap:8px}
       .guide-shell{padding-bottom:42px}
     }
   </style></head>
@@ -160,27 +170,62 @@
 
       <section class="guide-section">
         <h2>Motorway and smart motorway rules</h2>
-        <p>Motorways rely on clear lane discipline and fast reactions to signs. Red X signs, variable speed limits and emergency areas are there to protect people after incidents or breakdowns.</p>
+        <p>Motorways rely on clear lane discipline and fast reactions to signs. Red X signs, variable speed limits, national speed limit signs and emergency areas are there to keep traffic moving safely.</p>
 
-        <div class="smart-sign-highlight" aria-label="Variable speed limit sign example">
-          <h3>Variable speed limit sign</h3>
-          <div class="smart-sign-box">
-            <div class="gantry-visual" aria-hidden="true">
-              <div class="speed-roundel">50</div>
+        <div class="motorway-sign-list" aria-label="Motorway and smart motorway sign examples">
+          <div class="motorway-sign-item">
+            <div class="sign-visual" aria-hidden="true">
+              <div class="national-limit-sign"></div>
             </div>
-            <div class="smart-sign-copy">
-              <b>This number is the legal limit for that section</b>
-              <p>If an overhead motorway sign shows 60, 50 or 40, you must follow that temporary limit even though the usual motorway limit is 70 mph. This is one of the most important smart motorway signs to recognise.</p>
+            <div class="motorway-sign-copy">
+              <b>National speed limit</b>
+              <span>This sign means the national speed limit applies. For cars, that usually means 70 mph on motorways and dual carriageways, and 60 mph on single carriageways unless signs show otherwise.</span>
+            </div>
+          </div>
+
+          <div class="motorway-sign-item">
+            <div class="sign-visual" aria-hidden="true">
+              <div class="red-x-sign"></div>
+            </div>
+            <div class="motorway-sign-copy">
+              <b>Red X</b>
+              <span>A red X means the lane is closed. Do not drive in that lane. Move safely to another open lane.</span>
+            </div>
+          </div>
+
+          <div class="motorway-sign-item">
+            <div class="sign-visual" aria-hidden="true">
+              <div class="variable-limit-sign">50</div>
+            </div>
+            <div class="motorway-sign-copy">
+              <b>Variable speed limit</b>
+              <span>Follow the speed shown on motorway signs, even if it is lower than the normal motorway limit. If the sign shows 60, 50 or 40, that is the limit for that section.</span>
+            </div>
+          </div>
+
+          <div class="motorway-sign-item">
+            <div class="sign-visual" aria-hidden="true">
+              <div class="shoulder-open-sign"><span class="arrow">↓</span>Hard shoulder<br>open</div>
+            </div>
+            <div class="motorway-sign-copy">
+              <b>Hard shoulder</b>
+              <span>Only use the hard shoulder in an emergency or when motorway signs clearly say it is open to traffic.</span>
+            </div>
+          </div>
+
+          <div class="motorway-sign-item">
+            <div class="sign-visual emergency-area-sign" aria-hidden="true">
+              <div class="sos">SOS</div>
+              <small>Emergency area</small>
+            </div>
+            <div class="motorway-sign-copy">
+              <b>Breakdown safety</b>
+              <span>If safe, leave the vehicle from the left side and stand behind a barrier away from traffic. Use emergency areas only for breakdowns or emergencies.</span>
             </div>
           </div>
         </div>
 
-        <div class="rule-row-list">
-          <div class="rule-row"><b>Red X</b><span>A red X means the lane is closed. Move safely to another open lane.</span></div>
-          <div class="rule-row"><b>Variable limits</b><span>Follow the speed shown on motorway signs, even if it is lower than the normal motorway limit.</span></div>
-          <div class="rule-row"><b>Hard shoulder</b><span>Only use the hard shoulder in an emergency or when signs say it is open to traffic.</span></div>
-          <div class="rule-row"><b>Breakdown safety</b><span>If safe, leave the vehicle from the left side and stand behind a barrier away from traffic.</span></div>
-        </div>
+        <div class="sign-note">These are simplified Driverz graphics to help recognition. Always follow the real signs on the road and check The Highway Code for official wording.</div>
       </section>
 
       <section class="guide-section">
