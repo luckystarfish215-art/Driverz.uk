@@ -1,60 +1,34 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>driverz.uk | UK fuel prices and driver tools</title><meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts."><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/style.css"><script src="/components.js?v=20260518-3" defer></script>
-</head><body><driverz-header></driverz-header>
-<section class="fuel-hero" id="fuel-card">
-  <div class="fuel-hero-inner">
-    <div class="fuel-hero-top compact-hero-title">
-      <div>
-        <div class="eyebrow">UK fuel price finder</div>
-        <h1>Find cheaper fuel nearby.</h1>
-        <p class="hero-copy">Search from the header, or use your location. The cheapest useful result comes first.</p>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="fuel-type-row">
-      <div class="mode-pill"><button class="active" data-mode="petrol" type="button">Petrol</button><button data-mode="diesel" type="button">Diesel</button><button data-mode="ev" type="button">EV</button></div>
-    </div>
+  <title>driverz.uk | UK petrol, diesel & EV driver tools</title>
+  <meta name="description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts.">
+  <meta name="keywords" content="UK fuel prices, petrol prices UK, diesel prices UK, EV charging prices, cheapest petrol near me, UK driver tools, UK fuel stations">
+  <meta name="theme-color" content="#111111">
 
-    <section class="station-card hero-station-card priority-price-card">
-      <div class="result-main">
-        <div class="price-row"><div class="price" id="main-price">--</div><div class="unit" id="main-unit">p</div></div>
-        <h2 class="station-name" id="station-name">Checking nearby prices…</h2>
-        <div class="meta"><span class="chip" id="distance">-- mi</span><span class="chip" id="updated">Updated today</span><span class="chip" id="hours">Opening times unavailable</span></div>
-        <p class="notice" id="address">Tap search in the header, search a town or postcode, or use your current location.</p>
-        <div class="quick-calc" id="quick-calc" hidden>
-          <div class="quick-calc-label">Quick calculation</div>
-          <div class="quick-calc-lines" id="quick-calc-lines"></div>
-        </div>
-        <div class="actions"><a class="btn" id="directions" target="_blank" rel="noopener">Directions</a><button class="btn light" type="button" onclick="navigator.share?navigator.share({title:'driverz.uk',url:location.href}):navigator.clipboard.writeText(location.href)">Share</button><button class="btn light icon-action" type="button" id="result-search" aria-label="Search another place">⌕</button></div>
-      </div>
-      <aside class="other-price-card">
-        <div class="mini-label" id="other-price-label">Other fuel prices</div>
-        <div class="price-chips" id="all-prices">Loading…</div>
-      </aside>
-    </section>
+  <link rel="canonical" href="https://driverz.uk/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css?v=20260518-1">
 
-    <section class="compare-nearby" id="compare-nearby" hidden>
-      <button class="compare-toggle" id="compare-toggle" type="button">
-        <span>Compare nearby stations</span>
-        <small id="compare-summary">Top nearby options within your radius</small>
-      </button>
-      <div class="compare-list" id="compare-list" hidden></div>
-    </section>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="driverz.uk | UK petrol, diesel & EV driver tools">
+  <meta property="og:description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts.">
+  <meta property="og:url" content="https://driverz.uk/">
+  <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-    <div class="fuel-controls below-price-controls">
-      <div class="radius-control"><div class="range-head"><span>Search radius</span><strong id="radius-value">0.5 mi</strong></div><input class="range" id="radius" type="range" min="0.5" max="10" step="0.5" value="0.5"></div>
-      <label class="toggle-row compact"><input type="checkbox" id="exclude-costco"> <span>Exclude Costco <small>(Membership Only)</small></span></label>
-    </div>
-  </div>
-</section>
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="driverz.uk | UK petrol, diesel & EV driver tools">
+  <meta name="twitter:description" content="Find nearby UK petrol, diesel and EV charging prices with simple driver tools, guides and emergency contacts.">
+  <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
 
-<section class="insight-quote" aria-label="Driverz quick tip">
-  <div class="insight-inner">
-    <div class="insight-label">Driverz quick tip</div>
-    <p id="tip-text">Check tyre pressure when tyres are cold for the most accurate reading.</p>
-  </div>
-</section>
+  <!-- Components: header, footer, cookie consent, delayed GA after Accept -->
+  <script src="/components.js?v=20260518-1" defer></script>
 
-<section class="cloud-section"><div class="city-cloud"><h2>Popular UK locations</h2><span class="city-tag xl" data-city="London">London</span><span class="city-tag lg" data-city="Birmingham">Birmingham</span><span class="city-tag lg" data-city="Manchester">Manchester</span><span class="city-tag md" data-city="Glasgow">Glasgow</span><span class="city-tag md" data-city="Reading">Reading</span><span class="city-tag md" data-city="Leeds">Leeds</span><span class="city-tag md" data-city="Liverpool">Liverpool</span><span class="city-tag md" data-city="Bristol">Bristol</span><span class="city-tag sm" data-city="Oxford">Oxford</span><span class="city-tag sm" data-city="Cambridge">Cambridge</span><span class="city-tag sm" data-city="Brighton">Brighton</span><span class="city-tag sm" data-city="Southampton">Southampton</span><span class="city-tag sm" data-city="Cardiff">Cardiff</span><span class="city-tag sm" data-city="Edinburgh">Edinburgh</span><span class="city-tag sm" data-city="Newcastle">Newcastle</span><span class="city-tag sm" data-city="Nottingham">Nottingham</span><span class="city-tag sm" data-city="Leicester">Leicester</span><span class="city-tag sm" data-city="Coventry">Coventry</span><span class="city-tag sm" data-city="York">York</span><span class="city-tag sm" data-city="Norwich">Norwich</span><span class="city-tag sm" data-city="Plymouth">Plymouth</span><span class="city-tag sm" data-city="Aberdeen">Aberdeen</span><span class="city-tag sm" data-city="Swansea">Swansea</span><span class="city-tag sm" data-city="Milton Keynes">Milton Keynes</span><span class="city-tag sm" data-city="Newbury">Newbury</span></div></section>
-
-<section class="section"><h2>Tools that stay useful.</h2><p class="section-intro">Nearby fuel prices, driving costs and EV tools.</p><div class="grid"><a class="card" href="/trip-calculator.html"><h3>Trip cost calculator</h3><p>Estimate journey cost using today’s fuel price.</p></a><a class="card" href="/ev-vs-petrol.html"><h3>EV vs petrol</h3><p>Compare energy costs in plain English.</p></a><a class="card" href="/emergency.html"><h3>Emergency contacts</h3><p>Important UK driver numbers and accident checklist.</p></a></div></section>
-<script src="/assets/app.js?v=20260517-4" defer></script><driverz-footer></driverz-footer></body></html>
+  <!-- Main app -->
+  <script src="/assets/app.js?v=20260518-1" defer></script>
+</head>
