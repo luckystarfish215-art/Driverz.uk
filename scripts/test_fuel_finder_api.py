@@ -1,6 +1,5 @@
 import json
 import os
-import urllib.parse
 import urllib.request
 import urllib.error
 
@@ -13,15 +12,15 @@ INFO_URL = os.environ.get("FUEL_FINDER_PFS_INFO_URL")
 def fail(message):
     raise SystemExit(message)
 
-def post_form(url, payload):
-    body = urllib.parse.urlencode(payload).encode("utf-8")
+def post_json(url, payload):
+    body = json.dumps(payload).encode("utf-8")
 
     request = urllib.request.Request(
         url,
         data=body,
         method="POST",
         headers={
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
             "Accept": "application/json",
             "User-Agent": "Driverz.uk API test contact: mtamtc76@gmail.com",
         }
@@ -33,6 +32,8 @@ def post_form(url, payload):
     except urllib.error.HTTPError as exc:
         error_body = exc.read().decode("utf-8", errors="replace")
         print(f"Token request failed with HTTP {exc.code}")
+        print("Response headers:")
+        print(exc.headers)
         print("Response preview:")
         print(error_body[:1000])
         raise
@@ -54,40 +55,31 @@ def get_json(url, token, label):
     except urllib.error.HTTPError as exc:
         error_body = exc.read().decode("utf-8", errors="replace")
         print(f"{label} request failed with HTTP {exc.code}")
+        print("Response headers:")
+        print(exc.headers)
         print("Response preview:")
         print(error_body[:1000])
         raise
 
-if not CLIENT_ID:
-    fail("Missing GitHub secret: FUEL_FINDER_CLIENT_ID")
+for name, value in {
+    "FUEL_FINDER_CLIENT_ID": CLIENT_ID,
+    "FUEL_FINDER_CLIENT_SECRET": CLIENT_SECRET,
+    "FUEL_FINDER_TOKEN_URL": TOKEN_URL,
+    "FUEL_FINDER_PFS_PRICES_URL": PRICES_URL,
+    "FUEL_FINDER_PFS_INFO_URL": INFO_URL,
+}.items():
+    if not value:
+        fail(f"Missing GitHub secret: {name}")
 
-if not CLIENT_SECRET:
-    fail("Missing GitHub secret: FUEL_FINDER_CLIENT_SECRET")
-
-if not TOKEN_URL:
-    fail("Missing GitHub secret: FUEL_FINDER_TOKEN_URL")
-
-if not PRICES_URL:
-    fail("Missing GitHub secret: FUEL_FINDER_PFS_PRICES_URL")
-
-if not INFO_URL:
-    fail("Missing GitHub secret: FUEL_FINDER_PFS_INFO_URL")
-
-print("Client ID found.")
-print("Client secret found.")
-print("Token URL found.")
-print("Prices URL found.")
-print("PFS info URL found.")
-print("Requesting token using form-urlencoded body...")
+print("All required secrets found.")
+print("Requesting token using JSON body...")
 
 token_payload = {
-    "grant_type": "client_credentials",
     "client_id": CLIENT_ID,
-    "client_secret": CLIENT_SECRET,
-    "scope": "fuelfinder.read"
+    "client_secret": CLIENT_SECRET
 }
 
-status, token_response = post_form(TOKEN_URL, token_payload)
+status, token_response = post_json(TOKEN_URL, token_payload)
 
 print(f"Token request status: {status}")
 
