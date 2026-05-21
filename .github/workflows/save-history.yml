@@ -1,0 +1,40 @@
+name: Save Fuel History Snapshot
+
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  save-history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Save daily history snapshot
+        run: python scripts/save_history_snapshot.py
+
+      - name: Analyse fuel trends
+        run: python scripts/analyse_fuel_trends.py
+
+      - name: Check history health
+        run: python scripts/check_history_health.py
+
+      - name: Commit history and status files
+        if: always()
+        run: |
+          git config user.name "driverz-bot"
+          git config user.email "actions@github.com"
+          git add history data/trends-30d.json data/history-status.json
+          git diff --cached --quiet || git commit -m "Save daily fuel history snapshot"
+          git push
