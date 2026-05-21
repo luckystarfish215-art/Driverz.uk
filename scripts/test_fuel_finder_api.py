@@ -1,32 +1,31 @@
 import json
 import os
-import urllib.parse
 import urllib.request
 import urllib.error
 
 CLIENT_ID = os.environ.get("FUEL_FINDER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("FUEL_FINDER_CLIENT_SECRET")
 
-# Based on public examples from Fuel Finder integrations.
-# If the official portal gives you different URLs, replace these.
-TOKEN_URL = "https://www.developer.fuel-finder.service.gov.uk/api/v1/oauth/generate_access_token"
-PFS_URL = "https://www.developer.fuel-finder.service.gov.uk/api/v1/pfs"
-PRICES_URL = "https://www.developer.fuel-finder.service.gov.uk/api/v1/pfs/fuel-prices"
+TOKEN_URL = "https://www.fuel-finder.service.gov.uk/api/v1/oauth/generate_access_token"
+PRICES_URL = "https://www.fuel-finder.service.gov.uk/api/v1/pfs/fuel-prices"
+
+HEADERS = {
+    "User-Agent": "Driverz.uk API test contact: mtamtc76@gmail.com",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
 
 def fail(message):
     raise SystemExit(message)
 
-def post_form(url, data):
-    body = urllib.parse.urlencode(data).encode("utf-8")
+def post_json(url, payload):
+    body = json.dumps(payload).encode("utf-8")
 
     request = urllib.request.Request(
         url,
         data=body,
         method="POST",
-        headers={
-            "Content-Type": "application/x-www-form-urlencoded",
-            "User-Agent": "Driverz.uk Fuel Finder API test"
-        }
+        headers=HEADERS
     )
 
     try:
@@ -37,19 +36,18 @@ def post_form(url, data):
         print(f"Token request failed with HTTP {exc.code}")
         print(error_body[:1000])
         raise
-    except Exception as exc:
-        print(f"Token request failed: {exc}")
-        raise
 
 def get_json(url, token):
+    headers = {
+        "User-Agent": "Driverz.uk API test contact: mtamtc76@gmail.com",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}",
+    }
+
     request = urllib.request.Request(
         url,
         method="GET",
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/json",
-            "User-Agent": "Driverz.uk Fuel Finder API test"
-        }
+        headers=headers
     )
 
     try:
@@ -60,9 +58,6 @@ def get_json(url, token):
         print(f"API request failed with HTTP {exc.code}")
         print(error_body[:1000])
         raise
-    except Exception as exc:
-        print(f"API request failed: {exc}")
-        raise
 
 if not CLIENT_ID:
     fail("Missing GitHub secret: FUEL_FINDER_CLIENT_ID")
@@ -70,17 +65,16 @@ if not CLIENT_ID:
 if not CLIENT_SECRET:
     fail("Missing GitHub secret: FUEL_FINDER_CLIENT_SECRET")
 
-print("Client ID found in GitHub Secrets.")
-print("Client secret found in GitHub Secrets.")
+print("Client ID found.")
+print("Client secret found.")
+print("Requesting token...")
 
-token_data = {
-    "grant_type": "client_credentials",
+token_payload = {
     "client_id": CLIENT_ID,
-    "client_secret": CLIENT_SECRET,
-    "scope": "fuelfinder.read"
+    "client_secret": CLIENT_SECRET
 }
 
-status, token_response = post_form(TOKEN_URL, token_data)
+status, token_response = post_json(TOKEN_URL, token_payload)
 
 print(f"Token request status: {status}")
 
@@ -96,12 +90,11 @@ access_token = token_json.get("access_token")
 if not access_token:
     print("Token response:")
     print(json.dumps(token_json, indent=2)[:1000])
-    fail("No access_token found in token response.")
+    fail("No access_token found.")
 
 print("Access token received successfully.")
+print("Testing prices API...")
 
-# Test a small public API request.
-# If this endpoint needs pagination/query params, the response will tell us.
 status, api_response = get_json(PRICES_URL, access_token)
 
 print(f"Prices API status: {status}")
