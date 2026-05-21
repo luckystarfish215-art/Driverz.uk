@@ -1,0 +1,33 @@
+name: Update Latest Fuel Data
+
+on:
+  schedule:
+    - cron: "10 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Update latest fuel data
+        run: python scripts/update_latest_from_gov.py
+
+      - name: Commit latest data
+        run: |
+          git config user.name "driverz-bot"
+          git config user.email "actions@github.com"
+          git add data/latest.json data/latest-status.json
+          git diff --cached --quiet || git commit -m "Update latest fuel data"
+          git push
