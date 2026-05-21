@@ -23,4 +23,7 @@ jobs:
         env:
           FUEL_FINDER_CLIENT_ID: ${{ secrets.FUEL_FINDER_CLIENT_ID }}
           FUEL_FINDER_CLIENT_SECRET: ${{ secrets.FUEL_FINDER_CLIENT_SECRET }}
+          FUEL_FINDER_TOKEN_URL: ${{ secrets.FUEL_FINDER_TOKEN_URL }}
+          FUEL_FINDER_PFS_PRICES_URL: ${{ secrets.FUEL_FINDER_PFS_PRICES_URL }}
+          FUEL_FINDER_PFS_INFO_URL: ${{ secrets.FUEL_FINDER_PFS_INFO_URL }}
         run: python scripts/test_fuel_finder_api.py
