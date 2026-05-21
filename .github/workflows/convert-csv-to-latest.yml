@@ -1,0 +1,34 @@
+name: Convert CSV to Latest JSON
+
+on:
+  push:
+    paths:
+      - "data/fuel_data.csv"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert-csv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Convert CSV to latest.json
+        run: python scripts/convert_csv_to_latest.py
+
+      - name: Commit latest data
+        run: |
+          git config user.name "driverz-bot"
+          git config user.email "actions@github.com"
+          git add data/latest.json data/latest-status.json
+          git diff --cached --quiet || git commit -m "Convert fuel CSV to latest JSON"
+          git push
