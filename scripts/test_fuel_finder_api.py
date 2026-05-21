@@ -6,9 +6,9 @@ import urllib.error
 
 CLIENT_ID = os.environ.get("FUEL_FINDER_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("FUEL_FINDER_CLIENT_SECRET")
-
-TOKEN_URL = "https://www.fuel-finder.service.gov.uk/api/v1/oauth/generate_access_token"
-PRICES_URL = "https://www.fuel-finder.service.gov.uk/api/v1/pfs/fuel-prices"
+TOKEN_URL = os.environ.get("FUEL_FINDER_TOKEN_URL")
+PRICES_URL = os.environ.get("FUEL_FINDER_PFS_PRICES_URL")
+INFO_URL = os.environ.get("FUEL_FINDER_PFS_INFO_URL")
 
 def fail(message):
     raise SystemExit(message)
@@ -37,7 +37,7 @@ def post_form(url, payload):
         print(error_body[:1000])
         raise
 
-def get_json(url, token):
+def get_json(url, token, label):
     request = urllib.request.Request(
         url,
         method="GET",
@@ -53,7 +53,7 @@ def get_json(url, token):
             return response.status, response.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
         error_body = exc.read().decode("utf-8", errors="replace")
-        print(f"API request failed with HTTP {exc.code}")
+        print(f"{label} request failed with HTTP {exc.code}")
         print("Response preview:")
         print(error_body[:1000])
         raise
@@ -64,8 +64,20 @@ if not CLIENT_ID:
 if not CLIENT_SECRET:
     fail("Missing GitHub secret: FUEL_FINDER_CLIENT_SECRET")
 
+if not TOKEN_URL:
+    fail("Missing GitHub secret: FUEL_FINDER_TOKEN_URL")
+
+if not PRICES_URL:
+    fail("Missing GitHub secret: FUEL_FINDER_PFS_PRICES_URL")
+
+if not INFO_URL:
+    fail("Missing GitHub secret: FUEL_FINDER_PFS_INFO_URL")
+
 print("Client ID found.")
 print("Client secret found.")
+print("Token URL found.")
+print("Prices URL found.")
+print("PFS info URL found.")
 print("Requesting token using form-urlencoded body...")
 
 token_payload = {
@@ -79,13 +91,7 @@ status, token_response = post_form(TOKEN_URL, token_payload)
 
 print(f"Token request status: {status}")
 
-try:
-    token_json = json.loads(token_response)
-except json.JSONDecodeError:
-    print("Token response was not JSON:")
-    print(token_response[:1000])
-    raise
-
+token_json = json.loads(token_response)
 access_token = token_json.get("access_token")
 
 if not access_token:
@@ -94,12 +100,17 @@ if not access_token:
     fail("No access_token found.")
 
 print("Access token received successfully.")
-print("Testing prices API...")
 
-status, api_response = get_json(PRICES_URL, access_token)
-
+print("Testing PFS prices API...")
+status, prices_response = get_json(PRICES_URL, access_token, "Prices API")
 print(f"Prices API status: {status}")
-print("API response preview:")
-print(api_response[:1000])
+print("Prices API response preview:")
+print(prices_response[:1000])
+
+print("Testing PFS info API...")
+status, info_response = get_json(INFO_URL, access_token, "PFS info API")
+print(f"PFS info API status: {status}")
+print("PFS info API response preview:")
+print(info_response[:1000])
 
 print("Fuel Finder API test completed.")
