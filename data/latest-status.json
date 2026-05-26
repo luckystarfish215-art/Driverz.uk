@@ -1,10 +1,10 @@
 {
   "status": "success",
   "message": "latest.json generated successfully from data/fuel_data.csv.",
-  "checked_at": "2026-05-26T05:32:15.638244+00:00",
+  "checked_at": "2026-05-26T14:01:33.898805+00:00",
   "csv_file": "data/fuel_data.csv",
-  "row_count": 7935,
-  "station_count": 7935,
+  "row_count": 7938,
+  "station_count": 7938,
   "columns": [
     "forecourt_update_timestamp",
     "forecourts.node_id",
