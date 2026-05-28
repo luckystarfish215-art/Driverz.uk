@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Driverz utilities | driverz.uk</title>
-  <meta name="description" content="Quick UK driver utilities including trip cost, mileage, EV comparison, charge timer and shareable helper links.">
+  <title>UK driver tools and calculators | driverz.uk</title>
+  <meta name="description" content="Free UK driver tools from driverz.uk: fuel price finder, trip cost calculator, cost per mile tracker, EV charging calculators, Clean Air Zone links and official driver services.">
   <link rel="canonical" href="https://driverz.uk/utilities.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="driverz.uk">
-  <meta property="og:title" content="Driverz utilities | driverz.uk">
-  <meta property="og:description" content="Quick UK driver utilities including trip cost, mileage, EV comparison, charge timer and shareable helper links.">
+  <meta property="og:title" content="UK driver tools and calculators | driverz.uk">
+  <meta property="og:description" content="Free UK driver tools including fuel prices, journey cost calculators, EV charging helpers and official driver service shortcuts.">
   <meta property="og:url" content="https://driverz.uk/utilities.html">
   <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -20,42 +20,184 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Driverz utilities | driverz.uk">
-  <meta name="twitter:description" content="Quick UK driver utilities including trip cost, mileage, EV comparison, charge timer and shareable helper links.">
+  <meta name="twitter:title" content="UK driver tools and calculators | driverz.uk">
+  <meta name="twitter:description" content="Free UK driver tools including fuel prices, journey cost calculators, EV charging helpers and official driver service shortcuts.">
   <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta name="theme-color" content="#666666">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css"></head>
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "UK driver tools and calculators",
+    "url": "https://driverz.uk/utilities.html",
+    "description": "A hub of free UK driver tools and calculators from driverz.uk.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "driverz.uk",
+      "url": "https://driverz.uk/"
+    },
+    "hasPart": [
+      {"@type": "WebApplication", "name": "UK Fuel Price Finder", "url": "https://driverz.uk/"},
+      {"@type": "WebApplication", "name": "Trip Cost Calculator", "url": "https://driverz.uk/trip-calculator.html"},
+      {"@type": "WebApplication", "name": "Cost Per Mile Tracker", "url": "https://driverz.uk/cpm-tracker.html"},
+      {"@type": "WebApplication", "name": "EV vs Petrol Cost Calculator", "url": "https://driverz.uk/ev-vs-petrol.html"},
+      {"@type": "WebApplication", "name": "EV Home Charging Savings Calculator", "url": "https://driverz.uk/ev-home-savings.html"},
+      {"@type": "WebApplication", "name": "EV Charge Timer", "url": "https://driverz.uk/ev-charge-timer.html"}
+    ]
+  }
+  </script>
+</head>
 <body>
 <driverz-header></driverz-header>
 
 <main class="article">
-  <p class="eyebrow">Utilities</p>
+  <p class="eyebrow">UK driver utilities</p>
   <h1>Driver tools you can use quickly</h1>
-  <p class="quick-answer">Use this page as the clean hub for practical calculators and official-service shortcuts. Share it with another driver using the button below.</p>
-  <div class="actions"><button class="btn accent" id="share-page" type="button">Share this page</button><span class="notice" id="share-status" role="status"></span></div>
-  <h2>Calculators</h2>
-  <div class="grid">
-    <article class="card"><h3>Trip cost calculator</h3><p>Estimate fuel or EV charging cost for a journey.</p><a class="btn light" href="/trip-calculator.html">Open</a></article>
-    <article class="card"><h3>CPM / mileage tracker</h3><p>Work out cost per mile for business or personal driving.</p><a class="btn light" href="/cpm-tracker.html">Open</a></article>
-    <article class="card"><h3>EV vs petrol</h3><p>Compare everyday running costs between electric and petrol driving.</p><a class="btn light" href="/ev-vs-petrol.html">Open</a></article>
-    <article class="card"><h3>EV home savings</h3><p>Estimate savings from home charging versus public charging.</p><a class="btn light" href="/ev-home-savings.html">Open</a></article>
-    <article class="card"><h3>EV charge timer</h3><p>Estimate how long a charge session could take.</p><a class="btn light" href="/ev-charge-timer.html">Open</a></article>
-    <article class="card"><h3>Clean Air Zones</h3><p>Check whether a route or city may need extra planning.</p><a class="btn light" href="/clean-air-zones.html">Open</a></article>
+  <p class="quick-answer">Use this page as the main hub for driverz.uk tools: check nearby fuel prices, estimate trip costs, compare petrol and EV running costs, and jump to official UK driver services.</p>
+
+  <div class="actions">
+    <a class="btn accent" href="/#fuel-card">Find fuel prices</a>
+    <button class="btn light" id="share-page" type="button">Share this page</button>
+    <span class="notice" id="share-status" role="status"></span>
   </div>
+
+  <h2>Most useful tools</h2>
+  <p>These are the tools most drivers are likely to need regularly. They are designed to be quick on mobile, with no account required.</p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>Fuel Price Finder</h3>
+      <p>Search by town, city, postcode or your current location to find nearby petrol, diesel and EV information.</p>
+      <a class="btn light" href="/#fuel-card">Find fuel prices</a>
+    </article>
+
+    <article class="card">
+      <h3>Trip cost calculator</h3>
+      <p>Estimate the cost of a journey using distance, fuel economy and fuel price. Useful before a long drive or airport run.</p>
+      <a class="btn light" href="/trip-calculator.html">Open calculator</a>
+    </article>
+
+    <article class="card">
+      <h3>Cost per mile tracker</h3>
+      <p>Work out your real pence-per-mile cost for commuting, business mileage or personal driving.</p>
+      <a class="btn light" href="/cpm-tracker.html">Open tracker</a>
+    </article>
+  </div>
+
+  <h2>EV and charging tools</h2>
+  <p>Use these calculators to compare electric driving costs, home charging savings and estimated charging time.</p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>EV vs petrol calculator</h3>
+      <p>Compare everyday running costs between electric and petrol driving using your own mileage and energy prices.</p>
+      <a class="btn light" href="/ev-vs-petrol.html">Compare costs</a>
+    </article>
+
+    <article class="card">
+      <h3>EV home charging savings</h3>
+      <p>Estimate how much you may save by charging at home compared with public charging.</p>
+      <a class="btn light" href="/ev-home-savings.html">Estimate savings</a>
+    </article>
+
+    <article class="card">
+      <h3>EV charge timer</h3>
+      <p>Estimate how long a charging session could take based on battery size, start percentage and charger power.</p>
+      <a class="btn light" href="/ev-charge-timer.html">Open timer</a>
+    </article>
+  </div>
+
+  <h2>Planning and road cost helpers</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>Clean Air Zones</h3>
+      <p>Check which UK cities have Clean Air Zones, LEZ or ULEZ-style rules before you travel.</p>
+      <a class="btn light" href="/clean-air-zones.html">View CAZ guide</a>
+    </article>
+
+    <article class="card">
+      <h3>Driving costs guide</h3>
+      <p>Understand the common costs of UK driving, including fuel, tax, insurance, parking, tolls and maintenance.</p>
+      <a class="btn light" href="/driving-costs-guide.html">Read guide</a>
+    </article>
+
+    <article class="card">
+      <h3>UK driving rules</h3>
+      <p>Quick explanations of important UK driving rules, signs and motorway basics.</p>
+      <a class="btn light" href="/uk-driving-rules.html">Read rules</a>
+    </article>
+  </div>
+
   <h2>Official driver services</h2>
+  <p>These links open official GOV.UK or public service pages. They are included as shortcuts only; always check the official page before making a payment or legal decision.</p>
+
   <div class="service-grid">
     <a class="card" href="https://www.gov.uk/check-mot-status" target="_blank" rel="noopener"><h3>Check MOT status ↗</h3><p>Open the official GOV.UK MOT checker.</p></a>
     <a class="card" href="https://www.gov.uk/check-vehicle-tax" target="_blank" rel="noopener"><h3>Check vehicle tax ↗</h3><p>Open the official GOV.UK vehicle tax checker.</p></a>
     <a class="card" href="https://www.gov.uk/pay-dartford-crossing-charge" target="_blank" rel="noopener"><h3>Pay Dartford Charge ↗</h3><p>Go to the official Dart Charge payment page.</p></a>
     <a class="card" href="https://www.gov.uk/report-pothole" target="_blank" rel="noopener"><h3>Report a pothole ↗</h3><p>Find the correct local council reporting page.</p></a>
   </div>
+
+  <h2>How to use this hub</h2>
+  <p>If you are checking prices before a journey, start with the Fuel Price Finder and then use the Trip Cost Calculator. If you are comparing long-term running costs, use the Cost Per Mile Tracker or EV vs Petrol Calculator. For city driving, check Clean Air Zones before travelling.</p>
+
+  <div class="highlight-panel">
+    <h2>Planned tools</h2>
+    <p>driverz.uk is being built as a simple UK driver utility site. Good next additions include an MPG calculator, tyre pressure reminder, road tax helper and weekly fuel trend page.</p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <details class="card">
+    <summary><strong>Are these tools free?</strong></summary>
+    <p>Yes. The driverz.uk tools are designed to be free, fast and usable on mobile without creating an account.</p>
+  </details>
+
+  <details class="card">
+    <summary><strong>Are the calculations exact?</strong></summary>
+    <p>No. Calculators are estimates. Real costs can change because of route, traffic, driving style, vehicle condition, fuel price, charger efficiency and weather.</p>
+  </details>
+
+  <details class="card">
+    <summary><strong>Where should I start?</strong></summary>
+    <p>For a normal journey, start with the Fuel Price Finder, then use the Trip Cost Calculator. For regular commuting or business mileage, use the Cost Per Mile Tracker.</p>
+  </details>
+
+  <details class="card">
+    <summary><strong>Can I share these tools with another driver?</strong></summary>
+    <p>Yes. Use the share button near the top of this page, or copy the page URL and send it by message.</p>
+  </details>
 </main>
 
 <driverz-footer></driverz-footer>
 <script src="/components.js"></script>
+<script>
+  document.getElementById('share-page')?.addEventListener('click', async () => {
+    const status = document.getElementById('share-status');
+    const shareData = {
+      title: 'UK driver tools and calculators | driverz.uk',
+      text: 'Free UK driver tools: fuel prices, trip cost calculator, EV calculators and official service shortcuts.',
+      url: location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        if (status) status.textContent = 'Shared.';
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(location.href);
+        if (status) status.textContent = 'Link copied.';
+      }
+    } catch (error) {
+      if (status) status.textContent = 'Share cancelled.';
+    }
+  });
+</script>
 </body>
 </html>
