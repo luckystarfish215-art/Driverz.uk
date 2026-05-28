@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>UK driving guides and glossary | driverz.uk</title>
-  <meta name="description" content="Plain-English UK driving guides covering fuel, EV charging, running costs, clean air zones and driving rules.">
+  <title>UK driving guides, fuel guides and road rules | driverz.uk</title>
+  <meta name="description" content="Plain-English UK driving guides for fuel types, driving costs, clean air zones, motorway signs, EV terms, emergency contacts and everyday road rules.">
   <link rel="canonical" href="https://driverz.uk/guides.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="driverz.uk">
-  <meta property="og:title" content="UK driving guides and glossary | driverz.uk">
-  <meta property="og:description" content="Plain-English UK driving guides covering fuel, EV charging, running costs, clean air zones and driving rules.">
+  <meta property="og:title" content="UK driving guides, fuel guides and road rules | driverz.uk">
+  <meta property="og:description" content="Plain-English UK driving guides for fuel types, driving costs, clean air zones, motorway signs, EV terms, emergency contacts and everyday road rules.">
   <meta property="og:url" content="https://driverz.uk/guides.html">
   <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -20,33 +20,169 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="UK driving guides and glossary | driverz.uk">
-  <meta name="twitter:description" content="Plain-English UK driving guides covering fuel, EV charging, running costs, clean air zones and driving rules.">
+  <meta name="twitter:title" content="UK driving guides, fuel guides and road rules | driverz.uk">
+  <meta name="twitter:description" content="Plain-English UK driving guides for fuel types, driving costs, clean air zones, motorway signs, EV terms, emergency contacts and everyday road rules.">
   <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta name="theme-color" content="#666666">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css"></head>
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "UK driving guides",
+    "url": "https://driverz.uk/guides.html",
+    "description": "Plain-English UK driving guides covering fuel, EV charging, driving costs, clean air zones, emergency contacts, glossary terms and everyday road rules.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "driverz.uk",
+      "url": "https://driverz.uk/"
+    },
+    "hasPart": [
+      {"@type":"WebPage","name":"Fuel guide","url":"https://driverz.uk/fuel-guide.html"},
+      {"@type":"WebPage","name":"Driving costs guide","url":"https://driverz.uk/driving-costs-guide.html"},
+      {"@type":"WebPage","name":"UK driving rules","url":"https://driverz.uk/uk-driving-rules.html"},
+      {"@type":"WebPage","name":"Clean Air Zones guide","url":"https://driverz.uk/clean-air-zones.html"},
+      {"@type":"WebPage","name":"UK driver glossary","url":"https://driverz.uk/glossary.html"},
+      {"@type":"WebPage","name":"Emergency contacts","url":"https://driverz.uk/emergency.html"}
+    ]
+  }
+  </script>
+</head>
 <body>
 <driverz-header></driverz-header>
 
 <main class="article">
   <p class="eyebrow">Guides & Glossary</p>
-  <h1>Plain-English UK driving help</h1>
-  <p class="quick-answer">Use these guides for practical explanations before you refuel, plan a trip, enter a clean air zone or compare EV and petrol costs.</p>
-  <div class="grid">
-    <article class="card"><h3>Fuel guide</h3><p>Understand E10, E5, diesel and premium fuel labels.</p><a class="btn light" href="/fuel-guide.html">Read</a></article>
-    <article class="card"><h3>Driving costs</h3><p>Learn the main costs behind UK motoring.</p><a class="btn light" href="/driving-costs-guide.html">Read</a></article>
-    <article class="card"><h3>UK driving rules</h3><p>Quick reminders on everyday UK driving rules.</p><a class="btn light" href="/uk-driving-rules.html">Read</a></article>
-    <article class="card"><h3>Clean Air Zones</h3><p>Prepare before entering cities with charging zones.</p><a class="btn light" href="/clean-air-zones.html">Read</a></article>
-    <article class="card"><h3>Glossary</h3><p>Short definitions for UK driving and vehicle terms.</p><a class="btn light" href="/glossary.html">Open</a></article>
-    <article class="card"><h3>EV glossary</h3><p>EV terms are included in the main glossary for easier browsing.</p><a class="btn light" href="/glossary.html#ev">Open</a></article>
+  <h1>Plain-English UK driving guides</h1>
+  <p class="quick-answer">Use this hub to understand UK fuel labels, driving costs, road signs, clean air zones, EV terms and emergency help before you drive, refuel or plan a journey.</p>
+
+  <div class="actions">
+    <a class="btn accent" href="/utilities.html">Open driver tools</a>
+    <button class="btn light" id="share-page" type="button">Share guides</button>
+    <span class="notice" id="share-status" role="status"></span>
   </div>
+
+  <h2>Most useful guides</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>Fuel guide</h3>
+      <p>Understand E10, E5, diesel and premium fuel labels before choosing a pump.</p>
+      <a class="btn light" href="/fuel-guide.html">Read fuel guide</a>
+    </article>
+    <article class="card">
+      <h3>Driving costs guide</h3>
+      <p>Learn the main costs behind UK motoring, including fuel, mileage and everyday running costs.</p>
+      <a class="btn light" href="/driving-costs-guide.html">Read costs guide</a>
+    </article>
+    <article class="card">
+      <h3>UK driving rules</h3>
+      <p>Quick reminders on everyday UK driving rules, motorway signs and common road situations.</p>
+      <a class="btn light" href="/uk-driving-rules.html">Read road rules</a>
+    </article>
+    <article class="card">
+      <h3>Clean Air Zones</h3>
+      <p>Check what to know before entering UK cities with clean air or emissions charging zones.</p>
+      <a class="btn light" href="/clean-air-zones.html">Read CAZ guide</a>
+    </article>
+  </div>
+
+  <h2>Reference pages</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>UK driver glossary</h3>
+      <p>Short definitions for fuel, EV, insurance, maintenance and road-sign terms.</p>
+      <a class="btn light" href="/glossary.html">Open glossary</a>
+    </article>
+    <article class="card">
+      <h3>EV glossary</h3>
+      <p>EV terms are kept with the main glossary so drivers can browse all terms in one place.</p>
+      <a class="btn light" href="/glossary.html#ev">Open EV terms</a>
+    </article>
+    <article class="card">
+      <h3>Emergency contacts</h3>
+      <p>Useful UK numbers and links for breakdowns, emergencies, insurance and roadside help.</p>
+      <a class="btn light" href="/emergency.html">Open contacts</a>
+    </article>
+    <article class="card">
+      <h3>FAQ</h3>
+      <p>Answers to common questions about driverz.uk, fuel price data and using the site.</p>
+      <a class="btn light" href="/faq.html">Read FAQ</a>
+    </article>
+  </div>
+
+  <h2>Use guides with calculators</h2>
+  <p>For practical planning, pair these guides with the driver tools. For example, read the fuel guide before checking local prices, then use the trip calculator or cost per mile tracker to estimate your journey cost.</p>
+  <div class="grid">
+    <article class="card">
+      <h3>Fuel price finder</h3>
+      <p>Search nearby UK petrol and diesel prices, then compare with the fuel guide if you are unsure which fuel type to choose.</p>
+      <a class="btn light" href="/#fuel-card">Find fuel prices</a>
+    </article>
+    <article class="card">
+      <h3>Trip cost calculator</h3>
+      <p>Estimate petrol, diesel or EV charging costs for a journey using your distance and efficiency.</p>
+      <a class="btn light" href="/trip-calculator.html">Open calculator</a>
+    </article>
+    <article class="card">
+      <h3>Cost per mile tracker</h3>
+      <p>Work out the real cost of regular driving, business mileage or personal car use.</p>
+      <a class="btn light" href="/cpm-tracker.html">Open tracker</a>
+    </article>
+    <article class="card">
+      <h3>EV vs petrol</h3>
+      <p>Compare everyday fuel and charging costs when deciding whether an EV suits your driving pattern.</p>
+      <a class="btn light" href="/ev-vs-petrol.html">Compare costs</a>
+    </article>
+  </div>
+
+  <h2>Why this page matters</h2>
+  <p>UK drivers often need quick answers rather than long articles. This guide hub keeps the key explanations together, then links directly to tools for fuel prices, trip costs, EV charging and mileage calculations.</p>
+
+  <section class="card" aria-labelledby="guide-faq-title">
+    <h2 id="guide-faq-title">Guides FAQ</h2>
+    <h3>Are these guides official legal advice?</h3>
+    <p>No. They are simple driver-friendly explanations and planning helpers. Always check official government, DVLA, DVSA, local council or emergency sources when making legal, safety or payment decisions.</p>
+    <h3>Which guide should I start with?</h3>
+    <p>For day-to-day driving, start with the fuel guide, driving costs guide and UK driving rules. If you drive into city centres, also read the Clean Air Zones guide.</p>
+    <h3>Do these guides replace the calculators?</h3>
+    <p>No. The guides explain the topic, while the calculators help estimate your own cost or journey. Use both together for the best result.</p>
+    <h3>Will more guides be added?</h3>
+    <p>Yes. The aim is to build driverz.uk into a practical UK driver utility site with simple guides and tools that can be used on mobile.</p>
+  </section>
 </main>
 
 <driverz-footer></driverz-footer>
 <script src="/components.js"></script>
+<script>
+  const shareButton = document.getElementById('share-page');
+  const shareStatus = document.getElementById('share-status');
+
+  shareButton?.addEventListener('click', async () => {
+    const shareData = {
+      title: document.title,
+      text: 'Plain-English UK driving guides from driverz.uk',
+      url: location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        if (shareStatus) shareStatus.textContent = 'Shared.';
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(location.href);
+        if (shareStatus) shareStatus.textContent = 'Link copied.';
+      } else if (shareStatus) {
+        shareStatus.textContent = location.href;
+      }
+    } catch (error) {
+      if (shareStatus) shareStatus.textContent = 'Sharing cancelled.';
+    }
+  });
+</script>
 </body>
 </html>
