@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MPG calculator UK | Miles per gallon and L/100km | driverz.uk</title>
+  <meta name="description" content="Free UK MPG calculator. Work out miles per gallon, litres per 100km, fuel used and estimated cost per mile from miles driven and litres added.">
+  <link rel="canonical" href="https://driverz.uk/mpg-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="driverz.uk">
+  <meta property="og:title" content="MPG calculator UK | driverz.uk">
+  <meta property="og:description" content="Calculate your real miles per gallon, litres per 100km and cost per mile from fuel used and distance driven.">
+  <meta property="og:url" content="https://driverz.uk/mpg-calculator.html">
+  <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MPG calculator UK | driverz.uk">
+  <meta name="twitter:description" content="Calculate your real miles per gallon, litres per 100km and cost per mile.">
+  <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta name="theme-color" content="#666666">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UK MPG Calculator",
+    "url": "https://driverz.uk/mpg-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "isAccessibleForFree": true,
+    "description": "A free UK MPG calculator for estimating miles per gallon, litres per 100km and cost per mile.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "driverz.uk",
+      "url": "https://driverz.uk/"
+    }
+  }
+  </script>
+
+  <style>
+    .tool-head{margin-bottom:22px}.tool-head h1{margin-bottom:12px}.tool-head p{max-width:720px;color:#666;font-size:1.05rem}.mpg-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.85fr);gap:16px;align-items:start}.result-panel{background:#f7f7f7;border:1px solid var(--line);border-radius:20px;padding:18px}.result-panel h2{font-size:1rem;letter-spacing:0;margin:0 0 12px;color:#666;text-transform:uppercase}.big-mpg{font-size:clamp(2.7rem,8vw,5.2rem);line-height:.9;letter-spacing:-.08em;font-weight:950;margin:8px 0 14px;color:#555}.result-list{display:grid;gap:9px;margin:16px 0}.result-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5e5e5;padding-bottom:9px;color:#666}.result-row b{color:#555}.tool-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;color:#666;font-size:.94rem}.tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary-btn{border:1px solid #ddd;background:#fff;color:#555}.tool-support{margin-top:18px}.related-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.related-tools a{border:1px solid #ddd;background:#fff;border-radius:999px;padding:9px 12px;font-weight:800;color:#555}@media(max-width:760px){.mpg-layout{grid-template-columns:1fr}.card{padding:18px}.result-panel{order:-1}.result-row{display:grid;grid-template-columns:1fr auto}.tool-actions .btn{width:100%;justify-content:center}.related-tools a{width:100%;text-align:center}.big-mpg{font-size:3.6rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="article">
+    <div class="tool-head">
+      <p class="eyebrow">UK driver calculator</p>
+      <h1>MPG calculator</h1>
+      <p>Calculate your real miles per gallon from miles driven and fuel added. You can also estimate litres per 100km, fuel cost and pence per mile.</p>
+    </div>
+
+    <section class="card">
+      <div class="mpg-layout">
+        <form class="tool-form" onsubmit="event.preventDefault(); calcMpg();">
+          <div class="field">
+            <label for="distance">Distance driven / miles</label>
+            <input id="distance" type="number" inputmode="decimal" min="0" step="any" value="320">
+          </div>
+
+          <div class="field">
+            <label for="fuelUnit">Fuel amount unit</label>
+            <select id="fuelUnit">
+              <option value="litres">Litres</option>
+              <option value="ukGallons">UK gallons</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fuelUsed">Fuel used / added</label>
+            <input id="fuelUsed" type="number" inputmode="decimal" min="0" step="any" value="32">
+          </div>
+
+          <div class="field">
+            <label for="fuelPrice">Fuel price p/litre (optional)</label>
+            <input id="fuelPrice" type="number" inputmode="decimal" min="0" step="any" value="139.9">
+          </div>
+
+          <button class="btn" type="submit">Calculate MPG</button>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <h2>Your fuel economy</h2>
+          <div class="big-mpg" id="mainMpg">0 MPG</div>
+          <div class="result-list">
+            <div class="result-row"><span>Litres used</span><b id="litresOut">0 L</b></div>
+            <div class="result-row"><span>Litres / 100km</span><b id="l100Out">0</b></div>
+            <div class="result-row"><span>Estimated fuel cost</span><b id="costOut">£0.00</b></div>
+            <div class="result-row"><span>Cost per mile</span><b id="ppmOut">0p</b></div>
+          </div>
+          <div class="tool-note" id="mpgNote">Enter distance and fuel used to calculate your real-world MPG.</div>
+          <div class="tool-actions">
+            <button class="btn" type="button" onclick="shareResult()">Share result</button>
+            <button class="btn secondary-btn" type="button" onclick="resetDefaults()">Reset</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tool-support">
+      <div class="quick-answer">
+        <b>Quick answer:</b> UK MPG is usually calculated using imperial gallons. One UK gallon is 4.54609 litres. Real MPG can differ from dashboard MPG because of traffic, cold starts, tyre pressure, speed and driving style.
+      </div>
+
+      <h2>How to calculate MPG</h2>
+      <p>Fill your tank, reset the trip counter, drive normally, then refill and note how many litres you added. Enter the miles driven and litres added here to estimate your real-world fuel economy.</p>
+
+      <h2>Use this with other Driverz tools</h2>
+      <p>After calculating your MPG, use it in the trip cost calculator to estimate journey costs, or compare it with your regular cost per mile.</p>
+      <div class="related-tools" aria-label="Related Driverz tools">
+        <a href="/trip-calculator.html">Trip cost calculator</a>
+        <a href="/cpm-tracker.html">Cost per mile tracker</a>
+        <a href="/">Find nearby fuel</a>
+        <a href="/fuel-guide.html">UK fuel guide</a>
+        <a href="/utilities.html">All driver tools</a>
+      </div>
+
+      <h2>MPG calculator FAQs</h2>
+      <div class="quick-answer">
+        <b>Is this UK or US MPG?</b> This calculator uses UK imperial MPG. US gallons are smaller, so US MPG figures are not the same as UK MPG.
+      </div>
+      <div class="quick-answer">
+        <b>Why is my MPG lower than expected?</b> Short journeys, cold weather, heavy traffic, under-inflated tyres, roof boxes and high motorway speeds can all reduce real-world MPG.
+      </div>
+      <div class="quick-answer">
+        <b>Should I use litres or gallons?</b> UK pump fuel is sold in litres, so litres are usually easiest. If you already know the amount in UK gallons, you can select UK gallons instead.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const UK_GALLON_LITRES = 4.54609;
+    let lastShareText = '';
+
+    function numberValue(id, fallback = 0) {
+      const el = document.getElementById(id);
+      const value = parseFloat(el && el.value);
+      return Number.isFinite(value) ? value : fallback;
+    }
+
+    function money(value) {
+      return '£' + value.toFixed(2);
+    }
+
+    function calcMpg() {
+      const miles = Math.max(0, numberValue('distance'));
+      const fuelAmount = Math.max(0, numberValue('fuelUsed'));
+      const unit = document.getElementById('fuelUnit').value;
+      const price = Math.max(0, numberValue('fuelPrice'));
+      const litres = unit === 'ukGallons' ? fuelAmount * UK_GALLON_LITRES : fuelAmount;
+      const gallons = litres / UK_GALLON_LITRES;
+      const mpg = gallons > 0 ? miles / gallons : 0;
+      const km = miles * 1.609344;
+      const l100 = km > 0 ? (litres / km) * 100 : 0;
+      const cost = litres * price / 100;
+      const ppm = miles > 0 ? (cost / miles) * 100 : 0;
+      const litresPerMile = miles > 0 ? litres / miles : 0;
+
+      document.getElementById('mainMpg').textContent = mpg.toFixed(1) + ' MPG';
+      document.getElementById('litresOut').textContent = litres.toFixed(1) + ' L';
+      document.getElementById('l100Out').textContent = l100.toFixed(1) + ' L/100km';
+      document.getElementById('costOut').textContent = money(cost);
+      document.getElementById('ppmOut').textContent = ppm.toFixed(1) + 'p';
+      document.getElementById('mpgNote').innerHTML = 'At this fuel economy, 100 miles uses about <b>' + (litresPerMile * 100).toFixed(1) + ' litres</b>. Use this MPG in the trip cost calculator for journey estimates.';
+
+      lastShareText = 'Driverz MPG result: ' + mpg.toFixed(1) + ' MPG (' + l100.toFixed(1) + ' L/100km), estimated cost ' + money(cost) + ', ' + ppm.toFixed(1) + 'p per mile.';
+    }
+
+    async function shareResult() {
+      calcMpg();
+      const shareData = {
+        title: 'Driverz MPG calculator result',
+        text: lastShareText,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (error) {
+          if (error && error.name === 'AbortError') return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(lastShareText + ' ' + window.location.href);
+        const note = document.getElementById('mpgNote');
+        note.innerHTML = 'Result copied to clipboard.';
+        setTimeout(calcMpg, 1800);
+      } catch (error) {
+        alert(lastShareText);
+      }
+    }
+
+    function resetDefaults() {
+      document.getElementById('distance').value = 320;
+      document.getElementById('fuelUnit').value = 'litres';
+      document.getElementById('fuelUsed').value = 32;
+      document.getElementById('fuelPrice').value = 139.9;
+      calcMpg();
+    }
+
+    ['distance', 'fuelUnit', 'fuelUsed', 'fuelPrice'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', calcMpg);
+      if (el) el.addEventListener('change', calcMpg);
+    });
+
+    calcMpg();
+  </script>
+
+  <driverz-footer></driverz-footer>
+</body>
+</html>

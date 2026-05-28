@@ -134,6 +134,7 @@ class DriverzFooter extends HTMLElement {
         <h4>Tools</h4>
         <a href="/">Fuel Price Finder</a>
         <a href="/trip-calculator.html">Trip Cost Calculator</a>
+        <a href="/mpg-calculator.html">MPG Calculator</a>
         <a href="/cpm-tracker.html">CPM / Mileage Tracker</a>
         <a href="/ev-vs-petrol.html">EV vs Petrol</a>
         <a href="/ev-home-savings.html">EV Home Savings</a>
