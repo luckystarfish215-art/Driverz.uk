@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Stopping distance calculator UK | driverz.uk</title>
+  <meta name="description" content="Estimate UK stopping distance in metres, feet and car lengths using speed, road condition and reaction time. Includes Highway Code style dry, wet and icy guidance.">
+  <link rel="canonical" href="https://driverz.uk/stopping-distance-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="driverz.uk">
+  <meta property="og:title" content="Stopping distance calculator UK | driverz.uk">
+  <meta property="og:description" content="Estimate UK stopping distance in metres, feet and car lengths for dry, wet and icy conditions.">
+  <meta property="og:url" content="https://driverz.uk/stopping-distance-calculator.html">
+  <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stopping distance calculator UK | driverz.uk">
+  <meta name="twitter:description" content="Estimate UK stopping distance in metres, feet and car lengths for dry, wet and icy conditions.">
+  <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta name="theme-color" content="#666666">
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/components.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UK stopping distance calculator",
+    "url": "https://driverz.uk/stopping-distance-calculator.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "description": "A free UK driver tool for estimating stopping distance, thinking distance and braking distance."
+  }
+  </script>
+  <style>
+    .tool-shell{max-width:1040px;margin:0 auto;padding:22px 16px 48px;color:#4b5563}.tool-hero{margin:10px 0 18px}.tool-kicker{font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a8594;margin-bottom:8px}.tool-hero h1{font-size:clamp(2rem,6vw,4rem);line-height:.95;margin:0 0 12px;color:#4a5563;letter-spacing:-.06em}.tool-hero p{font-size:1.05rem;line-height:1.55;max-width:780px;margin:0;color:#687386}.tool-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.95fr);gap:18px;align-items:start}.tool-panel,.result-panel,.info-card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 16px 40px rgba(15,23,42,.06);padding:18px}.tool-panel h2,.result-panel h2,.info-card h2{font-size:1.05rem;margin:0 0 14px;color:#4a5563}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:.84rem;font-weight:800;color:#687386}.field input,.field select{width:100%;box-sizing:border-box;border:1px solid #d7dce3;border-radius:16px;padding:12px 13px;font:inherit;color:#4b5563;background:#f8fafc;outline:none}.field input:focus,.field select:focus{border-color:#8bbce8;background:#fff;box-shadow:0 0 0 4px rgba(92,174,239,.13)}.tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn.primary{background:#4b5563;color:#fff;border-color:#4b5563}.btn.ghost{background:#f3f4f6;color:#4b5563;border:1px solid #e5e7eb}.result-main{border-radius:22px;background:#f4f7fb;padding:18px;margin-bottom:12px}.result-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#7a8594;margin-bottom:6px}.result-value{font-size:clamp(2.2rem,9vw,4.7rem);line-height:.92;font-weight:950;letter-spacing:-.07em;color:#4a5563}.result-sub{margin-top:8px;color:#687386;font-weight:700}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.metric{border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}.metric span{display:block;font-size:.78rem;font-weight:800;color:#7a8594;margin-bottom:4px}.metric b{font-size:1.08rem;color:#4b5563}.quick-answer{margin-top:18px;background:#eef6ff;border:1px solid #d7ebff;border-radius:22px;padding:16px;color:#4b5563}.quick-answer b{color:#4a5563}.comparison-list{display:grid;gap:10px;margin-top:12px}.compare-row{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:center;border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}.compare-row .type{font-weight:900;color:#4b5563}.compare-row .desc{font-size:.86rem;color:#687386}.compare-row .price{font-weight:950;color:#4a5563}.related-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.related-tools a{display:block;text-decoration:none;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:14px;color:#4b5563;font-weight:850}.small-note{font-size:.86rem;line-height:1.5;color:#7a8594;margin-top:12px}.faq{display:grid;gap:10px}.faq details{border:1px solid #e5e7eb;border-radius:18px;padding:12px;background:#fff}.faq summary{cursor:pointer;color:#4b5563}
+    @media(max-width:760px){.tool-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.compare-row{grid-template-columns:1fr}.related-tools{grid-template-columns:1fr}.tool-shell{padding-top:14px}.tool-hero h1{font-size:2.45rem}}
+  </style>
+</head>
+<body>
+  <driverz-header></driverz-header>
+  <main class="tool-shell">
+    <section class="tool-hero">
+      <div class="tool-kicker">Driverz safety utility</div>
+      <h1>UK stopping distance calculator</h1>
+      <p>Estimate the distance a car may travel while you react and brake. Use it as a quick learning and awareness tool for dry, wet and icy road conditions.</p>
+    </section>
+
+    <section class="tool-grid">
+      <div class="tool-panel">
+        <h2>Estimate stopping distance</h2>
+        <form onsubmit="event.preventDefault();calcStopping();">
+          <div class="form-grid">
+            <div class="field"><label for="speed">Speed, mph</label><input id="speed" type="number" min="1" max="100" step="any" value="30" inputmode="decimal"></div>
+            <div class="field"><label for="condition">Road condition</label><select id="condition"><option value="1" selected>Dry road</option><option value="2">Wet road / double gap</option><option value="10">Icy road / up to 10x gap</option></select></div>
+            <div class="field"><label for="reaction">Reaction time</label><select id="reaction"><option value="0.67" selected>Highway Code style, about 0.67s</option><option value="1.0">Alert driver, 1.0s</option><option value="1.5">Slower reaction, 1.5s</option><option value="2.0">Distracted/tired, 2.0s</option></select></div>
+            <div class="field"><label for="carLength">Average car length, metres</label><input id="carLength" type="number" min="2" max="8" step="any" value="4" inputmode="decimal"></div>
+          </div>
+          <div class="tool-actions"><button class="btn primary" type="submit">Calculate</button><button class="btn ghost" id="shareBtn" type="button">Share result</button></div>
+        </form>
+        <p class="small-note">This calculator uses Highway Code style dry braking distance and adjusts the following gap for wet or icy conditions. Real stopping distances depend on tyres, brakes, road surface, gradient, load, visibility and driver attention.</p>
+      </div>
+
+      <div class="result-panel" aria-live="polite">
+        <h2>Your estimate</h2>
+        <div id="result"><div class="result-main"><div class="result-label">Total stopping distance</div><div class="result-value">—</div><div class="result-sub">Enter speed and calculate.</div></div></div>
+      </div>
+    </section>
+
+    <section class="quick-answer"><b>Quick answer:</b> stopping distance is thinking distance plus braking distance. The Highway Code says to leave enough space to stop safely, use at least a two-second gap on faster roads, double it in the wet and increase it much further on ice.</section>
+
+    <section class="info-card" style="margin-top:18px">
+      <h2>Typical Highway Code dry stopping distances</h2>
+      <div class="comparison-list" id="table"></div>
+    </section>
+
+    <section class="info-card" style="margin-top:18px">
+      <h2>Stopping distance FAQ</h2>
+      <div class="faq">
+        <details open><summary><strong>What is stopping distance?</strong></summary><p>Stopping distance is the distance travelled from seeing a hazard to the car stopping. It includes thinking distance while the driver reacts, plus braking distance once the brakes are applied.</p></details>
+        <details><summary><strong>Why does speed make such a big difference?</strong></summary><p>At higher speeds, the car travels further while you react and needs much more distance to slow down. This is why the increase is not just a small straight-line change.</p></details>
+        <details><summary><strong>Is this legal advice?</strong></summary><p>No. This is an educational calculator. For driving rules and road safety, check the official Highway Code and drive to the actual conditions around you.</p></details>
+      </div>
+    </section>
+
+    <nav class="related-tools" aria-label="Related tools and guides">
+      <a href="/uk-driving-rules.html">UK driving rules</a>
+      <a href="/trip-calculator.html">Trip cost calculator</a>
+      <a href="/mpg-calculator.html">MPG calculator</a>
+      <a href="/guides.html">All driving guides</a>
+    </nav>
+  </main>
+
+  <script>
+    const ftToM = 0.3048;
+    const mphToMps = 0.44704;
+    const dryBrakingM = mph => (mph * mph / 20) * ftToM;
+    const hcThinkingM = mph => mph * ftToM;
+    const metres = v => Math.round(v);
+    const feet = v => Math.round(v / ftToM);
+
+    function calcStopping(){
+      const mph = Number(document.getElementById('speed').value || 0);
+      const condition = Number(document.getElementById('condition').value || 1);
+      const reaction = Number(document.getElementById('reaction').value || 0.67);
+      const carLength = Number(document.getElementById('carLength').value || 4);
+      const result = document.getElementById('result');
+
+      if (!mph || mph < 1) {
+        result.innerHTML = '<div class="result-main"><div class="result-label">Total stopping distance</div><div class="result-value">—</div><div class="result-sub">Enter a valid speed.</div></div>';
+        return;
+      }
+
+      const thinking = mph * mphToMps * reaction;
+      const braking = dryBrakingM(mph);
+      const dryTotal = thinking + braking;
+      const conditionTotal = dryTotal * condition;
+      const cars = conditionTotal / carLength;
+      const hcTotal = hcThinkingM(mph) + dryBrakingM(mph);
+
+      result.innerHTML = `
+        <div class="result-main"><div class="result-label">Total stopping distance</div><div class="result-value">${metres(conditionTotal)} m</div><div class="result-sub">About ${feet(conditionTotal)} ft or ${cars.toFixed(1)} car lengths</div></div>
+        <div class="metric-grid">
+          <div class="metric"><span>Thinking distance</span><b>${metres(thinking)} m</b></div>
+          <div class="metric"><span>Dry braking distance</span><b>${metres(braking)} m</b></div>
+          <div class="metric"><span>Dry total</span><b>${metres(dryTotal)} m</b></div>
+          <div class="metric"><span>Highway Code style dry</span><b>${metres(hcTotal)} m</b></div>
+        </div>
+        <p class="small-note">The road condition multiplier is shown as a safe following-gap guide. In poor conditions, slow down and leave much more space.</p>`;
+    }
+
+    function renderTable(){
+      const speeds = [20,30,40,50,60,70];
+      const table = document.getElementById('table');
+      table.innerHTML = speeds.map(mph => {
+        const thinking = hcThinkingM(mph);
+        const braking = dryBrakingM(mph);
+        const total = thinking + braking;
+        return `<div class="compare-row"><div class="type">${mph}mph</div><div class="desc">Thinking ${metres(thinking)}m + braking ${metres(braking)}m on a dry road</div><div class="price">${metres(total)}m</div></div>`;
+      }).join('');
+    }
+
+    ['speed','condition','reaction','carLength'].forEach(id => document.getElementById(id)?.addEventListener('input', calcStopping));
+    document.getElementById('shareBtn')?.addEventListener('click', async () => {
+      try {
+        if (navigator.share) await navigator.share({title: document.title, text: 'UK stopping distance calculator from driverz.uk', url: location.href});
+        else if (navigator.clipboard) await navigator.clipboard.writeText(location.href);
+      } catch(e) {}
+    });
+    renderTable();
+    calcStopping();
+  </script>
+</body>
+</html>
