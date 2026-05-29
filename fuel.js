@@ -102,12 +102,34 @@ function evConnectorSummary(charger) {
     return [...new Set(ordered)].slice(0, 5).join(' · ');
 }
 
+function evPriceValuePence(costText) {
+    const raw = String(costText || '').trim();
+    const lower = raw.toLowerCase();
+
+    if (!raw) return null;
+    if (lower.includes('free')) return 0;
+    if (/^0+(\.0+)?\s*(p|p\/kwh|£|gbp)?/.test(lower) || lower.includes('0.0p')) return 0;
+
+    const match = lower.match(/\d+(?:\.\d+)?/);
+    if (!match) return null;
+
+    const num = parseFloat(match[0]);
+    if (!Number.isFinite(num)) return null;
+
+    // OpenChargeMap UsageCost may be written as £0.59/kWh or 59p/kWh.
+    // Convert pound values to pence so sorting and the main price are correct.
+    if (lower.includes('£') || lower.includes('gbp')) return Math.round(num * 1000) / 10;
+
+    return Math.round(num * 10) / 10;
+}
+
 function evCostToPrice(costText) {
-    const cost = String(costText || '').trim().toLowerCase();
-    if (!cost || cost.includes('free')) return { price: cost.includes('free') ? 'FREE' : '65', unit: 'p/kWh' };
-    if (/^0+(\.0+)?\s*(p|p\/kwh|£|gbp)?/.test(cost) || cost.includes('0.0p')) return { price: 'FREE', unit: '' };
-    const match = cost.match(/\d+(?:\.\d+)?/);
-    return { price: match ? match[0] : '65', unit: 'p/kWh' };
+    const pence = evPriceValuePence(costText);
+
+    if (pence === 0) return { price: 'FREE', unit: '' };
+    if (pence === null) return { price: 'Price not listed', unit: '' };
+
+    return { price: pence.toString(), unit: 'p/kWh' };
 }
 
 function evDisplayPrice(costText) {
@@ -127,7 +149,13 @@ function evNearbyPriceSummary(chargers, selectedId) {
     const seen = new Set();
     return (chargers || [])
         .filter(c => c && c.ID !== selectedId)
-        .sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999))
+        .sort((a, b) => {
+            const ap = evPriceValuePence(a.UsageCost);
+            const bp = evPriceValuePence(b.UsageCost);
+            const aRank = ap === null ? Number.POSITIVE_INFINITY : ap;
+            const bRank = bp === null ? Number.POSITIVE_INFINITY : bp;
+            return aRank - bRank || (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999);
+        })
         .map(c => {
             const title = (c.AddressInfo?.Title || 'EV charger').replace(/\s+/g, ' ').trim();
             const shortTitle = title.length > 26 ? title.slice(0, 24).trim() + '…' : title;
@@ -176,7 +204,13 @@ function evCompareRows(chargers, selectedId) {
     const seen = new Set();
     return (chargers || [])
         .filter(c => c && c.AddressInfo)
-        .sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999))
+        .sort((a, b) => {
+            const ap = evPriceValuePence(a.UsageCost);
+            const bp = evPriceValuePence(b.UsageCost);
+            const aRank = ap === null ? Number.POSITIVE_INFINITY : ap;
+            const bRank = bp === null ? Number.POSITIVE_INFINITY : bp;
+            return aRank - bRank || (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999);
+        })
         .filter(c => {
             const key = `${(c.AddressInfo?.Title || '').toLowerCase()}|${c.AddressInfo?.Latitude}|${c.AddressInfo?.Longitude}`;
             if (seen.has(key)) return false;
@@ -242,7 +276,13 @@ export default async function handler(req, res) {
                 validChargers = [chargers[0]];
             }
             
-            validChargers.sort((a, b) => (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999));
+            validChargers.sort((a, b) => {
+                const ap = evPriceValuePence(a.UsageCost);
+                const bp = evPriceValuePence(b.UsageCost);
+                const aRank = ap === null ? Number.POSITIVE_INFINITY : ap;
+                const bRank = bp === null ? Number.POSITIVE_INFINITY : bp;
+                return aRank - bRank || (a.AddressInfo?.Distance || 999) - (b.AddressInfo?.Distance || 999);
+            });
             const charger = validChargers[0];
             const cost = charger.UsageCost || "";
             const parsedCost = evCostToPrice(cost);
