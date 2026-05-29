@@ -93,9 +93,10 @@ class DriverzHeader extends HTMLElement {
 
     /*
       Mobile footer/menu fix:
-      Previously the menu link jumped to #site-footer and aligned the footer
-      to the top of the screen, leaving a large blank area below on mobile.
-      This scrolls to the real page bottom instead.
+      Mobile footer/menu fix:
+      The menu button should open the start of the footer menu.
+      On mobile, aligning the footer bottom can skip the Tools section and land
+      around Driver Services / Emergency Contacts, so we scroll to footer top.
     */
     this.querySelector('.menu-btn')?.addEventListener('click', e => {
       e.preventDefault();
@@ -103,9 +104,12 @@ class DriverzHeader extends HTMLElement {
       const footer = document.querySelector('#site-footer');
 
       if (footer) {
-        footer.scrollIntoView({
-          behavior: 'smooth',
-          block: 'end'
+        const headerOffset = document.querySelector('.topbar')?.offsetHeight || 0;
+        const targetTop = footer.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: 'smooth'
         });
 
         history.replaceState(null, '', '#site-footer');
