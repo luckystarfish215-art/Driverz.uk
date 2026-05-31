@@ -307,6 +307,181 @@ function evCompareRows(chargers, selectedId) {
         });
 }
 
+
+function loadLatestFuelStations(mode, referenceLat, referenceLng) {
+    const candidates = [
+        path.join(process.cwd(), 'data', 'latest.json'),
+        path.join(process.cwd(), 'latest.json')
+    ];
+
+    const file = candidates.find(f => fs.existsSync(f));
+    if (!file) return { stations: [], source: 'unknown' };
+
+    let parsed;
+    try {
+        parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch (e) {
+        return { stations: [], source: 'unknown' };
+    }
+
+    const rows = Array.isArray(parsed) ? parsed : (parsed.stations || []);
+    const source = formatAgeFromDate(new Date(parsed.generated_at || parsed.snapshot_date || Date.now()));
+
+    const stations = rows.map(row => {
+        const price = mode === 'diesel' ? row.b7 : row.e10;
+        const lat = parseFloat(row.lat);
+        const lng = parseFloat(row.lng);
+
+        if (!Number.isFinite(lat) || !Number.isFinite(lng) || !isValidFuelPrice(price)) return null;
+
+        const name = String(row.name || row.brand || 'Fuel station').replace(/\s+/g, ' ').trim();
+        const address = [row.address, row.postcode].filter(Boolean).join(', ');
+        const dist = (Number.isFinite(referenceLat) && Number.isFinite(referenceLng)) ? getDistance(referenceLat, referenceLng, lat, lng) : 9999;
+
+        const prices = [];
+        const e10 = formatFuelChip('E10', row.e10);
+        const e5 = formatFuelChip('E5', row.e5);
+        const diesel = formatFuelChip('Diesel', row.b7);
+        if (e10) prices.push(e10);
+        if (e5) prices.push(e5);
+        if (diesel) prices.push(diesel);
+
+        return {
+            id: String(row.id || `${Math.round(lat * 1e6)}:${Math.round(lng * 1e6)}:${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 42)}`),
+            brand: String(row.brand || '').trim(),
+            name,
+            price: parseFuelPrice(price),
+            dist,
+            lat,
+            lng,
+            opening: row.is_motorway ? 'Check operator' : 'Opening times unavailable',
+            address,
+            postcode: String(row.postcode || '').trim(),
+            allPrices: prices.join(' · '),
+            stationUpdated: formatStationUpdatedLabel(row.updated_at || ''),
+            searchText: [row.brand, row.name, row.address, row.postcode].filter(Boolean).join(' ').toLowerCase()
+        };
+    }).filter(Boolean);
+
+    return { stations, source };
+}
+
+function normaliseStationQuery(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function stationMatchesQuery(station, query) {
+    const q = normaliseStationQuery(query);
+    if (!q || q.length < 2) return false;
+
+    const tokens = q.split(/\s+/).filter(Boolean);
+    const text = normaliseStationQuery(station.searchText || [station.name, station.address, station.postcode].join(' '));
+
+    return tokens.every(token => text.includes(token));
+}
+
+function stationSearchScore(station, query) {
+    const q = normaliseStationQuery(query);
+    const name = normaliseStationQuery(station.name);
+    const brand = normaliseStationQuery(station.brand);
+    const postcode = normaliseStationQuery(station.postcode);
+    let score = 0;
+
+    if (postcode && postcode.replace(/\s/g, '').startsWith(q.replace(/\s/g, ''))) score += 80;
+    if (name === q || brand === q) score += 70;
+    if (name.startsWith(q) || brand.startsWith(q)) score += 45;
+    if (name.includes(q) || brand.includes(q)) score += 25;
+    if (station.address && normaliseStationQuery(station.address).includes(q)) score += 10;
+
+    const dist = Number(station.dist);
+    if (Number.isFinite(dist)) score += Math.max(0, 20 - Math.min(dist, 20));
+
+    return score;
+}
+
+function stationSummary(station) {
+    return {
+        id: station.id,
+        name: station.name,
+        price: parseFuelPrice(station.price).toFixed(1),
+        unit: 'p',
+        priceText: `${parseFuelPrice(station.price).toFixed(1)}p`,
+        dist: Number.isFinite(station.dist) && station.dist < 9999 ? `${station.dist.toFixed(1)} mi` : '',
+        address: station.address || station.postcode || '',
+        lat: station.lat,
+        lng: station.lng
+    };
+}
+
+function buildStationSearchResponse({ allStations, selected, query, mode, radius, source }) {
+    const selectedWithLocalDistance = { ...selected, dist: 0 };
+    const localStations = allStations.map(s => ({
+        ...s,
+        dist: getDistance(selected.lat, selected.lng, s.lat, s.lng)
+    })).filter(s => {
+        if (!isValidFuelPrice(s.price)) return false;
+        return s.dist <= Math.max(1, radius || 1);
+    });
+
+    const compareSource = localStations.length ? localStations : allStations.map(s => ({
+        ...s,
+        dist: getDistance(selected.lat, selected.lng, s.lat, s.lng)
+    })).sort((a, b) => a.dist - b.dist).slice(0, 10);
+
+    const sortedByPrice = [...compareSource].sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist) - parseFloat(b.dist));
+    const cheapest = sortedByPrice[0] || selectedWithLocalDistance;
+    const difference = parseFuelPrice(selected.price) - parseFuelPrice(cheapest.price);
+    const saving35L = difference > 0 ? difference * 35 / 100 : 0;
+
+    const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
+        const isSelected = Math.abs(parseFloat(item.lat) - parseFloat(selected.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(selected.lng)) < 0.00001;
+        const isCheapest = Math.abs(parseFloat(item.lat) - parseFloat(cheapest.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(cheapest.lng)) < 0.00001;
+        return {
+            ...item,
+            badge: isSelected ? 'You searched for' : (isCheapest ? 'Cheapest nearby' : '')
+        };
+    });
+
+    if (!compareItems.some(item => item.badge === 'You searched for')) {
+        compareItems.push({
+            ...stationSummary({ ...selected, dist: getDistance(selected.lat, selected.lng, selected.lat, selected.lng) }),
+            opening: selected.opening,
+            badge: 'You searched for'
+        });
+    }
+
+    return {
+        stationSearch: true,
+        stationId: selected.id,
+        price: selected.price.toString(),
+        unit: 'p',
+        name: selected.name || 'Fuel station',
+        dist: Number.isFinite(selected.dist) && selected.dist < 9999 ? `${selected.dist.toFixed(1)} mi` : 'Selected station',
+        updated: source,
+        datasetUpdated: source,
+        stationUpdated: selected.stationUpdated || '',
+        lat: selected.lat,
+        lng: selected.lng,
+        opening: selected.opening || 'Opening times unavailable',
+        address: selected.address || '',
+        allPrices: selected.allPrices || '',
+        compare: {
+            fallback: false,
+            items: compareItems.slice(0, 6)
+        },
+        searchContext: {
+            query,
+            selectedName: selected.name,
+            selectedPriceText: `${parseFuelPrice(selected.price).toFixed(1)}p`,
+            cheapestName: cheapest.name,
+            cheapestPriceText: `${parseFuelPrice(cheapest.price).toFixed(1)}p`,
+            differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
+            saving35L: Number.isFinite(saving35L) ? saving35L : null,
+            selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0
+        }
+    };
+}
+
 export default async function handler(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const lat = parseFloat(url.searchParams.get('lat')) || 51.5074;
@@ -315,6 +490,38 @@ export default async function handler(req, res) {
     
     const radius = parseFloat(url.searchParams.get('radius')) || 5;
     const excludeCostco = url.searchParams.get('excludeCostco') === 'true';
+    const stationSearch = (url.searchParams.get('stationSearch') || '').trim();
+    const stationId = (url.searchParams.get('stationId') || '').trim();
+
+    if (stationSearch && mode !== 'ev') {
+        const { stations: allStations, source } = loadLatestFuelStations(mode, lat, lng);
+        let candidates = allStations.filter(s => stationMatchesQuery(s, stationSearch));
+
+        if (excludeCostco) {
+            candidates = candidates.filter(s => !(s.name || '').toLowerCase().includes('costco'));
+        }
+
+        candidates.sort((a, b) => stationSearchScore(b, stationSearch) - stationSearchScore(a, stationSearch) || a.dist - b.dist || a.price - b.price);
+
+        if (stationId) {
+            const selected = allStations.find(s => s.id === stationId) || candidates[0];
+            if (!selected) return res.status(404).json({ error: 'Station not found' });
+            return res.status(200).json(buildStationSearchResponse({
+                allStations,
+                selected,
+                query: stationSearch,
+                mode,
+                radius,
+                source
+            }));
+        }
+
+        return res.status(200).json({
+            stationSearch: true,
+            query: stationSearch,
+            suggestions: candidates.slice(0, 8).map(stationSummary)
+        });
+    }
 
     const clientId = (process.env.FUEL_CLIENT_ID || "").replace(/\s/g, "");
     const clientSecret = (process.env.FUEL_CLIENT_SECRET || "").replace(/\s/g, "");

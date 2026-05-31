@@ -90,6 +90,30 @@
         </aside>
       </section>
 
+      <section class="station-search-panel" id="station-search-panel" aria-labelledby="station-search-title">
+        <div class="station-search-head">
+          <div>
+            <div class="mini-label">Station search</div>
+            <h2 id="station-search-title">Search a station by name or postcode.</h2>
+          </div>
+          <button class="btn light compact-save" type="button" id="save-favourite" hidden>☆ Save station</button>
+        </div>
+
+        <div class="station-search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="station-search-input" type="search" autocomplete="off" placeholder="Costco, Shell, Tesco, RG2..." aria-label="Search station name or postcode">
+        </div>
+
+        <div class="station-search-results" id="station-search-results" hidden></div>
+        <div class="station-search-insight" id="station-search-insight" hidden></div>
+      </section>
+
+      <section class="favourite-stations" id="favourite-stations" hidden aria-labelledby="favourite-stations-title">
+        <div class="mini-label">My stations</div>
+        <h2 id="favourite-stations-title">Your favourite station</h2>
+        <div class="favourite-station-list" id="favourite-station-list"></div>
+      </section>
+
       <section class="compare-nearby" id="compare-nearby" hidden>
         <button class="compare-toggle" id="compare-toggle" type="button">
           <span>Compare nearby stations</span>

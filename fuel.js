@@ -52,23 +52,95 @@ function getCsvUpdatedLabel(csvPath) {
         try {
             if (fs.existsSync(file)) {
                 const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
-                const value = parsed.updatedAt || parsed.updated_at || parsed.timestamp;
-                if (value) return formatAgeFromDate(new Date(value));
+                const value = parsed.checkedAt || parsed.checked_at || parsed.updatedAt || parsed.updated_at || parsed.timestamp;
+                if (value) {
+                    const label = formatAgeFromDate(new Date(value));
+                    return label || 'unknown';
+                }
             }
         } catch (e) {
             console.log('Could not read fuel_updated.json');
         }
     }
 
-    try {
-        if (csvPath && fs.existsSync(csvPath)) {
-            return formatAgeFromDate(fs.statSync(csvPath).mtime);
-        }
-    } catch (e) {
-        console.log('Could not read CSV modified time');
+    // Do not use CSV file modified time as fallback.
+    // Some deployed/static hosts return an old build timestamp, which is misleading.
+    return 'unknown';
+}
+
+function normaliseHeaderName(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function findHeaderIndex(headers, candidates, fallbackIndex) {
+    const normalised = headers.map(normaliseHeaderName);
+    const wanted = candidates.map(normaliseHeaderName);
+
+    for (const candidate of wanted) {
+        const exact = normalised.indexOf(candidate);
+        if (exact !== -1) return exact;
     }
 
-    return 'today';
+    for (const candidate of wanted) {
+        const contains = normalised.findIndex(h => h.includes(candidate) || candidate.includes(h));
+        if (contains !== -1) return contains;
+    }
+
+    return fallbackIndex;
+}
+
+function buildCsvIndex(headers) {
+    return {
+        site: findHeaderIndex(headers, ['forecourts.siteName', 'forecourts.name', 'siteName', 'name'], 2),
+        brand: findHeaderIndex(headers, ['forecourts.brand', 'brand'], 3),
+        phone: findHeaderIndex(headers, ['forecourts.contact.telephone', 'telephone', 'phone'], 6),
+        postcode: findHeaderIndex(headers, ['forecourts.address.postcode', 'postcode'], 10),
+        line1: findHeaderIndex(headers, ['forecourts.address.line1', 'address.line1', 'line1'], 11),
+        line2: findHeaderIndex(headers, ['forecourts.address.line2', 'address.line2', 'line2'], 12),
+        town: findHeaderIndex(headers, ['forecourts.address.town', 'town'], 13),
+        lat: findHeaderIndex(headers, ['forecourts.location.latitude', 'location.latitude', 'latitude'], 16),
+        lng: findHeaderIndex(headers, ['forecourts.location.longitude', 'location.longitude', 'longitude'], 17),
+        e5: findHeaderIndex(headers, ['prices.E5', 'prices.E5.price', 'E5'], 18),
+        e5Updated: findHeaderIndex(headers, ['prices.E5.lastUpdated', 'prices.E5.updatedAt', 'prices.E5.updatedDate', 'prices.E5.lastUpdate', 'E5.lastUpdated'], 20),
+        e10: findHeaderIndex(headers, ['prices.E10', 'prices.E10.price', 'E10'], 21),
+        e10Updated: findHeaderIndex(headers, ['prices.E10.lastUpdated', 'prices.E10.updatedAt', 'prices.E10.updatedDate', 'prices.E10.lastUpdate', 'E10.lastUpdated'], 23),
+        b7: findHeaderIndex(headers, ['prices.B7', 'prices.B7.price', 'B7', 'diesel'], 24),
+        b7Updated: findHeaderIndex(headers, ['prices.B7.lastUpdated', 'prices.B7.updatedAt', 'prices.B7.updatedDate', 'prices.B7.lastUpdate', 'B7.lastUpdated', 'diesel.lastUpdated'], 26)
+    };
+}
+
+function getCol(cols, index, fallback = '') {
+    return Number.isInteger(index) && index >= 0 && index < cols.length ? cols[index] : fallback;
+}
+
+function parseStationDate(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return null;
+    const direct = new Date(raw);
+    if (!isNaN(direct.getTime())) return direct;
+
+    // Handles common UK date strings such as 27/01/2026 or 27-01-2026.
+    const uk = raw.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+    if (uk) {
+        const year = uk[3].length === 2 ? Number('20' + uk[3]) : Number(uk[3]);
+        const date = new Date(Date.UTC(year, Number(uk[2]) - 1, Number(uk[1]), Number(uk[4] || 0), Number(uk[5] || 0), Number(uk[6] || 0)));
+        if (!isNaN(date.getTime())) return date;
+    }
+
+    return null;
+}
+
+function formatStationUpdatedLabel(value) {
+    const date = parseStationDate(value);
+    if (!date) return '';
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    if (diffMs >= 0 && diffMs < 24 * 60 * 60 * 1000) return 'today';
+    if (diffMs >= 0 && diffMs < 48 * 60 * 60 * 1000) return 'yesterday';
+    const sameYear = date.getUTCFullYear() === now.getUTCFullYear();
+    return date.toLocaleDateString('en-US', sameYear
+        ? { month: 'short', day: 'numeric', timeZone: 'UTC' }
+        : { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 }
 
 function parseFuelPrice(value) {
@@ -235,6 +307,181 @@ function evCompareRows(chargers, selectedId) {
         });
 }
 
+
+function loadLatestFuelStations(mode, referenceLat, referenceLng) {
+    const candidates = [
+        path.join(process.cwd(), 'data', 'latest.json'),
+        path.join(process.cwd(), 'latest.json')
+    ];
+
+    const file = candidates.find(f => fs.existsSync(f));
+    if (!file) return { stations: [], source: 'unknown' };
+
+    let parsed;
+    try {
+        parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch (e) {
+        return { stations: [], source: 'unknown' };
+    }
+
+    const rows = Array.isArray(parsed) ? parsed : (parsed.stations || []);
+    const source = formatAgeFromDate(new Date(parsed.generated_at || parsed.snapshot_date || Date.now()));
+
+    const stations = rows.map(row => {
+        const price = mode === 'diesel' ? row.b7 : row.e10;
+        const lat = parseFloat(row.lat);
+        const lng = parseFloat(row.lng);
+
+        if (!Number.isFinite(lat) || !Number.isFinite(lng) || !isValidFuelPrice(price)) return null;
+
+        const name = String(row.name || row.brand || 'Fuel station').replace(/\s+/g, ' ').trim();
+        const address = [row.address, row.postcode].filter(Boolean).join(', ');
+        const dist = (Number.isFinite(referenceLat) && Number.isFinite(referenceLng)) ? getDistance(referenceLat, referenceLng, lat, lng) : 9999;
+
+        const prices = [];
+        const e10 = formatFuelChip('E10', row.e10);
+        const e5 = formatFuelChip('E5', row.e5);
+        const diesel = formatFuelChip('Diesel', row.b7);
+        if (e10) prices.push(e10);
+        if (e5) prices.push(e5);
+        if (diesel) prices.push(diesel);
+
+        return {
+            id: String(row.id || `${Math.round(lat * 1e6)}:${Math.round(lng * 1e6)}:${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 42)}`),
+            brand: String(row.brand || '').trim(),
+            name,
+            price: parseFuelPrice(price),
+            dist,
+            lat,
+            lng,
+            opening: row.is_motorway ? 'Check operator' : 'Opening times unavailable',
+            address,
+            postcode: String(row.postcode || '').trim(),
+            allPrices: prices.join(' · '),
+            stationUpdated: formatStationUpdatedLabel(row.updated_at || ''),
+            searchText: [row.brand, row.name, row.address, row.postcode].filter(Boolean).join(' ').toLowerCase()
+        };
+    }).filter(Boolean);
+
+    return { stations, source };
+}
+
+function normaliseStationQuery(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function stationMatchesQuery(station, query) {
+    const q = normaliseStationQuery(query);
+    if (!q || q.length < 2) return false;
+
+    const tokens = q.split(/\s+/).filter(Boolean);
+    const text = normaliseStationQuery(station.searchText || [station.name, station.address, station.postcode].join(' '));
+
+    return tokens.every(token => text.includes(token));
+}
+
+function stationSearchScore(station, query) {
+    const q = normaliseStationQuery(query);
+    const name = normaliseStationQuery(station.name);
+    const brand = normaliseStationQuery(station.brand);
+    const postcode = normaliseStationQuery(station.postcode);
+    let score = 0;
+
+    if (postcode && postcode.replace(/\s/g, '').startsWith(q.replace(/\s/g, ''))) score += 80;
+    if (name === q || brand === q) score += 70;
+    if (name.startsWith(q) || brand.startsWith(q)) score += 45;
+    if (name.includes(q) || brand.includes(q)) score += 25;
+    if (station.address && normaliseStationQuery(station.address).includes(q)) score += 10;
+
+    const dist = Number(station.dist);
+    if (Number.isFinite(dist)) score += Math.max(0, 20 - Math.min(dist, 20));
+
+    return score;
+}
+
+function stationSummary(station) {
+    return {
+        id: station.id,
+        name: station.name,
+        price: parseFuelPrice(station.price).toFixed(1),
+        unit: 'p',
+        priceText: `${parseFuelPrice(station.price).toFixed(1)}p`,
+        dist: Number.isFinite(station.dist) && station.dist < 9999 ? `${station.dist.toFixed(1)} mi` : '',
+        address: station.address || station.postcode || '',
+        lat: station.lat,
+        lng: station.lng
+    };
+}
+
+function buildStationSearchResponse({ allStations, selected, query, mode, radius, source }) {
+    const selectedWithLocalDistance = { ...selected, dist: 0 };
+    const localStations = allStations.map(s => ({
+        ...s,
+        dist: getDistance(selected.lat, selected.lng, s.lat, s.lng)
+    })).filter(s => {
+        if (!isValidFuelPrice(s.price)) return false;
+        return s.dist <= Math.max(1, radius || 1);
+    });
+
+    const compareSource = localStations.length ? localStations : allStations.map(s => ({
+        ...s,
+        dist: getDistance(selected.lat, selected.lng, s.lat, s.lng)
+    })).sort((a, b) => a.dist - b.dist).slice(0, 10);
+
+    const sortedByPrice = [...compareSource].sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist) - parseFloat(b.dist));
+    const cheapest = sortedByPrice[0] || selectedWithLocalDistance;
+    const difference = parseFuelPrice(selected.price) - parseFuelPrice(cheapest.price);
+    const saving35L = difference > 0 ? difference * 35 / 100 : 0;
+
+    const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
+        const isSelected = Math.abs(parseFloat(item.lat) - parseFloat(selected.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(selected.lng)) < 0.00001;
+        const isCheapest = Math.abs(parseFloat(item.lat) - parseFloat(cheapest.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(cheapest.lng)) < 0.00001;
+        return {
+            ...item,
+            badge: isSelected ? 'You searched for' : (isCheapest ? 'Cheapest nearby' : '')
+        };
+    });
+
+    if (!compareItems.some(item => item.badge === 'You searched for')) {
+        compareItems.push({
+            ...stationSummary({ ...selected, dist: getDistance(selected.lat, selected.lng, selected.lat, selected.lng) }),
+            opening: selected.opening,
+            badge: 'You searched for'
+        });
+    }
+
+    return {
+        stationSearch: true,
+        stationId: selected.id,
+        price: selected.price.toString(),
+        unit: 'p',
+        name: selected.name || 'Fuel station',
+        dist: Number.isFinite(selected.dist) && selected.dist < 9999 ? `${selected.dist.toFixed(1)} mi` : 'Selected station',
+        updated: source,
+        datasetUpdated: source,
+        stationUpdated: selected.stationUpdated || '',
+        lat: selected.lat,
+        lng: selected.lng,
+        opening: selected.opening || 'Opening times unavailable',
+        address: selected.address || '',
+        allPrices: selected.allPrices || '',
+        compare: {
+            fallback: false,
+            items: compareItems.slice(0, 6)
+        },
+        searchContext: {
+            query,
+            selectedName: selected.name,
+            selectedPriceText: `${parseFuelPrice(selected.price).toFixed(1)}p`,
+            cheapestName: cheapest.name,
+            cheapestPriceText: `${parseFuelPrice(cheapest.price).toFixed(1)}p`,
+            differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
+            saving35L: Number.isFinite(saving35L) ? saving35L : null,
+            selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0
+        }
+    };
+}
+
 export default async function handler(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const lat = parseFloat(url.searchParams.get('lat')) || 51.5074;
@@ -243,6 +490,38 @@ export default async function handler(req, res) {
     
     const radius = parseFloat(url.searchParams.get('radius')) || 5;
     const excludeCostco = url.searchParams.get('excludeCostco') === 'true';
+    const stationSearch = (url.searchParams.get('stationSearch') || '').trim();
+    const stationId = (url.searchParams.get('stationId') || '').trim();
+
+    if (stationSearch && mode !== 'ev') {
+        const { stations: allStations, source } = loadLatestFuelStations(mode, lat, lng);
+        let candidates = allStations.filter(s => stationMatchesQuery(s, stationSearch));
+
+        if (excludeCostco) {
+            candidates = candidates.filter(s => !(s.name || '').toLowerCase().includes('costco'));
+        }
+
+        candidates.sort((a, b) => stationSearchScore(b, stationSearch) - stationSearchScore(a, stationSearch) || a.dist - b.dist || a.price - b.price);
+
+        if (stationId) {
+            const selected = allStations.find(s => s.id === stationId) || candidates[0];
+            if (!selected) return res.status(404).json({ error: 'Station not found' });
+            return res.status(200).json(buildStationSearchResponse({
+                allStations,
+                selected,
+                query: stationSearch,
+                mode,
+                radius,
+                source
+            }));
+        }
+
+        return res.status(200).json({
+            stationSearch: true,
+            query: stationSearch,
+            suggestions: candidates.slice(0, 8).map(stationSummary)
+        });
+    }
 
     const clientId = (process.env.FUEL_CLIENT_ID || "").replace(/\s/g, "");
     const clientSecret = (process.env.FUEL_CLIENT_SECRET || "").replace(/\s/g, "");
@@ -295,7 +574,8 @@ export default async function handler(req, res) {
                 unit: parsedCost.price === "FREE" ? "" : parsedCost.unit,
                 name: charger.AddressInfo.Title || "EV Charger",
                 dist: `${charger.AddressInfo.Distance.toFixed(1)} mi`,
-                updated: "Live Feed",
+                updated: "Live feed",
+                datasetUpdated: "Live feed",
                 lat: charger.AddressInfo.Latitude, lng: charger.AddressInfo.Longitude,
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
@@ -356,24 +636,30 @@ export default async function handler(req, res) {
                 source = getCsvUpdatedLabel(csvPath);
 
                 const content = fs.readFileSync(csvPath, 'utf8');
-                const rows = content.split(/\r?\n/).slice(1);
+                const lines = content.split(/\r?\n/);
+                const headers = splitCSV(lines[0] || '');
+                const csvIndex = buildCsvIndex(headers);
+                const rows = lines.slice(1);
                 
                 rows.forEach(row => {
                     if (!row.trim()) return;
                     const cols = splitCSV(row);
                     if (cols.length < 25) return;
                     
-                    const sLat = parseFloat(cols[16]);
-                    const sLng = parseFloat(cols[17]);
-                    const price = parseFloat(mode === 'diesel' ? cols[24] : cols[21]);
+                    const sLat = parseFloat(getCol(cols, csvIndex.lat));
+                    const sLng = parseFloat(getCol(cols, csvIndex.lng));
+                    const priceIndex = mode === 'diesel' ? csvIndex.b7 : csvIndex.e10;
+                    const price = parseFloat(getCol(cols, priceIndex));
+                    const stationUpdatedRaw = getCol(cols, mode === 'diesel' ? csvIndex.b7Updated : csvIndex.e10Updated);
+                    const stationUpdated = formatStationUpdatedLabel(stationUpdatedRaw);
 
                     if (!isNaN(sLat) && !isNaN(sLng) && isValidFuelPrice(price)) {
                         const dist = getDistance(lat, lng, sLat, sLng);
                         if (dist <= apiRadius) { 
                             
                             // 3. Fix the Double Name Bug (e.g., Costco Costco)
-                            let brand = (cols[3] || '').trim();
-                            let site = (cols[2] || '').trim();
+                            let brand = (getCol(cols, csvIndex.brand) || '').trim();
+                            let site = (getCol(cols, csvIndex.site) || '').trim();
                             let cleanName = site.toLowerCase().includes(brand.toLowerCase()) ? site : `${brand} ${site}`.trim();
 
                             const today = new Date().getDay(); // 0 Sun - 6 Sat
@@ -381,11 +667,11 @@ export default async function handler(req, res) {
                             let opening = 'Opening times unavailable';
                             if ((cols[dayOffset+2] || '').toLowerCase() === 'true') opening = 'Open 24 hours';
                             else if (cols[dayOffset] && cols[dayOffset+1]) opening = `${cols[dayOffset]}–${cols[dayOffset+1]}`;
-                            const address = [cols[11], cols[12], cols[13], cols[10]].filter(Boolean).join(', ');
+                            const address = [getCol(cols, csvIndex.line1), getCol(cols, csvIndex.line2), getCol(cols, csvIndex.town), getCol(cols, csvIndex.postcode)].filter(Boolean).join(', ');
                             const prices = [];
-                            const e10 = formatFuelChip('E10', cols[21]);
-                            const e5 = formatFuelChip('E5', cols[18]);
-                            const diesel = formatFuelChip('Diesel', cols[24]);
+                            const e10 = formatFuelChip('E10', getCol(cols, csvIndex.e10));
+                            const e5 = formatFuelChip('E5', getCol(cols, csvIndex.e5));
+                            const diesel = formatFuelChip('Diesel', getCol(cols, csvIndex.b7));
                             if (e10) prices.push(e10);
                             if (e5) prices.push(e5);
                             if (diesel) prices.push(diesel);
@@ -398,7 +684,8 @@ export default async function handler(req, res) {
                                 opening,
                                 address,
                                 allPrices: prices.join(' · '),
-                                phone: cols[6] || ''
+                                phone: getCol(cols, csvIndex.phone) || '',
+                                stationUpdated
                             });
                         }
                     }
@@ -474,7 +761,9 @@ export default async function handler(req, res) {
             unit: "p", 
             name: best.name || best.brand || "Fuel Station",
             dist: `${best.dist.toFixed(1)} mi`, 
-            updated: source, 
+            updated: source,
+            datasetUpdated: source,
+            stationUpdated: best.stationUpdated || '', 
             lat: best.lat, 
             lng: best.lng,
             opening: best.opening || "Opening times unavailable",

@@ -50,6 +50,10 @@ let state={
   excludeCostco:localStorage.getItem('driverzExcludeCostco')==='1'
 };
 
+const FAVOURITES_KEY='driverzFavouriteStations';
+let currentStationResult=null;
+let stationSearchTimer=null;
+
 function saveLocation(){
   if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){
     localStorage.setItem('driverzLat',state.lat);
@@ -252,7 +256,7 @@ function renderCompare(compareData){
 
   list.innerHTML=rows.map(item=>{
     const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
-    const badge=item.isBest?'<em>Best shown above</em>':'';
+    const badge=item.badge?`<em>${item.badge}</em>`:(item.isBest?'<em>Best shown above</em>':'');
     const href=mapHref(item);
 
     return `<article class="compare-row">
@@ -270,7 +274,197 @@ function renderCompare(compareData){
   list.hidden=false;
 }
 
+
+function parseStoredFavourites(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(FAVOURITES_KEY)||'[]');
+    return Array.isArray(parsed)?parsed.filter(x=>x&&x.id):[];
+  }catch(e){
+    return [];
+  }
+}
+
+function saveStoredFavourites(items){
+  localStorage.setItem(FAVOURITES_KEY,JSON.stringify(items.slice(0,12)));
+}
+
+function stationIsFavourite(id){
+  return !!id&&parseStoredFavourites().some(x=>x.id===id&&x.mode===state.mode);
+}
+
+function setFavouriteButton(d){
+  const btn=$('save-favourite');
+  if(!btn)return;
+
+  const canSave=d&&d.stationId&&(state.mode==='petrol'||state.mode==='diesel');
+  btn.hidden=!canSave;
+
+  if(!canSave)return;
+
+  const saved=stationIsFavourite(d.stationId);
+  btn.classList.toggle('saved',saved);
+  btn.textContent=saved?'★ Your favourite station':'☆ Save station';
+}
+
+function buildFavouriteFromResult(d){
+  return {
+    id:d.stationId,
+    mode:state.mode,
+    name:d.name||'Fuel station',
+    address:d.address||'',
+    dist:d.dist||'',
+    price:d.price,
+    unit:d.unit||'p',
+    priceText:(d.price==='FREE')?'FREE':`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`,
+    lat:d.lat,
+    lng:d.lng,
+    savedAt:new Date().toISOString()
+  };
+}
+
+function toggleFavourite(){
+  if(!currentStationResult||!currentStationResult.stationId)return;
+
+  const fav=buildFavouriteFromResult(currentStationResult);
+  let items=parseStoredFavourites();
+  const exists=items.some(x=>x.id===fav.id&&x.mode===fav.mode);
+
+  if(exists){
+    items=items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode));
+  }else{
+    items=[fav,...items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode))];
+  }
+
+  saveStoredFavourites(items);
+  setFavouriteButton(currentStationResult);
+  renderFavouriteStations();
+}
+
+function renderFavouriteStations(){
+  const wrap=$('favourite-stations');
+  const list=$('favourite-station-list');
+  if(!wrap||!list)return;
+
+  const items=parseStoredFavourites().filter(x=>x.mode===state.mode).slice(0,4);
+
+  if(!items.length){
+    wrap.hidden=true;
+    list.innerHTML='';
+    return;
+  }
+
+  list.innerHTML=items.map(item=>`<button class="favourite-station-card" type="button" data-favourite-id="${item.id}">
+    <span><strong>★ ${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
+    <span class="favourite-station-price">${item.priceText||'View'}</span>
+  </button>`).join('');
+
+  wrap.hidden=false;
+}
+
+function renderSearchInsight(ctx){
+  const box=$('station-search-insight');
+  if(!box)return;
+
+  if(!ctx){
+    box.hidden=true;
+    box.innerHTML='';
+    return;
+  }
+
+  const diff=Number(ctx.differencePence);
+  const saving=Number(ctx.saving35L);
+  const selectedIsCheapest=!!ctx.selectedIsCheapest || Math.abs(diff||0)<0.05;
+  const diffText=Number.isFinite(diff)?`${Math.abs(diff).toFixed(1)}p ${selectedIsCheapest?'matches cheapest nearby':'above cheapest nearby'}`:'Nearby comparison unavailable';
+  const savingText=Number.isFinite(saving)&&saving>0?`Save £${saving.toFixed(2)} on a 35L fill`:'This looks like the cheapest nearby option';
+
+  box.innerHTML=`<div class="search-context-card">
+    <div class="context-label">You searched for</div>
+    <div class="context-line"><strong>${ctx.selectedName||'Selected station'}</strong><span>${ctx.selectedPriceText||''}</span></div>
+    <div class="context-line"><span>${selectedIsCheapest?'✓ Cheapest nearby':'↑ '+diffText}</span><span>${ctx.cheapestName?`Cheapest nearby: ${ctx.cheapestName}`:''}</span></div>
+  </div>
+  <div class="saving-strip ${selectedIsCheapest?'':'warning'}">
+    <span><strong>Save today</strong><br><small>${savingText}</small></span>
+    <em>${Number.isFinite(saving)&&saving>0?'£'+saving.toFixed(2):'Best price'}</em>
+  </div>`;
+  box.hidden=false;
+}
+
+function renderStationSuggestions(items,message){
+  const box=$('station-search-results');
+  if(!box)return;
+
+  if(message){
+    box.innerHTML=`<div class="station-suggestion"><span><strong>${message}</strong><small>Try a brand, station name or postcode such as Costco, Shell or RG2.</small></span></div>`;
+    box.hidden=false;
+    return;
+  }
+
+  if(!items||!items.length){
+    box.hidden=true;
+    box.innerHTML='';
+    return;
+  }
+
+  box.innerHTML=items.map(item=>`<button class="station-suggestion" type="button" data-station-id="${item.id}">
+    <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
+    <span class="station-suggestion-price">${item.priceText||'View'}</span>
+  </button>`).join('');
+  box.hidden=false;
+}
+
+async function searchStations(q){
+  const query=String(q||'').trim();
+  renderSearchInsight(null);
+
+  if(state.mode==='ev'){
+    renderStationSuggestions([], 'Station search currently supports petrol and diesel. Switch mode to search forecourts.');
+    return;
+  }
+
+  if(query.length<2){
+    renderStationSuggestions([]);
+    return;
+  }
+
+  try{
+    const res=await fetch(`/api/fuel?stationSearch=${encodeURIComponent(query)}&lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
+    const data=await res.json();
+
+    if(!res.ok)throw new Error(data.error||'No station found');
+
+    renderStationSuggestions(data.suggestions||[]);
+  }catch(e){
+    renderStationSuggestions([], e.message||'No station found');
+  }
+}
+
+async function loadSearchedStation(stationId,query){
+  if(!stationId)return;
+
+  setStatus('Checking station price…');
+
+  try{
+    const res=await fetch(`/api/fuel?stationSearch=${encodeURIComponent(query||'station')}&stationId=${encodeURIComponent(stationId)}&lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
+    const data=await res.json();
+
+    if(!res.ok)throw new Error(data.error||'Station not found');
+
+    showData(data);
+
+    const results=$('station-search-results');
+    if(results){
+      results.hidden=true;
+      results.innerHTML='';
+    }
+
+    document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(e){
+    setStatus(e.message||'Station not found');
+  }
+}
+
 function showData(d){
+  currentStationResult=d&&d.stationId?d:null;
   const formatted=formatMainPrice(d);
 
   $('main-price').textContent=formatted.price;
@@ -296,6 +490,9 @@ function showData(d){
 
   renderOtherPrices(extra.join(' · '));
   renderCompare(d.compare||[]);
+  renderSearchInsight(d.searchContext||null);
+  setFavouriteButton(d);
+  renderFavouriteStations();
 
   const maps=`https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}`;
   $('directions').href=maps;
@@ -336,6 +533,9 @@ async function loadFuel(){
     if(sc)sc.hidden=true;
 
     renderCompare([]);
+    renderSearchInsight(null);
+    currentStationResult=null;
+    setFavouriteButton(null);
     updateCyclePrice();
   }finally{
     document.body.classList.remove('loading');
@@ -542,7 +742,7 @@ function searchPathCity(raw){
 function init(){
   if(!$('fuel-card'))return;
 
-  window.DriverzFuel={cycleMode,searchPlace,useLocation};
+  window.DriverzFuel={cycleMode,searchPlace,useLocation,searchStations,loadSearchedStation};
 
   maybeShowLocationPrompt();
 
@@ -591,6 +791,30 @@ function init(){
   $('result-search')?.addEventListener('click',()=>{
     document.getElementById('header-search-toggle')?.click();
   });
+
+
+  const stationInput=$('station-search-input');
+  stationInput?.addEventListener('input',e=>{
+    clearTimeout(stationSearchTimer);
+    const q=e.target.value;
+    stationSearchTimer=setTimeout(()=>searchStations(q),220);
+  });
+
+  $('station-search-results')?.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-station-id]');
+    if(!btn)return;
+    loadSearchedStation(btn.dataset.stationId,stationInput?.value||'station');
+  });
+
+  $('favourite-station-list')?.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-favourite-id]');
+    if(!btn)return;
+    const fav=parseStoredFavourites().find(x=>x.id===btn.dataset.favouriteId&&x.mode===state.mode);
+    loadSearchedStation(btn.dataset.favouriteId,fav?.name||'station');
+  });
+
+  $('save-favourite')?.addEventListener('click',toggleFavourite);
+  renderFavouriteStations();
 
   const p=new URLSearchParams(location.search);
   const pathCity=getCityFromPath();
