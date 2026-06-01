@@ -289,24 +289,32 @@ function daysSinceStationUpdate(value) {
     return Math.max(0, Math.floor(diff / (24 * 60 * 60 * 1000)));
 }
 
-function stationIdentityKey(station) {
-    if (!station) return '';
-    if (station.id) return `id:${String(station.id)}`;
-    const lat = Number.isFinite(parseFloat(station.lat)) ? parseFloat(station.lat).toFixed(5) : '';
-    const lng = Number.isFinite(parseFloat(station.lng)) ? parseFloat(station.lng).toFixed(5) : '';
-    const name = String(station.name || station.brand || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-    return `${name}|${lat}|${lng}`;
+function normaliseStationText(value) {
+    return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
-function sameStation(a, b) {
+function sameStationForConfidence(a, b) {
     if (!a || !b) return false;
-    if (a.id && b.id && String(a.id) === String(b.id)) return true;
-    const aLat = parseFloat(a.lat), aLng = parseFloat(a.lng);
-    const bLat = parseFloat(b.lat), bLng = parseFloat(b.lng);
-    if (Number.isFinite(aLat) && Number.isFinite(aLng) && Number.isFinite(bLat) && Number.isFinite(bLng)) {
-        if (Math.abs(aLat - bLat) < 0.00001 && Math.abs(aLng - bLng) < 0.00001) return true;
+
+    const aid = String(a.id || a.stationId || '').trim();
+    const bid = String(b.id || b.stationId || '').trim();
+    if (aid && bid && aid === bid) return true;
+
+    const alat = parseFloat(a.lat);
+    const alng = parseFloat(a.lng);
+    const blat = parseFloat(b.lat);
+    const blng = parseFloat(b.lng);
+    if (Number.isFinite(alat) && Number.isFinite(alng) && Number.isFinite(blat) && Number.isFinite(blng)) {
+        if (Math.abs(alat - blat) < 0.00001 && Math.abs(alng - blng) < 0.00001) return true;
     }
-    return stationIdentityKey(a) === stationIdentityKey(b);
+
+    const aname = normaliseStationText(a.name || a.brand);
+    const bname = normaliseStationText(b.name || b.brand);
+    const apost = normaliseStationText(a.postcode);
+    const bpost = normaliseStationText(b.postcode);
+    if (aname && bname && aname === bname && apost && bpost && apost === bpost) return true;
+
+    return false;
 }
 
 function priceConfidenceFor(station, nearbyStations = []) {
@@ -339,7 +347,7 @@ function priceConfidenceFor(station, nearbyStations = []) {
     }
 
     const localPrices = (nearbyStations || [])
-        .filter(s => s && !sameStation(s, station) && Number.isFinite(parseFuelPrice(s.price)))
+        .filter(s => s && !sameStationForConfidence(s, station) && Number.isFinite(parseFuelPrice(s.price)))
         .filter(s => !Number.isFinite(parseFloat(s.dist)) || parseFloat(s.dist) <= 5)
         .map(s => s.price);
     const localMedian = median(localPrices);
@@ -528,7 +536,6 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
     const cheapest = sortedByPrice[0] || selectedWithLocalDistance;
     const difference = parseFuelPrice(selected.price) - parseFuelPrice(cheapest.price);
     const saving35L = difference > 0 ? difference * 35 / 100 : 0;
-    const selectedConfidence = priceConfidenceFor(selected, compareSource);
 
     const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
         const isSelected = Math.abs(parseFloat(item.lat) - parseFloat(selected.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(selected.lng)) < 0.00001;
@@ -536,7 +543,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         const original = compareSource.find(s => String(s.id) === String(item.id)) || item;
         return {
             ...item,
-            priceConfidence: isSelected ? selectedConfidence : priceConfidenceFor(original, compareSource),
+            priceConfidence: priceConfidenceFor(original, compareSource),
             badge: isSelected ? 'You searched for' : (isCheapest ? 'Cheapest nearby' : '')
         };
     });
@@ -545,7 +552,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         compareItems.push({
             ...stationSummary({ ...selected, dist: getDistance(selected.lat, selected.lng, selected.lat, selected.lng) }),
             opening: selected.opening,
-            priceConfidence: selectedConfidence,
+            priceConfidence: priceConfidenceFor(selected, compareSource),
             badge: 'You searched for'
         });
     }
@@ -560,7 +567,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         updated: source,
         datasetUpdated: source,
         stationUpdated: selected.stationUpdated || '',
-        priceConfidence: selectedConfidence,
+        priceConfidence: priceConfidenceFor(selected, compareSource),
         lat: selected.lat,
         lng: selected.lng,
         opening: selected.opening || 'Opening times unavailable',
@@ -579,7 +586,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
             differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
             saving35L: Number.isFinite(saving35L) ? saving35L : null,
             selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0,
-            priceConfidence: selectedConfidence
+            priceConfidence: priceConfidenceFor(selected, compareSource)
         }
     };
 }
@@ -857,13 +864,11 @@ export default async function handler(req, res) {
         }
         const compareFallback = stationsInRadius.length === 0;
         const compareSource = compareFallback ? validStations : stationsInRadius;
-        const bestConfidence = priceConfidenceFor(best, compareSource);
         const compare = {
             fallback: compareFallback,
             items: fuelCompareRows(compareSource, best, compareFallback ? 'distance' : 'price').map(item => {
                 const original = compareSource.find(s => String(s.id) === String(item.id)) || item;
-                const isBestStation = sameStation(original, best) || sameStation(item, best);
-                return { ...item, priceConfidence: isBestStation ? bestConfidence : priceConfidenceFor(original, compareSource) };
+                return { ...item, priceConfidence: priceConfidenceFor(original, compareSource) };
             })
         };
         
@@ -876,7 +881,7 @@ export default async function handler(req, res) {
             updated: source,
             datasetUpdated: source,
             stationUpdated: best.stationUpdated || '', 
-            priceConfidence: bestConfidence,
+            priceConfidence: priceConfidenceFor(best, compareSource),
             lat: best.lat, 
             lng: best.lng,
             opening: best.opening || "Opening times unavailable",
