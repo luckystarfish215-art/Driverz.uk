@@ -51,8 +51,10 @@ let state={
 };
 
 const FAVOURITES_KEY='driverzFavouriteStations';
+const MAX_FAVOURITES=5;
 let currentStationResult=null;
 let stationSearchTimer=null;
+const stationCache=new Map();
 
 function saveLocation(){
   if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){
@@ -227,6 +229,22 @@ function mapHref(item){
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
 
+function cacheStation(item){
+  if(!item||!item.id)return;
+  stationCache.set(String(item.id),{
+    id:String(item.id),
+    mode:state.mode,
+    name:item.name||'Fuel station',
+    address:item.address||'',
+    dist:item.dist||'',
+    price:item.price,
+    unit:item.unit||'p',
+    priceText:item.priceText||([item.price,item.unit].filter(Boolean).join('')),
+    lat:item.lat,
+    lng:item.lng
+  });
+}
+
 function renderCompare(compareData){
   const wrap=$('compare-nearby');
   const list=$('compare-list');
@@ -235,7 +253,7 @@ function renderCompare(compareData){
 
   if(!wrap||!list||!toggle)return;
 
-  const rows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,5);
+  const rows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,6);
   const fallback=!!(compareData&&!Array.isArray(compareData)&&compareData.fallback);
 
   if(!rows.length){
@@ -243,6 +261,8 @@ function renderCompare(compareData){
     list.innerHTML='';
     return;
   }
+
+  rows.forEach(cacheStation);
 
   const noun=state.mode==='ev'?'chargers':'stations';
   const title=fallback?(state.mode==='ev'?'Closest nearby chargers':'Closest nearby stations'):(state.mode==='ev'?'Compare nearby chargers':'Compare nearby stations');
@@ -256,17 +276,25 @@ function renderCompare(compareData){
 
   list.innerHTML=rows.map(item=>{
     const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
-    const badge=item.badge?`<em>${item.badge}</em>`:(item.isBest?'<em>Best shown above</em>':'');
+    const badge=item.badge?`<em>${item.badge}</em>`:(item.isBest?'<em>Cheapest nearby</em>':'');
     const href=mapHref(item);
+    const canFav=item.id&&(state.mode==='petrol'||state.mode==='diesel');
+    const fav=canFav?stationIsFavourite(item.id):false;
+    const confidence=item.priceConfidence?`<small class="price-confidence-inline confidence-${item.priceConfidence.level}">${item.priceConfidence.label}</small>`:'';
 
-    return `<article class="compare-row">
+    return `<article class="compare-row" data-station-id="${item.id||''}">
       <div class="compare-price">${price||'Price not listed'}</div>
       <div class="compare-info">
         <strong>${item.name||'Nearby option'}</strong>
         <div>${[item.dist,item.opening,item.connectors||''].filter(Boolean).join(' · ')}</div>
         ${item.address?`<small>${item.address}</small>`:''}
+        ${confidence}
       </div>
-      <div class="compare-actions">${badge}<a class="btn light compare-map" href="${href}" target="_blank" rel="noopener">Directions</a></div>
+      <div class="compare-actions">
+        ${badge}
+        ${canFav?`<button class="favourite-toggle list-favourite-star" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove from My Stations':'Add to My Stations'}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</button>`:''}
+        <a class="btn light compare-map" href="${href}" target="_blank" rel="noopener">Directions</a>
+      </div>
     </article>`;
   }).join('');
 
@@ -278,66 +306,105 @@ function renderCompare(compareData){
 function parseStoredFavourites(){
   try{
     const parsed=JSON.parse(localStorage.getItem(FAVOURITES_KEY)||'[]');
-    return Array.isArray(parsed)?parsed.filter(x=>x&&x.id):[];
+    return Array.isArray(parsed)?parsed.filter(x=>x&&x.id).map(x=>({...x,id:String(x.id)})):[];
   }catch(e){
     return [];
   }
 }
 
 function saveStoredFavourites(items){
-  localStorage.setItem(FAVOURITES_KEY,JSON.stringify(items.slice(0,12)));
+  localStorage.setItem(FAVOURITES_KEY,JSON.stringify(items.slice(0,MAX_FAVOURITES)));
 }
 
 function stationIsFavourite(id){
-  return !!id&&parseStoredFavourites().some(x=>x.id===id&&x.mode===state.mode);
+  return !!id&&parseStoredFavourites().some(x=>String(x.id)===String(id)&&x.mode===state.mode);
 }
 
-function setFavouriteButton(d){
-  const btn=$('save-favourite');
-  if(!btn)return;
-
-  const canSave=d&&d.stationId&&(state.mode==='petrol'||state.mode==='diesel');
-  btn.hidden=!canSave;
-
-  if(!canSave)return;
-
-  const saved=stationIsFavourite(d.stationId);
-  btn.classList.toggle('saved',saved);
-  btn.textContent=saved?'★ Your favourite station':'☆ Save station';
+function showToast(message){
+  const toast=$('driverz-toast');
+  if(!toast)return;
+  toast.textContent=message;
+  toast.hidden=false;
+  clearTimeout(showToast._timer);
+  showToast._timer=setTimeout(()=>{toast.hidden=true;},2200);
 }
 
-function buildFavouriteFromResult(d){
+function itemFromStationLike(item){
+  if(!item||!item.id)return null;
+  const priceText=item.priceText||((item.price==='FREE')?'FREE':(Number.isFinite(parseFloat(item.price))?`${parseFloat(item.price).toFixed(1)}${item.unit||'p'}`:'View'));
   return {
-    id:d.stationId,
+    id:String(item.id),
     mode:state.mode,
-    name:d.name||'Fuel station',
-    address:d.address||'',
-    dist:d.dist||'',
-    price:d.price,
-    unit:d.unit||'p',
-    priceText:(d.price==='FREE')?'FREE':`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`,
-    lat:d.lat,
-    lng:d.lng,
+    name:item.name||'Fuel station',
+    address:item.address||'',
+    dist:item.dist||'',
+    price:item.price,
+    unit:item.unit||'p',
+    priceText,
+    lat:item.lat,
+    lng:item.lng,
     savedAt:new Date().toISOString()
   };
 }
 
-function toggleFavourite(){
-  if(!currentStationResult||!currentStationResult.stationId)return;
+function buildFavouriteFromResult(d){
+  if(!d||!d.stationId)return null;
+  return itemFromStationLike({
+    id:d.stationId,
+    name:d.name,
+    address:d.address,
+    dist:d.dist,
+    price:d.price,
+    unit:d.unit||'p',
+    priceText:(d.price==='FREE')?'FREE':(Number.isFinite(parseFloat(String(d.price).replace(/[^0-9.]/g,'')))?`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`:'View'),
+    lat:d.lat,
+    lng:d.lng
+  });
+}
 
-  const fav=buildFavouriteFromResult(currentStationResult);
+function updateFavouriteStars(){
+  document.querySelectorAll('[data-favourite-toggle]').forEach(btn=>{
+    const id=btn.dataset.stationId||(currentStationResult&&currentStationResult.stationId);
+    const canFav=id&&(state.mode==='petrol'||state.mode==='diesel');
+    btn.hidden=!canFav;
+    if(!canFav)return;
+    const saved=stationIsFavourite(id);
+    btn.textContent=saved?'★':'☆';
+    btn.classList.toggle('saved',saved);
+    btn.setAttribute('aria-pressed',saved?'true':'false');
+    btn.setAttribute('aria-label',saved?'Remove from My Stations':'Add to My Stations');
+  });
+}
+
+function toggleFavouriteByStation(item){
+  const fav=itemFromStationLike(item);
+  if(!fav)return;
+
   let items=parseStoredFavourites();
   const exists=items.some(x=>x.id===fav.id&&x.mode===fav.mode);
 
   if(exists){
     items=items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode));
+    saveStoredFavourites(items);
+    showToast('Removed from My Stations');
   }else{
+    const sameModeCount=items.filter(x=>x.mode===state.mode).length;
+    if(sameModeCount>=MAX_FAVOURITES){
+      showToast('You can save up to 5 stations. Remove one to add another.');
+      return;
+    }
     items=[fav,...items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode))];
+    saveStoredFavourites(items);
+    showToast('Added to My Stations');
   }
 
-  saveStoredFavourites(items);
-  setFavouriteButton(currentStationResult);
   renderFavouriteStations();
+  updateFavouriteStars();
+}
+
+function toggleFavourite(){
+  if(!currentStationResult||!currentStationResult.stationId)return;
+  toggleFavouriteByStation(buildFavouriteFromResult(currentStationResult));
 }
 
 function renderFavouriteStations(){
@@ -345,7 +412,7 @@ function renderFavouriteStations(){
   const list=$('favourite-station-list');
   if(!wrap||!list)return;
 
-  const items=parseStoredFavourites().filter(x=>x.mode===state.mode).slice(0,4);
+  const items=parseStoredFavourites().filter(x=>x.mode===state.mode).slice(0,MAX_FAVOURITES);
 
   if(!items.length){
     wrap.hidden=true;
@@ -353,12 +420,22 @@ function renderFavouriteStations(){
     return;
   }
 
-  list.innerHTML=items.map(item=>`<button class="favourite-station-card" type="button" data-favourite-id="${item.id}">
-    <span><strong>★ ${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
-    <span class="favourite-station-price">${item.priceText||'View'}</span>
-  </button>`).join('');
+  list.innerHTML=items.map(item=>`<article class="favourite-station-card" data-favourite-id="${item.id}">
+    <button class="favourite-toggle saved" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="Remove from My Stations" aria-pressed="true">★</button>
+    <button class="favourite-station-open" type="button" data-favourite-open="${item.id}">
+      <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
+      <span class="favourite-station-price">${item.priceText||'View'}</span>
+    </button>
+  </article>`).join('');
 
   wrap.hidden=false;
+  updateFavouriteStars();
+}
+
+function confidenceMarkup(confidence){
+  if(!confidence||!confidence.label)return '';
+  const details=(confidence.messages||[]).slice(0,2).map(m=>`<small>${m}</small>`).join('');
+  return `<div class="price-confidence-card confidence-${confidence.level||'medium'}"><strong>${confidence.label}</strong>${details}</div>`;
 }
 
 function renderSearchInsight(ctx){
@@ -375,12 +452,15 @@ function renderSearchInsight(ctx){
   const saving=Number(ctx.saving35L);
   const selectedIsCheapest=!!ctx.selectedIsCheapest || Math.abs(diff||0)<0.05;
   const diffText=Number.isFinite(diff)?`${Math.abs(diff).toFixed(1)}p ${selectedIsCheapest?'matches cheapest nearby':'above cheapest nearby'}`:'Nearby comparison unavailable';
-  const savingText=Number.isFinite(saving)&&saving>0?`Save £${saving.toFixed(2)} on a 35L fill`:'This looks like the cheapest nearby option';
+  const savingText=Number.isFinite(saving)&&saving>0
+    ? `Save about £${saving.toFixed(2)} by choosing the cheapest nearby.`
+    : 'This looks like the cheapest nearby option.';
 
   box.innerHTML=`<div class="search-context-card">
     <div class="context-label">You searched for</div>
     <div class="context-line"><strong>${ctx.selectedName||'Selected station'}</strong><span>${ctx.selectedPriceText||''}</span></div>
     <div class="context-line"><span>${selectedIsCheapest?'✓ Cheapest nearby':'↑ '+diffText}</span><span>${ctx.cheapestName?`Cheapest nearby: ${ctx.cheapestName}`:''}</span></div>
+    ${confidenceMarkup(ctx.priceConfidence)}
   </div>
   <div class="saving-strip ${selectedIsCheapest?'':'warning'}">
     <span><strong>Save today</strong><br><small>${savingText}</small></span>
@@ -405,10 +485,16 @@ function renderStationSuggestions(items,message){
     return;
   }
 
-  box.innerHTML=items.map(item=>`<button class="station-suggestion" type="button" data-station-id="${item.id}">
-    <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
-    <span class="station-suggestion-price">${item.priceText||'View'}</span>
-  </button>`).join('');
+  items.forEach(cacheStation);
+
+  box.innerHTML=items.map(item=>{
+    const fav=stationIsFavourite(item.id);
+    return `<button class="station-suggestion" type="button" data-station-id="${item.id}">
+      <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
+      <span class="station-suggestion-price">${item.priceText||'View'}</span>
+      <span class="favourite-toggle suggestion-favourite-star ${fav?'saved':''}" role="button" tabindex="0" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove from My Stations':'Add to My Stations'}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</span>
+    </button>`;
+  }).join('');
   box.hidden=false;
 }
 
@@ -465,6 +551,9 @@ async function loadSearchedStation(stationId,query){
 
 function showData(d){
   currentStationResult=d&&d.stationId?d:null;
+  if(currentStationResult){
+    cacheStation({id:d.stationId,name:d.name,address:d.address,dist:d.dist,price:d.price,unit:d.unit||'p',priceText:(d.price==='FREE')?'FREE':`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`,lat:d.lat,lng:d.lng});
+  }
   const formatted=formatMainPrice(d);
 
   $('main-price').textContent=formatted.price;
@@ -484,6 +573,13 @@ function showData(d){
 
   renderQuickCalc(d,formatted);
 
+  const oldConfidence=document.querySelector('.main-price-confidence');
+  if(oldConfidence)oldConfidence.remove();
+  if(d.priceConfidence){
+    const addressEl=$('address');
+    addressEl?.insertAdjacentHTML('afterend',`<div class="main-price-confidence">${confidenceMarkup(d.priceConfidence)}</div>`);
+  }
+
   const extra=[];
   if(d.allPrices)extra.push(d.allPrices);
   if(d.connectors)extra.push(`Connectors ${d.connectors}`);
@@ -491,8 +587,8 @@ function showData(d){
   renderOtherPrices(extra.join(' · '));
   renderCompare(d.compare||[]);
   renderSearchInsight(d.searchContext||null);
-  setFavouriteButton(d);
   renderFavouriteStations();
+  updateFavouriteStars();
 
   const maps=`https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}`;
   $('directions').href=maps;
@@ -535,7 +631,7 @@ async function loadFuel(){
     renderCompare([]);
     renderSearchInsight(null);
     currentStationResult=null;
-    setFavouriteButton(null);
+    updateFavouriteStars();
     updateCyclePrice();
   }finally{
     document.body.classList.remove('loading');
@@ -801,20 +897,43 @@ function init(){
   });
 
   $('station-search-results')?.addEventListener('click',e=>{
+    if(e.target.closest('[data-favourite-toggle]'))return;
     const btn=e.target.closest('[data-station-id]');
     if(!btn)return;
     loadSearchedStation(btn.dataset.stationId,stationInput?.value||'station');
   });
 
-  $('favourite-station-list')?.addEventListener('click',e=>{
-    const btn=e.target.closest('[data-favourite-id]');
-    if(!btn)return;
-    const fav=parseStoredFavourites().find(x=>x.id===btn.dataset.favouriteId&&x.mode===state.mode);
-    loadSearchedStation(btn.dataset.favouriteId,fav?.name||'station');
+  document.addEventListener('click',e=>{
+    const favBtn=e.target.closest('[data-favourite-toggle]');
+    if(!favBtn)return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const id=favBtn.dataset.stationId||(currentStationResult&&currentStationResult.stationId);
+    const source= id&&stationCache.get(String(id));
+    if(source){
+      toggleFavouriteByStation(source);
+    }else if(currentStationResult&&String(currentStationResult.stationId)===String(id)){
+      toggleFavourite();
+    }
   });
 
-  $('save-favourite')?.addEventListener('click',toggleFavourite);
+  document.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&e.target.closest('[data-favourite-toggle]')){
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+
+  $('favourite-station-list')?.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-favourite-open]');
+    if(!btn)return;
+    const fav=parseStoredFavourites().find(x=>x.id===btn.dataset.favouriteOpen&&x.mode===state.mode);
+    loadSearchedStation(btn.dataset.favouriteOpen,fav?.name||'station');
+  });
+
   renderFavouriteStations();
+  updateFavouriteStars();
 
   const p=new URLSearchParams(location.search);
   const pathCity=getCityFromPath();

@@ -56,6 +56,7 @@
       </div>
 
       <section class="station-card hero-station-card priority-price-card">
+        <button class="favourite-toggle main-favourite-star" type="button" id="main-favourite-toggle" data-favourite-toggle aria-label="Save station" hidden>☆</button>
         <div class="result-main">
           <div class="price-row">
             <div class="price" id="main-price">--</div>
@@ -96,7 +97,6 @@
             <div class="mini-label">Station search</div>
             <h2 id="station-search-title">Search a station by name or postcode.</h2>
           </div>
-          <button class="btn light compact-save" type="button" id="save-favourite" hidden>☆ Save station</button>
         </div>
 
         <div class="station-search-box">
@@ -110,8 +110,9 @@
 
       <section class="favourite-stations" id="favourite-stations" hidden aria-labelledby="favourite-stations-title">
         <div class="mini-label">My stations</div>
-        <h2 id="favourite-stations-title">Your favourite station</h2>
+        <h2 id="favourite-stations-title">Your favourite stations</h2>
         <div class="favourite-station-list" id="favourite-station-list"></div>
+        <p class="favourite-note">Save up to 5 stations. Tap ★ to remove one.</p>
       </section>
 
       <section class="compare-nearby" id="compare-nearby" hidden>
@@ -243,6 +244,8 @@
   </section>
 
   <script src="/assets/app.js?v=20260517-4" defer></script>
+
+  <div class="driverz-toast" id="driverz-toast" role="status" aria-live="polite" hidden></div>
 
   <driverz-footer></driverz-footer>
 

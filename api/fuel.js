@@ -91,6 +91,7 @@ function findHeaderIndex(headers, candidates, fallbackIndex) {
 
 function buildCsvIndex(headers) {
     return {
+        id: findHeaderIndex(headers, ['forecourts.node_id', 'node_id', 'id', 'station_id', 'site_id'], 0),
         site: findHeaderIndex(headers, ['forecourts.siteName', 'forecourts.name', 'siteName', 'name'], 2),
         brand: findHeaderIndex(headers, ['forecourts.brand', 'brand'], 3),
         phone: findHeaderIndex(headers, ['forecourts.contact.telephone', 'telephone', 'phone'], 6),
@@ -259,6 +260,7 @@ function fuelCompareRows(stations, best, sortMode = 'price') {
         })
         .slice(0, 5)
         .map(s => ({
+            id: String(s.id || `${Math.round((s.lat||0) * 1e6)}:${Math.round((s.lng||0) * 1e6)}:${(s.name||s.brand||'station').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,42)}`),
             price: parseFuelPrice(s.price).toFixed(1),
             unit: 'p',
             priceText: `${parseFuelPrice(s.price).toFixed(1)}p`,
@@ -270,6 +272,79 @@ function fuelCompareRows(stations, best, sortMode = 'price') {
             lng: s.lng,
             isBest: best && Math.abs(parseFloat(s.lat) - parseFloat(best.lat)) < 0.00001 && Math.abs(parseFloat(s.lng) - parseFloat(best.lng)) < 0.00001
         }));
+}
+
+function median(values) {
+    const nums = (values || []).map(parseFuelPrice).filter(Number.isFinite).sort((a, b) => a - b);
+    if (!nums.length) return null;
+    const mid = Math.floor(nums.length / 2);
+    return nums.length % 2 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+}
+
+function daysSinceStationUpdate(value) {
+    const date = parseStationDate(value);
+    if (!date) return null;
+    const diff = Date.now() - date.getTime();
+    if (!Number.isFinite(diff)) return null;
+    return Math.max(0, Math.floor(diff / (24 * 60 * 60 * 1000)));
+}
+
+function priceConfidenceFor(station, nearbyStations = []) {
+    const messages = [];
+    let score = 0;
+    const price = parseFuelPrice(station?.price);
+
+    if (!Number.isFinite(price)) {
+        return { level: 'low', label: 'Price confidence: Low', messages: ['Price is not currently available.'] };
+    }
+
+    if (price < 110) {
+        score += 2;
+        messages.push('Unusually low price reported.');
+    } else if (price > 230) {
+        score += 2;
+        messages.push('Unusually high price reported.');
+    }
+
+    const updatedRaw = station?.stationUpdatedRaw || station?.updated_at || station?.updatedAt || '';
+    const ageDays = daysSinceStationUpdate(updatedRaw);
+    if (ageDays !== null) {
+        if (ageDays > 14) {
+            score += 2;
+            messages.push(`Updated ${ageDays} days ago.`);
+        } else if (ageDays > 7) {
+            score += 1;
+            messages.push(`Updated ${ageDays} days ago.`);
+        }
+    }
+
+    const localPrices = (nearbyStations || [])
+        .filter(s => s && s !== station && Number.isFinite(parseFuelPrice(s.price)))
+        .filter(s => !Number.isFinite(parseFloat(s.dist)) || parseFloat(s.dist) <= 5)
+        .map(s => s.price);
+    const localMedian = median(localPrices);
+
+    if (Number.isFinite(localMedian)) {
+        const diff = price - localMedian;
+        if (Math.abs(diff) >= 20) {
+            score += 2;
+            messages.push(diff < 0 ? 'Significantly lower than nearby stations.' : 'Significantly higher than nearby stations.');
+        } else if (Math.abs(diff) >= 12) {
+            score += 1;
+            messages.push(diff < 0 ? 'Lower than most nearby stations.' : 'Higher than most nearby stations.');
+        }
+    }
+
+    if (score >= 2) {
+        if (!messages.some(m => m.includes('Check with station'))) messages.push('Check with station before travelling.');
+        return { level: 'low', label: 'Price confidence: Low', messages: messages.slice(0, 3) };
+    }
+
+    if (score === 1) {
+        return { level: 'medium', label: 'Price confidence: Medium', messages: messages.slice(0, 2) };
+    }
+
+    return { level: 'high', label: 'Price confidence: High', messages: ['Looks consistent with nearby stations.'] };
 }
 
 function evCompareRows(chargers, selectedId) {
@@ -359,6 +434,7 @@ function loadLatestFuelStations(mode, referenceLat, referenceLng) {
             postcode: String(row.postcode || '').trim(),
             allPrices: prices.join(' · '),
             stationUpdated: formatStationUpdatedLabel(row.updated_at || ''),
+            stationUpdatedRaw: row.updated_at || '',
             searchText: [row.brand, row.name, row.address, row.postcode].filter(Boolean).join(' ').toLowerCase()
         };
     }).filter(Boolean);
@@ -436,8 +512,10 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
     const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
         const isSelected = Math.abs(parseFloat(item.lat) - parseFloat(selected.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(selected.lng)) < 0.00001;
         const isCheapest = Math.abs(parseFloat(item.lat) - parseFloat(cheapest.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(cheapest.lng)) < 0.00001;
+        const original = compareSource.find(s => String(s.id) === String(item.id)) || item;
         return {
             ...item,
+            priceConfidence: priceConfidenceFor(original, compareSource),
             badge: isSelected ? 'You searched for' : (isCheapest ? 'Cheapest nearby' : '')
         };
     });
@@ -446,6 +524,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         compareItems.push({
             ...stationSummary({ ...selected, dist: getDistance(selected.lat, selected.lng, selected.lat, selected.lng) }),
             opening: selected.opening,
+            priceConfidence: priceConfidenceFor(selected, compareSource),
             badge: 'You searched for'
         });
     }
@@ -460,6 +539,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         updated: source,
         datasetUpdated: source,
         stationUpdated: selected.stationUpdated || '',
+        priceConfidence: priceConfidenceFor(selected, compareSource),
         lat: selected.lat,
         lng: selected.lng,
         opening: selected.opening || 'Opening times unavailable',
@@ -477,7 +557,8 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
             cheapestPriceText: `${parseFuelPrice(cheapest.price).toFixed(1)}p`,
             differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
             saving35L: Number.isFinite(saving35L) ? saving35L : null,
-            selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0
+            selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0,
+            priceConfidence: priceConfidenceFor(selected, compareSource)
         }
     };
 }
@@ -676,6 +757,7 @@ export default async function handler(req, res) {
                             if (e5) prices.push(e5);
                             if (diesel) prices.push(diesel);
                             stations.push({
+                                id: String(getCol(cols, csvIndex.id) || `${Math.round(sLat * 1e6)}:${Math.round(sLng * 1e6)}:${cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 42)}`),
                                 name: cleanName,
                                 price: price, 
                                 dist: dist, 
@@ -685,7 +767,8 @@ export default async function handler(req, res) {
                                 address,
                                 allPrices: prices.join(' · '),
                                 phone: getCol(cols, csvIndex.phone) || '',
-                                stationUpdated
+                                stationUpdated,
+                                stationUpdatedRaw
                             });
                         }
                     }
@@ -731,6 +814,8 @@ export default async function handler(req, res) {
             
             s.lat = latVal;
             s.lng = lngVal;
+            s.id = String(s.id || s.site_id || s.siteId || `${Math.round((latVal||0) * 1e6)}:${Math.round((lngVal||0) * 1e6)}:${(s.name||s.brand||'station').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,42)}`);
+            s.stationUpdatedRaw = s.stationUpdatedRaw || s.last_updated || s.updated_at || '';
             return true;
         });
 
@@ -753,10 +838,14 @@ export default async function handler(req, res) {
         const compareSource = compareFallback ? validStations : stationsInRadius;
         const compare = {
             fallback: compareFallback,
-            items: fuelCompareRows(compareSource, best, compareFallback ? 'distance' : 'price')
+            items: fuelCompareRows(compareSource, best, compareFallback ? 'distance' : 'price').map(item => {
+                const original = compareSource.find(s => String(s.id) === String(item.id)) || item;
+                return { ...item, priceConfidence: priceConfidenceFor(original, compareSource) };
+            })
         };
         
         return res.status(200).json({
+            stationId: best.id,
             price: best.price.toString(), 
             unit: "p", 
             name: best.name || best.brand || "Fuel Station",
@@ -764,6 +853,7 @@ export default async function handler(req, res) {
             updated: source,
             datasetUpdated: source,
             stationUpdated: best.stationUpdated || '', 
+            priceConfidence: priceConfidenceFor(best, compareSource),
             lat: best.lat, 
             lng: best.lng,
             opening: best.opening || "Opening times unavailable",
