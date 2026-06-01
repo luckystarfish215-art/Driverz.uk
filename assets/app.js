@@ -434,15 +434,22 @@ function renderFavouriteStations(){
 
 
 function applyConsistentPriceConfidence(d){
-  if(!d || !d.stationId || !Array.isArray(d.compare)) return d;
+  if(!d || !d.stationId) return d;
+
   const stationId = String(d.stationId);
-  const matched = d.compare.find(item => item && String(item.id || '') === stationId && item.priceConfidence);
+  const rows = Array.isArray(d.compare)
+    ? d.compare
+    : (d.compare && Array.isArray(d.compare.items) ? d.compare.items : []);
+
+  const matched = rows.find(item => item && String(item.id || '') === stationId && item.priceConfidence);
+
   if(matched && matched.priceConfidence){
     d.priceConfidence = matched.priceConfidence;
     if(d.searchContext){
       d.searchContext.priceConfidence = matched.priceConfidence;
     }
   }
+
   return d;
 }
 
