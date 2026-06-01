@@ -245,6 +245,60 @@ function cacheStation(item){
   });
 }
 
+
+function comparePriceNumber(item){
+  const raw=item&&typeof item.price!=='undefined'?item.price:item?.priceText;
+  const n=parseFloat(String(raw||'').replace(/[^0-9.]/g,''));
+  return Number.isFinite(n)?n:null;
+}
+
+function medianNumber(values){
+  const nums=values.filter(Number.isFinite).sort((a,b)=>a-b);
+  if(!nums.length)return null;
+  const mid=Math.floor(nums.length/2);
+  return nums.length%2?nums[mid]:(nums[mid-1]+nums[mid])/2;
+}
+
+function simpleListConfidence(item, rows){
+  const price=comparePriceNumber(item);
+  if(!Number.isFinite(price)){
+    return {level:'low',label:'Price confidence: Low',messages:['Price is not currently available.']};
+  }
+
+  const existingMessages=item?.priceConfidence?.messages||[];
+  const hasHardWarning=existingMessages.some(m=>/updated|unusually|not currently available/i.test(String(m||'')));
+  if(hasHardWarning && item.priceConfidence)return item.priceConfidence;
+
+  if(price<110 || price>230){
+    return {level:'low',label:'Price confidence: Low',messages:['Unusual price range. Check with station before travelling.']};
+  }
+
+  const others=(rows||[])
+    .filter(r=>r&&r!==item&&String(r.id||'')!==String(item.id||''))
+    .map(comparePriceNumber)
+    .filter(Number.isFinite);
+  const med=medianNumber(others);
+
+  if(Number.isFinite(med)){
+    const diff=Math.abs(price-med);
+    if(diff>=18){
+      return {level:'low',label:'Price confidence: Low',messages:['Significantly different from nearby station list. Check before travelling.']};
+    }
+    if(diff>=10){
+      return {level:'medium',label:'Price confidence: Medium',messages:['Different from nearby station list.']};
+    }
+  }
+
+  return {level:'high',label:'Price confidence: High',messages:['Looks consistent with nearby station list.']};
+}
+
+function normaliseCompareListConfidence(rows){
+  return (rows||[]).map(item=>({
+    ...item,
+    priceConfidence:simpleListConfidence(item, rows)
+  }));
+}
+
 function renderCompare(compareData){
   const wrap=$('compare-nearby');
   const list=$('compare-list');
@@ -253,7 +307,8 @@ function renderCompare(compareData){
 
   if(!wrap||!list||!toggle)return;
 
-  const rows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,6);
+  const rawRows=(Array.isArray(compareData)?compareData:(compareData&&Array.isArray(compareData.items)?compareData.items:[])).filter(Boolean).slice(0,6);
+  const rows=normaliseCompareListConfidence(rawRows);
   const fallback=!!(compareData&&!Array.isArray(compareData)&&compareData.fallback);
 
   if(!rows.length){
