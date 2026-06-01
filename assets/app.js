@@ -432,6 +432,20 @@ function renderFavouriteStations(){
   updateFavouriteStars();
 }
 
+
+function applyConsistentPriceConfidence(d){
+  if(!d || !d.stationId || !Array.isArray(d.compare)) return d;
+  const stationId = String(d.stationId);
+  const matched = d.compare.find(item => item && String(item.id || '') === stationId && item.priceConfidence);
+  if(matched && matched.priceConfidence){
+    d.priceConfidence = matched.priceConfidence;
+    if(d.searchContext){
+      d.searchContext.priceConfidence = matched.priceConfidence;
+    }
+  }
+  return d;
+}
+
 function confidenceMarkup(confidence){
   if(!confidence||!confidence.label)return '';
   const details=(confidence.messages||[]).slice(0,2).map(m=>`<small>${m}</small>`).join('');
@@ -550,6 +564,7 @@ async function loadSearchedStation(stationId,query){
 }
 
 function showData(d){
+  d = applyConsistentPriceConfidence(d);
   currentStationResult=d&&d.stationId?d:null;
   if(currentStationResult){
     cacheStation({id:d.stationId,name:d.name,address:d.address,dist:d.dist,price:d.price,unit:d.unit||'p',priceText:(d.price==='FREE')?'FREE':`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`,lat:d.lat,lng:d.lng});
