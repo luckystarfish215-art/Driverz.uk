@@ -433,20 +433,59 @@ function renderFavouriteStations(){
 }
 
 
+function normaliseStationIdentityText(value){
+  return String(value||'').trim().toLowerCase().replace(/\s+/g,' ');
+}
+
+function sameStationForUIConfidence(a,b){
+  if(!a||!b)return false;
+
+  const aid=String(a.id||a.stationId||'').trim();
+  const bid=String(b.id||b.stationId||'').trim();
+  if(aid&&bid&&aid===bid)return true;
+
+  const alat=parseFloat(a.lat);
+  const alng=parseFloat(a.lng);
+  const blat=parseFloat(b.lat);
+  const blng=parseFloat(b.lng);
+  if(Number.isFinite(alat)&&Number.isFinite(alng)&&Number.isFinite(blat)&&Number.isFinite(blng)){
+    if(Math.abs(alat-blat)<0.00005&&Math.abs(alng-blng)<0.00005)return true;
+  }
+
+  const aname=normaliseStationIdentityText(a.name);
+  const bname=normaliseStationIdentityText(b.name);
+  const aaddr=normaliseStationIdentityText(a.address);
+  const baddr=normaliseStationIdentityText(b.address);
+  if(aname&&bname&&aname===bname&&aaddr&&baddr&&aaddr===baddr)return true;
+
+  return false;
+}
+
+function compareRowsFromResponse(d){
+  if(Array.isArray(d?.compare))return d.compare;
+  if(d?.compare&&Array.isArray(d.compare.items))return d.compare.items;
+  return [];
+}
+
 function applyConsistentPriceConfidence(d){
-  if(!d || !d.stationId) return d;
+  if(!d)return d;
 
-  const stationId = String(d.stationId);
-  const rows = Array.isArray(d.compare)
-    ? d.compare
-    : (d.compare && Array.isArray(d.compare.items) ? d.compare.items : []);
+  const selected={
+    id:d.stationId,
+    stationId:d.stationId,
+    name:d.name,
+    address:d.address,
+    lat:d.lat,
+    lng:d.lng
+  };
 
-  const matched = rows.find(item => item && String(item.id || '') === stationId && item.priceConfidence);
+  const rows=compareRowsFromResponse(d);
+  const matched=rows.find(item=>item&&item.priceConfidence&&sameStationForUIConfidence(item,selected));
 
-  if(matched && matched.priceConfidence){
-    d.priceConfidence = matched.priceConfidence;
+  if(matched&&matched.priceConfidence){
+    d.priceConfidence=matched.priceConfidence;
     if(d.searchContext){
-      d.searchContext.priceConfidence = matched.priceConfidence;
+      d.searchContext.priceConfidence=matched.priceConfidence;
     }
   }
 

@@ -532,52 +532,43 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         dist: getDistance(selected.lat, selected.lng, s.lat, s.lng)
     })).sort((a, b) => a.dist - b.dist).slice(0, 10);
 
-    // Price confidence must be stable for a station. It should not change when
-    // the same station is opened from search, My Stations, the main card or the
-    // compare list. Build the confidence comparison around each station itself
-    // and reuse that same result in every UI location.
-    const confidenceContextForStation = (target) => {
-        if (!target || !Number.isFinite(parseFloat(target.lat)) || !Number.isFinite(parseFloat(target.lng))) {
-            return compareSource;
-        }
-
-        const confidenceRadiusMiles = Math.max(2.5, Math.min(5, parseFloat(radius) || 2.5));
-        const context = allStations.map(s => ({
-            ...s,
-            dist: getDistance(target.lat, target.lng, s.lat, s.lng)
-        })).filter(s => isValidFuelPrice(s.price) && s.dist <= confidenceRadiusMiles);
-
-        return context.length >= 3 ? context : compareSource;
-    };
-
-    const confidenceForStation = (target) => priceConfidenceFor(target, confidenceContextForStation(target));
-    const selectedConfidence = confidenceForStation(selected);
-
     const sortedByPrice = [...compareSource].sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist) - parseFloat(b.dist));
     const cheapest = sortedByPrice[0] || selectedWithLocalDistance;
     const difference = parseFuelPrice(selected.price) - parseFuelPrice(cheapest.price);
     const saving35L = difference > 0 ? difference * 35 / 100 : 0;
 
     const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
-        const isSelected = sameStationForConfidence(item, selected);
-        const isCheapest = sameStationForConfidence(item, cheapest);
-        const original = compareSource.find(s => sameStationForConfidence(s, item)) || item;
-        const itemConfidence = isSelected ? selectedConfidence : confidenceForStation(original);
+        const isSelected = Math.abs(parseFloat(item.lat) - parseFloat(selected.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(selected.lng)) < 0.00001;
+        const isCheapest = Math.abs(parseFloat(item.lat) - parseFloat(cheapest.lat)) < 0.00001 && Math.abs(parseFloat(item.lng) - parseFloat(cheapest.lng)) < 0.00001;
+        const original = compareSource.find(s => String(s.id) === String(item.id)) || item;
         return {
             ...item,
-            priceConfidence: itemConfidence,
+            priceConfidence: priceConfidenceFor(original, compareSource),
             badge: isSelected ? 'You searched for' : (isCheapest ? 'Cheapest nearby' : '')
         };
     });
 
     if (!compareItems.some(item => item.badge === 'You searched for')) {
-        compareItems.push({
+        compareItems.unshift({
             ...stationSummary({ ...selected, dist: getDistance(selected.lat, selected.lng, selected.lat, selected.lng) }),
             opening: selected.opening,
-            priceConfidence: selectedConfidence,
+            priceConfidence: priceConfidenceFor(selected, compareSource),
             badge: 'You searched for'
         });
     }
+
+    const selectedCompareItem = compareItems.find(item => item && item.priceConfidence && sameStationForConfidence(item, selected));
+    const selectedPriceConfidence = selectedCompareItem?.priceConfidence || priceConfidenceFor(selected, compareSource);
+
+    const visibleCompareItems = [];
+    const selectedItem = compareItems.find(item => item.badge === 'You searched for');
+    const cheapestItem = compareItems.find(item => item.badge === 'Cheapest nearby');
+
+    [selectedItem, cheapestItem, ...compareItems].forEach(item => {
+        if (!item) return;
+        if (visibleCompareItems.some(existing => sameStationForConfidence(existing, item))) return;
+        visibleCompareItems.push(item);
+    });
 
     return {
         stationSearch: true,
@@ -589,7 +580,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         updated: source,
         datasetUpdated: source,
         stationUpdated: selected.stationUpdated || '',
-        priceConfidence: selectedConfidence,
+        priceConfidence: selectedPriceConfidence,
         lat: selected.lat,
         lng: selected.lng,
         opening: selected.opening || 'Opening times unavailable',
@@ -597,7 +588,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         allPrices: selected.allPrices || '',
         compare: {
             fallback: false,
-            items: compareItems.slice(0, 6)
+            items: visibleCompareItems.slice(0, 6)
         },
         searchContext: {
             query,
@@ -608,7 +599,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
             differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
             saving35L: Number.isFinite(saving35L) ? saving35L : null,
             selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0,
-            priceConfidence: selectedConfidence
+            priceConfidence: selectedPriceConfidence
         }
     };
 }
