@@ -265,9 +265,10 @@ function simpleListConfidence(item, rows){
     return {level:'low',label:'Price confidence: Low',messages:['Price is not currently available.']};
   }
 
-  const existingMessages=item?.priceConfidence?.messages||[];
-  const hasHardWarning=existingMessages.some(m=>/updated|unusually|not currently available/i.test(String(m||'')));
-  if(hasHardWarning && item.priceConfidence)return item.priceConfidence;
+  // Recalculate list confidence from the currently visible station list.
+  // Do not keep API confidence here, because API confidence can be based on
+  // a wider/older context than the UI compare list and caused the same station
+  // to show High in the main card but Low in the list.
 
   if(price<110 || price>230){
     return {level:'low',label:'Price confidence: Low',messages:['Unusual price range. Check with station before travelling.']};
