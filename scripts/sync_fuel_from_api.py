@@ -352,6 +352,11 @@ def build_latest_json(rows):
             "e10": float(row["forecourts.fuel_price.E10"]) if row.get("forecourts.fuel_price.E10") not in ("", None) else None,
             "b7": float(row["forecourts.fuel_price.B7S"]) if row.get("forecourts.fuel_price.B7S") not in ("", None) else None,
             "sdv": float(row["forecourts.fuel_price.B7P"]) if row.get("forecourts.fuel_price.B7P") not in ("", None) else None,
+            "e5_updated_at": row.get("forecourts.price_submission_timestamp.E5", ""),
+            "e10_updated_at": row.get("forecourts.price_submission_timestamp.E10", ""),
+            "b7_updated_at": row.get("forecourts.price_submission_timestamp.B7S", ""),
+            "sdv_updated_at": row.get("forecourts.price_submission_timestamp.B7P", ""),
+            "updated_at": row.get("forecourt_update_timestamp", ""),
         })
 
     return {

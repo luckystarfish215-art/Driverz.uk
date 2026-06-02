@@ -194,6 +194,11 @@ for index, row in enumerate(rows, start=1):
     b7 = to_price(pick(row, ["forecourts.fuel_price.B7S", "fuel_price.B7S", "price.B7S", "prices.B7S", "forecourts.fuel_price.B7", "b7s", "B7S", "b7", "B7", "diesel"]))
     sdv = to_price(pick(row, ["forecourts.fuel_price.B7P", "fuel_price.B7P", "price.B7P", "prices.B7P", "b7p", "B7P", "sdv", "SDV", "premium diesel", "super diesel"]))
 
+    e5_updated_at = pick(row, ["forecourts.price_submission_timestamp.E5", "price_submission_timestamp.E5", "prices.E5.lastUpdated", "E5.lastUpdated"], "")
+    e10_updated_at = pick(row, ["forecourts.price_submission_timestamp.E10", "price_submission_timestamp.E10", "prices.E10.lastUpdated", "E10.lastUpdated"], "")
+    b7_updated_at = pick(row, ["forecourts.price_submission_timestamp.B7S", "price_submission_timestamp.B7S", "forecourts.price_submission_timestamp.B7", "prices.B7.lastUpdated", "B7.lastUpdated", "diesel.lastUpdated"], "")
+    sdv_updated_at = pick(row, ["forecourts.price_submission_timestamp.B7P", "price_submission_timestamp.B7P", "prices.B7P.lastUpdated", "B7P.lastUpdated"], "")
+
     lat = to_float(pick(row, ["forecourts.location.latitude", "location.latitude", "latitude", "lat"]))
     lng = to_float(pick(row, ["forecourts.location.longitude", "location.longitude", "longitude", "lng", "lon"]))
 
@@ -209,6 +214,10 @@ for index, row in enumerate(rows, start=1):
         "e10": e10,
         "b7": b7,
         "sdv": sdv,
+        "e5_updated_at": e5_updated_at,
+        "e10_updated_at": e10_updated_at,
+        "b7_updated_at": b7_updated_at,
+        "sdv_updated_at": sdv_updated_at,
         "is_motorway": pick_bool(row, ["forecourts.is_motorway_service_station", "is_motorway_service_station", "motorway"]),
         "is_supermarket": pick_bool(row, ["forecourts.is_supermarket_service_station", "is_supermarket_service_station", "supermarket"]),
         "updated_at": pick(row, ["forecourt_update_timestamp", "updated_at", "last_updated", "last updated"], ""),

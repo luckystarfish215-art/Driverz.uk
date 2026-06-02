@@ -102,11 +102,11 @@ function buildCsvIndex(headers) {
         lat: findHeaderIndex(headers, ['forecourts.location.latitude', 'location.latitude', 'latitude'], 16),
         lng: findHeaderIndex(headers, ['forecourts.location.longitude', 'location.longitude', 'longitude'], 17),
         e5: findHeaderIndex(headers, ['prices.E5', 'prices.E5.price', 'E5'], 18),
-        e5Updated: findHeaderIndex(headers, ['prices.E5.lastUpdated', 'prices.E5.updatedAt', 'prices.E5.updatedDate', 'prices.E5.lastUpdate', 'E5.lastUpdated'], 20),
+        e5Updated: findHeaderIndex(headers, ['forecourts.price_submission_timestamp.E5', 'price_submission_timestamp.E5', 'prices.E5.lastUpdated', 'prices.E5.updatedAt', 'prices.E5.updatedDate', 'prices.E5.lastUpdate', 'E5.lastUpdated'], 19),
         e10: findHeaderIndex(headers, ['prices.E10', 'prices.E10.price', 'E10'], 21),
-        e10Updated: findHeaderIndex(headers, ['prices.E10.lastUpdated', 'prices.E10.updatedAt', 'prices.E10.updatedDate', 'prices.E10.lastUpdate', 'E10.lastUpdated'], 23),
+        e10Updated: findHeaderIndex(headers, ['forecourts.price_submission_timestamp.E10', 'price_submission_timestamp.E10', 'prices.E10.lastUpdated', 'prices.E10.updatedAt', 'prices.E10.updatedDate', 'prices.E10.lastUpdate', 'E10.lastUpdated'], 22),
         b7: findHeaderIndex(headers, ['prices.B7', 'prices.B7.price', 'B7', 'diesel'], 24),
-        b7Updated: findHeaderIndex(headers, ['prices.B7.lastUpdated', 'prices.B7.updatedAt', 'prices.B7.updatedDate', 'prices.B7.lastUpdate', 'B7.lastUpdated', 'diesel.lastUpdated'], 26)
+        b7Updated: findHeaderIndex(headers, ['forecourts.price_submission_timestamp.B7S', 'price_submission_timestamp.B7S', 'forecourts.price_submission_timestamp.B7', 'prices.B7.lastUpdated', 'prices.B7.updatedAt', 'prices.B7.updatedDate', 'prices.B7.lastUpdate', 'B7.lastUpdated', 'diesel.lastUpdated'], 25)
     };
 }
 
@@ -449,6 +449,10 @@ function loadLatestFuelStations(mode, referenceLat, referenceLng) {
         if (e5) prices.push(e5);
         if (diesel) prices.push(diesel);
 
+        const priceUpdatedRaw = mode === 'diesel'
+            ? (row.b7_updated_at || row.b7s_updated_at || row.diesel_updated_at || row.updated_at || '')
+            : (row.e10_updated_at || row.petrol_updated_at || row.updated_at || '');
+
         return {
             id: String(row.id || `${Math.round(lat * 1e6)}:${Math.round(lng * 1e6)}:${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 42)}`),
             brand: String(row.brand || '').trim(),
@@ -457,12 +461,12 @@ function loadLatestFuelStations(mode, referenceLat, referenceLng) {
             dist,
             lat,
             lng,
-            opening: row.is_motorway ? 'Check operator' : 'Opening times unavailable',
+            opening: row.opening || (row.is_motorway ? 'Check operator' : 'Opening times unavailable'),
             address,
             postcode: String(row.postcode || '').trim(),
             allPrices: prices.join(' · '),
-            stationUpdated: formatStationUpdatedLabel(row.updated_at || ''),
-            stationUpdatedRaw: row.updated_at || '',
+            stationUpdated: formatStationUpdatedLabel(priceUpdatedRaw),
+            stationUpdatedRaw: priceUpdatedRaw,
             searchText: [row.brand, row.name, row.address, row.postcode].filter(Boolean).join(' ').toLowerCase()
         };
     }).filter(Boolean);
