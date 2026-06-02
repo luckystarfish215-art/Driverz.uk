@@ -263,14 +263,17 @@ function hasDataFreshnessWarning(confidence){
   const messages=(confidence&&Array.isArray(confidence.messages)?confidence.messages:[])
     .map(m=>String(m||'').toLowerCase());
 
+  // Only preserve hard data-quality/freshness warnings from the API.
+  // Do NOT preserve generic "Check with station before travelling" by itself,
+  // because price-anomaly Low messages also include that sentence. Those rows
+  // should be recalculated from the currently displayed compare-list prices.
   return messages.some(m=>
     /updated\s+\d+\s+days?\s+ago/.test(m)||
     /price updated\s+\d+\s+days?\s+ago/.test(m)||
     /\bstale\b/.test(m)||
     /older than/.test(m)||
     /price update unknown/.test(m)||
-    /not currently available/.test(m)||
-    /check with station before travelling/.test(m)
+    /not currently available/.test(m)
   );
 }
 
