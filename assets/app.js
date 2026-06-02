@@ -55,6 +55,9 @@ const MAX_FAVOURITES=5;
 let currentStationResult=null;
 let stationSearchTimer=null;
 const stationCache=new Map();
+let isLocating=false;
+let locationFallbackTimer=null;
+let activeFuelRequest=0;
 
 function saveLocation(){
   if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){
@@ -241,7 +244,8 @@ function cacheStation(item){
     unit:item.unit||'p',
     priceText:item.priceText||([item.price,item.unit].filter(Boolean).join('')),
     lat:item.lat,
-    lng:item.lng
+    lng:item.lng,
+    priceConfidence:item.priceConfidence||null
   });
 }
 
@@ -543,6 +547,7 @@ function compareRowsFromResponse(d){
 
 function applyConsistentPriceConfidence(d){
   if(!d)return d;
+  if(d._lockPriceConfidence)return d;
 
   const selected={
     id:d.stationId,
@@ -658,16 +663,26 @@ async function searchStations(q){
   }
 }
 
-async function loadSearchedStation(stationId,query){
+async function loadSearchedStation(stationId,query,opts={}){
   if(!stationId)return;
 
+  const requestId=++activeFuelRequest;
   setStatus('Checking station price…');
 
   try{
     const res=await fetch(`/api/fuel?stationSearch=${encodeURIComponent(query||'station')}&stationId=${encodeURIComponent(stationId)}&lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
     const data=await res.json();
 
+    if(requestId!==activeFuelRequest)return;
     if(!res.ok)throw new Error(data.error||'Station not found');
+
+    if(opts.priceConfidenceOverride){
+      data.priceConfidence=opts.priceConfidenceOverride;
+      data._lockPriceConfidence=true;
+      if(data.searchContext){
+        data.searchContext.priceConfidence=opts.priceConfidenceOverride;
+      }
+    }
 
     showData(data);
 
@@ -679,7 +694,9 @@ async function loadSearchedStation(stationId,query){
 
     document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }catch(e){
-    setStatus(e.message||'Station not found');
+    if(requestId===activeFuelRequest){
+      setStatus(e.message||'Station not found');
+    }
   }
 }
 
@@ -738,6 +755,7 @@ function showData(d){
 
 async function loadFuel(){
   state.radius=clampRadius(state.radius);
+  const requestId=++activeFuelRequest;
   document.body.classList.add('loading');
 
   setStatus('Checking nearby prices…');
@@ -748,10 +766,12 @@ async function loadFuel(){
     const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
     const data=await res.json();
 
+    if(requestId!==activeFuelRequest)return;
     if(!res.ok)throw new Error(data.error||'No result');
 
     showData(data);
   }catch(e){
+    if(requestId!==activeFuelRequest)return;
     setStatus(e.message||'No station found nearby');
 
     $('main-price').textContent='--';
@@ -769,7 +789,9 @@ async function loadFuel(){
     updateFavouriteStars();
     updateCyclePrice();
   }finally{
-    document.body.classList.remove('loading');
+    if(requestId===activeFuelRequest){
+      document.body.classList.remove('loading');
+    }
   }
 }
 
@@ -827,10 +849,27 @@ function useLocation(){
     return;
   }
 
+  if(isLocating){
+    setStatus('Still finding your location…');
+    return;
+  }
+
+  isLocating=true;
   setStatus('Finding your location…');
+
+  clearTimeout(locationFallbackTimer);
+  locationFallbackTimer=setTimeout(()=>{
+    if(!isLocating)return;
+    isLocating=false;
+    setStatus('Location is taking longer than expected. Using your saved location instead.');
+    loadFuel();
+  },12000);
 
   navigator.geolocation.getCurrentPosition(
     pos=>{
+      if(!isLocating)return;
+      isLocating=false;
+      clearTimeout(locationFallbackTimer);
       state.lat=pos.coords.latitude;
       state.lng=pos.coords.longitude;
       state.label='Your location';
@@ -838,10 +877,13 @@ function useLocation(){
       loadFuel();
     },
     ()=>{
+      if(!isLocating)return;
+      isLocating=false;
+      clearTimeout(locationFallbackTimer);
       setStatus('Location permission was not granted. Using your saved location instead.');
       loadFuel();
     },
-    {enableHighAccuracy:false,timeout:10000,maximumAge:300000}
+    {enableHighAccuracy:false,timeout:8000,maximumAge:300000}
   );
 }
 
@@ -1041,7 +1083,10 @@ function init(){
   function openCompareRow(row){
     if(!row||!row.dataset.stationId)return;
     const name=row.querySelector('.compare-info strong')?.textContent||'station';
-    loadSearchedStation(row.dataset.stationId,name);
+    const cached=stationCache.get(String(row.dataset.stationId));
+    loadSearchedStation(row.dataset.stationId,name,{
+      priceConfidenceOverride:cached&&cached.priceConfidence?cached.priceConfidence:null
+    });
   }
 
   $('compare-list')?.addEventListener('click',e=>{
