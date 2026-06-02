@@ -338,7 +338,9 @@ function renderCompare(compareData){
     const fav=canFav?stationIsFavourite(item.id):false;
     const confidence=item.priceConfidence?`<small class="price-confidence-inline confidence-${item.priceConfidence.level}">${item.priceConfidence.label}</small>`:'';
 
-    return `<article class="compare-row" data-station-id="${item.id||''}">
+    const selectable=item.id?' role="button" tabindex="0" aria-label="View details for '+String(item.name||'nearby option').replace(/"/g,'&quot;')+'"':'';
+
+    return `<article class="compare-row" data-station-id="${item.id||''}"${selectable}>
       <div class="compare-price">${price||'Price not listed'}</div>
       <div class="compare-info">
         <strong>${item.name||'Nearby option'}</strong>
@@ -1018,6 +1020,27 @@ function init(){
     const btn=e.target.closest('[data-station-id]');
     if(!btn)return;
     loadSearchedStation(btn.dataset.stationId,stationInput?.value||'station');
+  });
+
+  function openCompareRow(row){
+    if(!row||!row.dataset.stationId)return;
+    const name=row.querySelector('.compare-info strong')?.textContent||'station';
+    loadSearchedStation(row.dataset.stationId,name);
+  }
+
+  $('compare-list')?.addEventListener('click',e=>{
+    if(e.target.closest('a,button,[data-favourite-toggle]'))return;
+    const row=e.target.closest('.compare-row[data-station-id]');
+    openCompareRow(row);
+  });
+
+  $('compare-list')?.addEventListener('keydown',e=>{
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    if(e.target.closest('a,button,[data-favourite-toggle]'))return;
+    const row=e.target.closest('.compare-row[data-station-id]');
+    if(!row)return;
+    e.preventDefault();
+    openCompareRow(row);
   });
 
   document.addEventListener('click',e=>{
