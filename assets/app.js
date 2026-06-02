@@ -55,9 +55,6 @@ const MAX_FAVOURITES=5;
 let currentStationResult=null;
 let stationSearchTimer=null;
 const stationCache=new Map();
-let isLocating=false;
-let locationFallbackTimer=null;
-let activeFuelRequest=0;
 
 function saveLocation(){
   if(Number.isFinite(state.lat)&&Number.isFinite(state.lng)){
@@ -244,8 +241,7 @@ function cacheStation(item){
     unit:item.unit||'p',
     priceText:item.priceText||([item.price,item.unit].filter(Boolean).join('')),
     lat:item.lat,
-    lng:item.lng,
-    priceConfidence:item.priceConfidence||null
+    lng:item.lng
   });
 }
 
@@ -263,32 +259,16 @@ function medianNumber(values){
   return nums.length%2?nums[mid]:(nums[mid-1]+nums[mid])/2;
 }
 
-function hasFreshnessWarning(confidence){
-  const messages=(confidence&&confidence.messages?confidence.messages:[]).map(m=>String(m||'').toLowerCase());
-  return messages.some(m=>
-    /updated\s+\d+\s+days?\s+ago/.test(m)||
-    /\bstale\b/.test(m)||
-    /older than/.test(m)||
-    /not currently available/.test(m)||
-    /price update unknown/.test(m)||
-    /unavailable from current data source/.test(m)
-  );
-}
-
 function simpleListConfidence(item, rows){
-  // Recalculate list confidence from the currently visible station list,
-  // but never upgrade a hard data freshness / unavailable warning to High.
-  // Example: BP Three Mile Cross can move from Low to High when only the
-  // list price context was wrong; ASDA with "Updated 12 days ago" must
-  // stay Medium/Low in both main card and station list.
-  if(hasFreshnessWarning(item&&item.priceConfidence)){
-    return item.priceConfidence;
-  }
-
   const price=comparePriceNumber(item);
   if(!Number.isFinite(price)){
     return {level:'low',label:'Price confidence: Low',messages:['Price is not currently available.']};
   }
+
+  // Recalculate list confidence from the currently visible station list.
+  // Do not keep API confidence here, because API confidence can be based on
+  // a wider/older context than the UI compare list and caused the same station
+  // to show High in the main card but Low in the list.
 
   if(price<110 || price>230){
     return {level:'low',label:'Price confidence: Low',messages:['Unusual price range. Check with station before travelling.']};
@@ -358,9 +338,7 @@ function renderCompare(compareData){
     const fav=canFav?stationIsFavourite(item.id):false;
     const confidence=item.priceConfidence?`<small class="price-confidence-inline confidence-${item.priceConfidence.level}">${item.priceConfidence.label}</small>`:'';
 
-    const selectable=item.id?' role="button" tabindex="0" aria-label="View details for '+String(item.name||'nearby option').replace(/"/g,'&quot;')+'"':'';
-
-    return `<article class="compare-row" data-station-id="${item.id||''}"${selectable}>
+    return `<article class="compare-row" data-station-id="${item.id||''}">
       <div class="compare-price">${price||'Price not listed'}</div>
       <div class="compare-info">
         <strong>${item.name||'Nearby option'}</strong>
@@ -547,7 +525,6 @@ function compareRowsFromResponse(d){
 
 function applyConsistentPriceConfidence(d){
   if(!d)return d;
-  if(d._lockPriceConfidence)return d;
 
   const selected={
     id:d.stationId,
@@ -663,26 +640,16 @@ async function searchStations(q){
   }
 }
 
-async function loadSearchedStation(stationId,query,opts={}){
+async function loadSearchedStation(stationId,query){
   if(!stationId)return;
 
-  const requestId=++activeFuelRequest;
   setStatus('Checking station price…');
 
   try{
     const res=await fetch(`/api/fuel?stationSearch=${encodeURIComponent(query||'station')}&stationId=${encodeURIComponent(stationId)}&lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
     const data=await res.json();
 
-    if(requestId!==activeFuelRequest)return;
     if(!res.ok)throw new Error(data.error||'Station not found');
-
-    if(opts.priceConfidenceOverride){
-      data.priceConfidence=opts.priceConfidenceOverride;
-      data._lockPriceConfidence=true;
-      if(data.searchContext){
-        data.searchContext.priceConfidence=opts.priceConfidenceOverride;
-      }
-    }
 
     showData(data);
 
@@ -694,9 +661,7 @@ async function loadSearchedStation(stationId,query,opts={}){
 
     document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }catch(e){
-    if(requestId===activeFuelRequest){
-      setStatus(e.message||'Station not found');
-    }
+    setStatus(e.message||'Station not found');
   }
 }
 
@@ -755,7 +720,6 @@ function showData(d){
 
 async function loadFuel(){
   state.radius=clampRadius(state.radius);
-  const requestId=++activeFuelRequest;
   document.body.classList.add('loading');
 
   setStatus('Checking nearby prices…');
@@ -766,12 +730,10 @@ async function loadFuel(){
     const res=await fetch(`/api/fuel?lat=${state.lat}&lng=${state.lng}&mode=${state.mode}&radius=${state.radius}&excludeCostco=${state.excludeCostco}`);
     const data=await res.json();
 
-    if(requestId!==activeFuelRequest)return;
     if(!res.ok)throw new Error(data.error||'No result');
 
     showData(data);
   }catch(e){
-    if(requestId!==activeFuelRequest)return;
     setStatus(e.message||'No station found nearby');
 
     $('main-price').textContent='--';
@@ -789,9 +751,7 @@ async function loadFuel(){
     updateFavouriteStars();
     updateCyclePrice();
   }finally{
-    if(requestId===activeFuelRequest){
-      document.body.classList.remove('loading');
-    }
+    document.body.classList.remove('loading');
   }
 }
 
@@ -849,27 +809,10 @@ function useLocation(){
     return;
   }
 
-  if(isLocating){
-    setStatus('Still finding your location…');
-    return;
-  }
-
-  isLocating=true;
   setStatus('Finding your location…');
-
-  clearTimeout(locationFallbackTimer);
-  locationFallbackTimer=setTimeout(()=>{
-    if(!isLocating)return;
-    isLocating=false;
-    setStatus('Location is taking longer than expected. Using your saved location instead.');
-    loadFuel();
-  },12000);
 
   navigator.geolocation.getCurrentPosition(
     pos=>{
-      if(!isLocating)return;
-      isLocating=false;
-      clearTimeout(locationFallbackTimer);
       state.lat=pos.coords.latitude;
       state.lng=pos.coords.longitude;
       state.label='Your location';
@@ -877,13 +820,10 @@ function useLocation(){
       loadFuel();
     },
     ()=>{
-      if(!isLocating)return;
-      isLocating=false;
-      clearTimeout(locationFallbackTimer);
       setStatus('Location permission was not granted. Using your saved location instead.');
       loadFuel();
     },
-    {enableHighAccuracy:false,timeout:8000,maximumAge:300000}
+    {enableHighAccuracy:false,timeout:10000,maximumAge:300000}
   );
 }
 
@@ -1078,30 +1018,6 @@ function init(){
     const btn=e.target.closest('[data-station-id]');
     if(!btn)return;
     loadSearchedStation(btn.dataset.stationId,stationInput?.value||'station');
-  });
-
-  function openCompareRow(row){
-    if(!row||!row.dataset.stationId)return;
-    const name=row.querySelector('.compare-info strong')?.textContent||'station';
-    const cached=stationCache.get(String(row.dataset.stationId));
-    loadSearchedStation(row.dataset.stationId,name,{
-      priceConfidenceOverride:cached&&cached.priceConfidence?cached.priceConfidence:null
-    });
-  }
-
-  $('compare-list')?.addEventListener('click',e=>{
-    if(e.target.closest('a,button,[data-favourite-toggle]'))return;
-    const row=e.target.closest('.compare-row[data-station-id]');
-    openCompareRow(row);
-  });
-
-  $('compare-list')?.addEventListener('keydown',e=>{
-    if(e.key!=='Enter'&&e.key!==' ')return;
-    if(e.target.closest('a,button,[data-favourite-toggle]'))return;
-    const row=e.target.closest('.compare-row[data-station-id]');
-    if(!row)return;
-    e.preventDefault();
-    openCompareRow(row);
   });
 
   document.addEventListener('click',e=>{
