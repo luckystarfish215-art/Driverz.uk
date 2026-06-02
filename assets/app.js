@@ -259,16 +259,34 @@ function medianNumber(values){
   return nums.length%2?nums[mid]:(nums[mid-1]+nums[mid])/2;
 }
 
+function hasDataFreshnessWarning(confidence){
+  const messages=(confidence&&Array.isArray(confidence.messages)?confidence.messages:[])
+    .map(m=>String(m||'').toLowerCase());
+
+  return messages.some(m=>
+    /updated\s+\d+\s+days?\s+ago/.test(m)||
+    /price updated\s+\d+\s+days?\s+ago/.test(m)||
+    /\bstale\b/.test(m)||
+    /older than/.test(m)||
+    /price update unknown/.test(m)||
+    /not currently available/.test(m)||
+    /check with station before travelling/.test(m)
+  );
+}
+
 function simpleListConfidence(item, rows){
+  // Recalculate normal compare-list price context, but do not upgrade
+  // hard data freshness warnings. Example: BP Three Mile Cross can become
+  // High when the old list context was wrong; ASDA updated 12 days ago must
+  // remain Medium/Low in the list because the warning is about stale data.
+  if(hasDataFreshnessWarning(item&&item.priceConfidence)){
+    return item.priceConfidence;
+  }
+
   const price=comparePriceNumber(item);
   if(!Number.isFinite(price)){
     return {level:'low',label:'Price confidence: Low',messages:['Price is not currently available.']};
   }
-
-  // Recalculate list confidence from the currently visible station list.
-  // Do not keep API confidence here, because API confidence can be based on
-  // a wider/older context than the UI compare list and caused the same station
-  // to show High in the main card but Low in the list.
 
   if(price<110 || price>230){
     return {level:'low',label:'Price confidence: Low',messages:['Unusual price range. Check with station before travelling.']};
