@@ -162,6 +162,31 @@ function formatFuelChip(label, value) {
     return `${label} ${n.toFixed(1)}p`;
 }
 
+
+function stableTextHash(value) {
+    let hash = 5381;
+    const text = String(value || '');
+    for (let i = 0; i < text.length; i++) {
+        hash = ((hash << 5) + hash) + text.charCodeAt(i);
+        hash = hash >>> 0;
+    }
+    return hash.toString(36);
+}
+
+function evChargerId(charger) {
+    if (charger && charger.ID) return `ev-${charger.ID}`;
+    const info = charger?.AddressInfo || {};
+    const key = [
+        info.Title,
+        info.AddressLine1,
+        info.Town,
+        info.Postcode,
+        Number.isFinite(+info.Latitude) ? (+info.Latitude).toFixed(6) : '',
+        Number.isFinite(+info.Longitude) ? (+info.Longitude).toFixed(6) : ''
+    ].filter(Boolean).join('|').toLowerCase();
+    return `ev-${stableTextHash(key)}`;
+}
+
 function evConnectorSummary(charger) {
     const names = new Set();
     const conns = charger.Connections || [];
@@ -417,6 +442,7 @@ function evCompareRows(chargers, selectedId) {
             const price = evDisplayPrice(c.UsageCost || '');
             const connectors = evConnectorSummary(c);
             return {
+                id: evChargerId(c),
                 priceText: price === 'price not listed' ? 'Price not listed' : price,
                 name: c.AddressInfo.Title || 'EV charger',
                 dist: Number.isFinite(c.AddressInfo.Distance) ? `${c.AddressInfo.Distance.toFixed(1)} mi` : '',
@@ -717,6 +743,7 @@ export default async function handler(req, res) {
             const compare = evCompareRows(validChargers, charger.ID);
             
             return res.status(200).json({
+                stationId: evChargerId(charger),
                 price: parsedCost.price,
                 unit: parsedCost.price === "FREE" ? "" : parsedCost.unit,
                 name: charger.AddressInfo.Title || "EV Charger",

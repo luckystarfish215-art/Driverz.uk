@@ -79,6 +79,29 @@ function savePrefs(){
 const MODES=['petrol','diesel','ev'];
 const MODE_LABEL={petrol:'Petrol',diesel:'Diesel',ev:'EV'};
 
+function isFavouriteMode(){
+  return state.mode==='petrol'||state.mode==='diesel'||state.mode==='ev';
+}
+
+function placeTypeLabel(capital=false){
+  const word=state.mode==='ev'?'charger':'station';
+  return capital?word.charAt(0).toUpperCase()+word.slice(1):word;
+}
+
+function favouriteSectionLabel(){
+  return state.mode==='ev'?'Your favourite chargers':'Your favourite stations';
+}
+
+function formatFavouritePriceText(item){
+  if(!item)return 'View';
+  if(item.priceText)return item.priceText;
+  if(item.price==='FREE')return 'FREE';
+  const n=parseFloat(String(item.price||'').replace(/[^0-9.]/g,''));
+  if(!Number.isFinite(n))return 'View';
+  if(state.mode==='ev')return `${n.toFixed(n%1?1:0)}${item.unit||'p/kWh'}`;
+  return `${n.toFixed(1)}${item.unit||'p'}`;
+}
+
 function setStatus(t){
   const el=$('station-name');
   if(el)el.textContent=t;
@@ -234,7 +257,7 @@ function cacheStation(item){
   stationCache.set(String(item.id),{
     id:String(item.id),
     mode:state.mode,
-    name:item.name||'Fuel station',
+    name:item.name||(state.mode==='ev'?'EV charger':'Fuel station'),
     address:item.address||'',
     dist:item.dist||'',
     price:item.price,
@@ -378,8 +401,9 @@ function renderCompare(compareData){
     const price=item.priceText||([item.price,item.unit].filter(Boolean).join(''));
     const badge=item.badge?`<em>${item.badge}</em>`:(item.isBest?'<em>Cheapest nearby</em>':'');
     const href=mapHref(item);
-    const canFav=item.id&&(state.mode==='petrol'||state.mode==='diesel');
+    const canFav=item.id&&isFavouriteMode();
     const fav=canFav?stationIsFavourite(item.id):false;
+    const favLabel=state.mode==='ev'?'charger':'station';
     const confidence=item.priceConfidence?`<small class="price-confidence-inline confidence-${item.priceConfidence.level}">${item.priceConfidence.label}</small>`:'';
 
     return `<article class="compare-row" data-station-id="${item.id||''}">
@@ -392,7 +416,7 @@ function renderCompare(compareData){
       </div>
       <div class="compare-actions">
         ${badge}
-        ${canFav?`<button class="favourite-toggle list-favourite-star" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove from My Stations':'Add to My Stations'}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</button>`:''}
+        ${canFav?`<button class="favourite-toggle list-favourite-star" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove favourite '+favLabel:'Add favourite '+favLabel}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</button>`:''}
         <a class="btn light compare-map" href="${href}" target="_blank" rel="noopener">Directions</a>
       </div>
     </article>`;
@@ -431,11 +455,11 @@ function showToast(message){
 
 function itemFromStationLike(item){
   if(!item||!item.id)return null;
-  const priceText=item.priceText||((item.price==='FREE')?'FREE':(Number.isFinite(parseFloat(item.price))?`${parseFloat(item.price).toFixed(1)}${item.unit||'p'}`:'View'));
+  const priceText=formatFavouritePriceText(item);
   return {
     id:String(item.id),
     mode:state.mode,
-    name:item.name||'Fuel station',
+    name:item.name||(state.mode==='ev'?'EV charger':'Fuel station'),
     address:item.address||'',
     dist:item.dist||'',
     price:item.price,
@@ -456,7 +480,7 @@ function buildFavouriteFromResult(d){
     dist:d.dist,
     price:d.price,
     unit:d.unit||'p',
-    priceText:(d.price==='FREE')?'FREE':(Number.isFinite(parseFloat(String(d.price).replace(/[^0-9.]/g,'')))?`${parseFloat(String(d.price).replace(/[^0-9.]/g,'')).toFixed(1)}${d.unit||'p'}`:'View'),
+    priceText:formatFavouritePriceText(d),
     lat:d.lat,
     lng:d.lng
   });
@@ -465,14 +489,14 @@ function buildFavouriteFromResult(d){
 function updateFavouriteStars(){
   document.querySelectorAll('[data-favourite-toggle]').forEach(btn=>{
     const id=btn.dataset.stationId||(currentStationResult&&currentStationResult.stationId);
-    const canFav=id&&(state.mode==='petrol'||state.mode==='diesel');
+    const canFav=id&&isFavouriteMode();
     btn.hidden=!canFav;
     if(!canFav)return;
     const saved=stationIsFavourite(id);
     btn.textContent=saved?'★':'☆';
     btn.classList.toggle('saved',saved);
     btn.setAttribute('aria-pressed',saved?'true':'false');
-    btn.setAttribute('aria-label',saved?'Remove from My Stations':'Add to My Stations');
+    btn.setAttribute('aria-label',saved?`Remove favourite ${placeTypeLabel()}`:`Add favourite ${placeTypeLabel()}`);
   });
 }
 
@@ -486,16 +510,16 @@ function toggleFavouriteByStation(item){
   if(exists){
     items=items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode));
     saveStoredFavourites(items);
-    showToast('Removed from My Stations');
+    showToast(state.mode==='ev'?'Removed from My Chargers':'Removed from My Stations');
   }else{
     const sameModeCount=items.filter(x=>x.mode===state.mode).length;
     if(sameModeCount>=MAX_FAVOURITES){
-      showToast('You can save up to 5 stations. Remove one to add another.');
+      showToast(state.mode==='ev'?'You can save up to 5 chargers. Remove one to add another.':'You can save up to 5 stations. Remove one to add another.');
       return;
     }
     items=[fav,...items.filter(x=>!(x.id===fav.id&&x.mode===fav.mode))];
     saveStoredFavourites(items);
-    showToast('Added to My Stations');
+    showToast(state.mode==='ev'?'Added to My Chargers':'Added to My Stations');
   }
 
   renderFavouriteStations();
@@ -512,6 +536,12 @@ function renderFavouriteStations(){
   const list=$('favourite-station-list');
   if(!wrap||!list)return;
 
+  const title=$('favourite-stations-title');
+  if(title)title.textContent=favouriteSectionLabel();
+
+  const note=wrap.querySelector('.favourite-note');
+  if(note)note.textContent=state.mode==='ev'?'Save up to 5 chargers. Tap ★ to remove one.':'Save up to 5 stations. Tap ★ to remove one.';
+
   const items=parseStoredFavourites().filter(x=>x.mode===state.mode).slice(0,MAX_FAVOURITES);
 
   if(!items.length){
@@ -521,7 +551,7 @@ function renderFavouriteStations(){
   }
 
   list.innerHTML=items.map(item=>`<article class="favourite-station-card" data-favourite-id="${item.id}">
-    <button class="favourite-toggle saved" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="Remove from My Stations" aria-pressed="true">★</button>
+    <button class="favourite-toggle saved" type="button" data-favourite-toggle data-station-id="${item.id}" aria-label="Remove favourite ${state.mode==='ev'?'charger':'station'}" aria-pressed="true">★</button>
     <button class="favourite-station-open" type="button" data-favourite-open="${item.id}">
       <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
       <span class="favourite-station-price">${item.priceText||'View'}</span>
@@ -649,10 +679,11 @@ function renderStationSuggestions(items,message){
 
   box.innerHTML=items.map(item=>{
     const fav=stationIsFavourite(item.id);
+    const favLabel=state.mode==='ev'?'charger':'station';
     return `<button class="station-suggestion" type="button" data-station-id="${item.id}">
       <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
       <span class="station-suggestion-price">${item.priceText||'View'}</span>
-      <span class="favourite-toggle suggestion-favourite-star ${fav?'saved':''}" role="button" tabindex="0" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove from My Stations':'Add to My Stations'}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</span>
+      <span class="favourite-toggle suggestion-favourite-star ${fav?'saved':''}" role="button" tabindex="0" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove favourite '+favLabel:'Add favourite '+favLabel}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</span>
     </button>`;
   }).join('');
   box.hidden=false;
@@ -681,6 +712,27 @@ async function searchStations(q){
     renderStationSuggestions(data.suggestions||[]);
   }catch(e){
     renderStationSuggestions([], e.message||'No station found');
+  }
+}
+
+
+async function loadFavouriteCharger(chargerId){
+  const fav=parseStoredFavourites().find(x=>x.id===chargerId&&x.mode==='ev');
+  if(!fav||!Number.isFinite(+fav.lat)||!Number.isFinite(+fav.lng)){
+    showToast('Favourite charger location is unavailable.');
+    return;
+  }
+
+  setStatus('Checking charger details…');
+
+  try{
+    const res=await fetch(`/api/fuel?lat=${encodeURIComponent(fav.lat)}&lng=${encodeURIComponent(fav.lng)}&mode=ev&radius=${Math.max(0.5,state.radius)}&excludeCostco=${state.excludeCostco}`);
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.error||'Charger not found');
+    showData(data);
+    document.getElementById('fuel-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(e){
+    setStatus(e.message||'Charger not found');
   }
 }
 
@@ -1090,7 +1142,11 @@ function init(){
     const btn=e.target.closest('[data-favourite-open]');
     if(!btn)return;
     const fav=parseStoredFavourites().find(x=>x.id===btn.dataset.favouriteOpen&&x.mode===state.mode);
-    loadSearchedStation(btn.dataset.favouriteOpen,fav?.name||'station');
+    if(state.mode==='ev'){
+      loadFavouriteCharger(btn.dataset.favouriteOpen);
+    }else{
+      loadSearchedStation(btn.dataset.favouriteOpen,fav?.name||'station');
+    }
   });
 
   renderFavouriteStations();
