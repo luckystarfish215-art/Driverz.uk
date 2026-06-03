@@ -1057,9 +1057,20 @@ function init(){
 
   document.querySelectorAll('[data-mode]').forEach(b=>{
     b.addEventListener('click',()=>{
-      state.mode=b.dataset.mode;
+      const nextMode=b.dataset.mode;
+      const current=currentStationResult&&currentStationResult.stationId?{...currentStationResult}:null;
+      const keepSelectedFuelStation=!!(current&&state.mode!=='ev'&&nextMode!=='ev'&&String(current.stationId||'').trim());
+
+      state.mode=nextMode;
       savePrefs();
-      loadFuel();
+
+      // Preserve the selected forecourt when switching Petrol <-> Diesel.
+      // Example: Morrison Petrol should become Morrison Diesel, not nearest Costco Diesel.
+      if(keepSelectedFuelStation){
+        loadSearchedStation(current.stationId,current.name||'station');
+      }else{
+        loadFuel();
+      }
     });
   });
 
