@@ -277,7 +277,30 @@ function hasDataFreshnessWarning(confidence){
   );
 }
 
+
+function evListConfidence(item){
+  const raw=String(item?.priceText ?? item?.price ?? '').trim();
+  const lower=raw.toLowerCase();
+
+  if(!raw || lower.includes('price not listed')){
+    return {level:'low',label:'Price info unavailable',messages:['Check operator before travelling.']};
+  }
+
+  if(lower.includes('free')){
+    return {level:'medium',label:'Price info: FREE',messages:['Listed as FREE. Check operator before charging.']};
+  }
+
+  const n=parseFloat(lower.replace(/[^0-9.]/g,''));
+  if(Number.isFinite(n)){
+    return {level:'high',label:'Price info available',messages:['Check operator for live availability.']};
+  }
+
+  return {level:'medium',label:'Price info needs checking',messages:['Check operator before charging.']};
+}
+
 function simpleListConfidence(item, rows){
+  if(state.mode==='ev') return item?.priceConfidence || evListConfidence(item);
+
   // Recalculate normal compare-list price context, but do not upgrade
   // hard data freshness warnings. Example: BP Three Mile Cross can become
   // High when the old list context was wrong; ASDA updated 12 days ago must

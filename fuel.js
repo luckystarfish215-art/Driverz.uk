@@ -218,6 +218,26 @@ function evDisplayPrice(costText) {
     return `${num.toFixed(num % 1 ? 1 : 0)}p/kWh`;
 }
 
+function evPriceInfoConfidence(costText) {
+    const display = evDisplayPrice(costText || '');
+    const lower = String(display || '').toLowerCase();
+
+    if (!display || lower.includes('price not listed')) {
+        return { level: 'low', label: 'Price info unavailable', messages: ['Check operator before travelling.'] };
+    }
+
+    if (lower.includes('free')) {
+        return { level: 'medium', label: 'Price info: FREE', messages: ['Listed as FREE. Check operator before charging.'] };
+    }
+
+    const value = evPriceValuePence(costText || display);
+    if (Number.isFinite(value) && value >= 0 && value <= 250) {
+        return { level: 'high', label: 'Price info available', messages: ['Check operator for live availability.'] };
+    }
+
+    return { level: 'medium', label: 'Price info needs checking', messages: ['Check operator before charging.'] };
+}
+
 function evNearbyPriceSummary(chargers, selectedId) {
     const seen = new Set();
     return (chargers || [])
@@ -405,6 +425,7 @@ function evCompareRows(chargers, selectedId) {
                 lat: c.AddressInfo.Latitude,
                 lng: c.AddressInfo.Longitude,
                 connectors,
+                priceConfidence: evPriceInfoConfidence(c.UsageCost || ''),
                 isBest: c.ID === selectedId
             };
         });
@@ -706,6 +727,7 @@ export default async function handler(req, res) {
                 opening: 'Check operator before travelling',
                 address: [charger.AddressInfo.AddressLine1, charger.AddressInfo.Town, charger.AddressInfo.Postcode].filter(Boolean).join(', '),
                 allPrices: nearbyEvPrices,
+                priceConfidence: evPriceInfoConfidence(cost),
                 compare,
                 ...(connectors ? { connectors } : {})
             });
