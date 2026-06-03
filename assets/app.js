@@ -726,7 +726,7 @@ async function loadFavouriteCharger(chargerId){
   setStatus('Checking charger details…');
 
   try{
-    const res=await fetch(`/api/fuel?lat=${encodeURIComponent(fav.lat)}&lng=${encodeURIComponent(fav.lng)}&mode=ev&radius=${Math.max(0.5,state.radius)}&excludeCostco=${state.excludeCostco}`);
+    const res=await fetch(`/api/fuel?lat=${encodeURIComponent(fav.lat)}&lng=${encodeURIComponent(fav.lng)}&mode=ev&stationId=${encodeURIComponent(chargerId)}&radius=${Math.max(0.5,state.radius)}&excludeCostco=${state.excludeCostco}`);
     const data=await res.json();
     if(!res.ok)throw new Error(data.error||'Charger not found');
     showData(data);
