@@ -739,6 +739,10 @@ async function loadFavouriteCharger(chargerId){
 async function loadSearchedStation(stationId,query){
   if(!stationId)return;
 
+  // Keep the Petrol / Diesel / EV buttons in sync when opening a selected station.
+  // loadFuel() already calls setActiveMode(), but selected-station loads bypass loadFuel().
+  setActiveMode(state.mode);
+
   setStatus('Checking station price…');
 
   try{
@@ -894,9 +898,18 @@ async function searchPlace(q,opts={}){
 
 function cycleMode(){
   const i=MODES.indexOf(state.mode);
+  const previousMode=state.mode;
+  const current=currentStationResult&&currentStationResult.stationId?{...currentStationResult}:null;
   state.mode=MODES[(i+1)%MODES.length];
+  setActiveMode(state.mode);
   savePrefs();
-  loadFuel();
+
+  // Preserve the selected forecourt when cycling Petrol <-> Diesel from the header.
+  if(current&&previousMode!=='ev'&&state.mode!=='ev'&&String(current.stationId||'').trim()){
+    loadSearchedStation(current.stationId,current.name||'station');
+  }else{
+    loadFuel();
+  }
 }
 
 function useLocation(){
@@ -1062,6 +1075,7 @@ function init(){
       const keepSelectedFuelStation=!!(current&&state.mode!=='ev'&&nextMode!=='ev'&&String(current.stationId||'').trim());
 
       state.mode=nextMode;
+      setActiveMode(state.mode);
       savePrefs();
 
       // Preserve the selected forecourt when switching Petrol <-> Diesel.
