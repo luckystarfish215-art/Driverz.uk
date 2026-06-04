@@ -131,6 +131,49 @@ function parseStationDate(value) {
     return null;
 }
 
+
+const OPENING_DAY_NAMES = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+function isTrueValue(value) {
+    return String(value || '').trim().toLowerCase() === 'true' || String(value || '').trim() === '1';
+}
+
+function cleanTime(value) {
+    const text = String(value || '').trim();
+    if (!text) return '';
+    return text.replace(/:00$/, '');
+}
+
+function formatOpeningFromHours(openingHours, now = new Date()) {
+    if (!openingHours || typeof openingHours !== 'object') return '';
+
+    const dayName = OPENING_DAY_NAMES[now.getDay()];
+    const usualDays = openingHours.usual_days || openingHours.usualDays || openingHours;
+    const day = usualDays && usualDays[dayName] ? usualDays[dayName] : null;
+
+    if (!day || typeof day !== 'object') return '';
+
+    if (day.is_24_hours === true || day.is24Hours === true || isTrueValue(day.is_24_hours) || isTrueValue(day.is24Hours)) {
+        return 'Open 24 hours';
+    }
+
+    const open = cleanTime(day.open_time || day.openTime || day.open || day.opens);
+    const close = cleanTime(day.close_time || day.closeTime || day.close || day.closes);
+
+    if (open && close) return `${open}–${close}`;
+    return '';
+}
+
+function openingTextForStation(row) {
+    const existing = String(row && row.opening || '').trim();
+    if (existing && existing !== 'Opening times unavailable') return existing;
+
+    const fromHours = formatOpeningFromHours(row && (row.opening_hours || row.openingHours));
+    if (fromHours) return fromHours;
+
+    return row && row.is_motorway ? 'Check operator' : 'Opening times unavailable';
+}
+
 function formatStationUpdatedLabel(value) {
     const date = parseStationDate(value);
     if (!date) return '';
@@ -311,7 +354,7 @@ function fuelCompareRows(stations, best, sortMode = 'price') {
             priceText: `${parseFuelPrice(s.price).toFixed(1)}p`,
             name: s.name || s.brand || 'Fuel station',
             dist: Number.isFinite(parseFloat(s.dist)) ? `${parseFloat(s.dist).toFixed(1)} mi` : '',
-            opening: s.opening || 'Opening times unavailable',
+            opening: openingTextForStation(s),
             address: s.address || '',
             lat: s.lat,
             lng: s.lng,
@@ -509,7 +552,7 @@ function loadLatestFuelStations(mode, referenceLat, referenceLng) {
             dist,
             lat,
             lng,
-            opening: row.opening || (row.is_motorway ? 'Check operator' : 'Opening times unavailable'),
+            opening: openingTextForStation(row),
             address,
             postcode: String(row.postcode || '').trim(),
             allPrices: prices.join(' · '),

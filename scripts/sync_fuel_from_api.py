@@ -17,6 +17,8 @@ INFO_BASE_URL = "https://www.fuel-finder.service.gov.uk/api/v1/pfs"
 DATA_DIR = Path("data")
 CSV_FILE = DATA_DIR / "fuel_data.csv"
 LATEST_JSON = DATA_DIR / "latest.json"
+
+DAYS_FOR_LATEST_OPENING = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 STATUS_FILE = DATA_DIR / "api-sync-status.json"
 
 MAX_BATCHES = 200
@@ -336,6 +338,58 @@ def build_csv_rows(info_records, price_lookup):
 
     return rows
 
+def build_opening_hours_from_csv_row(row):
+    usual_days = {}
+
+    for day in DAYS_FOR_LATEST_OPENING:
+        open_time = row.get(f"forecourts.opening_times.usual_days.{day}.open_time", "") or ""
+        close_time = row.get(f"forecourts.opening_times.usual_days.{day}.close_time", "") or ""
+        is_24_raw = row.get(f"forecourts.opening_times.usual_days.{day}.is_24_hours", "")
+        is_24_hours = str(is_24_raw).strip().lower() in {"true", "1", "yes", "y"}
+
+        if open_time or close_time or is_24_raw not in ("", None):
+            usual_days[day] = {
+                "open_time": str(open_time).strip(),
+                "close_time": str(close_time).strip(),
+                "is_24_hours": is_24_hours,
+            }
+
+    bank_open = row.get("forecourts.opening_times.bank_holiday.standard.open_time", "") or ""
+    bank_close = row.get("forecourts.opening_times.bank_holiday.standard.close_time", "") or ""
+    bank_24_raw = row.get("forecourts.opening_times.bank_holiday.standard.is_24_hours", "")
+
+    result = {"usual_days": usual_days}
+    if bank_open or bank_close or bank_24_raw not in ("", None):
+        result["bank_holiday"] = {
+            "standard": {
+                "open_time": str(bank_open).strip(),
+                "close_time": str(bank_close).strip(),
+                "is_24_hours": str(bank_24_raw).strip().lower() in {"true", "1", "yes", "y"},
+            }
+        }
+
+    return result if usual_days or "bank_holiday" in result else None
+
+
+def format_opening_today(opening_hours):
+    if not opening_hours:
+        return ""
+
+    today = datetime.now(timezone.utc).strftime("%A").lower()
+    day = (opening_hours.get("usual_days") or {}).get(today) or {}
+
+    if day.get("is_24_hours"):
+        return "Open 24 hours"
+
+    open_time = str(day.get("open_time") or "").strip()
+    close_time = str(day.get("close_time") or "").strip()
+
+    if open_time and close_time:
+        return f"{open_time}–{close_time}"
+
+    return ""
+
+
 def build_latest_json(rows):
     stations = []
 
@@ -356,6 +410,10 @@ def build_latest_json(rows):
             "e10_updated_at": row.get("forecourts.price_submission_timestamp.E10", ""),
             "b7_updated_at": row.get("forecourts.price_submission_timestamp.B7S", ""),
             "sdv_updated_at": row.get("forecourts.price_submission_timestamp.B7P", ""),
+            "opening_hours": build_opening_hours_from_csv_row(row),
+            "opening": format_opening_today(build_opening_hours_from_csv_row(row)),
+            "is_motorway": str(row.get("forecourts.is_motorway_service_station", "")).strip().lower() in {"true", "1", "yes", "y"},
+            "is_supermarket": str(row.get("forecourts.is_supermarket_service_station", "")).strip().lower() in {"true", "1", "yes", "y"},
             "updated_at": row.get("forecourt_update_timestamp", ""),
         })
 

@@ -11,6 +11,9 @@ STATUS_FILE = DATA_DIR / "latest-status.json"
 
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
+DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+
 # GOV.UK Fuel Finder CSV currently uses nested column names such as:
 # forecourts.trading_name, forecourts.brand_name,
 # forecourts.location.latitude, forecourts.fuel_price.E10, etc.
@@ -85,6 +88,57 @@ def compact_address(*parts):
         clean.append(text)
         seen.add(key)
     return ", ".join(clean)
+
+
+def opening_hours_from_row(row):
+    usual_days = {}
+
+    for day in DAYS:
+        open_time = pick(row, [f"forecourts.opening_times.usual_days.{day}.open_time", f"opening_times.usual_days.{day}.open_time", f"{day}.open_time", f"{day}_open_time"], "")
+        close_time = pick(row, [f"forecourts.opening_times.usual_days.{day}.close_time", f"opening_times.usual_days.{day}.close_time", f"{day}.close_time", f"{day}_close_time"], "")
+        is_24_hours = pick_bool(row, [f"forecourts.opening_times.usual_days.{day}.is_24_hours", f"opening_times.usual_days.{day}.is_24_hours", f"{day}.is_24_hours", f"{day}_is_24_hours"])
+
+        if open_time or close_time or is_24_hours is not None:
+            usual_days[day] = {
+                "open_time": str(open_time or "").strip(),
+                "close_time": str(close_time or "").strip(),
+                "is_24_hours": bool(is_24_hours),
+            }
+
+    bank_open = pick(row, ["forecourts.opening_times.bank_holiday.standard.open_time", "opening_times.bank_holiday.standard.open_time"], "")
+    bank_close = pick(row, ["forecourts.opening_times.bank_holiday.standard.close_time", "opening_times.bank_holiday.standard.close_time"], "")
+    bank_24 = pick_bool(row, ["forecourts.opening_times.bank_holiday.standard.is_24_hours", "opening_times.bank_holiday.standard.is_24_hours"])
+
+    result = {"usual_days": usual_days}
+    if bank_open or bank_close or bank_24 is not None:
+        result["bank_holiday"] = {
+            "standard": {
+                "open_time": str(bank_open or "").strip(),
+                "close_time": str(bank_close or "").strip(),
+                "is_24_hours": bool(bank_24),
+            }
+        }
+
+    return result if usual_days or "bank_holiday" in result else None
+
+
+def format_opening_today(opening_hours):
+    if not opening_hours:
+        return ""
+
+    today = datetime.now(timezone.utc).strftime("%A").lower()
+    day = (opening_hours.get("usual_days") or {}).get(today) or {}
+
+    if day.get("is_24_hours"):
+        return "Open 24 hours"
+
+    open_time = str(day.get("open_time") or "").strip()
+    close_time = str(day.get("close_time") or "").strip()
+
+    if open_time and close_time:
+        return f"{open_time}–{close_time}"
+
+    return ""
 
 
 def write_json(path, payload, *, compact=False):
@@ -218,6 +272,8 @@ for index, row in enumerate(rows, start=1):
         "e10_updated_at": e10_updated_at,
         "b7_updated_at": b7_updated_at,
         "sdv_updated_at": sdv_updated_at,
+        "opening_hours": opening_hours_from_row(row),
+        "opening": format_opening_today(opening_hours_from_row(row)),
         "is_motorway": pick_bool(row, ["forecourts.is_motorway_service_station", "is_motorway_service_station", "motorway"]),
         "is_supermarket": pick_bool(row, ["forecourts.is_supermarket_service_station", "is_supermarket_service_station", "supermarket"]),
         "updated_at": pick(row, ["forecourt_update_timestamp", "updated_at", "last_updated", "last updated"], ""),
