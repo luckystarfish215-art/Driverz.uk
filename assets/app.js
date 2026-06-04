@@ -645,32 +645,49 @@ function renderSearchInsight(ctx){
   }
 
   const diff=Number(ctx.differencePence);
-  const saving=Number(ctx.saving35L);
+  const saving=Number(ctx.saving40L ?? ctx.saving35L);
+  const litres=Number(ctx.fillupLitres||40);
   const selectedIsCheapest=!!ctx.selectedIsCheapest || Math.abs(diff||0)<0.05;
-  const diffText=Number.isFinite(diff)?`${Math.abs(diff).toFixed(1)}p ${selectedIsCheapest?'matches cheapest nearby':'above cheapest nearby'}`:'Nearby comparison unavailable';
-  const savingText=Number.isFinite(saving)&&saving>0
-    ? `Save about £${saving.toFixed(2)} by choosing the cheapest nearby.`
-    : 'This looks like the cheapest nearby option.';
+  const selectedName=ctx.selectedName||'Selected station';
+  const selectedPrice=ctx.selectedPriceText||'';
+  const cheapestName=ctx.cheapestName||'Cheapest nearby';
+  const cheapestPrice=ctx.cheapestPriceText||'';
+  const favourite=stationIsFavourite(ctx.stationId || (currentStationResult&&currentStationResult.stationId));
+  const diffLabel=Number.isFinite(diff)&&diff>0 ? `${diff.toFixed(1)}p above cheapest` : 'Matches cheapest nearby';
+  const savingHeadline=selectedIsCheapest ? 'Already cheapest' : (Number.isFinite(saving)&&saving>0 ? `Save about £${saving.toFixed(2)}` : 'Compare nearby');
+  const savingDetail=selectedIsCheapest
+    ? 'This station looks like the cheapest useful option nearby.'
+    : (Number.isFinite(saving)&&saving>0 ? `Estimated on a ${litres}L fill-up by choosing the cheapest nearby.` : 'Savings estimate unavailable for this result.');
 
-  box.innerHTML=`<div class="search-context-card">
-    <div class="context-label">You searched for</div>
-    <div class="context-line"><strong>${ctx.selectedName||'Selected station'}</strong><span>${ctx.selectedPriceText||''}</span></div>
-    <div class="context-line"><span>${selectedIsCheapest?'✓ Cheapest nearby':'↑ '+diffText}</span><span>${ctx.cheapestName?`Cheapest nearby: ${ctx.cheapestName}`:''}</span></div>
-    ${confidenceMarkup(ctx.priceConfidence)}
+  box.innerHTML=`<div class="search-ux-grid">
+    <div class="search-ux-card searched">
+      <div class="context-label">You searched for</div>
+      <strong>${selectedName}</strong>
+      <span>${selectedPrice}${favourite?' · Your favourite station':''}</span>
+    </div>
+    <div class="search-ux-card cheapest">
+      <div class="context-label">Cheapest nearby</div>
+      <strong>${cheapestName}</strong>
+      <span>${cheapestPrice}${selectedIsCheapest?' · Same station':''}</span>
+    </div>
+    <div class="search-ux-card saving ${selectedIsCheapest?'best':''}">
+      <div class="context-label">Save today</div>
+      <strong>${savingHeadline}</strong>
+      <span>${savingDetail}</span>
+    </div>
   </div>
-  <div class="saving-strip ${selectedIsCheapest?'':'warning'}">
-    <span><strong>Save today</strong><br><small>${savingText}</small></span>
-    <em>${Number.isFinite(saving)&&saving>0?'£'+saving.toFixed(2):'Best price'}</em>
+  <div class="search-context-card compact">
+    <div class="context-line"><span>${selectedIsCheapest?'✓ Cheapest nearby':'↑ '+diffLabel}</span><span>${selectedIsCheapest?'No cheaper nearby station found within this comparison.':'Tap the cheapest nearby row below to open it.'}</span></div>
+    ${confidenceMarkup(ctx.priceConfidence)}
   </div>`;
   box.hidden=false;
 }
-
 function renderStationSuggestions(items,message){
   const box=$('station-search-results');
   if(!box)return;
 
   if(message){
-    box.innerHTML=`<div class="station-suggestion"><span><strong>${message}</strong><small>Try a brand, station name or postcode such as Costco, Shell or RG2.</small></span></div>`;
+    box.innerHTML=`<div class="station-results-note"><strong>No matching station found yet</strong><span>${message}</span><small>Try a brand, station name or postcode such as Costco, Shell, Tesco or RG2.</small></div>`;
     box.hidden=false;
     return;
   }
@@ -683,18 +700,20 @@ function renderStationSuggestions(items,message){
 
   items.forEach(cacheStation);
 
-  box.innerHTML=items.map(item=>{
+  const resultNote=`<div class="station-results-note"><strong>Search results</strong><span>Tap a station to compare it with the cheapest nearby.</span></div>`;
+
+  box.innerHTML=resultNote+items.map((item,index)=>{
     const fav=stationIsFavourite(item.id);
     const favLabel=state.mode==='ev'?'charger':'station';
+    const helper=index===0?'Best match':'';
     return `<button class="station-suggestion" type="button" data-station-id="${item.id}">
-      <span><strong>${item.name}</strong><small>${[item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
+      <span><strong>${item.name}</strong><small>${[helper,item.dist,item.address].filter(Boolean).join(' · ')}</small></span>
       <span class="station-suggestion-price">${item.priceText||'View'}</span>
       <span class="favourite-toggle suggestion-favourite-star ${fav?'saved':''}" role="button" tabindex="0" data-favourite-toggle data-station-id="${item.id}" aria-label="${fav?'Remove favourite '+favLabel:'Add favourite '+favLabel}" aria-pressed="${fav?'true':'false'}">${fav?'★':'☆'}</span>
     </button>`;
   }).join('');
   box.hidden=false;
 }
-
 async function searchStations(q){
   const query=String(q||'').trim();
   renderSearchInsight(null);

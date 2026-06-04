@@ -587,6 +587,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
     const sortedByPrice = [...compareSource].sort((a, b) => parseFloat(a.price) - parseFloat(b.price) || parseFloat(a.dist) - parseFloat(b.dist));
     const cheapest = sortedByPrice[0] || selectedWithLocalDistance;
     const difference = parseFuelPrice(selected.price) - parseFuelPrice(cheapest.price);
+    const saving40L = difference > 0 ? difference * 40 / 100 : 0;
     const saving35L = difference > 0 ? difference * 35 / 100 : 0;
 
     const compareItems = fuelCompareRows(compareSource, cheapest, 'price').map(item => {
@@ -644,12 +645,15 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         },
         searchContext: {
             query,
+            stationId: selected.id,
             selectedName: selected.name,
             selectedPriceText: `${parseFuelPrice(selected.price).toFixed(1)}p`,
             cheapestName: cheapest.name,
             cheapestPriceText: `${parseFuelPrice(cheapest.price).toFixed(1)}p`,
             differencePence: Number.isFinite(difference) ? Math.max(0, difference) : null,
+            saving40L: Number.isFinite(saving40L) ? saving40L : null,
             saving35L: Number.isFinite(saving35L) ? saving35L : null,
+            fillupLitres: 40,
             selectedIsCheapest: Math.abs(difference) < 0.05 || difference <= 0,
             priceConfidence: selectedPriceConfidence
         }
