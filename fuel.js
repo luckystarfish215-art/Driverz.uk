@@ -363,32 +363,31 @@ function sameStationForConfidence(a, b) {
 }
 
 function priceConfidenceFor(station, nearbyStations = []) {
-    const messages = [];
-    let score = 0;
     const price = parseFuelPrice(station?.price);
 
     if (!Number.isFinite(price)) {
         return { level: 'low', label: 'Price confidence: Low', messages: ['Price is not currently available.'] };
     }
 
-    if (price < 110) {
-        score += 2;
-        messages.push('Unusually low price reported.');
-    } else if (price > 230) {
-        score += 2;
-        messages.push('Unusually high price reported.');
+    if (price < 100 || price > 250) {
+        return {
+            level: 'low',
+            label: 'Price confidence: Low',
+            messages: [
+                price < 100 ? 'Unusually low price reported.' : 'Unusually high price reported.',
+                'Check with station before travelling.'
+            ]
+        };
     }
 
     const updatedRaw = station?.stationUpdatedRaw || station?.updated_at || station?.updatedAt || '';
     const ageDays = daysSinceStationUpdate(updatedRaw);
-    if (ageDays !== null) {
-        if (ageDays > 14) {
-            score += 2;
-            messages.push(`Updated ${ageDays} days ago.`);
-        } else if (ageDays > 7) {
-            score += 1;
-            messages.push(`Updated ${ageDays} days ago.`);
-        }
+    if (ageDays !== null && ageDays > 40) {
+        return {
+            level: 'low',
+            label: 'Price confidence: Low',
+            messages: [`Updated ${ageDays} days ago.`, 'Check with station before travelling.']
+        };
     }
 
     const localPrices = (nearbyStations || [])
@@ -399,26 +398,28 @@ function priceConfidenceFor(station, nearbyStations = []) {
 
     if (Number.isFinite(localMedian)) {
         const diff = price - localMedian;
-        if (Math.abs(diff) >= 20) {
-            score += 2;
-            messages.push(diff < 0 ? 'Significantly lower than nearby stations.' : 'Significantly higher than nearby stations.');
-        } else if (Math.abs(diff) >= 12) {
-            score += 1;
-            messages.push(diff < 0 ? 'Lower than most nearby stations.' : 'Higher than most nearby stations.');
+        const stationText = `${station?.name || ''} ${station?.brand || ''} ${station?.address || ''}`.toLowerCase();
+        const isCostco = stationText.includes('costco');
+        const lowThreshold = isCostco ? 30 : 20;
+        const highThreshold = 30;
+
+        if (diff <= -lowThreshold || diff >= highThreshold) {
+            return {
+                level: 'low',
+                label: 'Price confidence: Low',
+                messages: [
+                    diff < 0 ? 'Much lower than nearby stations.' : 'Much higher than nearby stations.',
+                    'Check with station before travelling.'
+                ]
+            };
         }
     }
 
-    if (score >= 2) {
-        if (!messages.some(m => m.includes('Check with station'))) messages.push('Check with station before travelling.');
-        return { level: 'low', label: 'Price confidence: Low', messages: messages.slice(0, 3) };
-    }
-
-    if (score === 1) {
-        return { level: 'medium', label: 'Price confidence: Medium', messages: messages.slice(0, 2) };
-    }
-
-    return { level: 'high', label: 'Price confidence: High', messages: ['Looks consistent with nearby stations.'] };
+    // Normal prices do not need a confidence badge. The card already shows the
+    // fuel-specific "Price updated" date, so only warnings are returned here.
+    return null;
 }
+
 
 function evCompareRows(chargers, selectedId) {
     const seen = new Set();

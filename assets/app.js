@@ -324,12 +324,9 @@ function evListConfidence(item){
 function simpleListConfidence(item, rows){
   if(state.mode==='ev') return item?.priceConfidence || evListConfidence(item);
 
-  // Recalculate normal compare-list price context, but do not upgrade
-  // hard data freshness warnings. Example: BP Three Mile Cross can become
-  // High when the old list context was wrong; ASDA updated 12 days ago must
-  // remain Medium/Low in the list because the warning is about stale data.
-  if(hasDataFreshnessWarning(item&&item.priceConfidence)){
-    return item.priceConfidence;
+  const existing=item&&item.priceConfidence;
+  if(existing&&existing.level==='low'){
+    return existing;
   }
 
   const price=comparePriceNumber(item);
@@ -337,7 +334,7 @@ function simpleListConfidence(item, rows){
     return {level:'low',label:'Price confidence: Low',messages:['Price is not currently available.']};
   }
 
-  if(price<110 || price>230){
+  if(price<100 || price>250){
     return {level:'low',label:'Price confidence: Low',messages:['Unusual price range. Check with station before travelling.']};
   }
 
@@ -348,16 +345,23 @@ function simpleListConfidence(item, rows){
   const med=medianNumber(others);
 
   if(Number.isFinite(med)){
-    const diff=Math.abs(price-med);
-    if(diff>=18){
-      return {level:'low',label:'Price confidence: Low',messages:['Significantly different from nearby station list. Check before travelling.']};
-    }
-    if(diff>=10){
-      return {level:'medium',label:'Price confidence: Medium',messages:['Different from nearby station list.']};
+    const diff=price-med;
+    const stationText=`${item?.name||''} ${item?.brand||''} ${item?.address||''}`.toLowerCase();
+    const isCostco=stationText.includes('costco');
+    const lowThreshold=isCostco?30:20;
+    const highThreshold=30;
+
+    if(diff<=-lowThreshold || diff>=highThreshold){
+      return {
+        level:'low',
+        label:'Price confidence: Low',
+        messages:[diff<0?'Much lower than nearby station list.':'Much higher than nearby station list.']
+      };
     }
   }
 
-  return {level:'high',label:'Price confidence: High',messages:['Looks consistent with nearby station list.']};
+  // Normal rows do not need a confidence badge. The price updated date is enough.
+  return null;
 }
 
 function normaliseCompareListConfidence(rows){
@@ -366,6 +370,7 @@ function normaliseCompareListConfidence(rows){
     priceConfidence:simpleListConfidence(item, rows)
   }));
 }
+
 
 function renderCompare(compareData){
   const wrap=$('compare-nearby');
@@ -406,7 +411,8 @@ function renderCompare(compareData){
     const favLabel=state.mode==='ev'?'charger':'station';
     const confidence=item.priceConfidence?`<small class="price-confidence-inline confidence-${item.priceConfidence.level}">${item.priceConfidence.label}</small>`:'';
 
-    return `<article class="compare-row" data-station-id="${item.id||''}">
+    const clickableAttrs=item.id?`data-station-id="${item.id}" tabindex="0" role="button" aria-label="View ${item.name||'nearby option'}"`:'';
+    return `<article class="compare-row ${item.id?'compare-row-clickable':''}" ${clickableAttrs}>
       <div class="compare-price">${price||'Price not listed'}</div>
       <div class="compare-info">
         <strong>${item.name||'Nearby option'}</strong>
@@ -1139,6 +1145,23 @@ function init(){
     const btn=e.target.closest('[data-station-id]');
     if(!btn)return;
     loadSearchedStation(btn.dataset.stationId,stationInput?.value||'station');
+  });
+
+  $('compare-list')?.addEventListener('click',e=>{
+    if(e.target.closest('a,button,[data-favourite-toggle]'))return;
+    const row=e.target.closest('.compare-row-clickable[data-station-id]');
+    if(!row)return;
+    const source=stationCache.get(String(row.dataset.stationId));
+    loadSearchedStation(row.dataset.stationId,source?.name||row.querySelector('strong')?.textContent||'station');
+  });
+
+  $('compare-list')?.addEventListener('keydown',e=>{
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    const row=e.target.closest('.compare-row-clickable[data-station-id]');
+    if(!row)return;
+    e.preventDefault();
+    const source=stationCache.get(String(row.dataset.stationId));
+    loadSearchedStation(row.dataset.stationId,source?.name||row.querySelector('strong')?.textContent||'station');
   });
 
   document.addEventListener('click',e=>{
