@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>EV glossary | driverz.uk</title>
-  <meta name="description" content="Clear EV charging terms and connector definitions for UK drivers, including kWh, Type 2, CCS, CHAdeMO and charging speeds.">
+  <title>EV charging glossary | UK electric car terms explained | driverz.uk</title>
+  <meta name="description" content="A simple UK EV charging glossary explaining kW, kWh, Type 2, CCS, CHAdeMO, AC charging, DC rapid charging, p/kWh, idle fees and home charging terms.">
   <link rel="canonical" href="https://driverz.uk/ev-glossary.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="driverz.uk">
-  <meta property="og:title" content="EV glossary | driverz.uk">
-  <meta property="og:description" content="Clear EV charging terms and connector definitions for UK drivers, including kWh, Type 2, CCS, CHAdeMO and charging speeds.">
+  <meta property="og:title" content="EV charging glossary | driverz.uk">
+  <meta property="og:description" content="Simple UK electric car and EV charging terms explained, including kW, kWh, Type 2, CCS, CHAdeMO, charging speeds and public charger pricing.">
   <meta property="og:url" content="https://driverz.uk/ev-glossary.html">
   <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -20,26 +20,167 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EV glossary | driverz.uk">
-  <meta name="twitter:description" content="Clear EV charging terms and connector definitions for UK drivers, including kWh, Type 2, CCS, CHAdeMO and charging speeds.">
+  <meta name="twitter:title" content="EV charging glossary | driverz.uk">
+  <meta name="twitter:description" content="Simple UK electric car and EV charging terms explained for everyday drivers.">
   <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta name="theme-color" content="#666666">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css"></head>
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .guide-hero{max-width:1100px;margin:0 auto;padding:58px 20px 18px;text-align:left}
+    .guide-hero h1{font-size:clamp(2.15rem,5vw,4.4rem);letter-spacing:-.055em;line-height:.95;margin:8px 0 14px;color:#202020}
+    .guide-hero p{font-size:1.1rem;line-height:1.65;color:#666;max-width:780px;margin:0}
+    .guide-shell{max-width:1100px;margin:0 auto;padding:10px 20px 64px}
+    .answer-panel{background:linear-gradient(135deg,#f4fbff,#f7f7f7);border:1px solid #e6eef3;border-radius:26px;padding:22px;margin:0 0 18px;box-shadow:0 10px 30px rgba(0,0,0,.04)}
+    .answer-panel h2{margin:0 0 8px;font-size:1.05rem;letter-spacing:-.02em}
+    .answer-panel p{margin:0;color:#555;line-height:1.65}
+    .term-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+    .term-card{background:#fff;border:1px solid #ececec;border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(0,0,0,.035)}
+    .term-card strong{display:block;font-size:1.05rem;color:#222;margin-bottom:6px}
+    .term-card span{display:block;color:#666;line-height:1.55;font-size:.95rem}
+    .guide-section{background:#fff;border:1px solid #ededed;border-radius:26px;padding:24px;margin:18px 0;box-shadow:0 8px 25px rgba(0,0,0,.035)}
+    .guide-section h2{margin:0 0 10px;font-size:1.45rem;letter-spacing:-.035em;color:#222}
+    .guide-section h3{margin:20px 0 8px;font-size:1.08rem;color:#222}
+    .guide-section p,.guide-section li{color:#555;line-height:1.7}
+    .guide-section p{margin:0 0 12px}
+    .mini-table{border:1px solid #eee;border-radius:18px;overflow:hidden;background:#fff;margin-top:12px}
+    .term-row{display:grid;grid-template-columns:190px 1fr;border-bottom:1px solid #eee}
+    .term-row:last-child{border-bottom:0}
+    .term-row b{background:#f7f7f7;padding:14px;color:#222}
+    .term-row span{padding:14px;color:#555;line-height:1.55}
+    .quick-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .quick-item{border:1px solid #ececec;border-radius:18px;padding:16px;background:#fafafa}
+    .quick-item b{display:block;margin-bottom:5px;color:#222}
+    .quick-item p{margin:0;color:#666}
+    .source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .source-links a{background:#f2f2f2;border:1px solid #e7e7e7;border-radius:999px;padding:9px 12px;color:#555;font-weight:850;font-size:.9rem}
+    .source-links a:hover{background:#eaf6ff;border-color:#cfeeff;color:#333}
+    @media(max-width:850px){
+      .term-grid,.quick-list{grid-template-columns:1fr}
+      .term-row{grid-template-columns:1fr}
+      .term-row b{padding-bottom:6px}
+      .term-row span{padding-top:6px}
+      .guide-shell{padding-bottom:42px}
+    }
+  </style>
+</head>
 <body>
-<driverz-header></driverz-header>
+  <driverz-header></driverz-header>
 
-<main class="article">
-  <p class="eyebrow">EV Glossary</p>
-  <h1>EV terms are in the main glossary</h1>
-  <p class="quick-answer">To avoid duplicate pages, EV connector and charging terms are now included in the main glossary.</p>
-  <a class="btn accent" href="/glossary.html#ev">Open EV glossary terms</a>
-</main>
+  <main>
+    <section class="guide-hero">
+      <div class="eyebrow">EV Glossary</div>
+      <h1>EV charging terms explained</h1>
+      <p>A simple UK electric car glossary for everyday drivers. Understand charging speeds, connector types, public charger prices and home charging terms before you plug in.</p>
+    </section>
 
-<driverz-footer></driverz-footer>
-<script src="/components.js?v=20260605-audit"></script>
+    <section class="guide-shell">
+      <div class="answer-panel">
+        <h2>Quick answer</h2>
+        <p>The two most useful EV charging terms are <strong>kW</strong> and <strong>kWh</strong>. kW describes how fast a charger can deliver power. kWh describes how much energy goes into the battery or how much energy the car uses.</p>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-card"><strong>kW</strong><span>Charging speed or power. A higher kW charger can usually charge faster, if your car supports it.</span></div>
+        <div class="term-card"><strong>kWh</strong><span>Energy amount. Battery size, charging used and electricity prices are often shown in kWh.</span></div>
+        <div class="term-card"><strong>p/kWh</strong><span>Pence per kilowatt-hour. This is the common way public and home charging prices are compared.</span></div>
+      </div>
+
+      <section class="guide-section">
+        <h2>Charging speed terms</h2>
+        <p>EV chargers are often described by their power output. The actual charging speed can be lower than the headline charger speed because it depends on the car, battery temperature, battery level and the charger itself.</p>
+        <div class="mini-table">
+          <div class="term-row"><b>Slow charging</b><span>Low power charging, often used for long stays or overnight charging.</span></div>
+          <div class="term-row"><b>Fast charging</b><span>Common for home wallboxes, workplaces, hotels and destination chargers.</span></div>
+          <div class="term-row"><b>Rapid charging</b><span>Higher power public charging, useful for longer journeys and shorter stops.</span></div>
+          <div class="term-row"><b>Ultra-rapid charging</b><span>Very high power public charging. The car must support high charging speeds to benefit fully.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Connector types</h2>
+        <p>The connector is the plug standard used by the charger and the car. Most drivers only need to know which connector their own car uses and whether the charger supports it.</p>
+        <div class="mini-table">
+          <div class="term-row"><b>Type 2</b><span>A common connector for AC charging in the UK, often used at home, workplace and destination chargers.</span></div>
+          <div class="term-row"><b>CCS</b><span>A common DC rapid charging connector used by many modern electric cars.</span></div>
+          <div class="term-row"><b>CHAdeMO</b><span>An older DC rapid charging connector found on some EVs. Availability can vary by charger network.</span></div>
+          <div class="term-row"><b>Tethered charger</b><span>The charging cable is attached to the charger.</span></div>
+          <div class="term-row"><b>Untethered charger</b><span>You normally bring and connect your own charging cable.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>AC and DC charging</h2>
+        <p>AC and DC describe how electricity is supplied to the car. The difference matters because it affects where the conversion happens and how fast the car can charge.</p>
+        <div class="quick-list">
+          <div class="quick-item"><b>AC charging</b><p>Usually used for home and destination charging. The car converts AC electricity into battery-ready DC power.</p></div>
+          <div class="quick-item"><b>DC charging</b><p>Usually used for rapid public charging. The charger supplies DC power directly to the battery system.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Public charging price terms</h2>
+        <p>Public chargers may show more than one type of cost. Always check the operator screen or app before charging, especially if a charger shows free or unavailable price information.</p>
+        <div class="mini-table">
+          <div class="term-row"><b>p/kWh</b><span>The energy price. Example: 79p/kWh means each kWh delivered costs 79 pence.</span></div>
+          <div class="term-row"><b>Connection fee</b><span>A fixed fee for starting a charging session, if charged by the operator.</span></div>
+          <div class="term-row"><b>Idle fee</b><span>A fee that may apply if the car remains plugged in after charging has finished.</span></div>
+          <div class="term-row"><b>Session fee</b><span>A fixed fee that may apply per charging session.</span></div>
+          <div class="term-row"><b>Free charging</b><span>Some locations list free charging, but it is still worth checking restrictions, parking rules and operator notices.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Battery and range terms</h2>
+        <div class="mini-table">
+          <div class="term-row"><b>Battery capacity</b><span>The usable or total battery size, usually shown in kWh.</span></div>
+          <div class="term-row"><b>State of charge</b><span>The current battery percentage, often shortened to SOC.</span></div>
+          <div class="term-row"><b>Efficiency</b><span>How much energy the car uses per mile. It may be shown as miles/kWh or kWh/100 miles.</span></div>
+          <div class="term-row"><b>Regenerative braking</b><span>The car recovers some energy when slowing down and puts it back into the battery.</span></div>
+          <div class="term-row"><b>Preconditioning</b><span>Preparing the battery or cabin temperature before driving or rapid charging.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Home charging terms</h2>
+        <p>Home charging is usually the cheapest and most convenient way to charge an EV, if you have suitable off-street parking and an approved installation.</p>
+        <div class="mini-table">
+          <div class="term-row"><b>Wallbox</b><span>A dedicated home EV charger installed at a property.</span></div>
+          <div class="term-row"><b>Smart charging</b><span>Charging that can be scheduled or controlled to use cheaper times or manage electricity demand.</span></div>
+          <div class="term-row"><b>Off-peak tariff</b><span>An electricity tariff with cheaper charging periods, often overnight.</span></div>
+          <div class="term-row"><b>Load balancing</b><span>A feature that can reduce charger output if the home electricity demand is high.</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section">
+        <h2>Common EV charging questions</h2>
+        <h3>Why does a charger not always charge at the advertised speed?</h3>
+        <p>The charger speed is only one part of the equation. Your car's maximum charging rate, battery temperature, battery percentage and charger availability can all reduce the real speed.</p>
+        <h3>Is rapid charging always better?</h3>
+        <p>Rapid charging is useful on long journeys, but destination or home charging can be cheaper and more convenient when you have time.</p>
+        <h3>What should I check before travelling to a charger?</h3>
+        <p>Check connector type, live availability, price, parking rules, opening times and whether payment requires a specific app, card or account.</p>
+      </section>
+
+      <section class="guide-section">
+        <h2>Related Driverz EV tools</h2>
+        <p>Use these Driverz tools to compare EV charging costs and plan everyday driving costs.</p>
+        <div class="grid">
+          <a class="card" href="/"><h3>EV Charger Finder</h3><p>Find nearby EV charging locations and price information where available.</p></a>
+          <a class="card" href="/ev-vs-petrol.html"><h3>EV vs Petrol Calculator</h3><p>Compare running costs between an EV and a petrol car.</p></a>
+          <a class="card" href="/ev-home-savings.html"><h3>EV Home Charging Saving</h3><p>Estimate how much home charging may save compared with public charging.</p></a>
+          <a class="card" href="/ev-charge-timer.html"><h3>EV Charge Timer</h3><p>Estimate how long an EV charge may take.</p></a>
+          <a class="card" href="/glossary.html"><h3>Main Driving Glossary</h3><p>Read fuel, driving cost and road rule terms in one place.</p></a>
+          <a class="card" href="/utilities.html"><h3>All Driver Tools</h3><p>Browse petrol, diesel and EV calculators.</p></a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <driverz-footer></driverz-footer>
+  <script src="/components.js?v=20260605-audit" defer></script>
 </body>
 </html>
