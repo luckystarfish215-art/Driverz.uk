@@ -142,7 +142,7 @@ class DriverzFooter extends HTMLElement {
         <a href="/cpm-tracker.html">CPM / Mileage Tracker</a>
         <a href="/ev-vs-petrol.html">EV vs Petrol</a>
         <a href="/ev-home-savings.html">EV Home Savings</a>
-        <a href="/ev-charge-timer.html">EV Charging Cost</a>
+        <a href="/ev-charge-timer.html">EV Charge Timer</a>
         <a href="/stopping-distance-calculator.html">Stopping Distance</a>
       </div>
 
@@ -153,6 +153,7 @@ class DriverzFooter extends HTMLElement {
         <a href="/uk-driving-rules.html">UK Driving Rules</a>
         <a href="/clean-air-zones.html">Clean Air Zones</a>
         <a href="/glossary.html">Glossary</a>
+        <a href="/ev-glossary.html">EV Glossary</a>
       </div>
 
       <div class="footer-col">
