@@ -1,9 +1,9 @@
 {
   "status": "success",
-  "last_checked_date": "2026-06-05",
-  "today_snapshot": "history/daily/2026-06-05.json",
+  "last_checked_date": "2026-06-06",
+  "today_snapshot": "history/daily/2026-06-06.json",
   "station_count": 7961,
-  "days_available": 16,
+  "days_available": 17,
   "errors": [],
   "warnings": []
 }
