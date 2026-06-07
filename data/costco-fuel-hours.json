@@ -1,0 +1,485 @@
+{
+  "COSTCO WHOLESALE ABERDEEN": {
+    "source": "https://www.costco.co.uk/store-finder/Aberdeen",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE BIRMINGHAM": {
+    "source": "https://www.costco.co.uk/store-finder/Birmingham",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE BRISTOL": {
+    "source": "https://www.costco.co.uk/store-finder/Bristol",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE CHESTER": {
+    "source": "https://www.costco.co.uk/store-finder/Chester",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE COVENTRY": {
+    "source": "https://www.costco.co.uk/store-finder/Coventry",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE DERBY": {
+    "source": "https://www.costco.co.uk/store-finder/Derby",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE EDINBURGH": {
+    "source": "https://www.costco.co.uk/store-finder/Edinburgh",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE GATESHEAD": {
+    "source": "https://www.costco.co.uk/store-finder/Gateshead",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE GLASGOW": {
+    "source": "https://www.costco.co.uk/store-finder/Glasgow",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE HAYDOCK": {
+    "source": "https://www.costco.co.uk/store-finder/Haydock",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE LEEDS": {
+    "source": "https://www.costco.co.uk/store-finder/Leeds",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE LEICESTER": {
+    "source": "https://www.costco.co.uk/store-finder/Leicester",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE LIVERPOOL": {
+    "source": "https://www.costco.co.uk/store-finder/Liverpool",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE MANCHESTER": {
+    "source": "https://www.costco.co.uk/store-finder/Manchester",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE OLDHAM": {
+    "source": "https://www.costco.co.uk/store-finder/Oldham",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE READING": {
+    "source": "https://www.costco.co.uk/store-finder/Reading",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE SHEFFIELD": {
+    "source": "https://www.costco.co.uk/store-finder/Sheffield",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE SOUTHAMPTON": {
+    "source": "https://www.costco.co.uk/store-finder/Southampton",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE STEVENAGE": {
+    "source": "https://www.costco.co.uk/store-finder/Stevenage",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE THURROCK": {
+    "source": "https://www.costco.co.uk/store-finder/Thurrock",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  },
+  "COSTCO WHOLESALE WATFORD": {
+    "source": "https://www.costco.co.uk/store-finder/Watford",
+    "source_label": "Costco official store page",
+    "last_checked": "2026-06-07",
+    "regular": {
+      "monday": "06:00-21:30",
+      "tuesday": "06:00-21:30",
+      "wednesday": "06:00-21:30",
+      "thursday": "06:00-21:30",
+      "friday": "06:00-21:30",
+      "saturday": "06:00-20:00",
+      "sunday": "07:00-18:00"
+    },
+    "bank_holiday": "07:00-18:00",
+    "special_days": {
+      "christmas_day": "closed",
+      "boxing_day": "closed",
+      "new_years_day": "closed",
+      "easter_sunday": "closed",
+      "christmas_eve": "06:00-17:00",
+      "new_years_eve": "06:00-17:00"
+    }
+  }
+}

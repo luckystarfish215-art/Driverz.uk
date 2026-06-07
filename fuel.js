@@ -164,7 +164,143 @@ function formatOpeningFromHours(openingHours, now = new Date()) {
     return '';
 }
 
+
+let costcoFuelHoursCache = null;
+
+function loadCostcoFuelHours() {
+    if (costcoFuelHoursCache) return costcoFuelHoursCache;
+
+    const candidates = [
+        path.join(process.cwd(), 'data', 'costco-fuel-hours.json'),
+        path.join(process.cwd(), 'costco-fuel-hours.json')
+    ];
+
+    for (const file of candidates) {
+        try {
+            if (fs.existsSync(file)) {
+                costcoFuelHoursCache = JSON.parse(fs.readFileSync(file, 'utf8')) || {};
+                return costcoFuelHoursCache;
+            }
+        } catch (e) {
+            costcoFuelHoursCache = {};
+            return costcoFuelHoursCache;
+        }
+    }
+
+    costcoFuelHoursCache = {};
+    return costcoFuelHoursCache;
+}
+
+function normaliseCostcoKey(value) {
+    return String(value || '').toUpperCase().replace(/[^A-Z0-9]+/g, ' ').trim();
+}
+
+function costcoHoursEntryForStation(row) {
+    const name = normaliseCostcoKey(row && (row.name || row.brand || ''));
+    if (!name.includes('COSTCO')) return null;
+
+    const hours = loadCostcoFuelHours();
+    if (!hours || typeof hours !== 'object') return null;
+
+    if (hours[name]) return hours[name];
+
+    const entries = Object.entries(hours);
+    const exact = entries.find(([key]) => normaliseCostcoKey(key) === name);
+    if (exact) return exact[1];
+
+    // Fallback for names with small wording differences, e.g. postcode/address suffixes.
+    const loose = entries.find(([key]) => {
+        const normalisedKey = normaliseCostcoKey(key);
+        return name.includes(normalisedKey) || normalisedKey.includes(name);
+    });
+
+    return loose ? loose[1] : null;
+}
+
+function ukDateParts(now = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/London',
+        weekday: 'long',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).formatToParts(now).reduce((acc, part) => {
+        acc[part.type] = part.value;
+        return acc;
+    }, {});
+
+    return {
+        year: parseInt(parts.year, 10),
+        month: parseInt(parts.month, 10),
+        day: parseInt(parts.day, 10),
+        weekday: String(parts.weekday || '').toLowerCase()
+    };
+}
+
+function easterSundayParts(year) {
+    // Gregorian computus.
+    const a = year % 19;
+    const b = Math.floor(year / 100);
+    const c = year % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30;
+    const i = Math.floor(c / 4);
+    const k = c % 4;
+    const l = (32 + 2 * e + 2 * i - h - k) % 7;
+    const m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const month = Math.floor((h + l - 7 * m + 114) / 31);
+    const day = ((h + l - 7 * m + 114) % 31) + 1;
+    return { month, day };
+}
+
+function specialDayKeyForUKDate(parts) {
+    if (parts.month === 1 && parts.day === 1) return 'new_years_day';
+    if (parts.month === 12 && parts.day === 24) return 'christmas_eve';
+    if (parts.month === 12 && parts.day === 25) return 'christmas_day';
+    if (parts.month === 12 && parts.day === 26) return 'boxing_day';
+    if (parts.month === 12 && parts.day === 31) return 'new_years_eve';
+
+    const easter = easterSundayParts(parts.year);
+    if (parts.month === easter.month && parts.day === easter.day) return 'easter_sunday';
+
+    return '';
+}
+
+function formatCostcoHoursValue(value) {
+    const text = String(value || '').trim();
+    if (!text) return '';
+    if (text.toLowerCase() === 'closed') return 'Closed';
+    if (text.toLowerCase() === 'check_operator') return 'Check operator';
+    return text.replace(/\s+/g, '').replace('-', '–');
+}
+
+function costcoFuelOpeningText(row, now = new Date()) {
+    const entry = costcoHoursEntryForStation(row);
+    if (!entry || typeof entry !== 'object') return '';
+
+    const parts = ukDateParts(now);
+    const specialKey = specialDayKeyForUKDate(parts);
+    const specialValue = specialKey && entry.special_days ? entry.special_days[specialKey] : '';
+    if (specialValue) return formatCostcoHoursValue(specialValue);
+
+    const regular = entry.regular || {};
+    const regularValue = regular[parts.weekday];
+    if (regularValue) return formatCostcoHoursValue(regularValue);
+
+    return '';
+}
+
 function openingTextForStation(row) {
+    // Costco fuel station hours from Costco official pages override the GOV/operator
+    // CSV forecourt hours when available. This fixes cases where GOV data lists
+    // a generic 06:00–21:30 for every day but Costco's fuel station closes earlier
+    // on Sundays or special days.
+    const costcoOpening = costcoFuelOpeningText(row);
+    if (costcoOpening) return costcoOpening;
+
     const existing = String(row && row.opening || '').trim();
     if (existing && existing !== 'Opening times unavailable') return existing;
 
