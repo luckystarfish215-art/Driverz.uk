@@ -537,6 +537,77 @@ function toggleFavourite(){
   toggleFavouriteByStation(buildFavouriteFromResult(currentStationResult));
 }
 
+
+function setStoredFavouritePrice(id, mode, data){
+  if(!id||!mode||!data)return false;
+  const latestPrice = data.price;
+  if(latestPrice==null||latestPrice==='')return false;
+  const latestText = data.priceText || `${latestPrice}${data.unit||'p'}`;
+  let changed=false;
+  const items=parseStoredFavourites().map(item=>{
+    if(String(item.id)===String(id)&&item.mode===mode){
+      if(String(item.priceText||'')!==String(latestText)||String(item.price||'')!==String(latestPrice)){
+        changed=true;
+        return {
+          ...item,
+          price:String(latestPrice),
+          unit:data.unit||item.unit||'p',
+          priceText:String(latestText),
+          address:data.address||item.address,
+          dist:data.dist||item.dist,
+          lat:data.lat??item.lat,
+          lng:data.lng??item.lng,
+          refreshedAt:new Date().toISOString()
+        };
+      }
+    }
+    return item;
+  });
+  if(changed){
+    localStorage.setItem(FAVOURITES_KEY,JSON.stringify(items));
+  }
+  return changed;
+}
+
+function updateFavouritePriceDom(id, priceText){
+  document.querySelectorAll('.favourite-station-card').forEach(card=>{
+    if(String(card.dataset.favouriteId)!==String(id))return;
+    const priceEl=card.querySelector('.favourite-station-price');
+    if(priceEl)priceEl.textContent=priceText||'View';
+  });
+}
+
+async function refreshFavouriteStationPrices(items, mode){
+  // Refresh saved petrol / diesel favourite prices from the latest station data.
+  // Favourites keep the stationId, but the displayed price must not stay frozen at the saved price.
+  if(mode==='ev'||!Array.isArray(items)||!items.length)return;
+
+  await Promise.allSettled(items.map(async item=>{
+    if(!item||!item.id||item.mode!==mode)return;
+    const lat=Number.isFinite(+item.lat)?+item.lat:state.lat;
+    const lng=Number.isFinite(+item.lng)?+item.lng:state.lng;
+    if(!Number.isFinite(lat)||!Number.isFinite(lng))return;
+
+    const params=new URLSearchParams({
+      stationSearch:item.name||'station',
+      stationId:String(item.id),
+      lat:String(lat),
+      lng:String(lng),
+      mode,
+      radius:String(Math.max(0.5,state.radius||2)),
+      excludeCostco:String(!!state.excludeCostco)
+    });
+
+    const res=await fetch(`/api/fuel?${params.toString()}`);
+    const data=await res.json();
+    if(!res.ok||String(data.stationId||'')!==String(item.id)||data.price==null)return;
+
+    const latestText=data.priceText||`${data.price}${data.unit||'p'}`;
+    const changed=setStoredFavouritePrice(item.id,mode,{...data,priceText:latestText});
+    if(changed)updateFavouritePriceDom(item.id,latestText);
+  }));
+}
+
 function renderFavouriteStations(){
   const wrap=$('favourite-stations');
   const list=$('favourite-station-list');
@@ -566,6 +637,7 @@ function renderFavouriteStations(){
 
   wrap.hidden=false;
   updateFavouriteStars();
+  refreshFavouriteStationPrices(items,state.mode);
 }
 
 
