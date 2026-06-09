@@ -134,6 +134,55 @@ function priceUpdatedText(d){
   return 'Price update unknown';
 }
 
+function londonNowParts(){
+  const parts=new Intl.DateTimeFormat('en-GB',{
+    timeZone:'Europe/London',
+    hour:'2-digit',
+    minute:'2-digit',
+    hour12:false
+  }).formatToParts(new Date());
+  const hour=Number(parts.find(p=>p.type==='hour')?.value);
+  const minute=Number(parts.find(p=>p.type==='minute')?.value);
+  return {
+    hour:Number.isFinite(hour)?hour:0,
+    minute:Number.isFinite(minute)?minute:0
+  };
+}
+
+function tidyOpeningTime(value){
+  const m=String(value||'').trim().match(/^(\d{1,2}):(\d{2})(?::\d{2})?$/);
+  if(!m)return String(value||'').trim();
+  return `${m[1].padStart(2,'0')}:${m[2]}`;
+}
+
+function formatOpeningText(value){
+  const raw=String(value||'').trim();
+  if(!raw)return 'Opening times unavailable';
+
+  const low=raw.toLowerCase();
+  if(low.includes('unavailable')||low.includes('check operator'))return raw;
+  if(low.includes('24'))return 'Open 24 hours today';
+  if(low==='closed'||low==='closed today')return 'Closed today';
+
+  const match=raw.match(/(\d{1,2}:\d{2}(?::\d{2})?)\s*[–-]\s*(\d{1,2}:\d{2}(?::\d{2})?)/);
+  if(!match)return raw.replace(/:00\b/g,'');
+
+  const open=tidyOpeningTime(match[1]);
+  const close=tidyOpeningTime(match[2]);
+  const openParts=open.split(':').map(Number);
+  const closeParts=close.split(':').map(Number);
+  const openMin=openParts[0]*60+openParts[1];
+  const closeMin=closeParts[0]*60+closeParts[1];
+  const now=londonNowParts();
+  const nowMin=now.hour*60+now.minute;
+  const isOpen=closeMin>openMin
+    ? nowMin>=openMin&&nowMin<closeMin
+    : nowMin>=openMin||nowMin<closeMin;
+
+  return isOpen?`Open today ${open}–${close}`:`Closed now · Today ${open}–${close}`;
+}
+
+
 function setActiveMode(mode){
   document.querySelectorAll('[data-mode]').forEach(x=>{
     x.classList.toggle('active',x.dataset.mode===mode);
@@ -270,12 +319,12 @@ function renderQuickCalc(d,formatted){
     const topUp=free?0:(n*20/100);
     const driveCost=free?0:(returnMiles*0.30*n/100);
 
-    html=`<span>A standard 20kWh top-up costs ${free?'FREE':'about £'+topUp.toFixed(2)}.</span><span>Estimated energy to drive here and back: ${driveCost===0?'FREE':'£'+driveCost.toFixed(2)}.</span>`;
+    html=`<span>20kWh top-up: ${free?'FREE':'£'+topUp.toFixed(2)}</span><span>Return trip: ${driveCost===0?'FREE':'£'+driveCost.toFixed(2)}</span>`;
   }else{
     const fill=n*40/100;
     const driveCost=(returnMiles/40)*4.54609*n/100;
 
-    html=`<span>A standard 40L fill-up costs about £${fill.toFixed(2)}.</span><span>Estimated fuel to drive here and back: £${driveCost.toFixed(2)}.</span>`;
+    html=`<span>40L fill-up: £${fill.toFixed(2)}</span><span>Return trip: £${driveCost.toFixed(2)}</span>`;
   }
 
   lines.innerHTML=html;
@@ -455,7 +504,7 @@ function renderCompare(compareData){
       <div class="compare-price">${price||'Price not listed'}</div>
       <div class="compare-info">
         <strong>${item.name||'Nearby option'}</strong>
-        <div>${[item.dist,item.opening,item.connectors||''].filter(Boolean).join(' · ')}</div>
+        <div>${[item.dist,formatOpeningText(item.opening),item.connectors||''].filter(Boolean).join(' · ')}</div>
         ${item.address?`<small>${item.address}</small>`:''}
         ${confidence}
       </div>
@@ -921,7 +970,7 @@ function showData(d){
     stationChip.textContent='';
   }
 
-  $('hours').textContent=d.opening||'Opening times unavailable';
+  $('hours').textContent=formatOpeningText(d.opening||'Opening times unavailable');
   $('address').textContent=d.address||state.label;
 
   renderQuickCalc(d,formatted);

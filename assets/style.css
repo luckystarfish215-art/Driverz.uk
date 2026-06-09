@@ -296,3 +296,160 @@
 .history-pill.up strong{color:#9b3a1e}
 .history-pill.flat strong{color:#555}
 @media(max-width:650px){.price-history-summary{margin-top:12px}.history-pill{align-items:flex-start;flex-direction:column;gap:3px}.history-pill strong{text-align:left}}
+
+
+/* Mobile Layout Polish v1 */
+@media(max-width:850px){
+  .fuel-hero{
+    padding-top:14px;
+  }
+
+  .fuel-hero-inner{
+    gap:14px;
+  }
+
+  .compact-hero-title{
+    margin-bottom:2px;
+  }
+
+  .compact-hero-title .eyebrow{
+    font-size:.7rem;
+    letter-spacing:.11em;
+  }
+
+  .compact-hero-title h1{
+    font-size:clamp(2.35rem,14vw,4.7rem);
+    line-height:.88;
+    margin:8px 0 6px;
+  }
+
+  .hero-copy{
+    font-size:.95rem;
+    max-width:26rem;
+    margin:0;
+  }
+
+  .hero-station-card{
+    padding:22px 18px 18px;
+    border-radius:24px;
+    gap:18px;
+  }
+
+  .price-row{
+    gap:8px;
+  }
+
+  .price{
+    font-size:clamp(4.2rem,24vw,6.8rem);
+    line-height:.82;
+    letter-spacing:-.09em;
+  }
+
+  .unit{
+    font-size:1.55rem;
+    padding-bottom:.38rem;
+  }
+
+  .station-name{
+    font-size:clamp(1.45rem,6.5vw,2.25rem);
+    line-height:1;
+    margin:10px 0 10px;
+    letter-spacing:-.055em;
+  }
+
+  .meta{
+    gap:6px;
+  }
+
+  .meta .chip{
+    padding:7px 9px;
+    font-size:.78rem;
+  }
+
+  .notice{
+    margin-top:10px;
+    font-size:.92rem;
+    line-height:1.35;
+  }
+
+  .quick-calc{
+    margin-top:12px;
+    padding:10px 12px;
+    border-radius:15px;
+  }
+
+  .quick-calc-label{
+    font-size:.68rem;
+    margin-bottom:6px;
+  }
+
+  .quick-calc-lines{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3px;
+    font-size:.9rem;
+    line-height:1.25;
+  }
+
+  .price-history-summary{
+    margin-top:10px;
+    gap:6px;
+  }
+
+  .history-pill{
+    padding:8px 10px;
+    border-radius:14px;
+    font-size:.86rem;
+  }
+
+  .history-pill small{
+    font-size:.66rem;
+    letter-spacing:.1em;
+  }
+
+  .history-pill strong{
+    font-size:.88rem;
+  }
+
+  .actions{
+    margin-top:14px;
+  }
+
+  .other-price-card{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  .price-chip{
+    padding:9px 12px;
+    font-size:.9rem;
+  }
+
+  .station-search-panel,
+  .favourite-stations,
+  .compare-card{
+    border-radius:22px;
+  }
+}
+
+@media(max-width:520px){
+  .hero-copy{
+    max-width:18rem;
+  }
+
+  .hero-copy::after{
+    content:'';
+  }
+
+  .hero-station-card{
+    margin-top:0;
+  }
+
+  .actions{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .actions .icon-action{
+    display:none;
+  }
+}
