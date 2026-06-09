@@ -1,0 +1,11 @@
+# Local backup / patch files
+*.bak
+*.zip
+
+# Local audit exports
+_audit_exports/
+
+# OS/editor noise
+.DS_Store
+*.log
+*.tmp
