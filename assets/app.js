@@ -154,6 +154,45 @@ function updateCyclePrice(){
   window.dispatchEvent(new Event('driverz:price-updated'));
 }
 
+
+function formatHistoryChange(change){
+  const n=Number(change);
+  if(!Number.isFinite(n))return null;
+  if(Math.abs(n)<0.05)return {className:'flat',text:'no change'};
+  const abs=Math.abs(n).toFixed(1);
+  return n<0?{className:'down',text:`down ${abs}p`}:{className:'up',text:`up ${abs}p`};
+}
+
+function renderPriceHistory(history){
+  const box=$('price-history-summary');
+  if(!box)return;
+  if(state.mode==='ev'||!history){
+    box.hidden=true;
+    box.innerHTML='';
+    return;
+  }
+
+  const rows=[];
+  const oneDay=formatHistoryChange(history.change_1d&&history.change_1d.change);
+  if(oneDay){
+    rows.push(`<div class="history-pill ${oneDay.className}"><small>Since yesterday</small><strong>${oneDay.text}</strong></div>`);
+  }
+
+  const sevenDay=formatHistoryChange(history.change_7d&&history.change_7d.change);
+  if(sevenDay){
+    rows.push(`<div class="history-pill ${sevenDay.className}"><small>7-day trend</small><strong>${sevenDay.text}</strong></div>`);
+  }
+
+  if(!rows.length){
+    box.hidden=true;
+    box.innerHTML='';
+    return;
+  }
+
+  box.innerHTML=rows.join('');
+  box.hidden=false;
+}
+
 function renderOtherPrices(text){
   const el=$('all-prices');
   if(!el)return;
@@ -886,6 +925,7 @@ function showData(d){
   $('address').textContent=d.address||state.label;
 
   renderQuickCalc(d,formatted);
+  renderPriceHistory(d.history||null);
 
   const oldConfidence=document.querySelector('.main-price-confidence');
   if(oldConfidence)oldConfidence.remove();
@@ -938,6 +978,8 @@ async function loadFuel(){
 
     const qc=$('quick-calc');
     if(qc)qc.hidden=true;
+
+    renderPriceHistory(null);
 
     const sc=$('station-updated');
     if(sc)sc.hidden=true;

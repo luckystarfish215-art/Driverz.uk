@@ -701,6 +701,47 @@ function loadLatestFuelStations(mode, referenceLat, referenceLng) {
     return { stations, source };
 }
 
+
+let HISTORY_SUMMARY_CACHE = { file: '', mtimeMs: 0, data: null };
+
+function loadHistorySummary() {
+    const candidates = [
+        path.join(process.cwd(), 'data', 'history-summary.json'),
+        path.join(process.cwd(), 'history-summary.json')
+    ];
+    const file = candidates.find(f => fs.existsSync(f));
+    if (!file) return null;
+    try {
+        const stat = fs.statSync(file);
+        if (HISTORY_SUMMARY_CACHE.file === file && HISTORY_SUMMARY_CACHE.mtimeMs === stat.mtimeMs && HISTORY_SUMMARY_CACHE.data) {
+            return HISTORY_SUMMARY_CACHE.data;
+        }
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+        HISTORY_SUMMARY_CACHE = { file, mtimeMs: stat.mtimeMs, data };
+        return data;
+    } catch (e) {
+        console.log('Could not read history-summary.json');
+        return null;
+    }
+}
+
+function historyForStation(stationId, mode) {
+    if (mode === 'ev') return null;
+    const sid = String(stationId || '').trim();
+    if (!sid) return null;
+    const summary = loadHistorySummary();
+    const entry = summary?.stations?.[sid]?.[mode];
+    if (!entry) return null;
+    return {
+        latest_price: entry.latest_price,
+        latest_date: entry.latest_date,
+        change_1d: entry.change_1d || null,
+        change_7d: entry.change_7d || null,
+        generated_at: summary.generated_at || '',
+        days_available: summary.valid_snapshot_days || summary.days_available || 0
+    };
+}
+
 function normaliseStationQuery(value) {
     return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
@@ -812,6 +853,7 @@ function buildStationSearchResponse({ allStations, selected, query, mode, radius
         updated: source,
         datasetUpdated: source,
         stationUpdated: selected.stationUpdated || '',
+        history: historyForStation(selected.id, mode),
         priceConfidence: selectedPriceConfidence,
         lat: selected.lat,
         lng: selected.lng,
@@ -1140,6 +1182,7 @@ export default async function handler(req, res) {
             updated: source,
             datasetUpdated: source,
             stationUpdated: best.stationUpdated || '', 
+            history: historyForStation(best.id, mode),
             priceConfidence: priceConfidenceFor(best, compareSource),
             lat: best.lat, 
             lng: best.lng,
