@@ -50,7 +50,7 @@ def page_html(slug: str, city: dict, all_cities: dict) -> str:
     faq_items = city.get("faq", [])
     tools = city.get("related_tools", [])
 
-    related_links = "\n".join(f'<a href="/{s}">{esc(n)}</a>' for s, n in related[:6])
+    related_links = "\n".join(f'<a href="/{s}">{esc(n)} fuel prices</a>' for s, n in related[:6])
     faq_html = "\n".join(
         f"""<details>
           <summary>{esc(item['q'])}</summary>
@@ -105,7 +105,7 @@ def page_html(slug: str, city: dict, all_cities: dict) -> str:
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=20260609-history1">
   <link rel="stylesheet" href="/assets/city-landing.css?v=20260610-city2">
-  <script src="/components.js?v=20260610-city1" defer></script>
+  <script src="/components.js?v=20260610-citylinks" defer></script>
   <script type="application/ld+json">
 {breadcrumb_ld(city, slug)}
   </script>

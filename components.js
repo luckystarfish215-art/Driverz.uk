@@ -174,12 +174,12 @@ class DriverzFooter extends HTMLElement {
       </div>
 
       <div class="footer-col">
-        <h4>Quick Cities</h4>
-        <a href="/birmingham">Birmingham</a>
-        <a href="/manchester">Manchester</a>
-        <a href="/leeds">Leeds</a>
-        <a href="/reading">Reading</a>
-        <a href="/bristol">Bristol</a>
+        <h4>Popular city fuel prices</h4>
+        <a href="/birmingham">Birmingham fuel prices</a>
+        <a href="/manchester">Manchester fuel prices</a>
+        <a href="/leeds">Leeds fuel prices</a>
+        <a href="/reading">Reading fuel prices</a>
+        <a href="/bristol">Bristol fuel prices</a>
       </div>
     </div>
 
