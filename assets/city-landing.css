@@ -47,3 +47,37 @@
   .city-price-card .city-price{font-size:2.25rem;}
   .city-table-wrap{margin:0 -15px;padding:0 15px;}
 }
+
+/* City mobile overflow fix v2 */
+.city-hero,.city-section,.city-price-card,.city-trend-card,.city-action-card,.city-local-note{box-sizing:border-box;max-width:100%;}
+.city-hero h1,.city-section h2,.city-price-card .station,.city-price-card .sub,.city-intro{overflow-wrap:anywhere;word-break:normal;hyphens:auto;}
+@media(max-width:640px){
+  .city-shell{padding:10px 8px 28px;}
+  .city-inner{width:100%;max-width:100%;gap:12px;}
+  .city-hero{width:100%;border-radius:20px;}
+  .city-hero-copy{padding:20px 16px 22px;}
+  .city-breadcrumb{font-size:.72rem;margin-bottom:12px;white-space:normal;}
+  .city-hero h1{font-size:1.85rem;line-height:1.06;letter-spacing:-.035em;word-spacing:.12em;max-width:100%;}
+  .city-intro{font-size:.92rem;line-height:1.35;max-width:100%;}
+  .city-hero-meta .chip{font-size:.72rem;padding:7px 9px;}
+  .city-section{width:100%;padding:14px;border-radius:20px;}
+  .city-section h2{font-size:1.12rem;line-height:1.15;letter-spacing:-.035em;}
+  .city-section-head{display:grid;gap:10px;align-items:start;}
+  .city-section-head .btn{width:max-content;max-width:100%;font-size:.86rem;padding:10px 13px;}
+  .city-live-grid{grid-template-columns:1fr;gap:10px;}
+  .city-price-card{padding:14px;border-radius:18px;min-width:0;}
+  .city-price-card .mini-label{font-size:.75rem;letter-spacing:.1em;}
+  .city-price-card .city-price{font-size:2.05rem;letter-spacing:-.05em;}
+  .city-price-card .station{font-size:.98rem;line-height:1.12;max-width:100%;}
+  .city-price-card .sub{font-size:.84rem;line-height:1.25;}
+  .city-price-card .open{font-size:.74rem;line-height:1.15;}
+  .city-trend-card{padding:14px;}
+  .city-trend-card strong{font-size:1.55rem;}
+  .city-trend-line{padding:14px;}
+  .city-station-table{min-width:620px;font-size:.84rem;}
+}
+@media(max-width:390px){
+  .city-hero h1{font-size:1.65rem;letter-spacing:-.025em;}
+  .city-section h2{font-size:1.05rem;}
+  .city-price-card .city-price{font-size:1.95rem;}
+}
