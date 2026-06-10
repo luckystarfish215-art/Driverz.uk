@@ -1,0 +1,87 @@
+{
+  "birmingham": {
+    "name": "Birmingham",
+    "lat": 52.4862,
+    "lng": -1.8904,
+    "radius": 6,
+    "region": "West Midlands",
+    "headline": "Birmingham petrol and diesel prices today",
+    "description": "Compare live petrol and diesel prices around Birmingham, see the cheapest nearby stations and check recent price movement before you drive.",
+    "local_note": "Birmingham has a Clean Air Zone. Check your vehicle before driving into the city centre if your vehicle may not meet emissions standards.",
+    "related_tools": ["Clean Air Zone guide", "Trip cost calculator", "MPG calculator"],
+    "faq": [
+      {"q": "Where can I find cheap petrol in Birmingham?", "a": "Use the live Birmingham station list above to compare nearby petrol prices, opening times and recent updates before travelling."},
+      {"q": "Is Costco Birmingham included?", "a": "Yes, Costco fuel stations are included when they appear in the UK fuel data. You can also use the Exclude Costco option on the main finder if you do not have a membership."},
+      {"q": "Does Birmingham have a Clean Air Zone?", "a": "Birmingham is listed in the UK Clean Air Zone service. Check your vehicle before entering the zone, especially if you drive an older petrol or diesel vehicle."},
+      {"q": "How often are Birmingham fuel prices updated?", "a": "Driverz checks UK fuel data daily and shows the station price update date when available."}
+    ]
+  },
+  "manchester": {
+    "name": "Manchester",
+    "lat": 53.4808,
+    "lng": -2.2426,
+    "radius": 6,
+    "region": "Greater Manchester",
+    "headline": "Manchester petrol and diesel prices today",
+    "description": "Find cheap petrol and diesel around Manchester with live station prices, opening times and 7-day price movement.",
+    "local_note": "Manchester drivers often compare city, ring road and supermarket stations. Check the latest station price and opening time before making a detour.",
+    "related_tools": ["Trip cost calculator", "EV vs petrol calculator", "Fuel guide"],
+    "faq": [
+      {"q": "Where can I compare petrol prices in Manchester?", "a": "The station list above shows nearby Manchester fuel prices sorted by useful cheapest results."},
+      {"q": "Can I compare diesel prices in Manchester?", "a": "Yes. Use the diesel summary and station table to compare current diesel prices around Manchester."},
+      {"q": "Are supermarket fuel stations included?", "a": "Yes, supermarket and membership fuel stations are shown when available in the UK fuel data."},
+      {"q": "Can I save a Manchester station?", "a": "Open a station in the main finder and tap the star to save it as a favourite for quicker checking next time."}
+    ]
+  },
+  "leeds": {
+    "name": "Leeds",
+    "lat": 53.8008,
+    "lng": -1.5491,
+    "radius": 6,
+    "region": "West Yorkshire",
+    "headline": "Leeds petrol and diesel prices today",
+    "description": "Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.",
+    "local_note": "Leeds has many commuter routes and supermarket fuel options. Compare nearby prices before driving out of your way for a cheaper fill-up.",
+    "related_tools": ["Trip cost calculator", "Cost per mile tracker", "Driving costs guide"],
+    "faq": [
+      {"q": "Where is cheap petrol around Leeds?", "a": "Use the live station results above to compare current petrol prices around Leeds and nearby suburbs."},
+      {"q": "Does Driverz show Leeds diesel prices?", "a": "Yes. The page checks diesel as well as petrol and shows a current cheapest diesel result when available."},
+      {"q": "Can I see if prices are falling in Leeds?", "a": "The 7-day trend panel shows whether the selected cheapest fuel price has moved up, down or stayed flat."},
+      {"q": "How can I check my regular Leeds station?", "a": "Search your station on the main finder and save it as a favourite for faster checking later."}
+    ]
+  },
+  "reading": {
+    "name": "Reading",
+    "lat": 51.4551,
+    "lng": -0.9781,
+    "radius": 5,
+    "region": "Berkshire",
+    "headline": "Reading petrol and diesel prices today",
+    "description": "Compare petrol and diesel prices around Reading, including supermarket and nearby M4 corridor stations where available.",
+    "local_note": "Reading drivers often compare Green Park, Rose Kiln Lane and nearby supermarket stations before filling up.",
+    "related_tools": ["Trip cost calculator", "MPG calculator", "EV charging cost calculator"],
+    "faq": [
+      {"q": "Where can I find cheap petrol in Reading?", "a": "The live Reading station list compares nearby petrol prices and shows the cheapest useful result first."},
+      {"q": "Is Costco Reading included?", "a": "Yes, Costco Reading is included when it appears in the UK fuel data. You can exclude Costco on the main finder if required."},
+      {"q": "Can I compare Reading diesel prices?", "a": "Yes. The page shows a separate cheapest diesel result and a station table with diesel prices where available."},
+      {"q": "Can I save my favourite Reading station?", "a": "Yes. Open the station in the main finder and tap the star to save it for future checks."}
+    ]
+  },
+  "bristol": {
+    "name": "Bristol",
+    "lat": 51.4545,
+    "lng": -2.5879,
+    "radius": 6,
+    "region": "South West England",
+    "headline": "Bristol petrol and diesel prices today",
+    "description": "Find cheap petrol and diesel around Bristol, check station opening times and compare recent price movement before you drive.",
+    "local_note": "Bristol has a Clean Air Zone. Check your vehicle if you plan to drive into the zone as well as comparing fuel prices before travelling.",
+    "related_tools": ["Clean Air Zone guide", "Trip cost calculator", "EV vs petrol calculator"],
+    "faq": [
+      {"q": "Where can I compare cheap petrol in Bristol?", "a": "Use the live station list above to compare petrol prices around Bristol and nearby routes."},
+      {"q": "Does Bristol have a Clean Air Zone?", "a": "Bristol is listed in the UK Clean Air Zone service. Check your vehicle before driving into the zone."},
+      {"q": "Can I check diesel prices in Bristol?", "a": "Yes. Driverz compares petrol and diesel and shows a current cheapest diesel result when available."},
+      {"q": "How often are Bristol prices checked?", "a": "Driverz checks UK fuel data daily and shows station update information where available."}
+    ]
+  }
+}

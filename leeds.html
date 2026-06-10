@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Leeds petrol and diesel prices today | Driverz.uk</title>
+  <meta name="description" content="Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.">
+  <link rel="canonical" href="https://driverz.uk/leeds">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leeds petrol and diesel prices today | Driverz.uk">
+  <meta property="og:description" content="Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.">
+  <meta property="og:url" content="https://driverz.uk/leeds">
+  <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Leeds petrol and diesel prices today | Driverz.uk">
+  <meta name="twitter:description" content="Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.">
+  <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
+
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=20260609-history1">
+  <link rel="stylesheet" href="/assets/city-landing.css?v=20260610-city1">
+  <script src="/components.js?v=20260610-city1" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://driverz.uk/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Leeds",
+      "item": "https://driverz.uk/leeds"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is cheap petrol around Leeds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the live station results above to compare current petrol prices around Leeds and nearby suburbs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Driverz show Leeds diesel prices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The page checks diesel as well as petrol and shows a current cheapest diesel result when available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see if prices are falling in Leeds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 7-day trend panel shows whether the selected cheapest fuel price has moved up, down or stayed flat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I check my regular Leeds station?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Search your station on the main finder and save it as a favourite for faster checking later."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <driverz-header></driverz-header>
+
+  <main class="city-shell">
+    <div class="city-inner">
+      <section class="city-hero" aria-labelledby="city-title">
+        <div class="city-hero-copy">
+          <div class="city-breadcrumb"><a href="/">Home</a> › Cities › Leeds</div>
+          <div class="eyebrow">UK fuel prices by city</div>
+          <h1 id="city-title">Leeds petrol and diesel prices today</h1>
+          <p class="city-intro">Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.</p>
+          <div class="city-hero-meta">
+            <span class="chip">Leeds, UK</span>
+            <span class="chip">West Yorkshire</span>
+            <span class="chip" id="city-last-checked">Checked daily</span>
+          </div>
+        </div>
+        <div class="city-visual" aria-hidden="true">
+          <div class="city-map-card">
+            <strong>Leeds fuel dashboard</strong>
+            <span id="city-top-summary">Loading live petrol and diesel prices…</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="live-summary-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">Live price summary</div>
+            <h2 id="live-summary-title">Cheapest fuel near Leeds today</h2>
+          </div>
+          <a class="btn light" href="/?city=Leeds#fuel-card">Open full finder</a>
+        </div>
+        <div class="city-live-grid">
+          <article class="city-price-card petrol" id="city-petrol-card">
+            <div class="city-loading">Loading cheapest petrol…</div>
+          </article>
+          <article class="city-price-card diesel" id="city-diesel-card">
+            <div class="city-loading">Loading cheapest diesel…</div>
+          </article>
+          <article class="city-price-card">
+            <div class="mini-label">Why check today?</div>
+            <div class="station">Fuel prices can change quickly.</div>
+            <div class="sub">Use the station list, opening times and trend data before making a detour.</div>
+            <a class="link" href="/trip-calculator.html">Estimate your trip cost →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="trend-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">Price movement</div>
+            <h2 id="trend-title">7-day fuel trend in Leeds</h2>
+          </div>
+        </div>
+        <div class="city-trend-layout">
+          <div class="city-trend-card" id="city-trend-petrol"><div class="city-loading">Loading petrol trend…</div></div>
+          <div class="city-trend-line" id="city-trend-line">Loading 7-day movement…</div>
+          <div class="city-trend-card" id="city-trend-diesel"><div class="city-loading">Loading diesel trend…</div></div>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="stations-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">Station list</div>
+            <h2 id="stations-title">Top fuel stations in Leeds</h2>
+          </div>
+          <div class="city-station-tools">
+            <a class="btn light" href="/?city=Leeds#fuel-card">Compare more</a>
+          </div>
+        </div>
+        <div class="city-table-wrap">
+          <table class="city-station-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Station</th>
+                <th>Petrol</th>
+                <th>Diesel</th>
+                <th>Distance</th>
+                <th>Open today</th>
+                <th>Map</th>
+              </tr>
+            </thead>
+            <tbody id="city-station-rows">
+              <tr><td colspan="7" class="city-loading">Loading station list…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="tools-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">Save and compare</div>
+            <h2 id="tools-title">Useful driver tools for Leeds</h2>
+            <p>Trip cost calculator, Cost per mile tracker, Driving costs guide can help you decide whether a cheaper station is worth the journey.</p>
+          </div>
+        </div>
+        <div class="city-engage-grid">
+          <div class="city-action-card">
+        <div class="icon">♡</div>
+        <h3>Save favourite stations</h3>
+        <p>Open the main finder and save the Leeds stations you use often.</p>
+        <a class="link" href="/?city=Leeds#fuel-card">Save a station →</a>
+      </div>
+<div class="city-action-card">
+        <div class="icon">↗</div>
+        <h3>Get directions</h3>
+        <p>Open station locations in Google Maps before making a detour.</p>
+        <a class="link" href="/?city=Leeds#fuel-card">Compare now →</a>
+      </div>
+<div class="city-action-card">
+        <div class="icon">£</div>
+        <h3>Estimate trip cost</h3>
+        <p>Use Driverz tools to estimate a journey, fill-up or cost per mile.</p>
+        <a class="link" href="/trip-calculator.html">Use calculator →</a>
+      </div>
+<div class="city-action-card">
+        <div class="icon">i</div>
+        <h3>Understand fuel labels</h3>
+        <p>Check E10, E5 and diesel terms before choosing a pump.</p>
+        <a class="link" href="/fuel-guide.html">Read guide →</a>
+      </div>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="faq-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">Local fuel questions</div>
+            <h2 id="faq-title">Leeds fuel prices — FAQs</h2>
+          </div>
+        </div>
+        <div class="city-faq-grid">
+          <div class="city-faq-list">
+            <details>
+          <summary>Where is cheap petrol around Leeds?</summary>
+          <p>Use the live station results above to compare current petrol prices around Leeds and nearby suburbs.</p>
+        </details>
+<details>
+          <summary>Does Driverz show Leeds diesel prices?</summary>
+          <p>Yes. The page checks diesel as well as petrol and shows a current cheapest diesel result when available.</p>
+        </details>
+<details>
+          <summary>Can I see if prices are falling in Leeds?</summary>
+          <p>The 7-day trend panel shows whether the selected cheapest fuel price has moved up, down or stayed flat.</p>
+        </details>
+<details>
+          <summary>How can I check my regular Leeds station?</summary>
+          <p>Search your station on the main finder and save it as a favourite for faster checking later.</p>
+        </details>
+          </div>
+          <aside class="city-local-note">
+            <strong>About driving in Leeds</strong>
+            <span>Leeds has many commuter routes and supermarket fuel options. Compare nearby prices before driving out of your way for a cheaper fill-up.</span>
+            <p><a href="/clean-air-zones.html">Check clean air zone guidance →</a></p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="city-section" aria-labelledby="related-cities-title">
+        <div class="city-section-head">
+          <div>
+            <div class="mini-label">More city fuel pages</div>
+            <h2 id="related-cities-title">Compare fuel prices in other UK cities</h2>
+          </div>
+        </div>
+        <div class="city-related-cities">
+          <a href="/birmingham">Birmingham</a>
+<a href="/manchester">Manchester</a>
+<a href="/reading">Reading</a>
+<a href="/bristol">Bristol</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <driverz-footer></driverz-footer>
+  <driverz-cookie-consent></driverz-cookie-consent>
+
+  <script>window.DriverzCity = {"name": "Leeds", "lat": 53.8008, "lng": -1.5491, "radius": 6, "region": "West Yorkshire", "headline": "Leeds petrol and diesel prices today", "description": "Check live petrol and diesel prices around Leeds, compare top nearby stations and see whether prices have moved over the last week.", "local_note": "Leeds has many commuter routes and supermarket fuel options. Compare nearby prices before driving out of your way for a cheaper fill-up.", "related_tools": ["Trip cost calculator", "Cost per mile tracker", "Driving costs guide"], "faq": [{"q": "Where is cheap petrol around Leeds?", "a": "Use the live station results above to compare current petrol prices around Leeds and nearby suburbs."}, {"q": "Does Driverz show Leeds diesel prices?", "a": "Yes. The page checks diesel as well as petrol and shows a current cheapest diesel result when available."}, {"q": "Can I see if prices are falling in Leeds?", "a": "The 7-day trend panel shows whether the selected cheapest fuel price has moved up, down or stayed flat."}, {"q": "How can I check my regular Leeds station?", "a": "Search your station on the main finder and save it as a favourite for faster checking later."}], "slug": "leeds"};</script>
+  <script src="/assets/city-landing.js?v=20260610-city1" defer></script>
+
+  <script>
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,6 +1,26 @@
 {
   "rewrites": [
     {
+      "source": "/birmingham",
+      "destination": "/birmingham.html"
+    },
+    {
+      "source": "/manchester",
+      "destination": "/manchester.html"
+    },
+    {
+      "source": "/leeds",
+      "destination": "/leeds.html"
+    },
+    {
+      "source": "/reading",
+      "destination": "/reading.html"
+    },
+    {
+      "source": "/bristol",
+      "destination": "/bristol.html"
+    },
+    {
       "source": "/:city([a-zA-Z][a-zA-Z-]+)",
       "destination": "/index.html"
     }
