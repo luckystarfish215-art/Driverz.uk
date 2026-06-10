@@ -104,7 +104,7 @@ def page_html(slug: str, city: dict, all_cities: dict) -> str:
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=20260609-history1">
-  <link rel="stylesheet" href="/assets/city-landing.css?v=20260610-city2">
+  <link rel="stylesheet" href="/assets/city-landing.css?v=20260610-citymobile">
   <script src="/components.js?v=20260610-citylinks" defer></script>
   <script type="application/ld+json">
 {breadcrumb_ld(city, slug)}
@@ -256,7 +256,7 @@ def page_html(slug: str, city: dict, all_cities: dict) -> str:
   <driverz-cookie-consent></driverz-cookie-consent>
 
   <script>window.DriverzCity = {city_json};</script>
-  <script src="/assets/city-landing.js?v=20260610-city2" defer></script>
+  <script src="/assets/city-landing.js?v=20260610-citymobile" defer></script>
 
   <script>
     window.va = window.va || function () {{

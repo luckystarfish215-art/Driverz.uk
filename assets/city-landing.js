@@ -70,9 +70,9 @@
     const p = $('city-trend-petrol');
     const d = $('city-trend-diesel');
     const line = $('city-trend-line');
-    if(p) p.innerHTML = `<small>Petrol since yesterday</small><strong class="${petrolDay.cls}">${petrolDay.value}</strong><small>${petrolTrend.detail}</small>`;
-    if(d) d.innerHTML = `<small>Diesel since yesterday</small><strong class="${dieselDay.cls}">${dieselDay.value}</strong><small>${dieselTrend.value}</small>`;
-    if(line) line.innerHTML = `Petrol 7-day trend: <strong class="${petrolTrend.cls}">${petrolTrend.value}</strong><br>Diesel 7-day trend: <strong class="${dieselTrend.cls}">${dieselTrend.value}</strong>`;
+    if(p) p.innerHTML = `<small>Petrol 7-day trend</small><strong class="${petrolTrend.cls}">${petrolTrend.value}</strong><small>Since yesterday: ${petrolDay.value}</small>`;
+    if(d) d.innerHTML = `<small>Diesel 7-day trend</small><strong class="${dieselTrend.cls}">${dieselTrend.value}</strong><small>Since yesterday: ${dieselDay.value}</small>`;
+    if(line) line.innerHTML = `<span><span class="city-trend-note-title">How this trend is calculated</span><span class="city-trend-note-text">Based on the cheapest useful result found for ${city.name}. More detail will appear as daily history builds up.</span></span>`;
   };
 
   const collectStations = (petrol, diesel) => {
