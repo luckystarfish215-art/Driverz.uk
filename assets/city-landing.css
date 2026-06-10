@@ -81,3 +81,23 @@
   .city-section h2{font-size:1.05rem;}
   .city-price-card .city-price{font-size:1.95rem;}
 }
+
+
+/* City mobile table card fix v3 */
+@media(max-width:640px){
+  .city-table-wrap{margin:0; padding:0; overflow:visible;}
+  .city-station-table{min-width:0 !important; width:100%; display:block; font-size:.9rem;}
+  .city-station-table thead{display:none;}
+  .city-station-table tbody{display:grid; gap:10px;}
+  .city-station-table tr{display:block; border:1px solid var(--line); border-radius:18px; background:#fff; padding:12px 13px;}
+  .city-station-table th,.city-station-table td{border:0; padding:0; text-align:left;}
+  .city-station-table td{display:grid; grid-template-columns:82px minmax(0,1fr); gap:8px; align-items:start; padding:7px 0;}
+  .city-station-table td::before{content:attr(data-label); font-size:.68rem; line-height:1.1; text-transform:uppercase; letter-spacing:.12em; color:#8a8a8a; font-weight:950;}
+  .city-station-table td:first-child{display:none;}
+  .city-station-table td:nth-child(2){display:block; padding-bottom:9px;}
+  .city-station-table td:nth-child(2)::before{display:none;}
+  .city-station-table td:nth-child(2) strong{display:block; font-size:1rem; line-height:1.08; overflow-wrap:anywhere;}
+  .city-station-table td:nth-child(2) .muted{display:block; margin-top:4px; font-size:.82rem; line-height:1.2; overflow-wrap:anywhere;}
+  .city-station-table .price-cell{font-size:1.08rem; white-space:normal;}
+  .city-station-table a{display:inline-flex; width:max-content; max-width:100%;}
+}

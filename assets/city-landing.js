@@ -105,13 +105,13 @@
     }
     tbody.innerHTML = rows.map((r,i)=>`
       <tr>
-        <td>${i+1}</td>
-        <td><strong>${r.name || 'Fuel station'}</strong><br><span class="muted">${r.address || ''}</span></td>
-        <td class="price-cell">${r.petrol || '—'}</td>
-        <td class="price-cell">${r.diesel || '—'}</td>
-        <td>${r.dist || '—'}</td>
-        <td>${openingText(r.opening)}</td>
-        <td><a target="_blank" rel="noopener" href="${mapsUrl(r)}">Map ↗</a></td>
+        <td data-label="#">${i+1}</td>
+        <td data-label="Station"><strong>${r.name || 'Fuel station'}</strong><br><span class="muted">${r.address || ''}</span></td>
+        <td data-label="Petrol" class="price-cell">${r.petrol || '—'}</td>
+        <td data-label="Diesel" class="price-cell">${r.diesel || '—'}</td>
+        <td data-label="Distance">${r.dist || '—'}</td>
+        <td data-label="Open today">${openingText(r.opening)}</td>
+        <td data-label="Map"><a target="_blank" rel="noopener" href="${mapsUrl(r)}">Map ↗</a></td>
       </tr>`).join('');
   };
 
