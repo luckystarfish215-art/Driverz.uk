@@ -116,11 +116,25 @@
   };
 
   const renderTopSummary = (petrol, diesel) => {
-    const summary = $('city-top-summary');
-    if(!summary) return;
-    const p = petrol && !petrol.error ? `${fmtPrice(petrol.price)} petrol at ${petrol.name}` : 'petrol price unavailable';
-    const d = diesel && !diesel.error ? `${fmtPrice(diesel.price)} diesel at ${diesel.name}` : 'diesel price unavailable';
-    summary.textContent = `${city.name}: ${p}; ${d}.`;
+    const card = document.querySelector('.city-map-card');
+    if(!card) return;
+    const petrolOk = petrol && !petrol.error;
+    const dieselOk = diesel && !diesel.error;
+    const checked = (petrolOk && petrol.updated) || (dieselOk && diesel.updated) || 'Checked daily';
+    card.innerHTML = `
+      <div class="city-snapshot-kicker">Live city snapshot</div>
+      <strong>${city.name} fuel dashboard</strong>
+      <div class="city-snapshot-row petrol">
+        <span>Petrol</span>
+        <b>${petrolOk ? fmtPrice(petrol.price) : '—'}</b>
+        <small>${petrolOk ? petrol.name || 'Cheapest petrol station' : 'Petrol data unavailable'}</small>
+      </div>
+      <div class="city-snapshot-row diesel">
+        <span>Diesel</span>
+        <b>${dieselOk ? fmtPrice(diesel.price) : '—'}</b>
+        <small>${dieselOk ? diesel.name || 'Cheapest diesel station' : 'Diesel data unavailable'}</small>
+      </div>
+      <div class="city-snapshot-footer"><b>${checked}</b> from UK fuel data</div>`;
   };
 
   const fetchFuel = async mode => {
