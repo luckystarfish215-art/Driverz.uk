@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Trip cost calculator | driverz.uk</title>
-  <meta name="description" content="Estimate UK journey fuel cost using distance, MPG and petrol or diesel price.">
+  <title>UK trip cost calculator: petrol, diesel, MPG & mileage | Driverz.uk</title>
+  <meta name="description" content="Use the Driverz UK trip cost calculator to estimate petrol or diesel journey cost from distance, MPG and fuel price per litre. Includes return trips, cost per mile and fuel used.">
   <link rel="canonical" href="https://driverz.uk/trip-calculator.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="driverz.uk">
-  <meta property="og:title" content="Trip cost calculator | driverz.uk">
-  <meta property="og:description" content="Estimate UK journey fuel cost using distance, MPG and petrol or diesel price.">
+  <meta property="og:title" content="UK trip cost calculator: petrol, diesel, MPG & mileage | Driverz.uk">
+  <meta property="og:description" content="Estimate petrol or diesel journey cost from distance, MPG and pump price. Includes return trips, fuel used and cost per mile.">
   <meta property="og:url" content="https://driverz.uk/trip-calculator.html">
   <meta property="og:image" content="https://driverz.uk/assets/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -20,8 +20,8 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Trip cost calculator | driverz.uk">
-  <meta name="twitter:description" content="Estimate UK journey fuel cost using distance, MPG and petrol or diesel price.">
+  <meta name="twitter:title" content="UK trip cost calculator: petrol, diesel, MPG & mileage | Driverz.uk">
+  <meta name="twitter:description" content="Estimate petrol or diesel journey cost from distance, MPG and pump price. Includes return trips, fuel used and cost per mile.">
   <meta name="twitter:image" content="https://driverz.uk/assets/og-cover.jpg">
   <link rel="icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,24 +29,90 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850;950&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/components.js?v=20260605-audit" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Driverz UK Trip Cost Calculator",
+        "url": "https://driverz.uk/trip-calculator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Estimate petrol or diesel journey cost from distance, MPG and fuel price per litre.",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://driverz.uk/"},
+          {"@type": "ListItem", "position": 2, "name": "Utilities", "item": "https://driverz.uk/utilities.html"},
+          {"@type": "ListItem", "position": 3, "name": "Trip cost calculator", "item": "https://driverz.uk/trip-calculator.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate petrol or diesel cost for a trip?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Use distance in miles, vehicle MPG and the fuel price per litre. Driverz converts MPG to litres used and multiplies it by the pump price to estimate the trip cost."}
+          },
+          {
+            "@type": "Question",
+            "name": "Does the calculator work for return trips?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose return trip and the calculator doubles the distance before estimating fuel used, total cost and cost per mile."}
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my real trip cost different from the estimate?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Traffic, speed, tyre pressure, weather, driving style, hills, passengers and luggage can all change real fuel use. The calculator is an estimate based on the values you enter."}
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use petrol or diesel price per litre?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Use the price for the fuel you will actually buy. You can check nearby petrol and diesel prices on Driverz before using the calculator."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
-    .tool-head{margin-bottom:22px}.tool-head h1{margin-bottom:12px}.tool-head p{max-width:680px;color:#666;font-size:1.05rem}.trip-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:16px;align-items:start}.result-panel{background:#f7f7f7;border:1px solid var(--line);border-radius:20px;padding:18px}.result-panel h2{font-size:1rem;letter-spacing:0;margin:0 0 12px;color:#666;text-transform:uppercase}.big-cost{font-size:clamp(2.5rem,8vw,4.8rem);line-height:.9;letter-spacing:-.08em;font-weight:950;margin:6px 0 12px;color:#555}.result-list{display:grid;gap:9px;margin:16px 0}.result-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5e5e5;padding-bottom:9px;color:#666}.result-row b{color:#555}.trip-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;color:#666;font-size:.94rem}.trip-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary-btn{border:1px solid #ddd;background:#fff;color:#555}.tool-support{margin-top:18px}.tool-support .quick-answer{margin:16px 0}.related-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.related-tools a{border:1px solid #ddd;background:#fff;border-radius:999px;padding:9px 12px;font-weight:800;color:#555}@media(max-width:760px){.trip-layout{grid-template-columns:1fr}.tool-head{margin-bottom:16px}.card{padding:18px}.result-panel{order:-1}.result-row{display:grid;grid-template-columns:1fr auto}.trip-actions .btn{width:100%;justify-content:center}.related-tools a{width:100%;text-align:center}.big-cost{font-size:3.4rem}}
-  </style></head>
+    .tool-head{margin-bottom:22px}.tool-head h1{margin-bottom:12px}.tool-head p{max-width:760px;color:#666;font-size:1.08rem}.tool-kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;font-weight:950;color:#777;margin-bottom:10px}.trip-hero-panel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:16px;align-items:stretch;margin-bottom:18px}.trip-hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 8px 35px rgba(0,0,0,.05)}.trip-hero-card strong{display:block;font-size:clamp(1.8rem,5vw,3.4rem);line-height:.92;letter-spacing:-.07em;color:#555}.trip-hero-card span{display:block;margin-top:10px;color:#666;font-weight:800}.trip-mini-points{display:grid;gap:10px}.trip-mini-point{background:#f7f7f7;border:1px solid var(--line);border-radius:18px;padding:14px;color:#666}.trip-mini-point b{display:block;color:#555;margin-bottom:4px}.trip-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.85fr);gap:16px;align-items:start}.result-panel{background:#f7f7f7;border:1px solid var(--line);border-radius:22px;padding:18px;position:sticky;top:86px}.result-panel h2{font-size:1rem;letter-spacing:.04em;margin:0 0 12px;color:#666;text-transform:uppercase}.big-cost{font-size:clamp(2.8rem,8vw,5.2rem);line-height:.9;letter-spacing:-.08em;font-weight:950;margin:6px 0 12px;color:#555}.result-list{display:grid;gap:9px;margin:16px 0}.result-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5e5e5;padding-bottom:9px;color:#666}.result-row b{color:#555}.trip-note{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;color:#666;font-size:.94rem}.trip-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary-btn{border:1px solid #ddd;background:#fff;color:#555}.tool-support{margin-top:18px}.tool-support .quick-answer{margin:16px 0}.related-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.related-tools a,.preset-btn{border:1px solid #ddd;background:#fff;border-radius:999px;padding:9px 12px;font-weight:850;color:#555;cursor:pointer;text-decoration:none}.preset-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.preset-btn:hover,.related-tools a:hover{background:#f4f4f4}.formula-box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:18px 0;color:#666}.formula-box code{display:block;background:#f7f7f7;border:1px solid #e5e5e5;border-radius:12px;padding:12px;margin-top:9px;white-space:normal;color:#555;font-weight:850}.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.example-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px}.example-card b{display:block;color:#555;font-size:1.1rem;margin-bottom:6px}.example-card span{color:#666;font-size:.94rem}.city-links{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:12px 0}.city-links a{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;text-align:center;font-weight:850;color:#555}.faq-grid{display:grid;gap:10px;margin-top:14px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.faq-item b{display:block;color:#555;margin-bottom:6px}.faq-item p{margin:0;color:#666}.input-help{font-size:.84rem;color:#777;margin-top:6px}.inline-link{font-weight:850;color:#555;text-decoration:underline;text-underline-offset:3px}@media(max-width:760px){.trip-hero-panel,.trip-layout{grid-template-columns:1fr}.tool-head{margin-bottom:16px}.article{padding-top:30px}.card{padding:18px}.result-panel{order:-1;position:static}.result-row{display:grid;grid-template-columns:1fr auto}.trip-actions .btn{width:100%;justify-content:center}.related-tools a,.preset-btn{width:100%;text-align:center}.big-cost{font-size:3.6rem}.example-grid,.city-links{grid-template-columns:1fr}.trip-hero-card{padding:18px}.trip-mini-points{gap:8px}}
+  </style>
+</head>
 <body>
   <driverz-header></driverz-header>
 
   <main class="article">
     <div class="tool-head">
+      <div class="tool-kicker">UK driving cost tool</div>
       <h1>Trip cost calculator</h1>
-      <p>Work out the estimated fuel cost for a UK journey. Enter the distance, your vehicle MPG and the fuel price per litre.</p>
+      <p>Estimate the petrol or diesel cost for a UK journey using distance, MPG and pump price per litre. Use it for one-way drives, return trips, commuting, airport runs and weekend journeys.</p>
     </div>
 
-    <section class="card">
+    <section class="trip-hero-panel" aria-label="Trip calculator overview">
+      <div class="trip-hero-card">
+        <strong>Calculate fuel cost before you drive.</strong>
+        <span>Enter miles, MPG and pence per litre to see total cost, litres used and cost per mile.</span>
+      </div>
+      <div class="trip-mini-points">
+        <div class="trip-mini-point"><b>Petrol or diesel</b> Works with any UK pump price in pence per litre.</div>
+        <div class="trip-mini-point"><b>One-way or return</b> Quickly double the distance for a round trip.</div>
+        <div class="trip-mini-point"><b>Cost per mile</b> Useful for comparing routes or claiming mileage.</div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Trip cost calculator">
       <div class="trip-layout">
         <form class="tool-form" onsubmit="event.preventDefault(); calc();">
           <div class="field">
-            <label for="distance">Distance / miles</label>
+            <label for="distance">Distance in miles</label>
             <input id="distance" type="number" inputmode="decimal" min="0" step="any" value="120">
+            <div class="input-help">Use one-way distance unless you choose return trip below.</div>
           </div>
 
           <div class="field">
@@ -60,14 +126,23 @@
           <div class="field">
             <label for="mpg">Vehicle MPG</label>
             <input id="mpg" type="number" inputmode="decimal" min="1" step="any" value="45">
+            <div class="input-help">Use your real-world MPG if you know it. If not, start with 40–50 MPG for an estimate.</div>
           </div>
 
           <div class="field">
             <label for="price">Fuel price p/litre</label>
-            <input id="price" type="number" inputmode="decimal" min="0" step="any" value="139.9">
+            <input id="price" type="number" inputmode="decimal" min="0" step="any" value="149.9">
+            <div class="input-help">Check <a class="inline-link" href="/">nearby live petrol and diesel prices</a>, then enter the price here.</div>
           </div>
 
-          <button class="btn" type="submit">Calculate</button>
+          <div class="preset-row" aria-label="Example trip presets">
+            <button class="preset-btn" type="button" data-preset="commute">10-mile commute</button>
+            <button class="preset-btn" type="button" data-preset="weekend">50-mile drive</button>
+            <button class="preset-btn" type="button" data-preset="long">120-mile trip</button>
+            <button class="preset-btn" type="button" data-preset="return">Return trip</button>
+          </div>
+
+          <button class="btn" type="submit">Calculate trip cost</button>
         </form>
 
         <aside class="result-panel" aria-live="polite">
@@ -77,6 +152,7 @@
             <div class="result-row"><span>Total distance</span><b id="totalDistance">0 miles</b></div>
             <div class="result-row"><span>Fuel used</span><b id="fuelUsed">0 litres</b></div>
             <div class="result-row"><span>Cost per mile</span><b id="costPerMile">0p</b></div>
+            <div class="result-row"><span>40L fill-up cost</span><b id="fillUpCost">£0.00</b></div>
           </div>
           <div class="trip-note" id="tripNote">Enter values to estimate your journey cost.</div>
           <div class="trip-actions">
@@ -89,11 +165,36 @@
 
     <section class="tool-support">
       <div class="quick-answer">
-        <b>Quick answer:</b> Trip fuel cost depends mainly on distance, MPG and the live pump price. Motorway driving, traffic, tyre pressure and heavy loads can change the real cost.
+        <b>Quick answer:</b> To estimate trip fuel cost, divide miles by MPG, convert gallons to litres, then multiply by the fuel price per litre. Driverz does the conversion for you and shows total cost, litres used and cost per mile.
+      </div>
+
+      <h2>How the trip cost is calculated</h2>
+      <p>The calculator uses UK miles per gallon and UK pump prices in pence per litre.</p>
+      <div class="formula-box">
+        <b>Formula</b>
+        <code>Fuel used in litres = (miles ÷ MPG) × 4.54609<br>Trip cost = litres used × pence per litre ÷ 100</code>
+      </div>
+
+      <h2>Popular UK trip cost examples</h2>
+      <p>These examples use the values in the calculator. Change distance, MPG or fuel price to match your own car and route.</p>
+      <div class="example-grid" id="exampleGrid" aria-label="Popular trip cost examples">
+        <div class="example-card"><b>10-mile local drive</b><span id="example10">Calculate to update.</span></div>
+        <div class="example-card"><b>50-mile day trip</b><span id="example50">Calculate to update.</span></div>
+        <div class="example-card"><b>120-mile long journey</b><span id="example120">Calculate to update.</span></div>
+      </div>
+
+      <h2>Use live fuel prices before you calculate</h2>
+      <p>For a better estimate, check the current petrol or diesel price near you first, then enter that pence-per-litre value above.</p>
+      <div class="city-links" aria-label="Popular city fuel price pages">
+        <a href="/birmingham">Birmingham fuel prices</a>
+        <a href="/manchester">Manchester fuel prices</a>
+        <a href="/leeds">Leeds fuel prices</a>
+        <a href="/reading">Reading fuel prices</a>
+        <a href="/bristol">Bristol fuel prices</a>
       </div>
 
       <h2>Use this with other Driverz tools</h2>
-      <p>For a better estimate, first check nearby fuel prices, then use the trip result with the cost per mile tracker or driving costs guide.</p>
+      <p>Trip cost works best when combined with MPG, cost per mile and live station price tools.</p>
       <div class="related-tools" aria-label="Related Driverz tools">
         <a href="/">Find nearby fuel</a>
         <a href="/mpg-calculator.html">MPG calculator</a>
@@ -104,11 +205,23 @@
       </div>
 
       <h2>Trip cost calculator FAQs</h2>
-      <div class="quick-answer">
-        <b>Does this calculate the exact cost?</b> It gives an estimate based on distance, MPG and pump price. Traffic, speed, weather, tyres and load can change the real result.
-      </div>
-      <div class="quick-answer">
-        <b>Should I use motorway fuel prices?</b> Use the price you expect to pay. Motorway forecourts are often more expensive, so checking nearby stations before a long journey can help.
+      <div class="faq-grid">
+        <div class="faq-item">
+          <b>Does this calculate the exact cost?</b>
+          <p>It gives an estimate based on distance, MPG and pump price. Traffic, speed, weather, tyres and load can change the real result.</p>
+        </div>
+        <div class="faq-item">
+          <b>Should I use motorway fuel prices?</b>
+          <p>Use the price you expect to pay. Motorway forecourts are often more expensive, so checking nearby stations before a long journey can help.</p>
+        </div>
+        <div class="faq-item">
+          <b>Can I use it for diesel?</b>
+          <p>Yes. Enter the diesel price per litre and your vehicle MPG. The calculation works the same way for petrol and diesel.</p>
+        </div>
+        <div class="faq-item">
+          <b>What if I only know litres per 100 km?</b>
+          <p>Use the Driverz MPG calculator first, then return here with an MPG estimate for this trip calculator.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -126,24 +239,44 @@
       return '£' + value.toFixed(2);
     }
 
+    function milesText(value) {
+      return value.toFixed(value % 1 ? 1 : 0) + ' miles';
+    }
+
+    function calculateFor(distance, multiplier, mpg, price) {
+      const totalMiles = Math.max(0, distance) * Math.max(1, multiplier);
+      const litres = (totalMiles / Math.max(1, mpg)) * 4.54609;
+      const cost = litres * Math.max(0, price) / 100;
+      const ppm = totalMiles > 0 ? (cost / totalMiles) * 100 : 0;
+      return { totalMiles, litres, cost, ppm };
+    }
+
     function calc() {
       const distance = Math.max(0, numberValue('distance'));
       const tripMultiplier = numberValue('tripType', 1);
       const mpg = Math.max(1, numberValue('mpg', 45));
       const price = Math.max(0, numberValue('price', 0));
-      const totalMiles = distance * tripMultiplier;
-      const litres = (totalMiles / mpg) * 4.54609;
-      const cost = litres * price / 100;
-      const ppm = totalMiles > 0 ? (cost / totalMiles) * 100 : 0;
-      const approxRange = litres > 0 ? (40 / litres) * totalMiles : 0;
+      const result = calculateFor(distance, tripMultiplier, mpg, price);
+      const fillUp = price * 40 / 100;
+      const approxRange = result.litres > 0 ? (40 / result.litres) * result.totalMiles : 0;
 
-      document.getElementById('mainCost').textContent = money(cost);
-      document.getElementById('totalDistance').textContent = totalMiles.toFixed(totalMiles % 1 ? 1 : 0) + ' miles';
-      document.getElementById('fuelUsed').textContent = litres.toFixed(1) + ' litres';
-      document.getElementById('costPerMile').textContent = ppm.toFixed(1) + 'p';
-      document.getElementById('tripNote').innerHTML = 'A standard 40L fill-up at this price costs about <b>' + money(price * 40 / 100) + '</b>. With this MPG, 40L is roughly <b>' + approxRange.toFixed(0) + ' miles</b>.';
+      document.getElementById('mainCost').textContent = money(result.cost);
+      document.getElementById('totalDistance').textContent = milesText(result.totalMiles);
+      document.getElementById('fuelUsed').textContent = result.litres.toFixed(1) + ' litres';
+      document.getElementById('costPerMile').textContent = result.ppm.toFixed(1) + 'p';
+      document.getElementById('fillUpCost').textContent = money(fillUp);
+      document.getElementById('tripNote').innerHTML = 'At <b>' + price.toFixed(1) + 'p/litre</b> and <b>' + mpg.toFixed(mpg % 1 ? 1 : 0) + ' MPG</b>, a 40L fill-up costs about <b>' + money(fillUp) + '</b> and could cover roughly <b>' + approxRange.toFixed(0) + ' miles</b>.';
 
-      lastShareText = 'Driverz trip cost estimate: ' + money(cost) + ' for ' + totalMiles.toFixed(totalMiles % 1 ? 1 : 0) + ' miles. Fuel used: ' + litres.toFixed(1) + 'L. Cost per mile: ' + ppm.toFixed(1) + 'p.';
+      updateExamples(mpg, price);
+      lastShareText = 'Driverz trip cost estimate: ' + money(result.cost) + ' for ' + milesText(result.totalMiles) + '. Fuel used: ' + result.litres.toFixed(1) + 'L. Cost per mile: ' + result.ppm.toFixed(1) + 'p.';
+    }
+
+    function updateExamples(mpg, price) {
+      [10, 50, 120].forEach(miles => {
+        const r = calculateFor(miles, 1, mpg, price);
+        const el = document.getElementById('example' + miles);
+        if (el) el.textContent = money(r.cost) + ' at ' + mpg.toFixed(mpg % 1 ? 1 : 0) + ' MPG and ' + price.toFixed(1) + 'p/litre.';
+      });
     }
 
     async function shareResult() {
@@ -177,7 +310,22 @@
       document.getElementById('distance').value = 120;
       document.getElementById('tripType').value = 1;
       document.getElementById('mpg').value = 45;
-      document.getElementById('price').value = 139.9;
+      document.getElementById('price').value = 149.9;
+      calc();
+    }
+
+    function applyPreset(name) {
+      const presets = {
+        commute: { distance: 10, tripType: 2, mpg: 42 },
+        weekend: { distance: 50, tripType: 1, mpg: 45 },
+        long: { distance: 120, tripType: 1, mpg: 48 },
+        return: { tripType: 2 }
+      };
+      const preset = presets[name] || {};
+      Object.keys(preset).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = preset[id];
+      });
       calc();
     }
 
@@ -185,6 +333,10 @@
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', calc);
       if (el) el.addEventListener('change', calc);
+    });
+
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+      btn.addEventListener('click', () => applyPreset(btn.dataset.preset));
     });
 
     calc();
