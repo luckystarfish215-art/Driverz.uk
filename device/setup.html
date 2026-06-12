@@ -16,12 +16,13 @@
     .wrap {
       max-width: 720px;
       margin: 0 auto;
-      padding: 20px 16px 40px;
+      padding: 18px 14px 36px;
     }
 
     h1 {
-      font-size: 28px;
-      margin: 0 0 8px;
+      font-size: 26px;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
     }
 
     p {
@@ -32,13 +33,13 @@
       background: #141a22;
       border: 1px solid #263140;
       border-radius: 18px;
-      padding: 16px;
-      margin: 14px 0;
+      padding: 15px;
+      margin: 13px 0;
     }
 
     label {
       display: block;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 8px;
     }
 
@@ -57,7 +58,7 @@
     }
 
     textarea {
-      min-height: 190px;
+      min-height: 180px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 13px;
     }
@@ -66,15 +67,10 @@
       border: 0;
       border-radius: 12px;
       padding: 12px 14px;
-      font-weight: 800;
+      font-weight: 900;
       background: #53d769;
       color: #061008;
       cursor: pointer;
-    }
-
-    button.secondary {
-      background: #263140;
-      color: #f5f7fa;
     }
 
     .row {
@@ -85,11 +81,11 @@
 
     @media (min-width: 640px) {
       .row {
-        grid-template-columns: 1fr 160px;
+        grid-template-columns: 1fr 150px;
       }
     }
 
-    .status, .small {
+    .small, .status {
       color: #9aa4b2;
       font-size: 14px;
     }
@@ -113,7 +109,7 @@
     }
 
     .station-title {
-      font-weight: 800;
+      font-weight: 900;
       margin-bottom: 4px;
     }
 
@@ -175,15 +171,15 @@
 <body>
   <main class="wrap">
     <h1>Driverz Fuel Display Setup</h1>
-    <p>Prototype setup page for choosing a favourite fuel station for the ESP32 display.</p>
+    <p>Choose your favourite fuel station for the ESP32 display.</p>
 
     <section class="card">
       <label for="searchInput">Step 1: Search station</label>
       <div class="row">
-        <input id="searchInput" placeholder="Example: Costco Reading, Tesco Reading, RG2">
+        <input id="searchInput" placeholder="Costco Reading, RG2, Tesco Reading">
         <button id="searchBtn">Search</button>
       </div>
-      <p id="loadStatus" class="status">Loading fuel station data…</p>
+      <p id="loadStatus" class="status">Loading station index…</p>
     </section>
 
     <section class="card">
@@ -213,16 +209,12 @@
       </div>
 
       <p class="small">
-        Copy this JSON into <code>config/device-config.json</code> on the NAS.
+        Prototype mode: copy this JSON into <code>config/device-config.json</code> on the NAS.
       </p>
 
       <textarea id="configOutput" readonly></textarea>
 
-      <div class="row">
-        <button id="copyBtn">Copy config JSON</button>
-        <button id="downloadBtn" class="secondary">Download JSON</button>
-      </div>
-
+      <button id="copyBtn">Copy config JSON</button>
       <p id="copyStatus" class="status"></p>
     </section>
 
@@ -240,136 +232,19 @@ tail -50 logs/device-json-update.log</textarea>
   </main>
 
   <script>
-    const DATA_URL = "/data/fuel_data.csv";
+    const DATA_URL = "/device/stations.json";
 
     const state = {
-      rows: [],
+      stations: [],
       selected: null
-    };
-
-    const cols = {
-      nodeId: "forecourts.node_id",
-      brand: "forecourts.brand_name",
-      trading: "forecourts.trading_name",
-      city: "forecourts.location.city",
-      postcode: "forecourts.location.postcode",
-      address1: "forecourts.location.address_line_1",
-      address2: "forecourts.location.address_line_2",
-      e10: "forecourts.fuel_price.E10",
-      e5: "forecourts.fuel_price.E5",
-      b7s: "forecourts.fuel_price.B7S",
-      b7p: "forecourts.fuel_price.B7P"
     };
 
     function clean(v) {
       return String(v || "").trim();
     }
 
-    function parseCsv(text) {
-      const lines = [];
-      let row = [];
-      let cell = "";
-      let quote = false;
-
-      for (let i = 0; i < text.length; i++) {
-        const ch = text[i];
-        const next = text[i + 1];
-
-        if (ch === '"' && quote && next === '"') {
-          cell += '"';
-          i++;
-        } else if (ch === '"') {
-          quote = !quote;
-        } else if (ch === "," && !quote) {
-          row.push(cell);
-          cell = "";
-        } else if ((ch === "\n" || ch === "\r") && !quote) {
-          if (ch === "\r" && next === "\n") i++;
-          row.push(cell);
-          if (row.some(x => x.trim() !== "")) lines.push(row);
-          row = [];
-          cell = "";
-        } else {
-          cell += ch;
-        }
-      }
-
-      if (cell || row.length) {
-        row.push(cell);
-        lines.push(row);
-      }
-
-      const headers = lines.shift() || [];
-
-      return lines.map(values => {
-        const obj = {};
-        headers.forEach((h, i) => {
-          obj[h] = values[i] || "";
-        });
-        return obj;
-      });
-    }
-
     function price(v) {
-      const text = clean(v);
-      return text ? `${text}p` : "-";
-    }
-
-    function displayName(row) {
-      const brand = clean(row[cols.brand]);
-      let trading = clean(row[cols.trading]);
-
-      trading = trading
-        .replace(" - PETROL FILLING STATION", "")
-        .replace("PETROL FILLING STATION", "")
-        .replace("PFS", "")
-        .replace(/\s+/g, " ")
-        .trim();
-
-      let name = "";
-
-      if (brand && trading) name = `${brand} ${trading}`;
-      else if (brand) name = brand;
-      else if (trading) name = trading;
-      else name = "SELECTED STATION";
-
-      name = name.toUpperCase();
-
-      if (name.includes("COSTCO WHOLESALE READING")) {
-        name = "COSTCO READING";
-      }
-
-      if (name.length > 24) {
-        name = name.slice(0, 24);
-      }
-
-      return name;
-    }
-
-    function rowText(row) {
-      return [
-        row[cols.brand],
-        row[cols.trading],
-        row[cols.city],
-        row[cols.postcode],
-        row[cols.address1],
-        row[cols.address2]
-      ].map(clean).join(" ").toLowerCase();
-    }
-
-    function score(row, query) {
-      const text = rowText(row);
-      const q = query.toLowerCase().trim();
-      const tokens = q.split(/\s+/).filter(Boolean);
-
-      let s = 0;
-      if (q && text.includes(q)) s += 100;
-
-      for (const t of tokens) {
-        if (text.includes(t)) s += 10;
-      }
-
-      return s;
+      return clean(v) ? `${clean(v)}p` : "-";
     }
 
     function fuelLabel(fuel) {
@@ -379,11 +254,35 @@ tail -50 logs/device-json-update.log</textarea>
       return fuel;
     }
 
-    function selectedPrice(row, fuel) {
-      if (fuel === "diesel") return clean(row[cols.b7s]) || clean(row[cols.b7p]);
-      if (fuel === "e10") return clean(row[cols.e10]);
-      if (fuel === "e5") return clean(row[cols.e5]);
+    function selectedPrice(station, fuel) {
+      if (fuel === "diesel") return clean(station.diesel);
+      if (fuel === "e10") return clean(station.e10);
+      if (fuel === "e5") return clean(station.e5);
       return "";
+    }
+
+    function scoreStation(station, query) {
+      const q = query.toLowerCase().trim();
+      const tokens = q.split(/\s+/).filter(Boolean);
+      const text = station.searchText || "";
+
+      let score = 0;
+
+      if (q && text.includes(q)) score += 100;
+
+      for (const token of tokens) {
+        if (text.includes(token)) score += 10;
+      }
+
+      if (station.postcode && station.postcode.toLowerCase().startsWith(q)) {
+        score += 80;
+      }
+
+      if (station.displayName && station.displayName.toLowerCase().includes(q)) {
+        score += 60;
+      }
+
+      return score;
     }
 
     function renderResults(query) {
@@ -391,12 +290,12 @@ tail -50 logs/device-json-update.log</textarea>
       results.innerHTML = "";
 
       if (!query.trim()) {
-        results.innerHTML = '<p class="small">Enter a search term above.</p>';
+        results.innerHTML = '<p class="small">Enter a station, town or postcode.</p>';
         return;
       }
 
-      const matches = state.rows
-        .map(row => ({ row, score: score(row, query) }))
+      const matches = state.stations
+        .map(station => ({ station, score: scoreStation(station, query) }))
         .filter(item => item.score > 0)
         .sort((a, b) => b.score - a.score)
         .slice(0, 20);
@@ -407,25 +306,18 @@ tail -50 logs/device-json-update.log</textarea>
       }
 
       for (const item of matches) {
-        const row = item.row;
+        const s = item.station;
 
         const div = document.createElement("div");
         div.className = "station";
 
-        const brand = clean(row[cols.brand]);
-        const trading = clean(row[cols.trading]);
-        const address1 = clean(row[cols.address1]);
-        const address2 = clean(row[cols.address2]);
-        const city = clean(row[cols.city]);
-        const postcode = clean(row[cols.postcode]);
-
         div.innerHTML = `
-          <div class="station-title">${brand} - ${trading}</div>
-          <div class="station-meta">${address1}${address2 ? ", " + address2 : ""}<br>${city} ${postcode}</div>
+          <div class="station-title">${s.displayName}</div>
+          <div class="station-meta">${s.address || ""}<br>${s.city || ""} ${s.postcode || ""}</div>
           <div class="prices">
-            <span class="pill">E10 ${price(row[cols.e10])}</span>
-            <span class="pill">E5 ${price(row[cols.e5])}</span>
-            <span class="pill">Diesel ${price(row[cols.b7s] || row[cols.b7p])}</span>
+            <span class="pill">E10 ${price(s.e10)}</span>
+            <span class="pill">E5 ${price(s.e5)}</span>
+            <span class="pill">Diesel ${price(s.diesel)}</span>
           </div>
           <button type="button">Select this station</button>
         `;
@@ -433,7 +325,7 @@ tail -50 logs/device-json-update.log</textarea>
         div.querySelector("button").addEventListener("click", () => {
           document.querySelectorAll(".station").forEach(el => el.classList.remove("selected"));
           div.classList.add("selected");
-          state.selected = row;
+          state.selected = s;
           updateConfig();
           document.getElementById("configSection").classList.remove("hidden");
           document.getElementById("configSection").scrollIntoView({ behavior: "smooth" });
@@ -446,21 +338,21 @@ tail -50 logs/device-json-update.log</textarea>
     function updateConfig() {
       if (!state.selected) return;
 
+      const station = state.selected;
       const fuel = document.getElementById("fuelSelect").value;
-      const name = displayName(state.selected);
-      const stationPrice = selectedPrice(state.selected, fuel);
+      const stationPrice = selectedPrice(station, fuel);
 
       const config = {
-        stationQuery: `${clean(state.selected[cols.brand])} ${clean(state.selected[cols.city])}`.trim(),
-        stationNodeId: clean(state.selected[cols.nodeId]),
-        displayName: name,
+        stationQuery: `${clean(station.brand)} ${clean(station.city)}`.trim(),
+        stationNodeId: clean(station.nodeId),
+        displayName: clean(station.displayName),
         fuel: fuel,
         weatherText: "19C Cloud",
         airText: "Air Good"
       };
 
       document.getElementById("configOutput").value = JSON.stringify(config, null, 2);
-      document.getElementById("previewStation").textContent = name;
+      document.getElementById("previewStation").textContent = clean(station.displayName);
       document.getElementById("previewFuel").textContent = fuelLabel(fuel);
       document.getElementById("previewPrice").textContent = stationPrice ? `${stationPrice}p` : "---.-p";
     }
@@ -472,12 +364,11 @@ tail -50 logs/device-json-update.log</textarea>
         const res = await fetch(DATA_URL, { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-        const text = await res.text();
-        state.rows = parseCsv(text);
+        state.stations = await res.json();
 
-        status.textContent = `Loaded ${state.rows.length.toLocaleString()} fuel stations.`;
+        status.textContent = `Loaded ${state.stations.length.toLocaleString()} stations.`;
       } catch (err) {
-        status.textContent = `Failed to load station data: ${err.message}`;
+        status.textContent = `Failed to load station index: ${err.message}`;
       }
     }
 
@@ -497,17 +388,6 @@ tail -50 logs/device-json-update.log</textarea>
       const text = document.getElementById("configOutput").value;
       await navigator.clipboard.writeText(text);
       document.getElementById("copyStatus").textContent = "Copied.";
-    });
-
-    document.getElementById("downloadBtn").addEventListener("click", () => {
-      const text = document.getElementById("configOutput").value + "\n";
-      const blob = new Blob([text], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "device-config.json";
-      a.click();
-      URL.revokeObjectURL(url);
     });
 
     init();
