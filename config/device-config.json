@@ -1,6 +1,6 @@
 {
   "stationQuery": "COSTCO READING",
-  "stationNodeId": "",
+  "stationNodeId": "PASTE_NODE_ID_HERE",
   "fuel": "diesel",
   "weatherText": "19C Cloud",
   "airText": "Air Good"
