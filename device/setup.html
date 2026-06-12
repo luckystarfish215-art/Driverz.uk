@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Driverz Fuel Display Setup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0f14;
+      color: #f5f7fa;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    p {
+      color: #9aa4b2;
+    }
+
+    .card {
+      background: #141a22;
+      border: 1px solid #263140;
+      border-radius: 18px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input, select, textarea, button {
+      font: inherit;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: #0f151c;
+      color: #f5f7fa;
+      border: 1px solid #263140;
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    textarea {
+      min-height: 190px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 800;
+      background: #53d769;
+      color: #061008;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #263140;
+      color: #f5f7fa;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .row {
+        grid-template-columns: 1fr 160px;
+      }
+    }
+
+    .status, .small {
+      color: #9aa4b2;
+      font-size: 14px;
+    }
+
+    .results {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .station {
+      border: 1px solid #263140;
+      background: #101720;
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .station.selected {
+      border-color: #53d769;
+      box-shadow: 0 0 0 2px rgba(83, 215, 105, 0.16);
+    }
+
+    .station-title {
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .station-meta {
+      color: #9aa4b2;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .prices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+
+    .pill {
+      border: 1px solid #263140;
+      background: #0b1118;
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 13px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .preview {
+      background: #000;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      margin: 12px 0;
+    }
+
+    .preview-station {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .preview-fuel {
+      color: #b8c1cc;
+      margin-top: 6px;
+    }
+
+    .preview-price {
+      font-size: 44px;
+      font-weight: 900;
+      margin: 8px 0;
+    }
+
+    code {
+      color: #53d769;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Driverz Fuel Display Setup</h1>
+    <p>Prototype setup page for choosing a favourite fuel station for the ESP32 display.</p>
+
+    <section class="card">
+      <label for="searchInput">Step 1: Search station</label>
+      <div class="row">
+        <input id="searchInput" placeholder="Example: Costco Reading, Tesco Reading, RG2">
+        <button id="searchBtn">Search</button>
+      </div>
+      <p id="loadStatus" class="status">Loading fuel station data…</p>
+    </section>
+
+    <section class="card">
+      <label for="fuelSelect">Step 2: Choose fuel type</label>
+      <select id="fuelSelect">
+        <option value="diesel">Diesel</option>
+        <option value="e10">Petrol E10</option>
+        <option value="e5">Petrol E5</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <strong>Search results</strong>
+      <div id="results" class="results">
+        <p class="small">Search for a station above.</p>
+      </div>
+    </section>
+
+    <section id="configSection" class="card hidden">
+      <strong>Step 3: Copy device config</strong>
+
+      <div class="preview">
+        <div id="previewStation" class="preview-station">COSTCO READING</div>
+        <div id="previewFuel" class="preview-fuel">Diesel</div>
+        <div id="previewPrice" class="preview-price">---.-p</div>
+        <div class="small">ESP32 preview</div>
+      </div>
+
+      <p class="small">
+        Copy this JSON into <code>config/device-config.json</code> on the NAS.
+      </p>
+
+      <textarea id="configOutput" readonly></textarea>
+
+      <div class="row">
+        <button id="copyBtn">Copy config JSON</button>
+        <button id="downloadBtn" class="secondary">Download JSON</button>
+      </div>
+
+      <p id="copyStatus" class="status"></p>
+    </section>
+
+    <section class="card">
+      <strong>NAS command after copying</strong>
+      <textarea readonly>cd ~/driverz-automation/Driverz.uk
+
+cat > config/device-config.json
+# paste copied JSON
+# press Ctrl + D
+
+./scripts/update_device_json.sh >> logs/device-json-update.log 2>&1
+tail -50 logs/device-json-update.log</textarea>
+    </section>
+  </main>
+
+  <script>
+    const DATA_URL = "/data/fuel_data.csv";
+
+    const state = {
+      rows: [],
+      selected: null
+    };
+
+    const cols = {
+      nodeId: "forecourts.node_id",
+      brand: "forecourts.brand_name",
+      trading: "forecourts.trading_name",
+      city: "forecourts.location.city",
+      postcode: "forecourts.location.postcode",
+      address1: "forecourts.location.address_line_1",
+      address2: "forecourts.location.address_line_2",
+      e10: "forecourts.fuel_price.E10",
+      e5: "forecourts.fuel_price.E5",
+      b7s: "forecourts.fuel_price.B7S",
+      b7p: "forecourts.fuel_price.B7P"
+    };
+
+    function clean(v) {
+      return String(v || "").trim();
+    }
+
+    function parseCsv(text) {
+      const lines = [];
+      let row = [];
+      let cell = "";
+      let quote = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        const next = text[i + 1];
+
+        if (ch === '"' && quote && next === '"') {
+          cell += '"';
+          i++;
+        } else if (ch === '"') {
+          quote = !quote;
+        } else if (ch === "," && !quote) {
+          row.push(cell);
+          cell = "";
+        } else if ((ch === "\n" || ch === "\r") && !quote) {
+          if (ch === "\r" && next === "\n") i++;
+          row.push(cell);
+          if (row.some(x => x.trim() !== "")) lines.push(row);
+          row = [];
+          cell = "";
+        } else {
+          cell += ch;
+        }
+      }
+
+      if (cell || row.length) {
+        row.push(cell);
+        lines.push(row);
+      }
+
+      const headers = lines.shift() || [];
+
+      return lines.map(values => {
+        const obj = {};
+        headers.forEach((h, i) => {
+          obj[h] = values[i] || "";
+        });
+        return obj;
+      });
+    }
+
+    function price(v) {
+      const text = clean(v);
+      return text ? `${text}p` : "-";
+    }
+
+    function displayName(row) {
+      const brand = clean(row[cols.brand]);
+      let trading = clean(row[cols.trading]);
+
+      trading = trading
+        .replace(" - PETROL FILLING STATION", "")
+        .replace("PETROL FILLING STATION", "")
+        .replace("PFS", "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      let name = "";
+
+      if (brand && trading) name = `${brand} ${trading}`;
+      else if (brand) name = brand;
+      else if (trading) name = trading;
+      else name = "SELECTED STATION";
+
+      name = name.toUpperCase();
+
+      if (name.includes("COSTCO WHOLESALE READING")) {
+        name = "COSTCO READING";
+      }
+
+      if (name.length > 24) {
+        name = name.slice(0, 24);
+      }
+
+      return name;
+    }
+
+    function rowText(row) {
+      return [
+        row[cols.brand],
+        row[cols.trading],
+        row[cols.city],
+        row[cols.postcode],
+        row[cols.address1],
+        row[cols.address2]
+      ].map(clean).join(" ").toLowerCase();
+    }
+
+    function score(row, query) {
+      const text = rowText(row);
+      const q = query.toLowerCase().trim();
+      const tokens = q.split(/\s+/).filter(Boolean);
+
+      let s = 0;
+      if (q && text.includes(q)) s += 100;
+
+      for (const t of tokens) {
+        if (text.includes(t)) s += 10;
+      }
+
+      return s;
+    }
+
+    function fuelLabel(fuel) {
+      if (fuel === "diesel") return "Diesel";
+      if (fuel === "e10") return "Petrol E10";
+      if (fuel === "e5") return "Petrol E5";
+      return fuel;
+    }
+
+    function selectedPrice(row, fuel) {
+      if (fuel === "diesel") return clean(row[cols.b7s]) || clean(row[cols.b7p]);
+      if (fuel === "e10") return clean(row[cols.e10]);
+      if (fuel === "e5") return clean(row[cols.e5]);
+      return "";
+    }
+
+    function renderResults(query) {
+      const results = document.getElementById("results");
+      results.innerHTML = "";
+
+      if (!query.trim()) {
+        results.innerHTML = '<p class="small">Enter a search term above.</p>';
+        return;
+      }
+
+      const matches = state.rows
+        .map(row => ({ row, score: score(row, query) }))
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 20);
+
+      if (!matches.length) {
+        results.innerHTML = '<p class="small">No matching stations found.</p>';
+        return;
+      }
+
+      for (const item of matches) {
+        const row = item.row;
+
+        const div = document.createElement("div");
+        div.className = "station";
+
+        const brand = clean(row[cols.brand]);
+        const trading = clean(row[cols.trading]);
+        const address1 = clean(row[cols.address1]);
+        const address2 = clean(row[cols.address2]);
+        const city = clean(row[cols.city]);
+        const postcode = clean(row[cols.postcode]);
+
+        div.innerHTML = `
+          <div class="station-title">${brand} - ${trading}</div>
+          <div class="station-meta">${address1}${address2 ? ", " + address2 : ""}<br>${city} ${postcode}</div>
+          <div class="prices">
+            <span class="pill">E10 ${price(row[cols.e10])}</span>
+            <span class="pill">E5 ${price(row[cols.e5])}</span>
+            <span class="pill">Diesel ${price(row[cols.b7s] || row[cols.b7p])}</span>
+          </div>
+          <button type="button">Select this station</button>
+        `;
+
+        div.querySelector("button").addEventListener("click", () => {
+          document.querySelectorAll(".station").forEach(el => el.classList.remove("selected"));
+          div.classList.add("selected");
+          state.selected = row;
+          updateConfig();
+          document.getElementById("configSection").classList.remove("hidden");
+          document.getElementById("configSection").scrollIntoView({ behavior: "smooth" });
+        });
+
+        results.appendChild(div);
+      }
+    }
+
+    function updateConfig() {
+      if (!state.selected) return;
+
+      const fuel = document.getElementById("fuelSelect").value;
+      const name = displayName(state.selected);
+      const stationPrice = selectedPrice(state.selected, fuel);
+
+      const config = {
+        stationQuery: `${clean(state.selected[cols.brand])} ${clean(state.selected[cols.city])}`.trim(),
+        stationNodeId: clean(state.selected[cols.nodeId]),
+        displayName: name,
+        fuel: fuel,
+        weatherText: "19C Cloud",
+        airText: "Air Good"
+      };
+
+      document.getElementById("configOutput").value = JSON.stringify(config, null, 2);
+      document.getElementById("previewStation").textContent = name;
+      document.getElementById("previewFuel").textContent = fuelLabel(fuel);
+      document.getElementById("previewPrice").textContent = stationPrice ? `${stationPrice}p` : "---.-p";
+    }
+
+    async function init() {
+      const status = document.getElementById("loadStatus");
+
+      try {
+        const res = await fetch(DATA_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const text = await res.text();
+        state.rows = parseCsv(text);
+
+        status.textContent = `Loaded ${state.rows.length.toLocaleString()} fuel stations.`;
+      } catch (err) {
+        status.textContent = `Failed to load station data: ${err.message}`;
+      }
+    }
+
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      renderResults(document.getElementById("searchInput").value);
+    });
+
+    document.getElementById("searchInput").addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        renderResults(event.target.value);
+      }
+    });
+
+    document.getElementById("fuelSelect").addEventListener("change", updateConfig);
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      const text = document.getElementById("configOutput").value;
+      await navigator.clipboard.writeText(text);
+      document.getElementById("copyStatus").textContent = "Copied.";
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const text = document.getElementById("configOutput").value + "\n";
+      const blob = new Blob([text], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "device-config.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    init();
+  </script>
+</body>
+</html>
