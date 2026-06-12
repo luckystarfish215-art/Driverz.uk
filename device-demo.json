@@ -1,9 +1,9 @@
 {
-  "stationName": "SHELL TEST",
-  "fuelType": "Petrol E10",
-  "fuelPrice": "149.9p",
-  "priceChange": "-0.5p today",
-  "updatedTime": "Updated 11:45",
-  "weatherText": "20C Sun",
+  "stationName": "READING EXTRA - PETROL F",
+  "fuelType": "Diesel",
+  "fuelPrice": "176.9p",
+  "priceChange": "Latest price",
+  "updatedTime": "Updated 11:59",
+  "weatherText": "19C Cloud",
   "airText": "Air Good"
 }
