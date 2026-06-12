@@ -61,9 +61,12 @@ def main():
         trading = clean(row.get("forecourts.trading_name"))
         postcode = clean(row.get("forecourts.location.postcode"))
         city = clean(row.get("forecourts.location.city"))
+        address1 = clean(row.get("forecourts.location.address_line_1"))
+        address2 = clean(row.get("forecourts.location.address_line_2"))
         node_id = clean(row.get("forecourts.node_id"))
 
         print(f"\n[{i}] {brand} - {trading}")
+        print(f"    Address: {address1}, {address2}")
         print(f"    City: {city}")
         print(f"    Postcode: {postcode}")
         print(f"    E10: {price(row, 'forecourts.fuel_price.E10')}p")

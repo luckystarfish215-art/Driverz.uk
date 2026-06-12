@@ -133,7 +133,11 @@ def format_timestamp(ts):
     except Exception:
         return "Updated " + ts[:16]
 
-def make_station_name(row, fallback):
+def make_station_name(row, fallback, display_name=""):
+    display_name = clean(display_name)
+    if display_name:
+        return display_name.upper()[:24]
+
     brand = clean(row.get("forecourts.brand_name"))
     trading = clean(row.get("forecourts.trading_name"))
     city = clean(row.get("forecourts.location.city"))
@@ -192,7 +196,7 @@ def main():
         raise SystemExit("ERROR: fuel price not found")
 
     output = {
-        "stationName": make_station_name(row, station_query),
+        "stationName": make_station_name(row, station_query, config.get("displayName", "")),
         "fuelType": fuel_label,
         "fuelPrice": f"{price:.1f}p",
         "priceChange": "Latest price",
