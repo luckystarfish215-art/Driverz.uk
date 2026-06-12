@@ -3,7 +3,7 @@ import csv
 import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 QUERY = "TESCO READING"
 FUEL = "diesel"
@@ -32,38 +32,114 @@ def score_row(row, query):
     score = 0
     if query in text:
         score += 100
+
     for token in tokens:
         if token in text:
             score += 10
+
     return score
 
-def find_price(row, fuel):
-    preferred = ["b7", "diesel"] if fuel == "diesel" else ["e10", "petrol"]
+def get_value(row, key):
+    return clean(row.get(key, ""))
 
-    for key, value in row.items():
-        key_l = key.lower()
-        if any(p in key_l for p in preferred):
-            price = parse_price(value)
-            if price is not None:
-                return price
+def find_price_and_timestamp(row, fuel):
+    fuel = fuel.lower()
 
-    return None
+    if fuel == "diesel":
+        price_keys = [
+            "forecourts.fuel_price.B7S",
+            "forecourts.fuel_price.B7",
+            "forecourts.fuel_price.B7P"
+        ]
+        timestamp_keys = [
+            "forecourts.price_change_effective_timestamp.B7S",
+            "forecourts.price_submission_timestamp.B7S",
+            "forecourts.price_change_effective_timestamp.B7",
+            "forecourts.price_submission_timestamp.B7",
+            "forecourts.price_change_effective_timestamp.B7P",
+            "forecourts.price_submission_timestamp.B7P"
+        ]
 
-def find_station_name(row):
-    for key in row.keys():
-        key_l = key.lower()
-        if key_l in ["stationname", "station_name", "sitename", "site_name", "name"]:
-            value = clean(row[key])
-            if value:
-                return value.upper()[:24]
+    elif fuel in ["petrol", "e10"]:
+        price_keys = [
+            "forecourts.fuel_price.E10"
+        ]
+        timestamp_keys = [
+            "forecourts.price_change_effective_timestamp.E10",
+            "forecourts.price_submission_timestamp.E10"
+        ]
 
-    for key in row.keys():
-        if "brand" in key.lower() or "retailer" in key.lower():
-            value = clean(row[key])
-            if value:
-                return value.upper()[:24]
+    elif fuel == "e5":
+        price_keys = [
+            "forecourts.fuel_price.E5"
+        ]
+        timestamp_keys = [
+            "forecourts.price_change_effective_timestamp.E5",
+            "forecourts.price_submission_timestamp.E5"
+        ]
 
-    return QUERY.upper()[:24]
+    else:
+        price_keys = []
+        timestamp_keys = []
+
+    price = None
+
+    for key in price_keys:
+        price = parse_price(row.get(key))
+        if price is not None:
+            break
+
+    timestamp = ""
+
+    for key in timestamp_keys:
+        value = get_value(row, key)
+        if value:
+            timestamp = value
+            break
+
+    return price, timestamp
+
+def format_timestamp(ts):
+    if not ts:
+        return "Updated unknown"
+
+    try:
+        # Example: 2026-06-11T17:40:21.000Z
+        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        local_dt = dt.astimezone()
+        return "Updated " + local_dt.strftime("%H:%M")
+    except Exception:
+        return "Updated " + ts[:16]
+
+def make_station_name(row):
+    brand = get_value(row, "forecourts.brand_name")
+    trading = get_value(row, "forecourts.trading_name")
+    city = get_value(row, "forecourts.location.city")
+    postcode = get_value(row, "forecourts.location.postcode")
+
+    trading = trading.replace(" - PETROL FILLING STATION", "")
+    trading = trading.replace("PETROL FILLING STATION", "")
+    trading = trading.replace("PFS", "")
+    trading = " ".join(trading.split())
+
+    if brand and trading:
+        name = f"{brand} {trading}"
+    elif brand and city:
+        name = f"{brand} {city}"
+    elif trading:
+        name = trading
+    elif brand and postcode:
+        name = f"{brand} {postcode}"
+    else:
+        name = QUERY
+
+    name = name.upper()
+
+    # ESP32 header readability
+    if len(name) > 24:
+        name = name[:24]
+
+    return name
 
 def main():
     if not os.path.exists(CSV_PATH):
@@ -87,32 +163,33 @@ def main():
     if best is None:
         raise SystemExit("ERROR: station not found")
 
-    price = find_price(best, FUEL)
+    price, price_timestamp = find_price_and_timestamp(best, FUEL)
 
     if price is None:
         print("Matched row but price not found. Columns:")
         for k, v in best.items():
-            print(k, "=", v)
-        raise SystemExit("ERROR: diesel price not found")
+            if v:
+                print(k, "=", v)
+        raise SystemExit("ERROR: fuel price not found")
 
-    now_text = datetime.now().strftime("%H:%M")
+    fuel_label = "Diesel" if FUEL == "diesel" else "Petrol E10"
 
     data = {
-        "stationName": find_station_name(best),
-        "fuelType": "Diesel",
+        "stationName": make_station_name(best),
+        "fuelType": fuel_label,
         "fuelPrice": f"{price:.1f}p",
         "priceChange": "Latest price",
-        "updatedTime": f"Updated {now_text}",
-        "weatherText": "19C Cloud",
-        "airText": "Air Good"
+      
+        "weatherText": "
+        "airText": "Air G
     }
 
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-        f.write("\n")
+    with open(OUTPU
 
-    print("Generated device-demo.json")
-    print(json.dumps(data, indent=2))
+        f.wri
+
+    print("Generated
+    print(json.dumpsdent=2))
 
 if __name__ == "__main__":
     main()
