@@ -3,10 +3,9 @@ import csv
 import json
 import os
 import re
-from datetime import datetime, timezone
+from datetime import datetime
 
-QUERY = "TESCO READING"
-FUEL = "diesel"
+CONFIG_PATH = "config/device-config.json"
 CSV_PATH = "data/fuel_data.csv"
 OUTPUT_PATH = "device-demo.json"
 
@@ -21,16 +20,24 @@ def parse_price(value):
     price = float(match.group(1))
     return price if 50 <= price <= 300 else None
 
+def load_config():
+    if not os.path.exists(CONFIG_PATH):
+        raise SystemExit(f"ERROR: {CONFIG_PATH} not found")
+
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
 def row_text(row):
     return " ".join(clean(v).lower() for v in row.values() if clean(v))
 
 def score_row(row, query):
     text = row_text(row)
-    query = query.lower()
-    tokens = query.split()
+    query = query.lower().strip()
+    tokens = [t for t in query.split() if t]
 
     score = 0
-    if query in text:
+
+    if query and query in text:
         score += 100
 
     for token in tokens:
@@ -39,8 +46,29 @@ def score_row(row, query):
 
     return score
 
-def get_value(row, key):
-    return clean(row.get(key, ""))
+def find_station(rows, station_query, station_node_id):
+    station_node_id = clean(station_node_id)
+
+    if station_node_id:
+        for row in rows:
+            if clean(row.get("forecourts.node_id")) == station_node_id:
+                return row
+
+        raise SystemExit(f"ERROR: stationNodeId not found: {station_node_id}")
+
+    best = None
+    best_score = 0
+
+    for row in rows:
+        score = score_row(row, station_query)
+        if score > best_score:
+            best = row
+            best_score = score
+
+    if best is None:
+        raise SystemExit(f"ERROR: station not found for query: {station_query}")
+
+    return best
 
 def find_price_and_timestamp(row, fuel):
     fuel = fuel.lower()
@@ -59,63 +87,57 @@ def find_price_and_timestamp(row, fuel):
             "forecourts.price_change_effective_timestamp.B7P",
             "forecourts.price_submission_timestamp.B7P"
         ]
+        fuel_label = "Diesel"
 
     elif fuel in ["petrol", "e10"]:
-        price_keys = [
-            "forecourts.fuel_price.E10"
-        ]
+        price_keys = ["forecourts.fuel_price.E10"]
         timestamp_keys = [
             "forecourts.price_change_effective_timestamp.E10",
             "forecourts.price_submission_timestamp.E10"
         ]
+        fuel_label = "Petrol E10"
 
     elif fuel == "e5":
-        price_keys = [
-            "forecourts.fuel_price.E5"
-        ]
+        price_keys = ["forecourts.fuel_price.E5"]
         timestamp_keys = [
             "forecourts.price_change_effective_timestamp.E5",
             "forecourts.price_submission_timestamp.E5"
         ]
+        fuel_label = "Petrol E5"
 
     else:
-        price_keys = []
-        timestamp_keys = []
+        raise SystemExit(f"ERROR: unsupported fuel type: {fuel}")
 
     price = None
-
     for key in price_keys:
         price = parse_price(row.get(key))
         if price is not None:
             break
 
     timestamp = ""
-
     for key in timestamp_keys:
-        value = get_value(row, key)
+        value = clean(row.get(key))
         if value:
             timestamp = value
             break
 
-    return price, timestamp
+    return price, timestamp, fuel_label
 
 def format_timestamp(ts):
     if not ts:
         return "Updated unknown"
 
     try:
-        # Example: 2026-06-11T17:40:21.000Z
         dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
-        local_dt = dt.astimezone()
-        return "Updated " + local_dt.strftime("%H:%M")
+        return "Updated " + dt.astimezone().strftime("%H:%M")
     except Exception:
         return "Updated " + ts[:16]
 
-def make_station_name(row):
-    brand = get_value(row, "forecourts.brand_name")
-    trading = get_value(row, "forecourts.trading_name")
-    city = get_value(row, "forecourts.location.city")
-    postcode = get_value(row, "forecourts.location.postcode")
+def make_station_name(row, fallback):
+    brand = clean(row.get("forecourts.brand_name"))
+    trading = clean(row.get("forecourts.trading_name"))
+    city = clean(row.get("forecourts.location.city"))
+    postcode = clean(row.get("forecourts.location.postcode"))
 
     trading = trading.replace(" - PETROL FILLING STATION", "")
     trading = trading.replace("PETROL FILLING STATION", "")
@@ -131,17 +153,24 @@ def make_station_name(row):
     elif brand and postcode:
         name = f"{brand} {postcode}"
     else:
-        name = QUERY
+        name = fallback
 
     name = name.upper()
 
-    # ESP32 header readability
     if len(name) > 24:
         name = name[:24]
 
     return name
 
 def main():
+    config = load_config()
+
+    station_query = clean(config.get("stationQuery", ""))
+    station_node_id = clean(config.get("stationNodeId", ""))
+    fuel = clean(config.get("fuel", "diesel")).lower()
+    weather_text = clean(config.get("weatherText", "19C Cloud"))
+    air_text = clean(config.get("airText", "Air Good"))
+
     if not os.path.exists(CSV_PATH):
         raise SystemExit("ERROR: data/fuel_data.csv not found")
 
@@ -151,45 +180,33 @@ def main():
     if not rows:
         raise SystemExit("ERROR: fuel_data.csv is empty")
 
-    best = None
-    best_score = 0
+    row = find_station(rows, station_query, station_node_id)
 
-    for row in rows:
-        score = score_row(row, QUERY)
-        if score > best_score:
-            best = row
-            best_score = score
-
-    if best is None:
-        raise SystemExit("ERROR: station not found")
-
-    price, price_timestamp = find_price_and_timestamp(best, FUEL)
+    price, price_timestamp, fuel_label = find_price_and_timestamp(row, fuel)
 
     if price is None:
-        print("Matched row but price not found. Columns:")
-        for k, v in best.items():
+        print("Matched station but price not found:")
+        for k, v in row.items():
             if v:
                 print(k, "=", v)
         raise SystemExit("ERROR: fuel price not found")
 
-    fuel_label = "Diesel" if FUEL == "diesel" else "Petrol E10"
-
-    data = {
-        "stationName": make_station_name(best),
+    output = {
+        "stationName": make_station_name(row, station_query),
         "fuelType": fuel_label,
         "fuelPrice": f"{price:.1f}p",
         "priceChange": "Latest price",
-      
-        "weatherText": "
-        "airText": "Air G
+        "updatedTime": format_timestamp(price_timestamp),
+        "weatherText": weather_text,
+        "airText": air_text
     }
 
-    with open(OUTPU
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2)
+        f.write("\n")
 
-        f.wri
-
-    print("Generated
-    print(json.dumpsdent=2))
+    print("Generated device-demo.json")
+    print(json.dumps(output, indent=2))
 
 if __name__ == "__main__":
     main()
