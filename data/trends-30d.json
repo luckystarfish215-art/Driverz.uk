@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-06-17T14:20:56.951771+00:00",
-  "latest_snapshot_date": "2026-06-17",
-  "days_available": 28,
-  "valid_snapshot_days": 21,
+  "generated_at": "2026-06-18T13:54:16.679707+00:00",
+  "latest_snapshot_date": "2026-06-18",
+  "days_available": 29,
+  "valid_snapshot_days": 22,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 172.66,
+      "today": 172.5,
       "previous": 176.48,
-      "change": -3.82,
-      "today_snapshot_date": "2026-06-17",
+      "change": -3.98,
+      "today_snapshot_date": "2026-06-18",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 21,
-      "priced_station_count": 6184
+      "valid_days_for_fuel": 22,
+      "priced_station_count": 6188
     },
     "e10": {
-      "today": 155.12,
+      "today": 154.96,
       "previous": 159.53,
-      "change": -4.41,
-      "today_snapshot_date": "2026-06-17",
+      "change": -4.57,
+      "today_snapshot_date": "2026-06-18",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 21,
-      "priced_station_count": 7770
+      "valid_days_for_fuel": 22,
+      "priced_station_count": 7776
     },
     "b7": {
-      "today": 175.14,
+      "today": 174.77,
       "previous": 184.59,
-      "change": -9.45,
-      "today_snapshot_date": "2026-06-17",
+      "change": -9.82,
+      "today_snapshot_date": "2026-06-18",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 21,
-      "priced_station_count": 7844
+      "valid_days_for_fuel": 22,
+      "priced_station_count": 7851
     },
     "sdv": {
-      "today": 195.56,
+      "today": 195.16,
       "previous": 204.57,
-      "change": -9.01,
-      "today_snapshot_date": "2026-06-17",
+      "change": -9.41,
+      "today_snapshot_date": "2026-06-18",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 21,
-      "priced_station_count": 4067
+      "valid_days_for_fuel": 22,
+      "priced_station_count": 4071
     }
   }
 }
