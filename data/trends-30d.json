@@ -1,44 +1,44 @@
 {
-  "generated_at": "2026-06-21T12:59:14.152651+00:00",
-  "latest_snapshot_date": "2026-06-21",
+  "generated_at": "2026-06-22T15:46:18.372161+00:00",
+  "latest_snapshot_date": "2026-06-22",
   "days_available": 30,
-  "valid_snapshot_days": 25,
+  "valid_snapshot_days": 26,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 171.66,
+      "today": 171.4,
       "previous": 176.48,
-      "change": -4.82,
-      "today_snapshot_date": "2026-06-21",
+      "change": -5.08,
+      "today_snapshot_date": "2026-06-22",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 25,
+      "valid_days_for_fuel": 26,
       "priced_station_count": 6191
     },
     "e10": {
-      "today": 153.8,
+      "today": 153.49,
       "previous": 159.53,
-      "change": -5.73,
-      "today_snapshot_date": "2026-06-21",
+      "change": -6.04,
+      "today_snapshot_date": "2026-06-22",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 25,
+      "valid_days_for_fuel": 26,
       "priced_station_count": 7781
     },
     "b7": {
-      "today": 172.31,
+      "today": 171.67,
       "previous": 184.59,
-      "change": -12.28,
-      "today_snapshot_date": "2026-06-21",
+      "change": -12.92,
+      "today_snapshot_date": "2026-06-22",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 25,
-      "priced_station_count": 7856
+      "valid_days_for_fuel": 26,
+      "priced_station_count": 7857
     },
     "sdv": {
-      "today": 193.57,
+      "today": 192.95,
       "previous": 204.57,
-      "change": -11.0,
-      "today_snapshot_date": "2026-06-21",
+      "change": -11.62,
+      "today_snapshot_date": "2026-06-22",
       "previous_snapshot_date": "2026-05-28",
-      "valid_days_for_fuel": 25,
+      "valid_days_for_fuel": 26,
       "priced_station_count": 4072
     }
   }
