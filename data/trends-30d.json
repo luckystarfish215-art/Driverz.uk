@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-06-27T12:03:20.869582+00:00",
-  "latest_snapshot_date": "2026-06-27",
+  "generated_at": "2026-06-28T12:11:39.841036+00:00",
+  "latest_snapshot_date": "2026-06-28",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 170.19,
-      "previous": 176.43,
-      "change": -6.24,
-      "today_snapshot_date": "2026-06-27",
-      "previous_snapshot_date": "2026-05-29",
+      "today": 170.15,
+      "previous": 176.44,
+      "change": -6.29,
+      "today_snapshot_date": "2026-06-28",
+      "previous_snapshot_date": "2026-05-30",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 6192
+      "priced_station_count": 6191
     },
     "e10": {
-      "today": 151.74,
+      "today": 151.67,
       "previous": 159.43,
-      "change": -7.69,
-      "today_snapshot_date": "2026-06-27",
-      "previous_snapshot_date": "2026-05-29",
+      "change": -7.76,
+      "today_snapshot_date": "2026-06-28",
+      "previous_snapshot_date": "2026-05-30",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7783
+      "priced_station_count": 7782
     },
     "b7": {
-      "today": 168.06,
-      "previous": 184.09,
-      "change": -16.03,
-      "today_snapshot_date": "2026-06-27",
-      "previous_snapshot_date": "2026-05-29",
+      "today": 167.92,
+      "previous": 184.0,
+      "change": -16.08,
+      "today_snapshot_date": "2026-06-28",
+      "previous_snapshot_date": "2026-05-30",
       "valid_days_for_fuel": 30,
       "priced_station_count": 7862
     },
     "sdv": {
-      "today": 188.94,
-      "previous": 203.09,
-      "change": -14.15,
-      "today_snapshot_date": "2026-06-27",
-      "previous_snapshot_date": "2026-05-29",
+      "today": 188.82,
+      "previous": 203.04,
+      "change": -14.22,
+      "today_snapshot_date": "2026-06-28",
+      "previous_snapshot_date": "2026-05-30",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4122
     }
