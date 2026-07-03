@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-07-02T12:51:29.104025+00:00",
-  "latest_snapshot_date": "2026-07-02",
+  "generated_at": "2026-07-03T12:50:14.007292+00:00",
+  "latest_snapshot_date": "2026-07-03",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 169.53,
-      "previous": 176.06,
-      "change": -6.53,
-      "today_snapshot_date": "2026-07-02",
-      "previous_snapshot_date": "2026-06-03",
+      "today": 169.46,
+      "previous": 175.94,
+      "change": -6.48,
+      "today_snapshot_date": "2026-07-03",
+      "previous_snapshot_date": "2026-06-04",
       "valid_days_for_fuel": 30,
       "priced_station_count": 6193
     },
     "e10": {
-      "today": 150.96,
-      "previous": 158.8,
-      "change": -7.84,
-      "today_snapshot_date": "2026-07-02",
-      "previous_snapshot_date": "2026-06-03",
+      "today": 150.89,
+      "previous": 158.55,
+      "change": -7.66,
+      "today_snapshot_date": "2026-07-03",
+      "previous_snapshot_date": "2026-06-04",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7789
+      "priced_station_count": 7790
     },
     "b7": {
-      "today": 165.98,
-      "previous": 182.52,
-      "change": -16.54,
-      "today_snapshot_date": "2026-07-02",
-      "previous_snapshot_date": "2026-06-03",
+      "today": 165.74,
+      "previous": 182.08,
+      "change": -16.34,
+      "today_snapshot_date": "2026-07-03",
+      "previous_snapshot_date": "2026-06-04",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7868
+      "priced_station_count": 7869
     },
     "sdv": {
-      "today": 187.29,
-      "previous": 202.01,
-      "change": -14.72,
-      "today_snapshot_date": "2026-07-02",
-      "previous_snapshot_date": "2026-06-03",
+      "today": 187.07,
+      "previous": 201.72,
+      "change": -14.65,
+      "today_snapshot_date": "2026-07-03",
+      "previous_snapshot_date": "2026-06-04",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 4125
+      "priced_station_count": 4127
     }
   }
 }
