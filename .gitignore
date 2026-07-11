@@ -9,3 +9,17 @@ _audit_exports/
 .DS_Store
 *.log
 *.tmp
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Runtime logs
+logs/
