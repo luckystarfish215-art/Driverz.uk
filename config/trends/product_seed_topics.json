@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "market": "UK",
+  "language": "en-GB",
+  "topic_scope": "driver_products",
+  "seed_topics": [
+    {
+      "topic": "car phone accessories",
+      "category": "technology",
+      "enabled": true
+    },
+    {
+      "topic": "car organisation",
+      "category": "organisation",
+      "enabled": true
+    },
+    {
+      "topic": "car cleaning",
+      "category": "cleaning",
+      "enabled": true
+    },
+    {
+      "topic": "car comfort",
+      "category": "comfort",
+      "enabled": true
+    },
+    {
+      "topic": "winter car accessories",
+      "category": "seasonal",
+      "enabled": true
+    },
+    {
+      "topic": "summer car accessories",
+      "category": "seasonal",
+      "enabled": true
+    },
+    {
+      "topic": "car travel accessories",
+      "category": "travel",
+      "enabled": true
+    },
+    {
+      "topic": "EV accessories",
+      "category": "ev",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "source": "driverz_controlled_topic_expansion",
+  "generator_version": 1,
+  "generated_at": "2026-07-11T19:25:35.666386+00:00",
+  "market": "UK",
+  "language": "en-GB",
+  "topic_scope": "driver_products",
+  "enabled_seed_count": 8,
+  "candidate_count": 39,
+  "new_topic_count": 34,
+  "existing_affiliate_keyword_count": 5,
+  "candidates": [
+    {
+      "topic": "car armrest cushion",
+      "normalized_topic": "car armrest cushion",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car cleaning gel",
+      "normalized_topic": "car cleaning gel",
+      "categories": [
+        "cleaning"
+      ],
+      "source_seeds": [
+        "car cleaning"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car cooling seat cushion",
+      "normalized_topic": "car cooling seat cushion",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car cup holder expander",
+      "normalized_topic": "car cup holder expander",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car dashboard sun cover",
+      "normalized_topic": "car dashboard sun cover",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car demister pad",
+      "normalized_topic": "car demister pad",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car detailing brush",
+      "normalized_topic": "car detailing brush",
+      "categories": [
+        "cleaning"
+      ],
+      "source_seeds": [
+        "car cleaning"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car fan",
+      "normalized_topic": "car fan",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car food tray",
+      "normalized_topic": "car food tray",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car headrest hook",
+      "normalized_topic": "car headrest hook",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car ice scraper",
+      "normalized_topic": "car ice scraper",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car interior cleaning tools",
+      "normalized_topic": "car interior cleaning tools",
+      "categories": [
+        "cleaning"
+      ],
+      "source_seeds": [
+        "car cleaning"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car neck pillow",
+      "normalized_topic": "car neck pillow",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car phone charging cable",
+      "normalized_topic": "car phone charging cable",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car rubbish bin",
+      "normalized_topic": "car rubbish bin",
+      "categories": [
+        "organisation"
+      ],
+      "source_seeds": [
+        "car organisation"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car seat cushion",
+      "normalized_topic": "car seat cushion",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car seat gap filler",
+      "normalized_topic": "car seat gap filler",
+      "categories": [
+        "organisation"
+      ],
+      "source_seeds": [
+        "car organisation"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car snow brush",
+      "normalized_topic": "car snow brush",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car storage organiser",
+      "normalized_topic": "car storage organiser",
+      "categories": [
+        "organisation"
+      ],
+      "source_seeds": [
+        "car organisation"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car tablet holder",
+      "normalized_topic": "car tablet holder",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car travel organiser",
+      "normalized_topic": "car travel organiser",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car travel pillow",
+      "normalized_topic": "car travel pillow",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car window shade",
+      "normalized_topic": "car window shade",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car window sun shade",
+      "normalized_topic": "car window sun shade",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car windscreen cleaning tool",
+      "normalized_topic": "car windscreen cleaning tool",
+      "categories": [
+        "cleaning"
+      ],
+      "source_seeds": [
+        "car cleaning"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car windscreen cover",
+      "normalized_topic": "car windscreen cover",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "electric car screen protector",
+      "normalized_topic": "electric car screen protector",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "EV cable organiser",
+      "normalized_topic": "ev cable organiser",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "EV charging cable bag",
+      "normalized_topic": "ev charging cable bag",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "EV charging port cover",
+      "normalized_topic": "ev charging port cover",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "EV tyre inflator",
+      "normalized_topic": "ev tyre inflator",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "heated car seat cushion",
+      "normalized_topic": "heated car seat cushion",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "magsafe car mount",
+      "normalized_topic": "magsafe car mount",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "wireless car charger",
+      "normalized_topic": "wireless car charger",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": false
+    },
+    {
+      "topic": "car boot organiser",
+      "normalized_topic": "car boot organiser",
+      "categories": [
+        "organisation"
+      ],
+      "source_seeds": [
+        "car organisation"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": true
+    },
+    {
+      "topic": "car cleaning brush",
+      "normalized_topic": "car cleaning brush",
+      "categories": [
+        "cleaning"
+      ],
+      "source_seeds": [
+        "car cleaning"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": true
+    },
+    {
+      "topic": "car phone holder",
+      "normalized_topic": "car phone holder",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": true
+    },
+    {
+      "topic": "car seat organiser",
+      "normalized_topic": "car seat organiser",
+      "categories": [
+        "organisation"
+      ],
+      "source_seeds": [
+        "car organisation"
+      ],
+      "seasonality": [],
+      "already_in_affiliate_keywords": true
+    },
+    {
+      "topic": "car sun shade",
+      "normalized_topic": "car sun shade",
+      "categories": [
+        "comfort",
+        "seasonal"
+      ],
+      "source_seeds": [
+        "car comfort",
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "already_in_affiliate_keywords": true
+    }
+  ]
+}
