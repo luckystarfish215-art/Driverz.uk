@@ -1,0 +1,4776 @@
+{
+  "source": "driverz_trend_signal_collection",
+  "collector_version": 1,
+  "generated_at": "2026-07-11T19:42:59.755429+00:00",
+  "market": "UK",
+  "raw_signal_count": 333,
+  "unique_signal_count": 329,
+  "rss_signal_count": 10,
+  "autocomplete_parent_topic_count": 34,
+  "autocomplete_success_count": 34,
+  "autocomplete_failure_count": 0,
+  "autocomplete_stats": [
+    {
+      "parent_topic": "car armrest cushion",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car cleaning gel",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car cooling seat cushion",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car cup holder expander",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car dashboard sun cover",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car demister pad",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car detailing brush",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car fan",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car food tray",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car headrest hook",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car ice scraper",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car interior cleaning tools",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car neck pillow",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car phone charging cable",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car rubbish bin",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car seat cushion",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car seat gap filler",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car snow brush",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car storage organiser",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car tablet holder",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car travel organiser",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car travel pillow",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car window shade",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car window sun shade",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car windscreen cleaning tool",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "car windscreen cover",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "electric car screen protector",
+      "signal_count": 0,
+      "status": "success"
+    },
+    {
+      "parent_topic": "EV cable organiser",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "EV charging cable bag",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "EV charging port cover",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "EV tyre inflator",
+      "signal_count": 3,
+      "status": "success"
+    },
+    {
+      "parent_topic": "heated car seat cushion",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "magsafe car mount",
+      "signal_count": 10,
+      "status": "success"
+    },
+    {
+      "parent_topic": "wireless car charger",
+      "signal_count": 10,
+      "status": "success"
+    }
+  ],
+  "signals": [
+    {
+      "query": "auto cooling seat cushion",
+      "normalized_query": "auto cooling seat cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "automotive interior cleaning tools",
+      "normalized_query": "automotive interior cleaning tools",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "best car phone charging cable",
+      "normalized_query": "best car phone charging cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "can you take black bin rubbish to the tip",
+      "normalized_query": "can you take black bin rubbish to the tip",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car armrest cushion",
+      "normalized_query": "car armrest cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion 5 in 1",
+      "normalized_query": "car armrest cushion 5 in 1",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion and storage",
+      "normalized_query": "car armrest cushion and storage",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion box with cup holder",
+      "normalized_query": "car armrest cushion box with cup holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion hsn code",
+      "normalized_query": "car armrest cushion hsn code",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion memory foam",
+      "normalized_query": "car armrest cushion memory foam",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion nearby",
+      "normalized_query": "car armrest cushion nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion with cup holder",
+      "normalized_query": "car armrest cushion with cup holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion with side pocket",
+      "normalized_query": "car armrest cushion with side pocket",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car armrest cushion with tissue box",
+      "normalized_query": "car armrest cushion with tissue box",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car armrest cushion",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car armrest cushion"
+      ]
+    },
+    {
+      "query": "car cleaning gel",
+      "normalized_query": "car cleaning gel",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel amazon",
+      "normalized_query": "car cleaning gel amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel diy",
+      "normalized_query": "car cleaning gel diy",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel halfords",
+      "normalized_query": "car cleaning gel halfords",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel near me",
+      "normalized_query": "car cleaning gel near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel nearby",
+      "normalized_query": "car cleaning gel nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel putty",
+      "normalized_query": "car cleaning gel putty",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel slime",
+      "normalized_query": "car cleaning gel slime",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel target",
+      "normalized_query": "car cleaning gel target",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cleaning gel walmart",
+      "normalized_query": "car cleaning gel walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cleaning gel",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cleaning gel"
+      ]
+    },
+    {
+      "query": "car cooling seat cover",
+      "normalized_query": "car cooling seat cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "car cooling seat cushion",
+      "normalized_query": "car cooling seat cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "car cooling seat cushion cost",
+      "normalized_query": "car cooling seat cushion cost",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "car cooling seat pad",
+      "normalized_query": "car cooling seat pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "car cup holder expander",
+      "normalized_query": "car cup holder expander",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander 2 in 1",
+      "normalized_query": "car cup holder expander 2 in 1",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander 3d print",
+      "normalized_query": "car cup holder expander 3d print",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander amazon",
+      "normalized_query": "car cup holder expander amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander bunnings",
+      "normalized_query": "car cup holder expander bunnings",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander for yeti",
+      "normalized_query": "car cup holder expander for yeti",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander kmart",
+      "normalized_query": "car cup holder expander kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander nearby",
+      "normalized_query": "car cup holder expander nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander nz",
+      "normalized_query": "car cup holder expander nz",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car cup holder expander target",
+      "normalized_query": "car cup holder expander target",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cup holder expander",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cup holder expander"
+      ]
+    },
+    {
+      "query": "car dashboard sun cover",
+      "normalized_query": "car dashboard sun cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car dashboard sun protection",
+      "normalized_query": "car dashboard sun protection",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car dashboard sun shade",
+      "normalized_query": "car dashboard sun shade",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car dashboard sun shade accessories",
+      "normalized_query": "car dashboard sun shade accessories",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car dashboard sun shield",
+      "normalized_query": "car dashboard sun shield",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car dashboard sun visor",
+      "normalized_query": "car dashboard sun visor",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car demister pad",
+      "normalized_query": "car demister pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad halfords",
+      "normalized_query": "car demister pad halfords",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad home bargains",
+      "normalized_query": "car demister pad home bargains",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad how to use",
+      "normalized_query": "car demister pad how to use",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad microwave",
+      "normalized_query": "car demister pad microwave",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad screwfix",
+      "normalized_query": "car demister pad screwfix",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad tesco",
+      "normalized_query": "car demister pad tesco",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car demister pad with handle",
+      "normalized_query": "car demister pad with handle",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car detailing brush bunnings",
+      "normalized_query": "car detailing brush bunnings",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brush for drill",
+      "normalized_query": "car detailing brush for drill",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brush halfords",
+      "normalized_query": "car detailing brush halfords",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brush kit",
+      "normalized_query": "car detailing brush kit",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brush set",
+      "normalized_query": "car detailing brush set",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brushes",
+      "normalized_query": "car detailing brushes",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brushes amazon",
+      "normalized_query": "car detailing brushes amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brushes interior",
+      "normalized_query": "car detailing brushes interior",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brushes near me",
+      "normalized_query": "car detailing brushes near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car detailing brushes nearby",
+      "normalized_query": "car detailing brushes nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car detailing brush",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car detailing brush"
+      ]
+    },
+    {
+      "query": "car fan",
+      "normalized_query": "car fan",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan 12v",
+      "normalized_query": "car fan 12v",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan belt",
+      "normalized_query": "car fan belt",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan for back seat",
+      "normalized_query": "car fan for back seat",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan not working",
+      "normalized_query": "car fan not working",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan portable",
+      "normalized_query": "car fan portable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fan price",
+      "normalized_query": "car fan price",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fanatic",
+      "normalized_query": "car fanatic",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fancy number",
+      "normalized_query": "car fancy number",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car fancy number plate",
+      "normalized_query": "car fancy number plate",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car fan",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car fan"
+      ]
+    },
+    {
+      "query": "car food tray",
+      "normalized_query": "car food tray",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray back seat",
+      "normalized_query": "car food tray back seat",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray for driver and passenger",
+      "normalized_query": "car food tray for driver and passenger",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray for kids",
+      "normalized_query": "car food tray for kids",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray front seat",
+      "normalized_query": "car food tray front seat",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray near me",
+      "normalized_query": "car food tray near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray table",
+      "normalized_query": "car food tray table",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray with bottle holder",
+      "normalized_query": "car food tray with bottle holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray with bottle holder (cft3)",
+      "normalized_query": "car food tray with bottle holder (cft3)",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car food tray with cup holder",
+      "normalized_query": "car food tray with cup holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car food tray",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car food tray"
+      ]
+    },
+    {
+      "query": "car glass cleaning tool",
+      "normalized_query": "car glass cleaning tool",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car headrest hook 3d print",
+      "normalized_query": "car headrest hook 3d print",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hook for purse",
+      "normalized_query": "car headrest hook for purse",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hook hanger",
+      "normalized_query": "car headrest hook hanger",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hook phone holder",
+      "normalized_query": "car headrest hook phone holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hook stl",
+      "normalized_query": "car headrest hook stl",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hooks",
+      "normalized_query": "car headrest hooks",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hooks amazon",
+      "normalized_query": "car headrest hooks amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hooks leather",
+      "normalized_query": "car headrest hooks leather",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hooks near me",
+      "normalized_query": "car headrest hooks near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car headrest hooks nearby",
+      "normalized_query": "car headrest hooks nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car headrest hook",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car headrest hook"
+      ]
+    },
+    {
+      "query": "car heater pad",
+      "normalized_query": "car heater pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "car ice scraper",
+      "normalized_query": "car ice scraper",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper amazon",
+      "normalized_query": "car ice scraper amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper and brush",
+      "normalized_query": "car ice scraper and brush",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper home depot",
+      "normalized_query": "car ice scraper home depot",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper near me",
+      "normalized_query": "car ice scraper near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper nearby",
+      "normalized_query": "car ice scraper nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper target",
+      "normalized_query": "car ice scraper target",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper tesco",
+      "normalized_query": "car ice scraper tesco",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper walmart",
+      "normalized_query": "car ice scraper walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car ice scraper with glove",
+      "normalized_query": "car ice scraper with glove",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car ice scraper",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car ice scraper"
+      ]
+    },
+    {
+      "query": "car interior cleaner toolstation",
+      "normalized_query": "car interior cleaner toolstation",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior cleaning tools",
+      "normalized_query": "car interior cleaning tools",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior cleaning tools nearby",
+      "normalized_query": "car interior cleaning tools nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior cleaning tools reddit",
+      "normalized_query": "car interior cleaning tools reddit",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior detailing tools",
+      "normalized_query": "car interior detailing tools",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior detailing tools near me",
+      "normalized_query": "car interior detailing tools near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior detailing tools nearby",
+      "normalized_query": "car interior detailing tools nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car interior washing tools",
+      "normalized_query": "car interior washing tools",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car luggage organiser",
+      "normalized_query": "car luggage organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car mobile charger cable type c",
+      "normalized_query": "car mobile charger cable type c",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car mobile charging cable",
+      "normalized_query": "car mobile charging cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car neck pillow",
+      "normalized_query": "car neck pillow",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow",
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow for driving",
+      "normalized_query": "car neck pillow for driving",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow",
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow for kids",
+      "normalized_query": "car neck pillow for kids",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow frido",
+      "normalized_query": "car neck pillow frido",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow kmart",
+      "normalized_query": "car neck pillow kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow meesho",
+      "normalized_query": "car neck pillow meesho",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow memory foam",
+      "normalized_query": "car neck pillow memory foam",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow",
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow near me",
+      "normalized_query": "car neck pillow near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow",
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow set",
+      "normalized_query": "car neck pillow set",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car neck pillow set of 2",
+      "normalized_query": "car neck pillow set of 2",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car neck pillow",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car neck pillow"
+      ]
+    },
+    {
+      "query": "car organiser storage box",
+      "normalized_query": "car organiser storage box",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car phone charger cable",
+      "normalized_query": "car phone charger cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car phone charger cable management",
+      "normalized_query": "car phone charger cable management",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car phone charger retractable cable",
+      "normalized_query": "car phone charger retractable cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car phone charging cable",
+      "normalized_query": "car phone charging cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car phone usb cable",
+      "normalized_query": "car phone usb cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "car rubbish bin",
+      "normalized_query": "car rubbish bin",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin - kmart",
+      "normalized_query": "car rubbish bin - kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin big w",
+      "normalized_query": "car rubbish bin big w",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin bunnings",
+      "normalized_query": "car rubbish bin bunnings",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin nz",
+      "normalized_query": "car rubbish bin nz",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin reject shop",
+      "normalized_query": "car rubbish bin reject shop",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin supercheap",
+      "normalized_query": "car rubbish bin supercheap",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin supercheap auto",
+      "normalized_query": "car rubbish bin supercheap auto",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car rubbish bin uk",
+      "normalized_query": "car rubbish bin uk",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car rubbish bin",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car rubbish bin"
+      ]
+    },
+    {
+      "query": "car screen cleaning tool",
+      "normalized_query": "car screen cleaning tool",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car seat cooler cushion",
+      "normalized_query": "car seat cooler cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion",
+      "normalized_query": "car seat cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion cover",
+      "normalized_query": "car seat cushion cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for adults",
+      "normalized_query": "car seat cushion for adults",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for baby",
+      "normalized_query": "car seat cushion for baby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for back",
+      "normalized_query": "car seat cushion for back",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for back pain",
+      "normalized_query": "car seat cushion for back pain",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for height",
+      "normalized_query": "car seat cushion for height",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion for sciatica",
+      "normalized_query": "car seat cushion for sciatica",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion near me",
+      "normalized_query": "car seat cushion near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat cushion pad",
+      "normalized_query": "car seat cushion pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat cushion",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat cushion"
+      ]
+    },
+    {
+      "query": "car seat gap filler",
+      "normalized_query": "car seat gap filler",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler amazon",
+      "normalized_query": "car seat gap filler amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler kmart",
+      "normalized_query": "car seat gap filler kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler near me",
+      "normalized_query": "car seat gap filler near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler nearby",
+      "normalized_query": "car seat gap filler nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler organizer",
+      "normalized_query": "car seat gap filler organizer",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler pakistan",
+      "normalized_query": "car seat gap filler pakistan",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler with cup holder",
+      "normalized_query": "car seat gap filler with cup holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler with logo",
+      "normalized_query": "car seat gap filler with logo",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car seat gap filler with storage",
+      "normalized_query": "car seat gap filler with storage",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car seat gap filler",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car seat gap filler"
+      ]
+    },
+    {
+      "query": "car snow brush",
+      "normalized_query": "car snow brush",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush and scraper",
+      "normalized_query": "car snow brush and scraper",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush canadian tire",
+      "normalized_query": "car snow brush canadian tire",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush costco",
+      "normalized_query": "car snow brush costco",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush dollarama",
+      "normalized_query": "car snow brush dollarama",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush extendable",
+      "normalized_query": "car snow brush extendable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush home depot",
+      "normalized_query": "car snow brush home depot",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush near me",
+      "normalized_query": "car snow brush near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush nearby",
+      "normalized_query": "car snow brush nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car snow brush walmart",
+      "normalized_query": "car snow brush walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car snow brush",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car snow brush"
+      ]
+    },
+    {
+      "query": "car storage boxes",
+      "normalized_query": "car storage boxes",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser",
+      "normalized_query": "car storage organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser b&m",
+      "normalized_query": "car storage organiser b&m",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser bag",
+      "normalized_query": "car storage organiser bag",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser boot",
+      "normalized_query": "car storage organiser boot",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser bunnings",
+      "normalized_query": "car storage organiser bunnings",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car storage organiser kmart",
+      "normalized_query": "car storage organiser kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "car tablet holder",
+      "normalized_query": "car tablet holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder 3d print",
+      "normalized_query": "car tablet holder 3d print",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder back seat",
+      "normalized_query": "car tablet holder back seat",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder dashboard",
+      "normalized_query": "car tablet holder dashboard",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder for kids",
+      "normalized_query": "car tablet holder for kids",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder magnetic",
+      "normalized_query": "car tablet holder magnetic",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder mount",
+      "normalized_query": "car tablet holder mount",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder near me",
+      "normalized_query": "car tablet holder near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder nearby",
+      "normalized_query": "car tablet holder nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car tablet holder nz",
+      "normalized_query": "car tablet holder nz",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car tablet holder",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car tablet holder"
+      ]
+    },
+    {
+      "query": "car travel agency in varanasi",
+      "normalized_query": "car travel agency in varanasi",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel agent",
+      "normalized_query": "car travel agent",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel agent near me",
+      "normalized_query": "car travel agent near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel organiser",
+      "normalized_query": "car travel organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel organiser kids",
+      "normalized_query": "car travel organiser kids",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel organizer",
+      "normalized_query": "car travel organizer",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel pillow",
+      "normalized_query": "car travel pillow",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel pillow amazon",
+      "normalized_query": "car travel pillow amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel pillow and blanket",
+      "normalized_query": "car travel pillow and blanket",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel pillow for adults",
+      "normalized_query": "car travel pillow for adults",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel pillow for kids",
+      "normalized_query": "car travel pillow for kids",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel pillow nearby",
+      "normalized_query": "car travel pillow nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel pillow",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel pillow"
+      ]
+    },
+    {
+      "query": "car travel planner",
+      "normalized_query": "car travel planner",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car travel planner uk",
+      "normalized_query": "car travel planner uk",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car trip organiser",
+      "normalized_query": "car trip organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car travel organiser",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car travel organiser"
+      ]
+    },
+    {
+      "query": "car upholstery cleaning tools",
+      "normalized_query": "car upholstery cleaning tools",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car interior cleaning tools",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car interior cleaning tools"
+      ]
+    },
+    {
+      "query": "car window cleaning tool",
+      "normalized_query": "car window cleaning tool",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car window cleaning tool nearby",
+      "normalized_query": "car window cleaning tool nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car window shade cover",
+      "normalized_query": "car window shade cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades",
+      "normalized_query": "car window shades",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades bunnings",
+      "normalized_query": "car window shades bunnings",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades for baby",
+      "normalized_query": "car window shades for baby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades for side windows",
+      "normalized_query": "car window shades for side windows",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades front",
+      "normalized_query": "car window shades front",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades kmart",
+      "normalized_query": "car window shades kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades near me",
+      "normalized_query": "car window shades near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades nearby",
+      "normalized_query": "car window shades nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window shades walmart",
+      "normalized_query": "car window shades walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window shade",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window shade"
+      ]
+    },
+    {
+      "query": "car window sun shade",
+      "normalized_query": "car window sun shade",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade blinkit",
+      "normalized_query": "car window sun shade blinkit",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade cover",
+      "normalized_query": "car window sun shade cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade film",
+      "normalized_query": "car window sun shade film",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade for baby",
+      "normalized_query": "car window sun shade for baby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade for baleno",
+      "normalized_query": "car window sun shade for baleno",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade magnetic",
+      "normalized_query": "car window sun shade magnetic",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade near me",
+      "normalized_query": "car window sun shade near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade roller",
+      "normalized_query": "car window sun shade roller",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car window sun shade shop near me",
+      "normalized_query": "car window sun shade shop near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car window sun shade",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car window sun shade"
+      ]
+    },
+    {
+      "query": "car windscreen cleaning tool",
+      "normalized_query": "car windscreen cleaning tool",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windscreen cover",
+      "normalized_query": "car windscreen cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover aldi",
+      "normalized_query": "car windscreen cover aldi",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover argos",
+      "normalized_query": "car windscreen cover argos",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover b&m",
+      "normalized_query": "car windscreen cover b&m",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover for frost",
+      "normalized_query": "car windscreen cover for frost",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover for sun",
+      "normalized_query": "car windscreen cover for sun",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover for winter",
+      "normalized_query": "car windscreen cover for winter",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover halfords",
+      "normalized_query": "car windscreen cover halfords",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover inside",
+      "normalized_query": "car windscreen cover inside",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windscreen cover insurance",
+      "normalized_query": "car windscreen cover insurance",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cover",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cover"
+      ]
+    },
+    {
+      "query": "car windshield cleaning tool",
+      "normalized_query": "car windshield cleaning tool",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windshield cleaning tool inside",
+      "normalized_query": "car windshield cleaning tool inside",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windshield cleaning tool magnetic",
+      "normalized_query": "car windshield cleaning tool magnetic",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windshield cleaning tool nearby",
+      "normalized_query": "car windshield cleaning tool nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windshield cleaning tool with extendable handle",
+      "normalized_query": "car windshield cleaning tool with extendable handle",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car windscreen cleaning tool",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car windscreen cleaning tool"
+      ]
+    },
+    {
+      "query": "car windshield sun cover",
+      "normalized_query": "car windshield sun cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car windshield sun cover near me",
+      "normalized_query": "car windshield sun cover near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car windshield sun cover nearby",
+      "normalized_query": "car windshield sun cover nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "car windshield sun cover walmart",
+      "normalized_query": "car windshield sun cover walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car dashboard sun cover",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car dashboard sun cover"
+      ]
+    },
+    {
+      "query": "cooling car seat cushion 12v",
+      "normalized_query": "cooling car seat cushion 12v",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "cooling car seat cushion amazon",
+      "normalized_query": "cooling car seat cushion amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "cooling car seat cushion nearby",
+      "normalized_query": "cooling car seat cushion nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "cooling car seat cushion reddit",
+      "normalized_query": "cooling car seat cushion reddit",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car cooling seat cushion",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car cooling seat cushion"
+      ]
+    },
+    {
+      "query": "electric vehicle charging cable bag",
+      "normalized_query": "electric vehicle charging cable bag",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "electric vehicle charging cable cover",
+      "normalized_query": "electric vehicle charging cable cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "electric vehicle charging port cover",
+      "normalized_query": "electric vehicle charging port cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev cable management",
+      "normalized_query": "ev cable management",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable management arm",
+      "normalized_query": "ev cable management arm",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable management garage",
+      "normalized_query": "ev cable management garage",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable management system",
+      "normalized_query": "ev cable management system",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable organiser",
+      "normalized_query": "ev cable organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable tidy",
+      "normalized_query": "ev cable tidy",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable tidy box",
+      "normalized_query": "ev cable tidy box",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable tidy hook",
+      "normalized_query": "ev cable tidy hook",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable tidy screwfix",
+      "normalized_query": "ev cable tidy screwfix",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev cable tidy strap",
+      "normalized_query": "ev cable tidy strap",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV cable organiser",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV cable organiser"
+      ]
+    },
+    {
+      "query": "ev charger cable cover outdoor",
+      "normalized_query": "ev charger cable cover outdoor",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charger connector cover",
+      "normalized_query": "ev charger connector cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charger port cover",
+      "normalized_query": "ev charger port cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charging cable bag",
+      "normalized_query": "ev charging cable bag",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable bag halfords",
+      "normalized_query": "ev charging cable bag halfords",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable bag volvo",
+      "normalized_query": "ev charging cable bag volvo",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable case",
+      "normalized_query": "ev charging cable case",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable cover",
+      "normalized_query": "ev charging cable cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable cover pavement",
+      "normalized_query": "ev charging cable cover pavement",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging cable cover strip",
+      "normalized_query": "ev charging cable cover strip",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging cable bag",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging cable bag"
+      ]
+    },
+    {
+      "query": "ev charging point cover",
+      "normalized_query": "ev charging point cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charging port cap",
+      "normalized_query": "ev charging port cap",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charging port cover",
+      "normalized_query": "ev charging port cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charging port rain cover",
+      "normalized_query": "ev charging port rain cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev charging port snow cover",
+      "normalized_query": "ev charging port snow cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "ev tyre inflator",
+      "normalized_query": "ev tyre inflator",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV tyre inflator",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV tyre inflator"
+      ]
+    },
+    {
+      "query": "heated car seat cushion",
+      "normalized_query": "heated car seat cushion",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion amazon",
+      "normalized_query": "heated car seat cushion amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion canadian tire",
+      "normalized_query": "heated car seat cushion canadian tire",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion near me",
+      "normalized_query": "heated car seat cushion near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion nearby",
+      "normalized_query": "heated car seat cushion nearby",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion reviews",
+      "normalized_query": "heated car seat cushion reviews",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion uk",
+      "normalized_query": "heated car seat cushion uk",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion usb",
+      "normalized_query": "heated car seat cushion usb",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion walmart",
+      "normalized_query": "heated car seat cushion walmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "heated car seat cushion with lumbar support",
+      "normalized_query": "heated car seat cushion with lumbar support",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "heated car seat cushion",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "heated car seat cushion"
+      ]
+    },
+    {
+      "query": "magnetic ev charging port cover",
+      "normalized_query": "magnetic ev charging port cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "magsafe car mount",
+      "normalized_query": "magsafe car mount",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount amazon",
+      "normalized_query": "magsafe car mount amazon",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount charger",
+      "normalized_query": "magsafe car mount charger",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount for s26 ultra",
+      "normalized_query": "magsafe car mount for s26 ultra",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount iphone 17 pro max",
+      "normalized_query": "magsafe car mount iphone 17 pro max",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount kmart",
+      "normalized_query": "magsafe car mount kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount near me",
+      "normalized_query": "magsafe car mount near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount nz",
+      "normalized_query": "magsafe car mount nz",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount reddit",
+      "normalized_query": "magsafe car mount reddit",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "magsafe car mount vent",
+      "normalized_query": "magsafe car mount vent",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "magsafe car mount",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "magsafe car mount"
+      ]
+    },
+    {
+      "query": "nexon ev charging port cover",
+      "normalized_query": "nexon ev charging port cover",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV charging port cover",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV charging port cover"
+      ]
+    },
+    {
+      "query": "samsung car charging cable",
+      "normalized_query": "samsung car charging cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "samsung car usb cable",
+      "normalized_query": "samsung car usb cable",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car phone charging cable",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car phone charging cable"
+      ]
+    },
+    {
+      "query": "self storage organiser",
+      "normalized_query": "self storage organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "tata ev tyre inflator",
+      "normalized_query": "tata ev tyre inflator",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV tyre inflator",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV tyre inflator"
+      ]
+    },
+    {
+      "query": "vehicle storage organiser",
+      "normalized_query": "vehicle storage organiser",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car storage organiser",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car storage organiser"
+      ]
+    },
+    {
+      "query": "what is tyre inflator",
+      "normalized_query": "what is tyre inflator",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "EV tyre inflator",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "EV tyre inflator"
+      ]
+    },
+    {
+      "query": "windscreen demister pad",
+      "normalized_query": "windscreen demister pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "car demister pad",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "car demister pad"
+      ]
+    },
+    {
+      "query": "wireless car charger",
+      "normalized_query": "wireless car charger",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 1,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger for android",
+      "normalized_query": "wireless car charger for android",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 6,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger for iphone",
+      "normalized_query": "wireless car charger for iphone",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 2,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger holder",
+      "normalized_query": "wireless car charger holder",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 7,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger kmart",
+      "normalized_query": "wireless car charger kmart",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 9,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger mount",
+      "normalized_query": "wireless car charger mount",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 3,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger near me",
+      "normalized_query": "wireless car charger near me",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 8,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger nz",
+      "normalized_query": "wireless car charger nz",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 10,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger pad",
+      "normalized_query": "wireless car charger pad",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 4,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "wireless car charger samsung",
+      "normalized_query": "wireless car charger samsung",
+      "source": "google_autocomplete_uk",
+      "parent_topic": "wireless car charger",
+      "suggestion_rank": 5,
+      "approx_traffic": null,
+      "sources": [
+        "google_autocomplete_uk"
+      ],
+      "parent_topics": [
+        "wireless car charger"
+      ]
+    },
+    {
+      "query": "aperol",
+      "normalized_query": "aperol",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "1000+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "belfast telegraph",
+      "normalized_query": "belfast telegraph",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "500+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "china and taiwan",
+      "normalized_query": "china and taiwan",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "200+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "england line up",
+      "normalized_query": "england line up",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "2000+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "england team",
+      "normalized_query": "england team",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "1000+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "itv guide",
+      "normalized_query": "itv guide",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "200+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "itv schedule today",
+      "normalized_query": "itv schedule today",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "200+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "lee andrews",
+      "normalized_query": "lee andrews",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "200+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "the sentinels",
+      "normalized_query": "the sentinels",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "200+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    },
+    {
+      "query": "tv guide",
+      "normalized_query": "tv guide",
+      "source": "google_trends_uk_rss",
+      "parent_topic": null,
+      "suggestion_rank": null,
+      "approx_traffic": "5000+",
+      "sources": [
+        "google_trends_uk_rss"
+      ],
+      "parent_topics": []
+    }
+  ]
+}
