@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: driverz-main-writer
+  cancel-in-progress: false
+
 jobs:
   save-history:
     runs-on: ubuntu-latest
@@ -15,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,17 +30,60 @@ jobs:
       - name: Save daily history snapshot
         run: python scripts/save_history_snapshot.py
 
+      - name: Generate station history summary
+        run: python scripts/generate_history_summary.py
+
       - name: Analyse fuel trends
         run: python scripts/analyse_fuel_trends.py
+
+      - name: Generate monthly history summaries
+        run: python scripts/generate_monthly_history.py
+
+      - name: Check history retention
+        run: python scripts/maintain_history_retention.py
 
       - name: Check history health
         run: python scripts/check_history_health.py
 
-      - name: Commit history and status files
-        if: always()
+      - name: Commit generated history files
         run: |
+          set -euo pipefail
+
           git config user.name "driverz-bot"
           git config user.email "actions@github.com"
-          git add history data/trends-30d.json data/history-status.json
-          git diff --cached --quiet || git commit -m "Save daily fuel history snapshot"
-          git push
+
+          git add \
+            history \
+            data/history-summary.json \
+            data/trends-30d.json \
+            data/trends-status.json \
+            data/retention-status.json \
+            data/history-status.json
+
+          if git diff --cached --quiet; then
+            echo "No generated history changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update fuel history pipeline"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+
+            git fetch origin main
+
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              echo "Rebase conflict. Refusing to overwrite remote changes."
+              exit 1
+            fi
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            sleep $((attempt * 5))
+          done
+
+          echo "Push failed after 3 attempts."
+          exit 1
