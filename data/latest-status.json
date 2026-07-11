@@ -1,7 +1,7 @@
 {
   "status": "success",
   "message": "latest.json generated successfully from data/fuel_data.csv.",
-  "checked_at": "2026-07-11T13:10:06.186334+00:00",
+  "checked_at": "2026-07-11T13:21:36.366566+00:00",
   "csv_file": "data/fuel_data.csv",
   "row_count": 7988,
   "station_count": 7988,
