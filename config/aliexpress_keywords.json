@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "market": {
+    "ship_to_country": "UK",
+    "target_currency": "GBP",
+    "target_language": "EN"
+  },
+  "collection": {
+    "page_size": 50,
+    "sort": "LAST_VOLUME_DESC",
+    "delay_seconds": 2
+  },
+  "keywords": [
+    {
+      "keyword": "car phone holder",
+      "category": "phone_accessories",
+      "enabled": true
+    },
+    {
+      "keyword": "car boot organiser",
+      "category": "car_organisation",
+      "enabled": true
+    },
+    {
+      "keyword": "car seat organiser",
+      "category": "car_organisation",
+      "enabled": true
+    },
+    {
+      "keyword": "car sun shade",
+      "category": "car_comfort",
+      "enabled": true
+    },
+    {
+      "keyword": "car cleaning brush",
+      "category": "car_cleaning",
+      "enabled": true
+    }
+  ]
+}
