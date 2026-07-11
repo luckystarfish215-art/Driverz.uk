@@ -1,0 +1,324 @@
+{
+  "source": "driverz_validation_batch_selection",
+  "selector_version": 1,
+  "generated_at": "2026-07-11T20:04:47.894875+00:00",
+  "source_scorer_version": 1,
+  "batch_size_requested": 10,
+  "selected_topic_count": 10,
+  "selection_policy": {
+    "max_seasonal_topics": 3,
+    "max_ev_diversity_slots": 2,
+    "min_ev_diversity_score": 45.0,
+    "exclude_zero_signal_topics": true,
+    "exclude_non_pending_topics": true
+  },
+  "topics": [
+    {
+      "topic": "car windscreen cover",
+      "normalized_topic": "car windscreen cover",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "accepted_signal_count": 10,
+      "average_suggestion_rank": 5.5,
+      "commercial_signal_count": 3,
+      "matched_commercial_terms": [
+        "for"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 100.0,
+        "autocomplete_rank": 55.0,
+        "commercial_modifier": 30.0,
+        "seasonality": 100.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 71.0,
+      "validation_status": "pending",
+      "validation_priority": 1,
+      "selection_reason": "score_priority",
+      "batch_priority": 1
+    },
+    {
+      "topic": "car demister pad",
+      "normalized_topic": "car demister pad",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "winter car accessories"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "accepted_signal_count": 10,
+      "average_suggestion_rank": 5.5,
+      "commercial_signal_count": 1,
+      "matched_commercial_terms": [
+        "with"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 100.0,
+        "autocomplete_rank": 55.0,
+        "commercial_modifier": 10.0,
+        "seasonality": 100.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 68.0,
+      "validation_status": "pending",
+      "validation_priority": 2,
+      "selection_reason": "score_priority",
+      "batch_priority": 2
+    },
+    {
+      "topic": "car window sun shade",
+      "normalized_topic": "car window sun shade",
+      "categories": [
+        "seasonal"
+      ],
+      "source_seeds": [
+        "summer car accessories"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "accepted_signal_count": 8,
+      "average_suggestion_rank": 5.25,
+      "commercial_signal_count": 3,
+      "matched_commercial_terms": [
+        "for",
+        "magnetic"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 80.0,
+        "autocomplete_rank": 57.5,
+        "commercial_modifier": 37.5,
+        "seasonality": 100.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 64.88,
+      "validation_status": "pending",
+      "validation_priority": 3,
+      "selection_reason": "score_priority",
+      "batch_priority": 3
+    },
+    {
+      "topic": "car travel pillow",
+      "normalized_topic": "car travel pillow",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 7,
+      "average_suggestion_rank": 2.29,
+      "commercial_signal_count": 4,
+      "matched_commercial_terms": [
+        "for",
+        "memory foam"
+      ],
+      "multi_parent_signal_count": 3,
+      "score_breakdown": {
+        "autocomplete_coverage": 70.0,
+        "autocomplete_rank": 87.14,
+        "commercial_modifier": 57.14,
+        "seasonality": 0.0,
+        "multi_parent_signal": 42.86
+      },
+      "pre_validation_score": 64.86,
+      "validation_status": "pending",
+      "validation_priority": 4,
+      "selection_reason": "score_priority",
+      "batch_priority": 4
+    },
+    {
+      "topic": "wireless car charger",
+      "normalized_topic": "wireless car charger",
+      "categories": [
+        "technology"
+      ],
+      "source_seeds": [
+        "car phone accessories"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 7,
+      "average_suggestion_rank": 4.0,
+      "commercial_signal_count": 7,
+      "matched_commercial_terms": [
+        "for",
+        "wireless"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 70.0,
+        "autocomplete_rank": 70.0,
+        "commercial_modifier": 100.0,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 64.0,
+      "validation_status": "pending",
+      "validation_priority": 5,
+      "selection_reason": "score_priority",
+      "batch_priority": 5
+    },
+    {
+      "topic": "car seat cushion",
+      "normalized_topic": "car seat cushion",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 9,
+      "average_suggestion_rank": 5.33,
+      "commercial_signal_count": 6,
+      "matched_commercial_terms": [
+        "for"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 90.0,
+        "autocomplete_rank": 56.67,
+        "commercial_modifier": 66.67,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 63.0,
+      "validation_status": "pending",
+      "validation_priority": 6,
+      "selection_reason": "score_priority",
+      "batch_priority": 6
+    },
+    {
+      "topic": "car food tray",
+      "normalized_topic": "car food tray",
+      "categories": [
+        "travel"
+      ],
+      "source_seeds": [
+        "car travel accessories"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 9,
+      "average_suggestion_rank": 5.33,
+      "commercial_signal_count": 5,
+      "matched_commercial_terms": [
+        "for",
+        "with"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 90.0,
+        "autocomplete_rank": 56.67,
+        "commercial_modifier": 55.56,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 61.33,
+      "validation_status": "pending",
+      "validation_priority": 8,
+      "selection_reason": "score_priority",
+      "batch_priority": 7
+    },
+    {
+      "topic": "car armrest cushion",
+      "normalized_topic": "car armrest cushion",
+      "categories": [
+        "comfort"
+      ],
+      "source_seeds": [
+        "car comfort"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 8,
+      "average_suggestion_rank": 4.88,
+      "commercial_signal_count": 5,
+      "matched_commercial_terms": [
+        "memory foam",
+        "with"
+      ],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 80.0,
+        "autocomplete_rank": 61.25,
+        "commercial_modifier": 62.5,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 59.75,
+      "validation_status": "pending",
+      "validation_priority": 9,
+      "selection_reason": "score_priority",
+      "batch_priority": 8
+    },
+    {
+      "topic": "EV cable organiser",
+      "normalized_topic": "ev cable organiser",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 10,
+      "average_suggestion_rank": 5.5,
+      "commercial_signal_count": 0,
+      "matched_commercial_terms": [],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 100.0,
+        "autocomplete_rank": 55.0,
+        "commercial_modifier": 0.0,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 56.5,
+      "validation_status": "pending",
+      "validation_priority": 12,
+      "selection_reason": "ev_diversity",
+      "batch_priority": 9
+    },
+    {
+      "topic": "EV charging cable bag",
+      "normalized_topic": "ev charging cable bag",
+      "categories": [
+        "ev"
+      ],
+      "source_seeds": [
+        "EV accessories"
+      ],
+      "seasonality": [],
+      "accepted_signal_count": 10,
+      "average_suggestion_rank": 5.5,
+      "commercial_signal_count": 0,
+      "matched_commercial_terms": [],
+      "multi_parent_signal_count": 0,
+      "score_breakdown": {
+        "autocomplete_coverage": 100.0,
+        "autocomplete_rank": 55.0,
+        "commercial_modifier": 0.0,
+        "seasonality": 0.0,
+        "multi_parent_signal": 0.0
+      },
+      "pre_validation_score": 56.5,
+      "validation_status": "pending",
+      "validation_priority": 13,
+      "selection_reason": "ev_diversity",
+      "batch_priority": 10
+    }
+  ]
+}
