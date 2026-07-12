@@ -373,6 +373,26 @@ def validate_document(document):
             "Invalid generation request version"
         )
 
+    required_request_policy = {
+        "approved_items_only": True,
+        "provider_neutral": True,
+        "structured_contract": True,
+        "validate_before_write": True,
+        "allow_empty_requests": True,
+        "automatic_api_call_enabled": False,
+        "automatic_rendering_enabled": False,
+        "automatic_publishing_enabled": False,
+        "fingerprint_algorithm": "sha256",
+    }
+
+    if (
+        document.get("request_policy")
+        != required_request_policy
+    ):
+        raise ValueError(
+            "Invalid or unsafe request policy"
+        )
+
     requests = document["requests"]
 
     if (
