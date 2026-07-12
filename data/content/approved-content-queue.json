@@ -1,0 +1,23 @@
+{
+  "source": "driverz_approved_content_queue",
+  "approved_queue_version": 1,
+  "generated_at": "2026-07-12T16:23:15.818052+00:00",
+  "source_review_queue_version": 1,
+  "input_review_count": 8,
+  "approved_review_count": 0,
+  "queue_item_count": 0,
+  "action_counts": {},
+  "content_type_counts": {},
+  "queue_policy": {
+    "approved_reviews_only": true,
+    "validate_review_fingerprint": true,
+    "validate_draft_fingerprint": true,
+    "validate_source_identity": true,
+    "allow_empty_queue": true,
+    "automatic_generation_enabled": false,
+    "automatic_rendering_enabled": false,
+    "automatic_publishing_enabled": false,
+    "fingerprint_algorithm": "sha256"
+  },
+  "items": []
+}
