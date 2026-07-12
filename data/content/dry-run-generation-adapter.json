@@ -1,0 +1,26 @@
+{
+  "source": "driverz_dry_run_generation_adapter",
+  "dry_run_adapter_version": 1,
+  "generated_at": "2026-07-12T19:40:58+00:00",
+  "source_generation_request_version": 1,
+  "source_builder_version": 1,
+  "input_generation_request_count": 0,
+  "provider_payload_count": 0,
+  "execution_count": 0,
+  "action_counts": {},
+  "content_type_counts": {},
+  "adapter_status_counts": {},
+  "adapter_policy": {
+    "validate_generation_requests_before_adaptation": true,
+    "provider_neutral": true,
+    "dry_run_only": true,
+    "allow_empty_payloads": true,
+    "automatic_api_call_enabled": false,
+    "automatic_content_generation_enabled": false,
+    "automatic_rendering_enabled": false,
+    "automatic_publishing_enabled": false,
+    "fingerprint_algorithm": "sha256"
+  },
+  "provider_payloads": [],
+  "executions": []
+}
