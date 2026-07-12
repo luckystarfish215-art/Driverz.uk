@@ -1,0 +1,24 @@
+{
+  "source": "driverz_generation_request_builder",
+  "generation_request_version": 1,
+  "builder_version": 1,
+  "generated_at": "2026-07-12T17:14:07.627860+00:00",
+  "source_approved_queue_version": 1,
+  "input_approved_item_count": 0,
+  "request_count": 0,
+  "action_counts": {},
+  "content_type_counts": {},
+  "generation_status_counts": {},
+  "request_policy": {
+    "approved_items_only": true,
+    "provider_neutral": true,
+    "structured_contract": true,
+    "validate_before_write": true,
+    "allow_empty_requests": true,
+    "automatic_api_call_enabled": false,
+    "automatic_rendering_enabled": false,
+    "automatic_publishing_enabled": false,
+    "fingerprint_algorithm": "sha256"
+  },
+  "requests": []
+}
