@@ -1,0 +1,363 @@
+{
+  "source": "driverz_final_product_opportunity_scoring",
+  "scorer_version": 1,
+  "generated_at": "2026-07-12T10:24:07.671966+00:00",
+  "source_opportunity_scorer_version": 1,
+  "source_validation_scorer_version": 1,
+  "scoring_policy": {
+    "demand_weight": 0.4,
+    "product_validation_weight": 0.6,
+    "promote_threshold": 75.0,
+    "approved_threshold": 65.0,
+    "validation_hard_gate": true
+  },
+  "input_validation_topic_count": 10,
+  "scored_topic_count": 10,
+  "missing_opportunity_count": 0,
+  "missing_opportunities": [],
+  "production_eligible_count": 8,
+  "status_counts": {
+    "promote": 3,
+    "approved": 5,
+    "watch": 1,
+    "rejected": 1
+  },
+  "opportunities": [
+    {
+      "topic": "wireless car charger",
+      "normalized_topic": "wireless car charger",
+      "categories": [
+        "technology"
+      ],
+      "seasonality": [],
+      "validation_priority": 5,
+      "pre_validation_score": 64.0,
+      "product_validation_score": 89.11,
+      "final_opportunity_score": 79.07,
+      "validation_status": "validated",
+      "final_status": "promote",
+      "production_eligible": true,
+      "decision_reason": "strong_demand_and_validated_supply",
+      "accepted_signal_count": 7,
+      "commercial_signal_count": 7,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 48,
+        "quality_product_count": 44,
+        "relevant_product_rate": 96.0,
+        "quality_product_rate": 91.67,
+        "average_sales_score": 73.62,
+        "average_commission_rate": 8.17,
+        "average_estimated_commission": 0.6484,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 0.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 1
+    },
+    {
+      "topic": "car seat cushion",
+      "normalized_topic": "car seat cushion",
+      "categories": [
+        "comfort"
+      ],
+      "seasonality": [],
+      "validation_priority": 6,
+      "pre_validation_score": 63.0,
+      "product_validation_score": 86.46,
+      "final_opportunity_score": 77.08,
+      "validation_status": "validated",
+      "final_status": "promote",
+      "production_eligible": true,
+      "decision_reason": "strong_demand_and_validated_supply",
+      "accepted_signal_count": 9,
+      "commercial_signal_count": 6,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 42,
+        "quality_product_count": 40,
+        "relevant_product_rate": 84.0,
+        "quality_product_rate": 95.24,
+        "average_sales_score": 73.23,
+        "average_commission_rate": 8.38,
+        "average_estimated_commission": 0.6013,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 4.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 2
+    },
+    {
+      "topic": "car windscreen cover",
+      "normalized_topic": "car windscreen cover",
+      "categories": [
+        "seasonal"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "validation_priority": 1,
+      "pre_validation_score": 71.0,
+      "product_validation_score": 78.15,
+      "final_opportunity_score": 75.29,
+      "validation_status": "validated",
+      "final_status": "promote",
+      "production_eligible": true,
+      "decision_reason": "strong_demand_and_validated_supply",
+      "accepted_signal_count": 10,
+      "commercial_signal_count": 3,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 43,
+        "quality_product_count": 32,
+        "relevant_product_rate": 86.0,
+        "quality_product_rate": 74.42,
+        "average_sales_score": 59.49,
+        "average_commission_rate": 7.05,
+        "average_estimated_commission": 0.3079,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 10.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 3
+    },
+    {
+      "topic": "car travel pillow",
+      "normalized_topic": "car travel pillow",
+      "categories": [
+        "travel"
+      ],
+      "seasonality": [],
+      "validation_priority": 4,
+      "pre_validation_score": 64.86,
+      "product_validation_score": 80.14,
+      "final_opportunity_score": 74.03,
+      "validation_status": "validated",
+      "final_status": "approved",
+      "production_eligible": true,
+      "decision_reason": "validated_commercial_opportunity",
+      "accepted_signal_count": 7,
+      "commercial_signal_count": 4,
+      "validation_metrics": {
+        "raw_product_count": 47,
+        "unique_product_count": 47,
+        "relevant_product_count": 34,
+        "quality_product_count": 32,
+        "relevant_product_rate": 72.34,
+        "quality_product_rate": 94.12,
+        "average_sales_score": 63.51,
+        "average_commission_rate": 7.94,
+        "average_estimated_commission": 0.5825,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 4.26,
+        "availability_score": 100.0
+      },
+      "final_priority": 4
+    },
+    {
+      "topic": "car armrest cushion",
+      "normalized_topic": "car armrest cushion",
+      "categories": [
+        "comfort"
+      ],
+      "seasonality": [],
+      "validation_priority": 9,
+      "pre_validation_score": 59.75,
+      "product_validation_score": 81.93,
+      "final_opportunity_score": 73.06,
+      "validation_status": "validated",
+      "final_status": "approved",
+      "production_eligible": true,
+      "decision_reason": "validated_commercial_opportunity",
+      "accepted_signal_count": 8,
+      "commercial_signal_count": 5,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 44,
+        "quality_product_count": 38,
+        "relevant_product_rate": 88.0,
+        "quality_product_rate": 86.36,
+        "average_sales_score": 56.95,
+        "average_commission_rate": 7.91,
+        "average_estimated_commission": 0.405,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 0.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 5
+    },
+    {
+      "topic": "car food tray",
+      "normalized_topic": "car food tray",
+      "categories": [
+        "travel"
+      ],
+      "seasonality": [],
+      "validation_priority": 8,
+      "pre_validation_score": 61.33,
+      "product_validation_score": 76.48,
+      "final_opportunity_score": 70.42,
+      "validation_status": "validated",
+      "final_status": "approved",
+      "production_eligible": true,
+      "decision_reason": "validated_commercial_opportunity",
+      "accepted_signal_count": 9,
+      "commercial_signal_count": 5,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 44,
+        "quality_product_count": 26,
+        "relevant_product_rate": 88.0,
+        "quality_product_rate": 59.09,
+        "average_sales_score": 49.51,
+        "average_commission_rate": 8.91,
+        "average_estimated_commission": 1.3904,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 0.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 6
+    },
+    {
+      "topic": "car window sun shade",
+      "normalized_topic": "car window sun shade",
+      "categories": [
+        "seasonal"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "validation_priority": 3,
+      "pre_validation_score": 64.88,
+      "product_validation_score": 73.81,
+      "final_opportunity_score": 70.24,
+      "validation_status": "validated",
+      "final_status": "approved",
+      "production_eligible": true,
+      "decision_reason": "validated_commercial_opportunity",
+      "accepted_signal_count": 8,
+      "commercial_signal_count": 3,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 32,
+        "quality_product_count": 23,
+        "relevant_product_rate": 64.0,
+        "quality_product_rate": 71.88,
+        "average_sales_score": 73.67,
+        "average_commission_rate": 7.0,
+        "average_estimated_commission": 0.2835,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 10.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 7
+    },
+    {
+      "topic": "EV charging cable bag",
+      "normalized_topic": "ev charging cable bag",
+      "categories": [
+        "ev"
+      ],
+      "seasonality": [],
+      "validation_priority": 13,
+      "pre_validation_score": 56.5,
+      "product_validation_score": 76.5,
+      "final_opportunity_score": 68.5,
+      "validation_status": "validated",
+      "final_status": "approved",
+      "production_eligible": true,
+      "decision_reason": "validated_commercial_opportunity",
+      "accepted_signal_count": 10,
+      "commercial_signal_count": 0,
+      "validation_metrics": {
+        "raw_product_count": 49,
+        "unique_product_count": 49,
+        "relevant_product_count": 46,
+        "quality_product_count": 30,
+        "relevant_product_rate": 93.88,
+        "quality_product_rate": 65.22,
+        "average_sales_score": 40.46,
+        "average_commission_rate": 8.13,
+        "average_estimated_commission": 0.5112,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 24.49,
+        "availability_score": 100.0
+      },
+      "final_priority": 8
+    },
+    {
+      "topic": "car demister pad",
+      "normalized_topic": "car demister pad",
+      "categories": [
+        "seasonal"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "validation_priority": 2,
+      "pre_validation_score": 68.0,
+      "product_validation_score": 49.68,
+      "final_opportunity_score": 57.01,
+      "validation_status": "watch",
+      "final_status": "watch",
+      "production_eligible": false,
+      "decision_reason": "insufficient_supply_quality",
+      "accepted_signal_count": 10,
+      "commercial_signal_count": 1,
+      "validation_metrics": {
+        "raw_product_count": 30,
+        "unique_product_count": 30,
+        "relevant_product_count": 21,
+        "quality_product_count": 2,
+        "relevant_product_rate": 70.0,
+        "quality_product_rate": 9.52,
+        "average_sales_score": 1.38,
+        "average_commission_rate": 7.67,
+        "average_estimated_commission": 0.7867,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 0.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 9
+    },
+    {
+      "topic": "EV cable organiser",
+      "normalized_topic": "ev cable organiser",
+      "categories": [
+        "ev"
+      ],
+      "seasonality": [],
+      "validation_priority": 12,
+      "pre_validation_score": 56.5,
+      "product_validation_score": 42.92,
+      "final_opportunity_score": 48.35,
+      "validation_status": "rejected",
+      "final_status": "rejected",
+      "production_eligible": false,
+      "decision_reason": "failed_product_validation",
+      "accepted_signal_count": 10,
+      "commercial_signal_count": 0,
+      "validation_metrics": {
+        "raw_product_count": 50,
+        "unique_product_count": 50,
+        "relevant_product_count": 2,
+        "quality_product_count": 1,
+        "relevant_product_rate": 4.0,
+        "quality_product_rate": 50.0,
+        "average_sales_score": 23.58,
+        "average_commission_rate": 8.0,
+        "average_estimated_commission": 0.5686,
+        "promotion_link_coverage": 100.0,
+        "overlap_rate": 24.0,
+        "availability_score": 100.0
+      },
+      "final_priority": 10
+    }
+  ]
+}
