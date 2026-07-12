@@ -1,0 +1,1373 @@
+{
+  "source": "driverz_production_product_selection",
+  "selector_version": 1,
+  "generated_at": "2026-07-12T10:56:28.741740+00:00",
+  "source_queue_version": 1,
+  "source_validator_version": 1,
+  "selection_policy": {
+    "min_rating": 90.0,
+    "min_relevance": 70.0,
+    "candidate_pool_size": 10,
+    "target_products_per_topic": 5,
+    "min_products_per_topic": 3,
+    "global_cross_topic_deduplication": true,
+    "shared_fallback_below_minimum": true
+  },
+  "input_queue_topic_count": 8,
+  "output_topic_count": 8,
+  "selected_product_occurrence_count": 40,
+  "unique_selected_product_count": 40,
+  "shared_product_count": 0,
+  "shared_product_ids": [],
+  "topics_below_minimum_count": 0,
+  "topics_below_minimum": [],
+  "topics": [
+    {
+      "production_priority": 1,
+      "topic": "wireless car charger",
+      "normalized_topic": "wireless car charger",
+      "production_action": "new_guide",
+      "final_opportunity_score": 79.07,
+      "candidate_stats": {
+        "rejected_low_rating": 4,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 2,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 44,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005006861887204",
+          "product_title": "Car Wireless Charger for Iphone 16 15 15 Pro Max 14 13 12 X Samsung S24 S23 Wireless Car Charger Silicone Pad Stand Fast Charger",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sf7158c34363146bb8d4d6c56afeab1bf1.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006861887204.html?pdp_npi=6%40dis%21GBP%2114.87%217.14%21%21%21131.57%2163.15%21%402140d33617838009100633251e10e8%2112000038545911420%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxfv7OrkzniFIucQxtqnJ5roniuFgYWMCUIBgDqe2lNdKMw6Xmw2Trxq0FNeftP6RckpCnba18DOA245tO1TaIFcegkcAVkHL2GJ90CNlKLPsbf14mTa6oAsKNdavnumsy0CTXIcDJYBtnqaCIv6AkxlKl9E1Ptu4UQ8UgvqcnZXzPdmymcKL9tqIh6HXjKHFqbbB1zcVvScYUKGnao3uCWGlNj5O8F2LH2ycZQdu5fgTm8Mc8fub75tPXv2RM7MsmX7H45XTiRJdG0t1BsAe8U3aB6ztboAFbSjC8dYtYkyThXLZQ06WKjqeWqRxstzzah4T7dLPWO4MRq7wpppDOsP895Z6TEfDIKIenCEhKZpsS9BTo6XC95G9ycgJZiYcIovqhuITvb61GUPtnFAUwUUsMujvE9nlearXUHREZzVbo3oDh6iWMzllc55xDHKQsGeBZjDwCO30thE4p1VrpVHLq97TfrfsbVPQx5HxuMmumnLhl4u280XBWvLmVu5su0XPODZ9G8dasGr76W6Sj170BINuk5wAiIq2GcAvkDoQ1ya83Ljw2VzCGDsjQIGKw5YnE8l61NPxB1Glg6vNm6v1n1dcpOc4t4LvRAoM06Taxay7NGqK0I6hIaPVbzSOVO3joCGsE4ylZcId8cB5MWbh",
+          "target_sale_price": "7.14",
+          "currency": "GBP",
+          "sales_volume": 7662,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.6426,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "wireless car charger"
+          ],
+          "selection_score": 90.04,
+          "score_breakdown": {
+            "score": 90.04,
+            "relevance": 100.0,
+            "sales": 77.69,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005006994698700",
+          "product_title": "for MagSafe Car Mount Charger, 15W Magnetic Wireless Car Charger,Universal Car Wireless Charger Mount for iPhone 17/16/15/14/13",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sfd8862bd3bc344c880290d838e8be7710.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006994698700.html?pdp_npi=6%40dis%21GBP%2122.90%2110.99%21%21%21202.66%2197.26%21%402140d33617838009100633251e10e8%2112000038984333863%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxvuWEvfU40SV7Ard3qsLpvfoDhrM3mR5x7qCOhJC675DJTb3p0NBSrrvhwER6OZsgpaCtxXJXWbpPPWGFgklaSaws1EmNUhPN6X6q7cDMtxq9GrfR4t2YDWFuv9AcutO6uDiDhliO36zZs4o6RGFDsb4ppfU066nAItpbbHvPjGoROo97AL3bDFsbyQTbkrP5o5YljwiOcBXHsnnNBdVXJeVB0DMWQTwZPJTYLHd5biB0VkGIpCqT711viTvZNxexPkykgsP5ANwHvtZ3F4jowjJJ5OvPhPs0MDQ52A6bFPeuLSlqVSPPaKMDg8oizIPFmbYZeb7CcsFHCwdNVdmdKQTQtQL8XGu7W9bovWQ6vkjuXh6nzoolqUoICyyvLaTv8eJ0ma3x60QM1VsuIq09KQliHD3DLI1byXolif8u2ZQRTSL9d7HLnGC6XN5NKOOix2RfxwVnGZVO9JeQAf5PtPGbesnW8c1iygQA2uvOun7Km0ss6edp9lE68N9MKfkOYaMPVGCUxdU2hmVHcRB7ZUmlfBClvtnYETclAjZ8cHtHcHWP55McGCgo87Yr85L8zCU6HAhxr3fT8XwVK3di1ESsjeCE3WsKDrtdBzDcl4bua4DDLQoZsQCkmX92AG7AOacQ9tHPqMLevtkumXqsQM3",
+          "target_sale_price": "10.99",
+          "currency": "GBP",
+          "sales_volume": 6629,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.9891,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "wireless car charger"
+          ],
+          "selection_score": 89.79,
+          "score_breakdown": {
+            "score": 89.79,
+            "relevance": 100.0,
+            "sales": 76.43,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005006782955682",
+          "product_title": "Ice Cooling Magnetic Wireless Car Charger Fast Charging Station for MagSafe iPhone 16 15 14 13 12 Pro Max Car Phone Holder Stand",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1d62e922783741b5b85a88b3c645ae4dP.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006782955682.html?pdp_npi=6%40dis%21GBP%2130.81%2114.79%21%21%21272.66%21130.89%21%402140d33617838009100633251e10e8%2112000038282363145%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxgos8X0y7hZuw0bhVQTXolRf11x4ivVsxJxnWduIZHjhT2ZQ4BGyjg5jQdHrACXCkTzZ0JZnjQjdW3hKhh36dDTAIeY6Y6bpJCrhMWfrCVInGchApEbnkiF9L5E9ORqTK1z7lxZD2K0TT41Orx6OdVYEUDzmTkDMN4eiDrLHywa1PBxA38BBzugNKNJndjvCpH8DeFyi1xBLEJBmjLhIXFxtZhLKrmRhH4BTDeMpGM3meCMjSIM8kTMK5wFQA6j2wkm41A6terjoslCkcKm66FSSou9YYbjDK8cK8gc01a0Dk9VuK2fpCEmDcMN02ZiDwsRSwZejJlfuOL2WlsMSR0PtVZSBC2xUTO5Wit0rE3898gazkXAyImgaoQZvBQf69CoxVWnVLJT0ygDHkD5CCQ0AvQTwwFc56YSYqNC5r7AYappyNGeqQYVHTiL7YJrLF1yhzjfnPhVDeePLwbvIFy0n7S970Kn2i0fTabY7utdYqpcwJi7up2nSNivHAhfZGrUBXR4INGix07a1E8UWIunjfkI7ZspCS9YEWY9j6W75C0na6zT7oVB1mJhwIb4VMcKX3qfbK2aRQsw248AWH3hHSjscoca9rN1vcvyYAwmUdjihTQiW3CP4Dh2UyhPzs3jPrhi7ZIm0sKdSwO1283nd",
+          "target_sale_price": "14.79",
+          "currency": "GBP",
+          "sales_volume": 6353,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.3311,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "wireless car charger"
+          ],
+          "selection_score": 89.71,
+          "score_breakdown": {
+            "score": 89.71,
+            "relevance": 100.0,
+            "sales": 76.06,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005007477005219",
+          "product_title": "Ice Cooling Magnetic Wireless Car Charger Fast Charging Station for iPhone 17 16 15 14 13 Pro Max MacSafe Car Phone Holder Stand",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Se844562a2b0f47b9aceaa3ea28a20827P.png",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007477005219.html?pdp_npi=6%40dis%21GBP%2130.81%2114.79%21%21%21272.66%21130.89%21%402140d33617838009100633251e10e8%2112000040910828014%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfJa8zbDhyRRmAVB4LSNkXVg7u2BT2a81Uwxvywgm92ApAaalFnPXcX0hsUief3tLbD7LwDo9vsJC9vDyb99grQ4rIPXitjYlWwxiR7klgNtzRV5ueR7Xenp4Fir9bIZZ6egdnEhBpuO9Sk7hqWVCzmDc0Od5HFfEYy86DNqV0PMq7oE9ryAGJNdGABbxb4ijhtYbcJWfNG7WRqoTljfx8UqxvWFebZrhIUGQBfFHiJp3HmPEqzIEe3delrxRZxpVtWtdGRCGAeichvMlcJ9ieuX5DuznYhug1JK1FhX4ARir4utgfC0DcNCa8NjNAupMKI7wSX8lp6g9eV0GNpkgagvPVg2fVp0ArgkOr9vHBAWGY2mHGOhyfBWFBrfc5X5v94HLYJsNVSzNf1hI3nfwWLcf9EXBMuVe2X7vtpBtVmpxT3ooUJsyRujrZpp0Bnhle0SCv6XWWfWp3zZvXbcPK9bLZWvmmKWyx6P7MNzfIVWTKoybSy61f188Qq6XsPmZNaXHXeEEtbGWl4AOhdYVepbVhdnnaUKUPJVGJCEJ13zsARZ6iDzdcU7p9stf9ZGI4Sgf2yaNBP53dvxMGjRPpNxm2lGEHDA0aGj8c9l8OPLUMaduOWUH6lKL9mQuNpNdMQHKSyv53yMpqnxo6R3cvxH",
+          "target_sale_price": "14.79",
+          "currency": "GBP",
+          "sales_volume": 3234,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.3311,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "wireless car charger"
+          ],
+          "selection_score": 88.54,
+          "score_breakdown": {
+            "score": 88.54,
+            "relevance": 100.0,
+            "sales": 70.2,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005011718120542",
+          "product_title": "Magnetic Wireless Car Charger Air Vent Clip Phone Holder For Magsafe iPhone 17 16 15 14 13 12 Pro Max Fast Car Charging Stand",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S437205ac59de4aeb956fc00004f54e128.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005011718120542.html?pdp_npi=6%40dis%21GBP%217.99%213.99%21%21%2170.75%2135.38%21%402140d33617838009100633251e10e8%2112000056342234452%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRrNd0wBsHeWWp9UoEdn4xcU3bS9mOHcGneviFoJmKE9Cm2eUJ76vu9TEzzpZd2gmR9x24h0R8awTmPdAiuOisVYnClDfGeTwaykVB4bnL2066axrWqaPaZZb0Hd38buI0LunC29jYVP3S0sb1biw3jk1QCxo29jd9x0F0h3BZQuBzPP3U6rf9QjguIHfdkv9fMWdH0pl3I8aHCrhojL7elnj4tvv0Rwuv9L6Gtr8eyOoxi5ReBDPUlKf1gWKqnni42TCziYNtmoMgrdIaYM9Jq6ufECYOhDGQayt2wE4oQJP66O4sthzn6g1JxdydVLmn7SZ5UtsxIxQqpgAyEigyCeFZMPjWUCuRpsTWy8S0xXVghLzcypH3fgNFgSbTTn6xeBEUN29xtGi93HKHkbbx87Pn2bx3PjbMlbhFTsTjAgs1cBQVneBYkRGPKnHSibdJinwnsIn22kNMEefKcPAKD6jkOqFaKC1IK4ENqePBmCxiLkKjWQoH5AEvSCWwgauZS9MYSx4JfmpcNBsKkEAXIEHY7c4nel7i8NJllw58RX14vAFIbUtX0HqLMCXUKl06G3ZhqDmUljBCrzZrjjD9jviwrauRcES8yuQ0yBaVExdoRfIEEa8CQ6ChbYocNHufLzGvRcyJatfdnBwPbqFQy7",
+          "target_sale_price": "3.99",
+          "currency": "GBP",
+          "sales_volume": 3824,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.3591,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "wireless car charger"
+          ],
+          "selection_score": 87.33,
+          "score_breakdown": {
+            "score": 87.33,
+            "relevance": 100.0,
+            "sales": 71.65,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 2,
+      "topic": "car seat cushion",
+      "normalized_topic": "car seat cushion",
+      "production_action": "guide_cluster",
+      "final_opportunity_score": 77.08,
+      "candidate_stats": {
+        "rejected_low_rating": 2,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 8,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 40,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005010585601178",
+          "product_title": "Universal Car Seat Cushion with Leg Support Extension Rest Padding - Car Seat Protection Cover, Relieve Driving Fatigue",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sab81a3f377e5450a9369bf8157cade4bi.png",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010585601178.html?pdp_npi=6%40dis%21GBP%2134.98%2116.79%21%21%21309.55%21148.58%21%40210152bd17838009159038662e11e9%2112000052901521992%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRpWU27xIrfKDP8wb6xfLdpPKRY3pIPQANnZfuPp6nIWO5a89uhrDSqtpydW9EF6jyQhdw0Fte7kWX4QZ3lqPqHIVLJbFJeX6QU86IZYb8RIwNUtyJJNJo13cXs9x4y1Wz4yZuqpsPK75dJ1xhn4utpyEIhTDvafbgS9eAX7SBB2NnoxiXvQZ10OqdrxJBxH7ZP83GztaGOFEInmIJv2ySQGmXh50pl49zVA7etygbYULjNmJo6aby1NGAdzHTPxn6y5MqhbchtVorPJ2DRDqmLv9draktgE6vI68B0eLr27UtnT9QcdGkluXZWrNCSr5it5oRuovW3cc8SqLeAZQjyPBVvxwhC4VIvAGxagB1LCQ8mDZg63z9TVN8gaXf3xc3F1MKMyERgbIq7m3JiHam9vMyam24ayZdnOPPhAVn0lw7z6XnTIjT3gDgZuhvXcXR3XaLLl7iLWvz7P1vVWVOrr8s12s0vDsc56yS78OPTw1mSDpAxi6fv9lyY9sFxp5FmSyxnBGG1mbaSSOZIcKzXNxoDt0fLUuZgxnx6znv8FYMb1ygqFYlCDYp32alhjrmSp0D8FC8B0sHjYDSSCPNIglxLk1CMQwvgMfEc4nufJczk3GLT7ctDm3f8kADwY1TuANNKfAxgRdvZiEkEDeDGJ",
+          "target_sale_price": "16.79",
+          "currency": "GBP",
+          "sales_volume": 6155,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.5111,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car seat cushion"
+          ],
+          "selection_score": 89.66,
+          "score_breakdown": {
+            "score": 89.66,
+            "relevance": 100.0,
+            "sales": 75.79,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005012011153348",
+          "product_title": "New Car Seat Cushion Leather Thin Breathable Hole Summer Car Interior Seat Cover Four Seasons Universal Automotive Parts",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S7c04781f09bb46deb00d975b19693eacv.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012011153348.html?pdp_npi=6%40dis%21GBP%2121.78%2110.89%21%21%21192.74%2196.41%21%40210152bd17838009159038662e11e9%2112000057272397792%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxknHLe1yYgzvpl7fRcvC7t1hEFk0BETKCyjh7NsZUevhEDaOtGB7DTlkiimeMYL38UZfGa0b1RV9f5d4GAbIRFJHvTD6vQsUQiclNjtlKPgmlRI9DVwklqWLVJnvvCyB9ZEXTUrd2cpy3jCsrdrcXDvOtzELqIPWTda9SYVLGyvIdJPkKU9rp1kZmvoIjjwYwBEsVvdu3wj5z15LqGMaDWZereGzRtzjAz2Vwa3l43YK8xq93U5ZKShr93ekDrtWIbu0z6uL75UDVXrqE5jJjBbh7WpYvp0681ZMQrI3BXUWYLtZbYTv5mZoDj1KOOW4p11PJDsJOzZJJFU46JVFhgsV9DL3w6hIpAy1Ed0YkAK4BFJJo4XLGUNnvSNIYX5CepK1pcQfXgxIMJADN3cMb7rVAN3cRturBgeH2qz86UFlrDlqUY8dToKlxnUoBp7tb1wlfHvy8cBC1FQWTcvtPo4Hs2YiFrYzHu3piJQ5d95wEI5X7iuUfNsMrYWHViqyV7NuhJYc6RmkwEfGea60RobyTuLzYxxJMNfGNQcUZXHXF9tCIJ5BY4LpIyDF2DKSaXgrln0C5VYRDfujjfxLJnkza3Nf03SXLXZaKdSn1TFQP9v5wZDPrfWzJmMMFSAcDMzBERIC1GOb8tz8uXTQ06B",
+          "target_sale_price": "10.89",
+          "currency": "GBP",
+          "sales_volume": 3136,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.9801,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car seat cushion"
+          ],
+          "selection_score": 88.49,
+          "score_breakdown": {
+            "score": 88.49,
+            "relevance": 100.0,
+            "sales": 69.93,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005007476770547",
+          "product_title": "Summer Car Seat Cushion Cover Breathable Ice Silk Non Slip Auto Seat Protector Pad Men Women Universal Car Interior Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa71719384c09453cbe458d933da0b77a0.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007476770547.html?pdp_npi=6%40dis%21GBP%217.10%213.55%21%21%2162.86%2131.43%21%40210152bd17838009159038662e11e9%2112000040910482332%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxw3GrMl8QnQ2zCcnBw75DgEyKamwWxfBShyd6wojKtRoYVa2mQ5BnVXzWmEKHcG9YLzLbtehcOaS50Avbyj5mWcFbNclxw0nbvWtR2Nyf1J6LwV6T9D2rUuOLzHVbAMuD5zE0WIwXzHWvQaELk7wCpMNHVAEhklMAAIHDKMbcjhfup47Q4zHWRbsuwsCe5o7uupuMEVKFppuTHXbA6M9D9JXZ15escrr07doJGEo2sIpYgMMl5k4PTBQjHArtNIyMnn9H588GlKRrJMiXb8lmXxyVvAdL64Rax4rzorkxR647yDGr9ZgdMOv16r8BoWwXguCCXb9BK6zENz0g6Z0KSrR8bN49mBPVN9CZUp0Gmdnf69gKKeRTjjKf2u1mgUYasaYlcGmPXmg00Lm8U0xlrx43RK2ojkAueyrVXN3etoRplBZt4WDflMUN8tKwcBxmOZaKaNr97wKK6dsLMNnhRAc5jKSIPpxTliQXW8jS6NlAYABGxFvvKXt7e4Mqpgzr6wM7djLDNRlYFNTfollncXibb9tNBqNLiMXmzRWPm9TPCFF9Xlxl1WspInqzpxpXlPWW2EAtPvP5aU2nRPtUhEbDj8u0JlKTZXaGMaNNJRXKuyK8ljwAYhsm1GlF34iuQhGrvtyVwCRe0yM40lZWje3",
+          "target_sale_price": "3.55",
+          "currency": "GBP",
+          "sales_volume": 6080,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.3195,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car seat cushion"
+          ],
+          "selection_score": 88.14,
+          "score_breakdown": {
+            "score": 88.14,
+            "relevance": 100.0,
+            "sales": 75.68,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005007476872323",
+          "product_title": "Universal Towel Car Seat Cushion Sweat Proof Washable Pet Seat Protector Four Season Car Covers",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sc00ba36fa97f43ddb6292520e74f1664X.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007476872323.html?pdp_npi=6%40dis%21GBP%2111.65%215.59%21%21%21103.10%2149.47%21%40210152bd17838009159038662e11e9%2112000058875772444%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgMskIWCiGi81KXBk2NCRawP2p4JdEEuSTYxgXg9UGPavDtuvPzFNWM2DBJPu8WGT6JRwNIiZhq8w0svXybBVrKBNKlA4YWhpspFMzwSMIUB2X33Agi3bU5zIAJTovkNp8haIdWBWNEQ0NOqN072f9jnwUr0N7WN2BCRKk2hztYa9NzrSt4WlAVYfrPVjg2VkeXwYx9McGWe5ogfaZGAQPMIgjZWlPvvh2MzQhUGBtdqPYi4h7tFHIlg9Xp0jMEHcbfMvYjtzHq6HXlgVMQucGSCGPxh2jCvqr9SVwuYVLjbEA4pRi0eylVvRm2BqfUkYzP2R9nPMFP4x8KQDxcDwkNi5mRKG1yZ2r0qiR2y8VC5xu1ENhH9Mosyy14jocBacdjgXWsQ5z1UE0MleQl0Nqw7yBPaVboGQUIPJj157fgCRxeb8GwDvWDMC0nxV4XINqbNT8yFADX8Yc5giQnx2an1lFnzK9Sy9M3iLVxuLdc6nPAoAi16bjn1Xu2qeZmxZZtmhw1Uzbr4huv1QvriRdaeaSOyhJCIvKaztSv9kpSXw3aHIGAsPpagha8LoptfQFuYeewcDtCFWxiFf4G15t9BPQmlOM8wcxAx3jzOTj0qfJqvIu8QGofP5czYAi8pckvQXkC9QifLfyOU5zlsQep9",
+          "target_sale_price": "5.59",
+          "currency": "GBP",
+          "sales_volume": 2485,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.5031,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car seat cushion"
+          ],
+          "selection_score": 88.08,
+          "score_breakdown": {
+            "score": 88.08,
+            "relevance": 100.0,
+            "sales": 67.91,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005009054765572",
+          "product_title": "Car Seat Leveling Pad Memory Foam Car Seat Cushion Fatigue Relief Increase Height Pad Flattening The Rear Seats Of The Car",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb1d1c4369fc54302a331c2bccdc91a20q.png",
+          "product_detail_url": "https://www.aliexpress.com/item/1005009054765572.html?pdp_npi=6%40dis%21GBP%214.84%212.32%21%21%2142.84%2120.56%21%40210152bd17838009159038662e11e9%2112000047735478984%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQQWe9RV7joKEq1MwrWAghIc6mwSBggHVAJw4Ml6VGfuiaB420IxHiChTEu8FJgDcIGIgjgyBjjItE2OihHPL6Zei4pnGRZtNt9SranviNzs5Tfl0EvJnA2KPhDDzL2c2Mm5N0iNpbl4LSviqBj6ETAsDzAdFLR0ZBCUBTqctI21gQRWcraDAYylBbxgyu08JAEOeLsNtu1LbBIRWOcKumM56AmgughGgsExJvE6R5jxTtJBeQukGgvaKjZEPVc4JyldndN8B4rIBqQfN7rqpuBxWDscehfAELuyrzIkOFGcmmgHPyo4r4fQoYveZpEHMRqenvvMhtA503jDVed7uDwHKMmdPpRG9Y0HVWXkX6CmBaQrsbO1wn4QUzxmspk8llfnm4Z3evW67ETSLSWVdMWq7a3CXyAUhHuUnbeIlw5Sl4NJ7AKPjts4NbsixfLfPBdAJ4L25ECgIddiwget66WmRGfaiTy3iO8IB8mMkeJOi2wZDJ09pmYH6qRdNQuSoTzO6j8mvxu134y5m289GbdNiZUm4vDToHVNr7gci0KYV6D38Fh8o2tjMKAWmOLpPb5PT1sj3wORvEuJ7cAzloQzyLfrN3fOpnKyYMBaWUbbOK9ZLOPRRwhSyuHPc7Fhx6sF9hpB4thujxnZkAMLJlvt",
+          "target_sale_price": "2.32",
+          "currency": "GBP",
+          "sales_volume": 3648,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.2088,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car seat cushion"
+          ],
+          "selection_score": 87.25,
+          "score_breakdown": {
+            "score": 87.25,
+            "relevance": 100.0,
+            "sales": 71.24,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 3,
+      "topic": "car windscreen cover",
+      "normalized_topic": "car windscreen cover",
+      "production_action": "new_guide",
+      "final_opportunity_score": 75.29,
+      "candidate_stats": {
+        "rejected_low_rating": 14,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 4,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 32,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005007170081125",
+          "product_title": "Car Windscreen Cover Front Cover Anti Snow Frost Ice Shield Dust Protector Heat Sun Mat Car Window Screen Frost Large Snow Cover",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa3ca27fd5fb941549d1ca35fb70ede10A.jpeg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007170081125.html?pdp_npi=6%40dis%21GBP%214.84%212.32%21%21%2142.82%2120.55%21%4021013cc017838008908563252e0deb%2112000039685593556%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRMmCzTbmRdA3NeoHrVvb8GDxrYG8GP6h2t1YVeAUkiNZ7L4ovOhdmWuXcTu3evKl7efeyjAMYnoec8eA82Wrk5Ah6HjzrebAlUy3pEYGqvoJof95KazTvtBI91hJUzQSQPmZ3NECNSJMfGrdUrbIAApyzju7BYogVDFYEgxnHBhFG3ocg3r1w8a24E2ZN4dGmtuhgDEJokzU3CM5U4Pp2FmdQEruuOg0eHquYEhOHsqlz1Qe1xUjd5ijOEz7OrDuTXdWl5NCQUVYAn8YuFHebGTqCIcmIPtGz6sQHvGSC5mDM5jQROyk0S6OPkOefP74fYwntBoueKzCLrRpdXgMaJYmvVGICpSHApV5sGuFJGCOEtxjpu2VEj0JoESlkN54Sk2LG3BjKbcfgJd8WGrkgv3xc4QXMPpIZ0ECyRUZZh2UAGXmwhXmaH2lkKuAq4cq87EWuppliKKAPqbv6FNMh8dZycSucNrgeyCP9eh5liNDkOS4PTDr5SE9cEpi35UFksSsd4ysQAKlo6tanvxtwJ0pxi1t0NzypGbOWQSR5ZockVwVewZv6vzDW5K3OZDWyaGbhTtrZSWUd16EytRjDjT58NnAMUQoYNvnB2INb9y8HrXiyw8SbC6p8oM5PSGhN59q4giLiGbO4in9qtZkCv5",
+          "target_sale_price": "2.32",
+          "currency": "GBP",
+          "sales_volume": 410,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.1624,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car windscreen cover"
+          ],
+          "selection_score": 80.46,
+          "score_breakdown": {
+            "score": 80.46,
+            "relevance": 100.0,
+            "sales": 52.28,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005008248188066",
+          "product_title": "Sunshade Cover Car Windshield Snow Sun Shade Waterproof Protector Automobile Magnetic Cover Car Front Windscreen Cover",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2157a9706f6440798f88de63dad86ee6c.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005008248188066.html?pdp_npi=6%40dis%21GBP%2114.50%217.25%21%21%21128.28%2164.14%21%4021013cc017838008908563252e0deb%2112000044371389836%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxgd2wUQI8ionDKBawFnZvSSyVqGPVEDppj3wsWmqZidygVzku6LtZIufEYWV57O2LqmA2nl3ga1HaM25ruRnQ0dHJx6NoFbucUqSA2i74jWEckYbVyAV5ruBluU8vcaIDk57l4VPU56DkanelhkuBwJ8UNmAPrdPpTAFeCxdNwsU2JdObEwjdk7vbS8TaAAf497cEGF8qy49xz2nzXDbKxXPylGivgfbTum5LeRnsfR2NVo49Ct71FdwU5HcasktmWyH6iyMfEeAeUBq1Neb1acmgGYKFq4zIFEzoX8EJI4cTwSRf0PEoEZjTsCI8fIzwSPZIdmz61dCDfWRGhFhTTX1ZlvF4oJszPWIvZ1Mkms6BxagEgkszvI5Zoj5b9gLieFxOnSwvCeoGSpi9eLcHXg91GtRrMRIBCxJztYmDa8EEPOD45hK62FcXA9C6PevpO0s5ARAjvKHFbORKN7R4BpzB1R9VmAFdRCRfhxwJ8VNp0CI842jMDZbE2MzIh9YFqrN5awQgeuwQbXVFUXUSFH5V68su43oQgq4wAnYG6rdgb2w6jmzhyayf3UdpFXyAXo4n19U6kbxJ899XFrbC8TGFh2q0uBMHZZ3K0zHtBKOKPVFPcE46vyp20nkvRJk4S05itatwB9IISXiax0Kq7ax",
+          "target_sale_price": "7.25",
+          "currency": "GBP",
+          "sales_volume": 2359,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.5075,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car windscreen cover"
+          ],
+          "selection_score": 76.99,
+          "score_breakdown": {
+            "score": 76.99,
+            "relevance": 80.0,
+            "sales": 67.46,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005007010027638",
+          "product_title": "Car Solar Protection 3 Colors Eyes Heated Windshield Sunshade Car Window Windscreen Cover Sun Shade Auto Sun Visor Car-covers",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S5152fb9158684670ac3f48d2de7e787ae.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007010027638.html?pdp_npi=6%40dis%21GBP%2113.34%216.40%21%21%21118.06%2156.67%21%4021013cc017838008908563252e0deb%2112000039049450182%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxg6wr4tVLcEPtBh0cFu322jipM61RRJywsf7XFqD2tfDjNwKzUPPMMaQZjmuFrdypFu0U9RJdwq29laUPiaHve5s2Z0ziF2PJVqPqFQqp5ZbrzrSYWMoI3tTUXE3eyfqBna6J1ZuUs6dI4YRENHy3Ea2ihyahLB6sRswW0sQWRek4wgLtaTz2ZYeZBHiyGvHlDwDPVh4feOc9euBYgo2HP8uWqbv3WKoavVpaUQgIGkPpUg4P3hklmrgJfIf7GJEdeOlICHz4nnGDrP89kklG1QzuUWiZ0jOwvfMt6KfZFwtsKxZ5xzCZIIhQ86oWXewlMeBskBWXkPvzhALx96O3yvobWV3lnGBEYi1XyL1bdvmTFilYuK2XU8ksnm4wiWUZis5jhNLpHMfDmG6igAIEK4IF9LdvxltKASFbeGDNOqLf3Se0G5iuP06ltBYDZospumPVdQTtN1e2BavjmvcBuHv07DfYrvfe0vgQ38IUCf3pzPMYQIBk6HNg2y2VO6GxYlMlJkojvwRPnGDcef6UJaGmGYgS1MrLcufbYtFyVdJASO7vZrWK0t5MhnFKWIvx5QD4PWWgn3plpob4uvCeeDAzhHBn2UmZmECOrwiMwWHPSJ3xLiz2fXUsIWkco46EiBO5JKu9MolE3cjgJ9duBi7",
+          "target_sale_price": "6.40",
+          "currency": "GBP",
+          "sales_volume": 1269,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.448,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car windscreen cover"
+          ],
+          "selection_score": 75.92,
+          "score_breakdown": {
+            "score": 75.92,
+            "relevance": 80.0,
+            "sales": 62.08,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005012061314570",
+          "product_title": "New Summer Car Front Window Sunshade Cover Sun Shade Windshield Visor Windscreen Folding Auto UV Protection Styling Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S220b5a0a922c4957860118c8c212dc91U.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012061314570.html?pdp_npi=6%40dis%21GBP%218.80%214.40%21%21%2177.90%2138.95%21%4021013cc017838008908563252e0deb%2112000057399353360%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRmRStsG3Y4QvhfkiqTvYVPK2eY6IbTpuMii5k23f8ydyv2HBVUPeTbLsoLL6PHMk4CQ1G1YZJob0hkzo8UfytV68tLugLyjwenZpAB5OwDjxoKy2lSVMLLUhFEOuVUv15quzgcHIYCSQZW52nvnquBEUwUeeB4zC6QEdty21Q8DyV2TmxyusGJx8eFqSoybpj5T87r9yOa3Edm2qCf7FgwLkhGpZeQuEfVBUqALrgm2VdESOnLZAqU3oY3s7JOwZ71m5jRjTmsar0jVj9S6rEmBBUTx3Opt1hOltKMhigr3pcP4OAjYvjnw0PGIjawUX6QKxIkAeVf1l4h8MsySxQtFo5nRyBYaTvEZreTfFEzZqiToDB5cNiJEVYPYJH7S7TYrWEib0J99BBHHwpksKIjHWrtCybvAsT6eeqGbk1DMeD8TfxHZzA5HMWrFUeyZnxP8r651ERcU0KDdNV8A0TSIc5ekqZg3sCRQyxX6sL8V5dwqhMjexqa2z7QW5YZOidltiCPuKCQHjcLeYFU0GVyYjhxhu9haNfc9TmBDwnIjubUfdA6Hkzr1Qe01CaBPjoampRnxBcWS7TVSn4nQQH2KIGB4LDCdJWZS5rjxZbEsSgTQmOvyXF8T4leoV9KsmOHHKUTYPv7jyBokNAdhqnV1",
+          "target_sale_price": "4.40",
+          "currency": "GBP",
+          "sales_volume": 2996,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.308,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car windscreen cover",
+            "car window sun shade"
+          ],
+          "selection_score": 75.91,
+          "score_breakdown": {
+            "score": 75.91,
+            "relevance": 80.0,
+            "sales": 69.53,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005007476890370",
+          "product_title": "SEAMETAL Car Windshield Snow Cover Winter Waterproof Windscreen Snow Shield Sun Shade Protection Cover Universal for Suv/Sedan",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sc1db39d14fdd464eaa616cbc71e7d4e2d.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007476890370.html?pdp_npi=6%40dis%21GBP%2114.68%217.05%21%21%21129.89%2162.35%21%4021013cc017838008908563252e0deb%2112000040910768170%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxx3Wn3zABQdaLtsceQm9qaTrlEOHzALSuzIM99XFb8xwRODowbNmJQ7e3BugbrqAq3YsoeXgm2DXkiqsE5Ibtzzab31iVycXRh4RFwjib6zWX69mBdpDlhPyehboYX9HtuxbCPwAE4isKn5dYkJ3oE20C77ZQk4DzIBVy2uFikNTvoVB2zp1oPOtAbQsLWhqr2pSqvlpfKr1ErULm9bMicBn1NQuoIq3VdVYVMEICrdpcUymsHJ6RPf13CCXx6unKGFIwVFTutN9omeNNsn4jMEaCCHUOzjCu7znoYsqQLUySaPHN6mMLBaRmWpRqq1UXWLn09ZtmdaYUQiLxutd0MoshROZst0fz7pvswVz5YgjwK4XluuToEj7X1pddAt2wUxnzdw4hhRWthUPlVUUAgTklTq7MWumQ4hr6xQ0mgpNy9fYm6f4gfaybzjnxJQxiiTY4aweVB2i0tt4E31NK1MC6eV6ELfMxDPMxYIUT9AksBF6c3AtP88rDGzfSiB5IoTPeJluU4qUMWdfQUYCblN8dlCrOiaWavvr3v4Qw4G9nhlSGcQ6N3h7KzXqCBf1DOXGTEZHPI5vCYZ8scVfDzPaSAlVBRRPRBHz7H6HSaKt5WW3gehb3JbbkKdrZW2jzJebjKhjmvHwXYeWqdxQFCqJ",
+          "target_sale_price": "7.05",
+          "currency": "GBP",
+          "sales_volume": 963,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.4935,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car windscreen cover"
+          ],
+          "selection_score": 75.44,
+          "score_breakdown": {
+            "score": 75.44,
+            "relevance": 80.0,
+            "sales": 59.68,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 4,
+      "topic": "car travel pillow",
+      "normalized_topic": "car travel pillow",
+      "production_action": "guide_cluster",
+      "final_opportunity_score": 74.03,
+      "candidate_stats": {
+        "rejected_low_rating": 3,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 12,
+        "rejected_negative_term": 2,
+        "eligible_before_pool_limit": 30,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005010706919284",
+          "product_title": "Car Seat Headrest Universal Travel Rest 3D Neck Pillow Protect Neck Soft Fluffy Comfortable Neck Rest Car Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2f84b4717f5441599f46c132b33ed737y.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010706919284.html?pdp_npi=6%40dis%21GBP%2112.31%216.15%21%21%21108.94%2154.47%21%402140d36117838009044962318e0ed2%2112000053253131125%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaeL8O86Nl8movc3OqOgRo1hlz1QPCkt1yM6Qi0aCIBFBM8icjyaVsTrWSIcBmnz3RAGVyORjaImCfefY9OHftMaXMpQEGHeGrebCNniJrBFZxgG3hs3ISK3sB3lOhI4vFgEaIEmk5r9MicWAOssPg3n9Rs9se5eYQEEQdrrwFse12xHLne4Zv0JMI9LweZteS50ZskJRxkrSKMsCu5Teqwual9lFzX6bTSFGRXknT1l6fpkUqfKdmhzUIFAnsYQYeC0sNFhWNx5L5b2UT6vdYQbQmG6o8lL46K3X0klrf0OCULj1IkHhQiV1Dt1jBzbSMmPWVydykcwV2egudBcyKvRH9pw7jcxQpQTTJVraiPEU2YO6PssZTBBkOzNSjZieDV5Fh7kyn9AfL8KsmwUqGv1AkPblzhVy6tntFKXCidzVA3YNzSOvI1U1ceBRc4WDuGw5Z2gjV2J5Bpd8pvkGMzE8XHo7U8ffypxjErrRYD3iIGuPsNPx3MBiXfKsJncht2MuBxwS4J3lJupNukdSiM1kbJv3Sba27FvHlAc4AWMj46A3wFLuyA8SnuwfBWd5fKTWmtEGgDo09vnoHJyPoxZrE2t6y71orxYH8nuw2U88s6rG9eKKopwnlcTqCoRSFUIJoolJXhPSZYQyHpUafCr",
+          "target_sale_price": "6.15",
+          "currency": "GBP",
+          "sales_volume": 5623,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.5535,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car travel pillow"
+          ],
+          "selection_score": 81.5,
+          "score_breakdown": {
+            "score": 81.5,
+            "relevance": 80.0,
+            "sales": 75.0,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005006678124330",
+          "product_title": "Car Headrest Pillow,Thickened Memory Foam Road Pal Headrest,Neck Support Pillow,180° Adjustable Car Headrest,Travel Car Sleeping",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sd7ba9b885493411e9c9379a5682a2da03.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006678124330.html?pdp_npi=6%40dis%21GBP%2132.48%2115.59%21%21%21287.43%21137.96%21%402140d36117838009044962318e0ed2%2112000037991721506%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQQ6Id94bgqVfBA2xHMyvA3wcAN3oHQT8loqQ9ObiPIimDzgSEzGCtAshLNRewTWJa8XDAdi04watXinYrcskIWUnzmpR3Wh3t6jy0UN0E1c043yJzl8al0hw8aZZq9mmccDEQpjBefoNOkGxeMug1gwvqv7r5tnUSmGxT7VvWiTP5yUZDOlTauZVqoomZCT446Dau9o2QTppKQj0hYOxtnFgLo4tB97jk32EdVExTOgvGKeGihehS7K2Z1ZQvrUepfH9vDMO3jhl0kuxwalQsGMy4CWJZC9H79VMNanLg6PiWsiwtoF2re5JucVe0cIgwfDNdX6nY9afQe6F6kBpjjI5itG6nNlyVHWfCkJ9QYdWEhw7WMnL6eohtjorlAoFKYouNEOcrg50PlBF9ujYT1Yu5xBbFjZbEudAWWSCVMn7xtmRMst3d2lLFHUU5prOYvrOUkulXYxiD7yM7uHfjuaCx3OT82oys4ijy6o4lJ7COS2VgeSYg4n9TaeISTHLUwHnNgeUv9xVH99JcfISsCZYIAQIdPw2uOnhgXQVYeHotmcpVxlBzBpnhpHF1PJKJh5oEDk3Rko6cZRxp8vYy4Z5SryRGQJVS59hKxynfbejDzR3EaD0sjiIrwBGM1cNHKmWJhrOzVlWvuWehS9TNBH",
+          "target_sale_price": "15.59",
+          "currency": "GBP",
+          "sales_volume": 1782,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.4031,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car travel pillow"
+          ],
+          "selection_score": 79.5,
+          "score_breakdown": {
+            "score": 79.5,
+            "relevance": 80.0,
+            "sales": 65.02,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005007170613291",
+          "product_title": "Ergonomic 360° Adjustable Auto Cervical Pillow with Memory Foam & Side Pads One-Click Sleep Headrest for Car Travel BMW Benz",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sf09727694fcc41aab27b0cf389d30ca8e.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007170613291.html?pdp_npi=6%40dis%21GBP%2130.81%2114.79%21%21%21272.66%21130.89%21%402140d36117838009044962318e0ed2%2112000039688532893%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwrVOQBAetNdHgSOr9XgS1OmkfzOydtRQl8DzLYWVvLqdvhsAxMKTecgouyR4qAXxM8RZEIflRBaxMtndZxxAZjpIft1FBzDG3dlyvSmigPGgECgAfVilYYydjFQ10sigG4nDybHwlzjXhW3XWPxFz0KbCHWpd13X9K416wbnTGZdIZkGDvDTBcuktx158Qyg7upXGNWH1I3ozIJRkjfkSZGrC8R7KRT2Uo1Yd7wbiVSuRGt3M0OWqTTRQ52CEtNycoW40IsrlzDuQyExy72cRwByxEz2MCMs97m402hdz1gdr8IbiElTAQUpETILEF10Tq7bDzK5jHCN0bIh9jlhehcrcs3rVf964cO33WLA8WhvuHPT7LbAoKIfsOy2s23yQS3EyWibzOVyBJhmKjFMvRyHmWLox6DT4zk5vBoDqujBY8aYSoTQz75O5zMehLwau3Oy6DHK0HrzRlLX7boYhFokY2B1VF8DtQAN7rtkuGyElEofL9SjTJ70YXrGxKA8LMa4IqGb8Ji6yzfWC2YAgNAdEU4ImHVh8nsZbcty76O8RUw7j7Th5fPYrMdVpuFus10ktSJWuvmmVn6GoICaFO8CJCY7kyfCmVM6vqL9UbmPHQYsPhhMBgv5u4mfknmzLJVQ7vHIW4cN5X6I078GaSn",
+          "target_sale_price": "14.79",
+          "currency": "GBP",
+          "sales_volume": 1330,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.3311,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car travel pillow"
+          ],
+          "selection_score": 79.0,
+          "score_breakdown": {
+            "score": 79.0,
+            "relevance": 80.0,
+            "sales": 62.48,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005007168672485",
+          "product_title": "Kids Flight Sleeping Footrest Pillow Resting Pillow On Airplane Car Bus Pillow Inflatable Travel Foot Rest Pillow Foot Pad",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S95a21442b00540daa98ed68a90304170Q.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007168672485.html?pdp_npi=6%40dis%21GBP%2116.03%217.69%21%21%21141.89%2168.11%21%402140d36117838009044962318e0ed2%2112000039681216732%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwdkGceeJnGvr1wrjd7HpTE7oVWnovGZhdSG4nN3JORNhx7xAz6NKvRT2EXzzGmpyoAlsfMk2yxmSjuC94vkMWO1SbUoP5CFINeyu9cXjg3cbsvf2Gu8UYNNYnx3ae4Bz0Yg7rwhPhD5AKrFkBLPnEOsAv5CHy3RWOv3KULf3pEjPGZXSddOyQsb87iHMbr9ztYcBUqPvyJS0HqTf2xUU6bx4AGfvTQ8RUvFyDbyOe4fFIdtYcmBuGfYSZ68OZ9YOwvdjh6kolSvrny8GZHSsrT4Ts8cGLubgeCWV9idKIu677lQ1um5BcZpshMyG858fQ2TuiWgs9rWvmAUP2Nu1EhL9ZQNLGcUi0CaTmFDQMu6Mlss4cmDhU1jRbchzTkgDVDM2oGBOnTVnj1g3gaBO7D0ErxhajY4SCF1uDouPBsVZgh2lKafjaqGaBlEIf52zzmxg41L1IXdxtCj7sedNCcVeBVg6CUWZ9QtHOnpZMREkY5Fz38lzvRngHQxj0DpL51BJDIDYwacJiSbt2geGdHaqDL7l29ycObkwVTUYUvk8I0aLjQ1DgpdFqvE1E0jAF7fHWQN788dVebjA8LUd31CpCDBNZdSNwgz5H1x3JxgIvyCPL2SOMXeasv6V4NfBvqmKq90zbpL3NOgYnuFHTF5",
+          "target_sale_price": "7.69",
+          "currency": "GBP",
+          "sales_volume": 5694,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.5383,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car travel pillow"
+          ],
+          "selection_score": 78.52,
+          "score_breakdown": {
+            "score": 78.52,
+            "relevance": 80.0,
+            "sales": 75.11,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005007805758208",
+          "product_title": "For Tesla Model 3/Y/X/S Seat Headrest Travel Rest Neck Pillow PU Leather Neck Pillow Memory Foam Pillows Car Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S6ea5a9d321a9474d8fd81d47abfed2a2W.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007805758208.html?pdp_npi=6%40dis%21GBP%2118.71%219.39%21%21%21165.58%2183.11%21%402140d36117838009044962318e0ed2%2112000042262510176%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxBWDTlGpei6pVNVvUiXRCHS69wyLjjXmHIZhYFyiQyKnwi15dB7NCfhfmUVr9j5xUUSOHZgJoXKEpR1DKfpk3FvaH0crsiwuFsHzVp4XVRKMRQLgfikmRJIVBwKvZdBlXzSELycGBrGiKP1NIY1aUTxMOIR9brhqY1D1vO6mssofbnIYV4wYcRx80GYrf5jbDWkY7sTVxswsbcs8o0KGhh2CchoEEBO1uQNWL4YdETwvDTnhisnDnaa6MCMrNo6sa2catE5A42bTpFjx8IuoPfHBNgbjq8qB0wCd97kCwWptNI5yu5XDNxdmAN97kDeD0UDYq9hfrFG6AmeOwCWva7OT58UsQAvi7Batafihis9ZYQkmV4twcAhgRhtYvO3FqXMKvh2jKgEIvBPItOD1IsocX2ixRqNOhkLCvKn12VJVFjYgNoquYhruhKtLHx4vedncX6zzFwQMVXVlS2M9sZ1r1xizSd5Zu4nXkVMsBGkFDgMwfI9jzWUJ6f3WQxK7dQf94wNM7BCovSXflQ1kRmePR5TViGwOAKo9ch7FvggZFN9L9c3CFs4w1FrsvRPGDhmhuTlXzL3Tfek3Iddny89sAG38Kz7K1klUbGh4KnqbXA9tdNCYqqVB7zpSSqIh7mYUAjc3CqwwaXngVRZf0Z9",
+          "target_sale_price": "9.39",
+          "currency": "GBP",
+          "sales_volume": 961,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.8451,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car travel pillow"
+          ],
+          "selection_score": 78.43,
+          "score_breakdown": {
+            "score": 78.43,
+            "relevance": 80.0,
+            "sales": 59.66,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 5,
+      "topic": "car armrest cushion",
+      "normalized_topic": "car armrest cushion",
+      "production_action": "guide_cluster",
+      "final_opportunity_score": 73.06,
+      "candidate_stats": {
+        "rejected_low_rating": 7,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 3,
+        "rejected_negative_term": 9,
+        "eligible_before_pool_limit": 31,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005012438734144",
+          "product_title": "Multifunctional Car Armrest Cushion, Center Console Cover with Tissue Holder, Cup Slot and Side Pockets",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S82b1970dad4f454a8ad65bab86368e0eg.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012438734144.html?pdp_npi=6%40dis%21GBP%2118.91%219.49%21%21%21167.34%2183.97%21%402140f89017838009266894417e1118%2112000058361615333%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhodIqBYSuYiyWM66S2tauHNcG5UBq0YfSDSekztLyHOgq1cz4kYoMDL1P2QY1KcsxunGaCNiO9UvzKRoHajEirNQmAYor3HK0u7JkuEig5P2cXPhqsePEf3dHA179FMYHSCWJbR575WBJxAe6HNYfot862DutOApHQ3PgiuHDSEthrSEdTB9TqyBf1HofbESI3vjcf7b6i5yFzIEJIuN53R0hazamyDWPyDIubhNRQSHC85MBarWlvTh5e9UNPDy4z9bounkKgAOxAcERTS015g1UEU58iFORdQrFqrAhBOtLSQRJKK9eh5oN6aQ5JvpO7x2cmMCB6L5WfKN5ZWuTT3828NZv98NvtqKUUds63VH9FgXS8uwhl57qp5B1WVZtGVMdqss1B833pKOY3ZSQvBPbNdDOztEFWvykZ7qDi2YYvLO6syE1Am6h63tfn4QU9ii8tL8PO2j9uX2KSxEgl8CrxlkwSEngdCG5TpSgqm8oNOURkavhdCwZNiU679O6FkhaFJ1LgmS3RGDV6fm1JRR9QciutvijRBB7jVwvUKWH5D8cGRo5xYhD79RSyl8lYQUuj4uPofxIIks4pceTu27xSDANnNzHFmHufUTWluY3Xgfj1pZyA1vaOVCzxXAjUh6TzIwwoYSdvCyKaVqeQr",
+          "target_sale_price": "9.49",
+          "currency": "GBP",
+          "sales_volume": 1080,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.8541,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car armrest cushion"
+          ],
+          "selection_score": 86.64,
+          "score_breakdown": {
+            "score": 86.64,
+            "relevance": 100.0,
+            "sales": 60.68,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005007476522951",
+          "product_title": "Car Armrest Cushion Universal Car Armrest Mats Wear-Resistant Pu Leather Auto Center Console Pad with 2 Side Storage Bag (Beige）",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S8db283fbe7f942ecaf28e5d2259397f5m.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007476522951.html?pdp_npi=6%40dis%21GBP%217.31%213.51%21%21%2164.70%2131.06%21%402140f89017838009266894417e1118%2112000040910244446%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxGQ5v0TDFJgB7qs3aPzzX3EjzL6Rd9SPWqGmg6HVuQVGUH3jViMRpbphIXZfCEc4jwZt8MhgCciH4q0bW6D67nCJqmurJGLuAgmW9dNFVDRspEYGuig3P27iZuHSQe9m1hF0UjOTMwz9OWmqS9RsI9UC4mnqx4WJCSBNU8m9rs9xBRbKA0F8oMKvSnv7RDi8yipx1hMHTgnhHdSc9P9qIlei78XcyDMYIyl9kDpf0Fi55wEtbo3WPSYxbr3ZxfWYXsI38Q2Xb3rB58RGE5aXEA5QNagmgo9boYF7tDDcop1ZW76LO31PakNmXrQZZ3YKzngfkCx4lOoPXcfx8yM2HlwLC6E2PFzo2fYs8CZPlY718QQAhNBWJ93FqKRYbO9ntIEfxKt0de49v56Si36S9zsbL6yvKF5INRLu71hvOPLDNv0eIswU2K6pU7cdMh8AmcfssolePkh5CusEHAwqAruZP1BSQjuikGmKplXvH2hPvYMm8eAseUGrzNEQ7BPkGMd2DiKKspFbLTez1YcVo4HDgygOO1hakAK8yOQIuJuhiTBcAaKy44eDyNkhpAQ1YaNJ7mLdsYAzQck63UJ3a4Kv3CVNXzzylp6bLNqbXhy3dhhezjik9qvpCZGRlcHrK919imEQbukvffnIerN70c6B",
+          "target_sale_price": "3.51",
+          "currency": "GBP",
+          "sales_volume": 1063,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.2457,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car armrest cushion"
+          ],
+          "selection_score": 82.11,
+          "score_breakdown": {
+            "score": 82.11,
+            "relevance": 100.0,
+            "sales": 60.54,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005006967661017",
+          "product_title": "Universal Leather Car Armrest Cushion with Pocket Memory Foam Elbow Support Height Adjustable Pad with Armrest Box Storage for V",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa068e12c40df462d8b47e580e9893145h.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006967661017.html?pdp_npi=6%40dis%21GBP%2112.35%215.93%21%21%21109.27%2152.45%21%402140f89017838009266894417e1118%2112000038886053830%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHuaGgwDAEpIdt5xLM5pM77QiAX7b3TT4mK8N7MR8AmCNpi17NjhsapxVBgvVtiMzObD2lAm3PerWBDcyjKFs5OUTB58lxHifEyDhPbjyDW7E0Rnqwu3XxCF6Ml8P7FKa3dn7EniUhJvQTXwxrbs1rPOLCeFCqhAFXIKuOnQZAJKeSTXBYDxdeNybwn0QVk6uDaU4c6EKplQuL3CEAPQjwivf7qsjEJeVWSEtG2oeNXApaemi17GpYDBPGLQyCth6pRwITjN6v1DCd3LWDpVcEcuKpxxL9WMm3nr0U2E2EPP9ttoWdVgzaXlqu5dAfC2h5bbdcJ9y6eWgVFCDws6N19i29LYuOGPDWabZbeikyvWBxzQ8CQeeWg9ouUu8PAx0Hfg8o3OUAlfMwzLebLxrQV9FDwtLUVYf5HQu54Zki1CD1naRnssdBEz92EVg5xlfnEm0qJA7KT91B3sdULN6C52VY9kKzOuxnu8BRc6xMFWfoI9GOgNKvoFfWaNf0ZZNizz9xcUXPoRGkZKwrNslt6BTSuS0e57hzMIa0VwwUK1I6G650hW0D1qpMYaKk2Aii7cy7xiS8dGWW8FyL2g5dqyVEfCafU1N70Ktdlz9zCuhU7zc8ZQteXQm2lCKMzR0J9NyDD2uj3BWSVu4srsXETD",
+          "target_sale_price": "5.93",
+          "currency": "GBP",
+          "sales_volume": 396,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.4151,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car armrest cushion"
+          ],
+          "selection_score": 81.9,
+          "score_breakdown": {
+            "score": 81.9,
+            "relevance": 100.0,
+            "sales": 51.98,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005008406436220",
+          "product_title": "Universal Car Armrest Cushion, Beige Quilted Leather with Storage, Enhance Comfort on Drives, Fit Most Auto Consoles",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S976d996480c2485084f92ab0698cb2f4V.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005008406436220.html?pdp_npi=6%40dis%21GBP%217.79%213.74%21%21%2168.95%2133.10%21%402140f89017838009266894417e1118%2112000044908723292%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhpD4nPUflBIEU64xXQnMICS2YM6Bdxkp6EHvDZDD8nGArv5PDsHOFWTxM7Fv4qvn7Ecf3U7NOyC9hCEG5S3Xn4krP4FkDj2ULbmP9XXc8yCgqUPfybY95ewmHsP1IBvyATRmHVqJFLHiXQet6nKszUtA5dXXBOheOp1uRYUhv9NSC0rEuKnVNVyGbdAMAen4oK4nR3FRuXeZg3nKU0jY5UEzDPiDXE3mPovsnU1ZnQuzHHlLkksYy5IUDy3OOr9TbRXbgy7wLrPzNMdZDNjx5pdOMZ29JZTRCUByfd2jV9tKacxszfOlDLfaGB7GkySVPMBfKzmT63uqnBqvyFQN6Z7ZpQc9AkS5SDuryjtVnPBcwAfaqwvt4KvuDlrlhjGVVASu7RJV3xPMSCYRF057cL3DJ65rRpV7lwabHcJq5E301dBKQA3Vay2hjsfOE2t559D3k6wMwrcN0YUSUJSQTkp9DJVBHjSLMl0sDAq5L5pwTQe8LuHyurpoQt4zli3h9Wg8VoSTF9LC7hpVVt830imTXIaJCyGtOUTGD4NlYnuz68rj8y46Rmvxkc4Tu0mCkcACmLBCPUa8w7IO6w1oZRj2XzYlJikArIlonLhedlYMIrZMSxM2imYVtj9ixYQJnpIadL6YnCdbEc4q2lnyZ2T",
+          "target_sale_price": "3.74",
+          "currency": "GBP",
+          "sales_volume": 446,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.2618,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car armrest cushion"
+          ],
+          "selection_score": 80.6,
+          "score_breakdown": {
+            "score": 80.6,
+            "relevance": 100.0,
+            "sales": 53.01,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005011824872049",
+          "product_title": "2026 New Universal Memory Foam Car Armrest Booster Pad with Storage Pocket Comfort Cushion for Driver Auto Interior Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S591965748ccb4302b8c0ef2f6d6aa2fcg.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005011824872049.html?pdp_npi=6%40dis%21GBP%2112.89%216.45%21%21%21114.07%2157.04%21%402140f89017838009266894417e1118%2112000056701222696%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfvgjwwY59RAcgVUDjjgQr5Zdqbz33O0Jh5mMkIQLoYplk3KeNyNNzOrCMPAZvi7JyCHzFNUgGKSvMB3s2JBZHhqCgjNEwyGYlqHlv6vrqLzN3q7LnuZEhbFghh9czyb4SXmnMgE9YsDIruH807l2LMfNl9sXHtP9VaJfrRE6wgNAwul6G38iURRHFYI9GoGeWxVnuQamQ3KToz7iV9BeGSezELEP6WVPKl9N3TNakpo3hAdmPEdvMmKWavWq2NjaXls4MxoeEwO2CdClpbSYBHGjeNpo1UKJQss3nuShDTDuakM2T9oNCeZF46fI2sLnoI6wyEaRdFmos4Rk495ETT6CXMNVkkvYW8iRG2V5HPKO0JxErAH7JrpV2fjZIq6dL53gtIyC8jwFksTAVjtgWAKRkhj4MITEuPGVnhaxY1Z16cobLR3hHFNYnetCDEMorcKk57QG2y9KyB632UoRslFWXaUCZXDLJ2c6mbA8JnbKbMaqnaEV71gvBku3DyzxkdqLaX2bdVAaGez7ARiIf7XeivxqhYiWVrvEAh9cTux75IZHNaGOhfeeh8BEhoMw0yB588ihqqIneZ0z3ZUJ0Tb5BszCj6xEHrWDL2d75WVJVcjBOgHCaYtAl3KA3jVcNoCRuKeAeCpLviUWRRjsuML",
+          "target_sale_price": "6.45",
+          "currency": "GBP",
+          "sales_volume": 1380,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.5805,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car armrest cushion"
+          ],
+          "selection_score": 79.06,
+          "score_breakdown": {
+            "score": 79.06,
+            "relevance": 80.0,
+            "sales": 62.8,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 6,
+      "topic": "car food tray",
+      "normalized_topic": "car food tray",
+      "production_action": "product_block",
+      "final_opportunity_score": 70.42,
+      "candidate_stats": {
+        "rejected_low_rating": 20,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 4,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 26,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005012541024475",
+          "product_title": "Car Universal Laptop Stand Food and Beverage Stand Desk Steering Wheel Tray Table Stand Auto Interior Accessories Storage",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb5704d7aac9a4b439c6dd736192ca4f4G.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012541024475.html?pdp_npi=6%40dis%21GBP%2112.24%215.01%21%21%21108.31%2144.33%21%402140da8b17838009217954145e1010%2112000058632259810%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhbygesITc0hmM1OzTEVXaRAUYbl9kVK29linClfz9cvGh7HxqQjbdEh0FMZxhQ9BQ8a6FTheLm8QeFt1JGwZs7PqnKAQbjmIQzWOUOkua5x723VDVrskNN6j23tf9CBWyYAHTe5pJ8tJ5Mtzn96OgNytkVdZXBecOIyinInqP7HUhmDmSwFH1tI77JcPfq41MazxG7Nsd6HQax6Sw3p0w1shCTNuK32bwSarcpMG2kBFzzQhjgTq9QllALBZsGovmVo5vkvvxMkaGJoq7ciOHncWtcWWjg9SVUf1tubA3UZNQ77uOW12mBTxd6VpXfaG7EqqlB2ezdlaBD53D4rQBm8uXQMRh7mBgDA0YuyAsR5OIMyoK1RG0jbSUyCE1cpFppiC1PW7WXHsC3UWyy15R1wLVcVyVJsK6uuJssiHiO2zsJkJ8hbKKGPBa1UMBx3veT4Pa5mYhfexlHSI40IfYn9cFFOA8d1SXTJsHDAxaq8zwMqrkJ045qBalhM5tVuqf9OJTDvsFPWAPcluOgWbkqeYDFZ7bU2In14m0rQst4djK7EYV7tJ86u6GrNKIOU2x0NTPykGpXz90RuQds6VlMtacyLkgfVmStqTPtvPDOj3DW9gjzkg1e7rL7sszb75mOiNKEU7Pt5kOi1aLrqJdf5",
+          "target_sale_price": "5.01",
+          "currency": "GBP",
+          "sales_volume": 2409,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.4509,
+          "shop_id": 1105233629,
+          "shop_name": "Shop1105233629 Store",
+          "matched_validation_topics": [
+            "car food tray"
+          ],
+          "selection_score": 80.03,
+          "score_breakdown": {
+            "score": 80.03,
+            "relevance": 80.0,
+            "sales": 67.64,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005007938009567",
+          "product_title": "YZ For Tesla Model XS 3 Y Highland Juniper 2018-2025  Steering Wheel Laptop Tray Food Desk Portable Office Table Car Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S79e66dc82ab14ca88194bfe5de2b9cf3O.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007938009567.html?pdp_npi=6%40dis%21GBP%2179.56%2138.19%21%21%21704.07%21337.96%21%402140da8b17838009217954145e1010%2112000042937965541%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxI2Oxf5GoEVX5909YfuOXdlGzUVXdqi6B8eeYTPZYrZwoRE6YOgqSp83U3EjJFBmwEUYApDWBsRW67QjXH4nZeh50sjzUNRPyd6hvbi9wcwRoMyCwcmxyb6kVLoS6FA27hZqxyUke7MyeYbq67es6sEAEkNmlYOrEpn7LycmxRfNVjYg1LR5lIlSuo5bwzB1feIZTD4jBXYOIC7WkAQj4y3mwKfUxGRRi20cGHxGNltiIn6WN5cKrNSeqttE6PCn8t842hrYNCz7uXrzH0p5IcCzr2V766UPa8oN7G4Y4gUdRJMLPbzhJKKkoh9TtN4z6Fs913oUhQ9uGePV8u9C3P16KysRYrHAvC6LpIA6Fi1k8TxE1Lst1pzEajl3P27rgfTPWbdsaZn6PthGT7VByaaSFYqYtMl3kBDQGcW9So4QserNJf7kafU1D1foAeHJQYcRGd6xR8yVOofIvAqAS4toCFNIo9nlVr72MmPP36f35d21GOTSW6MGspSyGV89KqpVdpYVNbbyf0279u2iRLkMaCtVU3zsy6hjYFSXBv4RMxN6UrVeKS5dIUBppdoDKiJKfHiStqc7jsvI0uGMfj6kRaA7Frsfg46me58aYJ7WPXpS5SjM4I9VBD2qeZiqdaEaPugubiBSPGtdWrgflDyP",
+          "target_sale_price": "38.19",
+          "currency": "GBP",
+          "sales_volume": 3423,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 3.4371,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car food tray"
+          ],
+          "selection_score": 78.64,
+          "score_breakdown": {
+            "score": 78.64,
+            "relevance": 80.0,
+            "sales": 70.69,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 60.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005006111969615",
+          "product_title": "Car Cup Holder Expander Tray with Detachable Car Cup Holder Tray, Car Food Trays for Eating &Cup Holder Tray Table for Car",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2bec85589dec41369face6a7e9c65514w.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006111969615.html?pdp_npi=6%40dis%21GBP%2136.52%2118.29%21%21%21323.19%21161.85%21%402140da8b17838009217954145e1010%2112000035802130483%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwOfTw8u8UKS3vAAx1yfp2Azd3lKiRachcDwWasXHtOOpB8KbbzY29oIHnqzpSCeAqjjmIVr2RO23S8buyZ0o4AegNTGUvbctKrQKGMbcz1439hCRGFH6HxJuKlwTxiEap4LMJtQhaPKuBlLpjFCvwBuA2x7UO9w6kSC4jWECXreCK2rZIaTYnK9JfVmUrjFgMtFmYFbRs9b4ai3jh957igeE3308i68Qu2mfEq55ZFPKigpcglfOQixvYN3LR0JIoHB3spm8xEonU18At5v2HHOBqdQZOgjVSEisGzpN4VxIldcvvACJpRAgqGinxRtGek7fXgangQeRgsGPPw04949uVPJnnkJczAVm0tYG6gDr5q7L4B3ACR2faCFE2Xfu0N9ylKPvQfGtB0rHEFpfLWMSb1Ct4AaQ9yL0qUqpcKdawDpKp798hvYTS5nEZgYTuydXgjCYg24tIku4rxUBtl7peyar8dbfu0GtCn8Al6HLPeygaybXB2LVXrQdvRncwCOKgwfotqIhKTGg2kNRqQ5OGxon6uk6SMO0QrnSXEdNLDryME1Zi1ULiyjhd5b6rojPhNhnKg7blSNbr9zadXVFajLsQpT9zekNBj32jSdZwYbWIGJTZ6GG6INFmewiY4kgOSTbiM39g4DZYUlVuqJ",
+          "target_sale_price": "18.29",
+          "currency": "GBP",
+          "sales_volume": 384,
+          "evaluate_rate": "94.9%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 1.6461,
+          "shop_id": 1102912556,
+          "shop_name": "LRBH HOLDER Store",
+          "matched_validation_topics": [
+            "car food tray"
+          ],
+          "selection_score": 78.64,
+          "score_breakdown": {
+            "score": 78.64,
+            "relevance": 100.0,
+            "sales": 51.71,
+            "rating": 49.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005010572828204",
+          "product_title": "Portable Car Laptop Computer Desk Mount Stand Foldable Steering Wheel Dining Table Bracket Drink Food Coffee Tray Board Amagi",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S0cd57857c2a146c98ab6d143ac968cc6x.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010572828204.html?pdp_npi=6%40dis%21GBP%2117.23%218.61%21%21%21152.52%2176.26%21%402140da8b17838009217954145e1010%2112000052858644723%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwQnNKLrXo3TdjV8UeSbXQimn3GKAgXkL2JwfZPdftXPoMkvpEJbiVt5mbTVUaXVhPC4SyZM5XrEHYTD7cjMrmHSXuHufmVlH39hZtB9SDk2c5rujSBBOrXS30Yt8Lokwa8m0LHJfv77hCVX0xiUiJUZzYxs5ScPz8rxfpOt8n4wCjE5ogzGSUYBOphCFgetIhR4XC6ekEPMob0u25mpTzTaoFHfWQW1DpLvZcKK0VQ1wNvLFne8NL7jLyh8OFMcrFKZqzSIFgFxd3t7nOFKZWi5Qpmo7tpaxvGy4ytqN6vkuG8jcdLFHmflrJpJJwrCAWFkvjw1RRWA3ZqfqCdglqRSJW0YaycVsnZd0LvcFGLcMnPuur7f8lCOjG1P5LUl70ThJrqEUPWdoHIaASf0p2FnwNoScEwUmvRFwZrmT3wHbHDJi7KiLCKEylt8Qbomb0bORcfjR43jQI8PgezB3EIXSY3l8ajb3kew6k7NALG3mwKciZPNfwXRkgCo5S1rc3LgkB54xqgWfJ1BYZjTtCq0cxyLLf3GTc3BjGYDry05xFPvUmJlirZ0sOW6FiYfNtaRAKIx9BBh12HlSlPPeSVH4DIdsEUxZrtFJvLbWZAbBFy0mKd444fUZo7SJVRfKC4RsbK8t3kWxVCCsoinzjq7",
+          "target_sale_price": "8.61",
+          "currency": "GBP",
+          "sales_volume": 975,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.7749,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car food tray"
+          ],
+          "selection_score": 78.46,
+          "score_breakdown": {
+            "score": 78.46,
+            "relevance": 80.0,
+            "sales": 59.79,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005010530083398",
+          "product_title": "Car Tray Table Food Tray Desk Folding Laptop Desk Auto Steering Wheel Tray Mount Adjustable Water Cup Computer Bracket",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sbabd90cb0f5b41aa9ae51f0d7396400ed.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010530083398.html?pdp_npi=6%40dis%21GBP%2146.92%2123.49%21%21%21415.22%21207.86%21%402140da8b17838009217954145e1010%2112000052713308445%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxg3yNofNRs3Q0uxFzQyEulIex92Lq9adTwNWcNxr7bqpGSIYwZHsQcHBCPnp0ykszZEJve2Jtm4weAVLxYCaFiaCYvmbTnwEoOsiVR9zLjImfdliWkX0yEISpmNmtpkngvwEGUNnufY0B6H39rCxemf1e2uP9rJfyK6hFg59WuFK9DCTB8ta5KpP2eVRUS9gKnc6bbJNOIPB9ExEkPkzha2jKF392o97E3l0HcjboOrdbQs3POrcsCzAbEyHpADZ7v9lluOaKJpXMsrzXSXvT5JxiTYVBvmospqE8MdYs5iw7Z9ER7KGcabhMe1paWoAEsysUNGSOnGFWZE2rbjVBUeIEiTBZUeTls2u7QfwkueuM2eFqQTxi2uc9WERCpNpJwduIIWGkD0wGcErypgacfeevefRaKeLc4RJ3pZFDub7QUEoXnKkXlkmzxQyTkCqq0X7nNcJo1oY0Z7qh09wSlOmiI5bFMma5pupW9Tpglat9U4B2mhbWdBYHoqmcNNH4ylauerOgoRQ0ziO1RpzgcSrpfhZCNZ0Vi5CAWu9yutgyXrzBUMNpW65GVxFOsjL6fp2ZZpd4E06aYA1OhBuKbqZIuWqXXiQSbSRyWGPkJdna0jKxZ1z4m8SLcVfgzt70s5mDmYO2ziGioA6tZb0LaOR",
+          "target_sale_price": "23.49",
+          "currency": "GBP",
+          "sales_volume": 447,
+          "evaluate_rate": "98.5%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 2.1141,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car food tray"
+          ],
+          "selection_score": 78.11,
+          "score_breakdown": {
+            "score": 78.11,
+            "relevance": 80.0,
+            "sales": 53.03,
+            "rating": 85.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 7,
+      "topic": "car window sun shade",
+      "normalized_topic": "car window sun shade",
+      "production_action": "new_guide",
+      "final_opportunity_score": 70.24,
+      "candidate_stats": {
+        "rejected_low_rating": 12,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 15,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 23,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005006982749702",
+          "product_title": "140x70CM Car Window Sun Shade Windshield Snow Ice Anti-UV Protection Front Rear Windshield Block Cover Visor Auto Accessories",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1e3eaf9ea1fc493bbc9bb3d35f8f6b34I.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006982749702.html?pdp_npi=6%40dis%21GBP%214.46%212.14%21%21%2139.43%2118.93%21%402140d33617838008997493064e1231%2112000038936971413%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaDv43ghXf7rDs3GsFU6KfOXYY9dCLkkmWSxMZ3NyupXMzST22HLFVz6RbGlHw1ASm1yUkWwPkjP3mSLdRoEYw9qdkYq1HE6YMe6bDwFbjZJAoby7Qit1i5FM3IWDTtEbmJgs6tCVwpk1ipty8CgO5ZHwFEsya5EzIKMY6EFXdecMUFIaSGjyt1qmFRKp0kkZLI98Z4TJug88lsfHrVTnSTfaLiWO1D9CRCCSsnIULafu012J0FI5lnVoXxLAVdj9cHhxPjIH7ylkkkJvKDLBh7WPZgpyVL6RAcHks4yybNH9NRTSnZe2tKq9pZu9UPndzHoOCE1igpIkAojxxVjxvTgqFChqlABnQBpHGSSeu4SFoMeHRZUtq4LuJhBq0sbkbRwfF5GRigivEuSuJquQ3keSCcLsnHm1jkKvBk6jvo550nXKy59xrqYdutRCjnwWoJ9qNQi3RidxOihsNCTPrKnMHAeIzJBZpoqk9wLzcG6bNL3fcdnOaefTPE6OeZsHcLTZRNT0DGNFivC8dNU01va8zRact1KpzamsREJk17JSZUODDClxrLMJmD8YynFBzQY9uA79Aa1hZ2gzehFdfqNwGUCueIHPUrDE88qto4vuSKpT9aTuWkOmVKLv4clEXdfIE9V49K4mofk3pNkhr6j",
+          "target_sale_price": "2.14",
+          "currency": "GBP",
+          "sales_volume": 3730,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.1498,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car window sun shade"
+          ],
+          "selection_score": 84.29,
+          "score_breakdown": {
+            "score": 84.29,
+            "relevance": 100.0,
+            "sales": 71.44,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005009738164622",
+          "product_title": "5-Layer Car Windshield Sun Shade Cover Foldable Thicken Front Window UV Refletive Sunshade Curtain Sun Protection Cover",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S7c2a2ff6367b4513ab1711a8e17072ed9.png",
+          "product_detail_url": "https://www.aliexpress.com/item/1005009738164622.html?pdp_npi=6%40dis%21GBP%218.20%213.94%21%21%2172.55%2134.82%21%402140d33617838008997493064e1231%2112000050002034039%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHLogF2Prqz5wpUJal9dUyi1ZngJLae0mcWee0Jexj6UPgUaHNN0GCetEd3EIqRiYWo1nQ4tlqum5iAcuNp629ZwOi9tZiLPQKQKKE4Ml3EduoTynXMZsKwgSehPPLawzHa0IJTWpgMsY5G6pYuHSndeK7gssJ34s8J3sCw9dYadL4uVSpIA8HXevxt4jYEHOUHDTMzAN7x27BbGzHo6mTPa3VrTLEHlc7YEqcbSilUKNidXHOYCiK7XZXByEFDndxv9SOg0SPWjdQBgSH55RRWAiLX54cFss6f2wizBcsFNxvT2AKKJXz71w09J9sENkIywpBNmHXPG2QKNk32diupn7z7kGMfcHetaUhvSbZuvqE4a6dUXUbQTYXfnS4vV9fKaI12108zEEaX6EMONVCsljPVw3hVWESGzvKYj550BdF3urawys6KkEwRpB2t1HyHlDFMcXPZ9IK8GGRklp1q0dzeLt9uzj5fbXMRG0Mk8iTbnkfkcmAcnzK13S2hFxYG4ojQ4B4uU7kQKFKJsW4O4aBOO9SszZPSH32jyQJtjYSol9Xr2zTgG76yhdOe77zQCsLf9SSrAK69M7c9TniqUV0WUsS1Bm4RZtw3jIYPYENrBTrupMD3F5MT9ZDqdEqDeNtjnuMIWkVqt7sO69mzN",
+          "target_sale_price": "3.94",
+          "currency": "GBP",
+          "sales_volume": 11469,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.2758,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car window sun shade"
+          ],
+          "selection_score": 78.24,
+          "score_breakdown": {
+            "score": 78.24,
+            "relevance": 80.0,
+            "sales": 81.19,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005007306695447",
+          "product_title": "SEAMETAL Car Windshield Sun Shade Cover Foldable Front Window Sun Visor Blocks UV Refletive Car Parasol Sunshade Protector Cover",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S45893dc9832f4e0695ade1c819573a199.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007306695447.html?pdp_npi=6%40dis%21GBP%215.40%212.59%21%21%2147.79%2122.92%21%402140d33617838008997493064e1231%2112000040177299095%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaFsojYzpse6DQLCY9Raem3SPiojRtvfTu4R1v3HTgPpSCo1bB8l2PaF3etbT8LIBGtmFbsFRtNDNmC2vDGFoBlmsQ4dSM0GTqAcZH1SItjdUieoZBoNfA5LiYQqRoIYLrI0ka6vDLNHDf0elKZhoz97WefpOdJTTHR01tNic5df09Vjq1ydz7vqPMYqNWabAJQjyz5kjkHm1FIURa5z07Axz4MftekdS3UtIxnscz88lZdm2qnfNNXuVq1yXf0GTJEuU4IH7r3b9sXmL4XN3dCtpMU58CNkzbdLUkvuFgCy5cYGMfv68Mego85yqU1cgMh36BZXcaFsbHfcBsFZEYGbXJPYzq1dufH02o3uWqG7jUKIBW7WU7sEsoamKJ1PiGLSQtBa2dqp8LY6qJlCWrQyZbi0TjKixoqhuYqWyVXJ70PNPKXfEmDuWfwBOILOmVia0CO8CgdQ93FjkK9OwvzPgc9fR0TFpvsMT4fP8JMNh21EhNMuaPyktVE4JPz8YCn3R2WCXOxgnfuzMGZILieo0EAQ5sLPv6yIVsS3nSTXA0X4kvnnJvQzss2ne5yNad3B37XWO83fkW7xUQBXpAQGuRKd4HEx3oOEi1KtStXxmt7MOW70h2WRHa8mEv5QJe5GhzlG1HKbW694aECm7vpD",
+          "target_sale_price": "2.59",
+          "currency": "GBP",
+          "sales_volume": 11463,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.1813,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car window sun shade"
+          ],
+          "selection_score": 78.24,
+          "score_breakdown": {
+            "score": 78.24,
+            "relevance": 80.0,
+            "sales": 81.19,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005012061746062",
+          "product_title": "Car Windshield Sun Shade Umbrella Foldable Car Sunshade Front Window Cover for UV Ray Block & Sun Heat Car Sunshade Umbrella New",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb2c99a7884d542098ae0c07b6e68d856f.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012061746062.html?pdp_npi=6%40dis%21GBP%2114.17%217.09%21%21%21125.40%2162.75%21%402140d33617838008997493064e1231%2112000058889521125%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgYLP97uNiR8DdhExLXAKSk7ra48WsQfaBv5DdsKW6SHn9lMaatG7nKCTkZStbUngiUKGc5MOhlm9UGkhVqlkQPPy5CtSTQKgsdebvcFkbKCXp2LBYHIdDiXhDIC9DxF2fhlSdJXIkFenW9z5b472gkArqd4nhSD3wOm9mHXlWATx1HIHj31YCkGL3khK1FPF6wZDkXfEwaIB2zQ4y1jVPuCc5762s4dYT1chzC0xgsFr8ttfi5HDBdiPePGISXNLli0cS0m3mYQJ3T0hQ690GK3Gl3Bn92GKOzovDbEd9frvTPm7VCsRKFfw3Vpv6dnjMbABNXfyj2oeS77pAIS54T3G1J1CVtgLERa8ysDHk69E1pal18jE6FWeHgWIyctE6OUjnceWrAqQsXaBTM5IXGpn1FPUTUjN3rqZ4Nbs50SeCgV2SRwkpqdXNyzWHwYhHVOIb3xVKsD3okPo2GbFdYzaHdAxRQi2HEEBTQQWQ69um02bvG5hPuOxZtJLs0F5CDFzPrHIfUgGh3Em9BaMvE6X18hIZHeib9hpdxZMid8PBQ3otsegKt3mEHY3JhZ6DMzgWugWsRyhY14aagfijmHoQGlt6bWk7KlYN21MkBLZXeS8k71bELd3aOROojyDii3A5FlIYHMS6Z74sm58TDZ",
+          "target_sale_price": "7.09",
+          "currency": "GBP",
+          "sales_volume": 4645,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.4963,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car window sun shade"
+          ],
+          "selection_score": 78.17,
+          "score_breakdown": {
+            "score": 78.17,
+            "relevance": 80.0,
+            "sales": 73.34,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005006860973145",
+          "product_title": "BLALION Car Windshield Sun Shade Blocks UV Ray Reflector Auto Window Sun Shade Visor Shield Cover Protector Foldable Parasol",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S3ba6e536d16c4f378312c833760a1777b.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005006860973145.html?pdp_npi=6%40dis%21GBP%215.84%212.80%21%21%2151.72%2124.83%21%402140d33617838008997493064e1231%2112000058923935800%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIBrqCceCJCOogCss98aFkCMBTlUpFj65gYAheVTyfJO1NyTEkSo1NNty5apM4KISuxP1Tf6yG4hwm23y0jmtRTrpF8brDPD3dYQC196OkdAkUhTz1492RRni6q2C1883tUZ45HhAv5AeoKpQrBtaIBwjmchysD3kgkMheTehroukN64RmBp3QJweEF4L7EyIwa6ugqf9uAwizz5kXMK5LYJY7GLADuovpbD5iA9DSyjUdN2ITuZLXQVAWEPC4xmUHiSTQK2ta9UUXdEeT3nIsesoiqtplMwk1G75K8kx2ekdoFbtEPgiPI7ZCAZ3ejPXNUlormOhKmE27lo59nttnG0DZB0URXNziyt3jm4QfIjjiYEwJyqScRkoD2GX9vtPC70JoDE0TCqDcWHcPKeE1obJjAotfWlBFRBpDUwwquvMzRquA1GjCMB3OpBADMQSUPkD6zIZdThfhKKtGYGS1WhFlZMOPsSEI0ncQfASlboO05Ig7wst6X3DzWaLQYXDiA4sWDOnepDEvBNUH9oJl0v4qt3jz3XSur16BO5pD3FZCHhjcyYhO6d3FsGnRNonLwC58rK0aLwlKah80oNkQXV0x2DaMqPjd5djXyxCgozdphEVpEHsNjpDVb8HQMGHgdIuVglIcNpP3dehneQ4Jm3",
+          "target_sale_price": "2.80",
+          "currency": "GBP",
+          "sales_volume": 8260,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "7.0%",
+          "estimated_commission_value": 0.196,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "car window sun shade"
+          ],
+          "selection_score": 77.67,
+          "score_breakdown": {
+            "score": 77.67,
+            "relevance": 80.0,
+            "sales": 78.34,
+            "rating": 80.0,
+            "commission": 70.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    },
+    {
+      "production_priority": 8,
+      "topic": "EV charging cable bag",
+      "normalized_topic": "ev charging cable bag",
+      "production_action": "product_block",
+      "final_opportunity_score": 68.5,
+      "candidate_stats": {
+        "rejected_low_rating": 18,
+        "rejected_missing_promotion_link": 0,
+        "rejected_low_relevance": 1,
+        "rejected_negative_term": 0,
+        "eligible_before_pool_limit": 30,
+        "candidate_pool_count": 10
+      },
+      "selected_product_count": 5,
+      "products": [
+        {
+          "product_rank": 1,
+          "product_id": "1005007476706609",
+          "product_title": "New Electric Vehicle Car Charging Cable Storage Carry Bag EV Charger Plugs Sockets Waterproof Fire Retardant Equipment Container",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa8dd69add71d4d089cc89305bf758aa8h.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005007476706609.html?pdp_npi=6%40dis%21GBP%2110.68%215.12%21%21%2194.54%2145.38%21%402151fca717838009374748155e0e12%2112000040910517599%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxH3Rek0f8lh1AMEL1VT5OdG2Ygt30H3DXGmUCESy7wwwgFqwDLJZbf6X47rQF8DFJZJYMOS2R67u1mLnMHUWeKP4DKi6gKN8t99pflBeYitsltmu3ArpweZQb4LKhmzf99kFLuyUt4XNtLPF7sugADjTmBnpXUQi9s6MKLPI6M8VPobSql0loUtLluXEDOIPX878tx0hpAQrRxM1Nsz9qxKso8ITk7sxPtrlGx3J8O2GfEnj20jSmMQADH2PSD5eQNlmWjmht2W1pHlw8S2BPERS1QcsQY81ewdejNMsR8SpBZaBt7L9w7sNAnSyRulnRWqe7mEpIC9UITeExt757PlkaoRjWtrdMvb2fv04Ru36BjAfM7MOX1XziImSal0ri3t5ZRLfyKaMckLOIH277Dirv5klUttUxytQGUcZzcNVVTzH8aU3a719c25v4I2JhOd3G1bIHQ5ZadCUVcj9vI0f4PWw6dZkZ9McR9CZD4ygMHBIhO82evt2Gea8Kbhmm2f6vJlN8syYFNoeXywBqSjMG07rHJaGo9sE1gcVgWSHBZV00FPe3OKGOKJ5vN07tatPnXtZxWXs0zM6UGuO78o8vYZbulm3aHWZzJKpb5b5oUSds2aVT1C6LkWBeup6KW7TQ5I2hu586ZimegQES34P",
+          "target_sale_price": "5.12",
+          "currency": "GBP",
+          "sales_volume": 798,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.4608,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "EV charging cable bag"
+          ],
+          "selection_score": 78.11,
+          "score_breakdown": {
+            "score": 78.11,
+            "relevance": 80.0,
+            "sales": 58.05,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 2,
+          "product_id": "1005010285568198",
+          "product_title": "EV Cable Organizer Bag Electric Car Charger Box Charging Organizer Jumper Cable Bag Electric Vehicle Charging Cable Case",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1c93263fb3e94ad79f93fa88ee3cf428X.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010285568198.html?pdp_npi=6%40dis%21GBP%217.91%213.80%21%21%2169.98%2133.59%21%402151fca717838009374748155e0e12%2112000051791715965%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxh23frCZOJG0Y5RSCumd9zZFbDlYwrlBSFVBHpZzTDwhY7lYukP3VcoLg2dZ20Ic0Cu920uJIzObuW4iRPXPZ9QKxI2Da7t8YNQhXXO7aOLdcRfyH0SkpY1hLPu9sLDGjKqEwFOXvD10xoYYHePGvPovT7vNJ4Q6IAReO8vxY8yAdo5iRXggokHkt0Agyt0J3Ah4dHyIzdfCc4CR4i1YmZ9yk4HLcwxVXp3TiNsfOBlzt3GlQTipwZqMCcTVjpmd0aLw2ph8lVMaLcs4YoxGy4MFJFebbCAg83xDPtlPcFuWoiqQ2XknO4iy2dVS7pYeTE5Vzf24zq2tK0QSsrP1uxk5EKOBMYD2ROuQcUQ8iqpODPVxw93GXDRrc0ecxzGnPc6b7BrxGGfv8vSSeayDHROO0LpkYHkgPH5BWx2w1PEbbFPENulgyaTcM8rWtkcRDrHIiSnrphW3mklRQcyahyEJpAdQni0b10J4xfLyk6XuxxNhcqSwgwAEn3W152x8Fk7r3HIlKtzpoI8TCY0g5qMlbI8ER79eFknVgphQhD5aJa2sQ2PV05TDufKAScqGiSkUC1NOaxgfxbq851TVx41DdsnKBoCvLxGWi51cvMyHfnhftxxeFPMnXI5Zh0OGl8a0wqZLeOgpnLqEbc4zJZWT",
+          "target_sale_price": "3.80",
+          "currency": "GBP",
+          "sales_volume": 1489,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.342,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "EV charging cable bag"
+          ],
+          "selection_score": 77.69,
+          "score_breakdown": {
+            "score": 77.69,
+            "relevance": 80.0,
+            "sales": 63.46,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 70.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 3,
+          "product_id": "1005010182729190",
+          "product_title": "Car Charging Cable Storage Bag Car Charging Cable Sockets Charging Gun Organizer For Zeekr X 001 009 007 7X 2022 2023 2024 EV",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S9581e8cbef124b50adda614749fc5eb3P.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005010182729190.html?pdp_npi=6%40dis%21GBP%217.99%217.99%21%21%2170.71%2170.71%21%402140d33617838009324313647e0f7d%2112000051433203424%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIBr9PddheminAMWvFuQSBHb7euWzDalc0KeyT4ArL4nTAV9joY7gaxYDIMBmZY6D6jLZV28FnpeK7PRVPrJeuyssxbnfusfd5mAA3AEZkrKeA0WujBh2wgazrbD3OGXolMVnu4FybwQhCP4FBfsBkYf1TIF5nKsalkcFxdAvu5AOc4Tz5UFg4TMRt0VqbDm6keL5soEzbKvvxuuhyAkzVASu854F2I2Gf25PgqlDq2kHgF2DvImpZWE01D3ZviZZcfJYLN8EAcGLt3W7sXbRzlqIu9Kj2ZnBzpfBiTi0dgt1Ty4vO3hRvanfSFlAKsz5Cevfwm3EWUzPr7ywuBGDGeXs5TWGEsqG0LClYV3zzNpxuQcqOVJKY7ibdSXzwbOtz5613tiQFY2tamsKn5e4wJ01u2XZBv1sbJtz4X42UvJmiHtIOMivh34oR9yTRfLfV24f5nDrY3KvROznOSb3Q0xSjFhrPLUlKsRi0vyUFRebjdAqdnyTlmwidTXQ2kMDu2K4rPvWOsGxLWBK4iNFum6YlV4zyeHBvoJpquBvrhGT5tIz0WYlrPBYEVhKcJlT3HsssmtIEz3nOWNsUKZw0F4OP7zqgriCiRuctaI9R57GAisI1eQGtXX5AAhifcHaikHwTSaKRlFSqkMU1GM00CT",
+          "target_sale_price": "7.99",
+          "currency": "GBP",
+          "sales_volume": 29,
+          "evaluate_rate": "100.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.7191,
+          "shop_id": 1105186402,
+          "shop_name": "Shop1105186402 Store",
+          "matched_validation_topics": [
+            "EV cable organiser",
+            "EV charging cable bag"
+          ],
+          "selection_score": 76.41,
+          "score_breakdown": {
+            "score": 76.41,
+            "relevance": 80.0,
+            "sales": 29.54,
+            "rating": 100.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 4,
+          "product_id": "1005009874251346",
+          "product_title": "Waterproof EV Charger Cable Storage Bag Oxford Cloth Zipper Closure Electric Vehicle Charging Organizer Case for Car Chargers",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S019c02f6072e490d885074fc0615fc68d.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005009874251346.html?pdp_npi=6%40dis%21GBP%2111.44%215.49%21%21%21101.24%2148.58%21%402151fca717838009374748155e0e12%2112000050444309996%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxxk5LPkkqezfpztb975hqM3ZfrLKUgxjEchsYs1OWT9bIOm9exyc4FmDpd87rS48vUQDV3figJhMNChGqlngem7VCc6HH8hHxz0egvLXFhzTUWWnijRjQ5CosvqxL6wS1DnCxxHYBbDr7quiL35jEMA6l3FsxTZuoMhMBlc3Vl40SvzayvdAw4TYEGHsJ4j9oJ5P97Q9iUz1VV70z6qcgQhWHsK3embGuf1aKmKMKV3uwB8fz7qyL8wNYaaWR21p34Gl82EE6iqzFB2nzBmFaaUjLxEXKpD6VUkSxquJfH87ZnLrm2YuYMh81DOtRpNFE17JVxkEXkg0h0lAVB5urCJ7UfOxAiKkXL5oLh0ZNIFB2E5kB58TbMUOPd8CaZuuW69qSn4shdp8u4RVuL2dxIbYnMPXbkgmD5umzo1tzXqD6D7ui8Gv2l0TZMau43mDQbVMadphiOpriH23GpDypAayRlDqd7oDrHSj5tOry3mMI2B5rhdGP5j2chDkT1I5I3GWLYb58pH5KkugtMDudKs6zIDWHriCUTQawz4VGfy4UHAj8nxtYwtjhJum6BBhryqPd9NDnnCjM9NwDJzamAtQYtLrT4C1dBgb1mNdT2AL6LjdihUhCfmgJFslx9Ix5FvJc0sFfDKfmxyQ7szGhOVl",
+          "target_sale_price": "5.49",
+          "currency": "GBP",
+          "sales_volume": 267,
+          "evaluate_rate": "98.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.4941,
+          "shop_id": 1103573332,
+          "shop_name": "Stone's Store",
+          "matched_validation_topics": [
+            "EV charging cable bag"
+          ],
+          "selection_score": 76.21,
+          "score_breakdown": {
+            "score": 76.21,
+            "relevance": 80.0,
+            "sales": 48.56,
+            "rating": 80.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        },
+        {
+          "product_rank": 5,
+          "product_id": "1005012164523052",
+          "product_title": "New Energy Vehicle Charging Gun Storage Bag Portable EV Charger Cable Bag Waterproof Auto EV Charging Jumper Storage Bag",
+          "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sbe41be640e57467ebd8fb6ab06bdfbe2g.jpg",
+          "product_detail_url": "https://www.aliexpress.com/item/1005012164523052.html?pdp_npi=6%40dis%21GBP%2112.22%215.99%21%21%21108.14%2153.01%21%402140d33617838009324313647e0f7d%2112000057661141478%21affd%21%21%21%211%210%21",
+          "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxEbRbDZHNrgHNxh7od3iNkAWn6Dk9ennn3NBaMMoAIxmQXTPcaFyWj4XsV6Gnhi527Ckwi3XEySX3xNOdhpVmHPI1Y1BXQFFerPcS5DgjjvaDuYOWKKdTK5ebIoitlEBxLxugdb1WAbZ96JD4KCZxyYeJWZAysisS2WsSAc47fBnMSFHqmHSv5nXblBfOK6Lz43z6cbAOtZuJxSUQiw7MNcmB3bwlDkxLWbB8Z528IRpA1y5ftamSJNDzOnY0wLVmRi9LzUBrOZspYQRzHSeBYi4V2XFNyKUbV6ymX2cEUSSs22TzP5P3T1seNjcAcXPBmPcFQEwmDU7zn8D6IWAxdjLfnXJswRc0O4AYPpFdaVdwTFwMHlFcqExHGjDrAXwiorvyngHJrOaRHZ1vIKKVBbPqj3FaB4oD1PHGLMjTaNnqUaTCky6iN3w234G1g8cQEQpc39Tw6WFIuWQtogYLwPZicyU7R2bI0FZNkDz2pwSXCBfIv7JbL6MSQjSukyztVK5DgEJOLP0whUEa89hTVQJ7gRd3P6ZrjLRadIFCJOEKWumxhF1b4o12jP0XkmG9RPJ5flczLrLzCMNz2vCcuKYvYE3Kuw7kdfmxm5Ezwca5gj6mB5NActpwlE0TfhI5GsbXcTqq7G9kbSLUrKN7Vt",
+          "target_sale_price": "5.99",
+          "currency": "GBP",
+          "sales_volume": 24,
+          "evaluate_rate": "100.0%",
+          "commission_rate": "9.0%",
+          "estimated_commission_value": 0.5391,
+          "shop_id": 1105461151,
+          "shop_name": "Shop1105461151 Store",
+          "matched_validation_topics": [
+            "EV cable organiser",
+            "EV charging cable bag"
+          ],
+          "selection_score": 76.09,
+          "score_breakdown": {
+            "score": 76.09,
+            "relevance": 80.0,
+            "sales": 27.96,
+            "rating": 100.0,
+            "commission": 90.0,
+            "price": 100.0
+          },
+          "selection_reason": "unique_priority",
+          "shared_product": false
+        }
+      ]
+    }
+  ]
+}
