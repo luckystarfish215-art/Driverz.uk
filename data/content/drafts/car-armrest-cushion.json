@@ -1,0 +1,188 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.561061+00:00",
+  "topic": "car armrest cushion",
+  "normalized_topic": "car armrest cushion",
+  "final_opportunity_score": 73.06,
+  "production_action": "guide_cluster",
+  "content_type": "supporting_guide",
+  "routing_target": "car comfort accessories",
+  "source_identity": {
+    "source_queue_priority": 5,
+    "source_brief_priority": 5,
+    "brief_fingerprint": "b5611b3e01234387d1ceb552cd4451b73ec646c5b6eb5cd21480a2f18db33fa5"
+  },
+  "generation_fingerprint": "d054df3fd2e8ea44bed6ea5c21ce3a00bb7b419007085309e25630f39324f9e0",
+  "brief_title": "Car Armrest Cushion: What UK Drivers Should Know Before Buying",
+  "primary_keyword": "car armrest cushion",
+  "secondary_keywords": [
+    "best car armrest cushion uk",
+    "car armrest cushion for uk drivers",
+    "car armrest cushion buying guide",
+    "car armrest cushion reviews",
+    "car armrest cushion recommendations"
+  ],
+  "target_audience": [
+    "UK drivers researching a specific accessory type",
+    "Readers comparing comfort and convenience products",
+    "Visitors entering from a broader guide cluster"
+  ],
+  "content_objective": "Create a focused supporting guide for car armrest cushion that adds topical depth to the parent content cluster, answers specific buying questions, and presents selected products where commercially relevant.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true,
+    "parent_cluster": "car comfort accessories"
+  },
+  "draft_schema": {
+    "draft_kind": "supporting_guide",
+    "page_creation_required": true,
+    "parent_content_target": "car comfort accessories",
+    "insertion_target": null
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Introduction",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Who should consider Car Armrest Cushion",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "Key buying considerations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "Product comparison",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Selected product recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 6,
+      "section_title": "Common questions",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 7,
+      "section_title": "How this topic relates to the parent guide cluster",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 8,
+      "section_title": "Final recommendation",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 9,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005012438734144",
+      "product_title": "Multifunctional Car Armrest Cushion, Center Console Cover with Tissue Holder, Cup Slot and Side Pockets",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S82b1970dad4f454a8ad65bab86368e0eg.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhodIqBYSuYiyWM66S2tauHNcG5UBq0YfSDSekztLyHOgq1cz4kYoMDL1P2QY1KcsxunGaCNiO9UvzKRoHajEirNQmAYor3HK0u7JkuEig5P2cXPhqsePEf3dHA179FMYHSCWJbR575WBJxAe6HNYfot862DutOApHQ3PgiuHDSEthrSEdTB9TqyBf1HofbESI3vjcf7b6i5yFzIEJIuN53R0hazamyDWPyDIubhNRQSHC85MBarWlvTh5e9UNPDy4z9bounkKgAOxAcERTS015g1UEU58iFORdQrFqrAhBOtLSQRJKK9eh5oN6aQ5JvpO7x2cmMCB6L5WfKN5ZWuTT3828NZv98NvtqKUUds63VH9FgXS8uwhl57qp5B1WVZtGVMdqss1B833pKOY3ZSQvBPbNdDOztEFWvykZ7qDi2YYvLO6syE1Am6h63tfn4QU9ii8tL8PO2j9uX2KSxEgl8CrxlkwSEngdCG5TpSgqm8oNOURkavhdCwZNiU679O6FkhaFJ1LgmS3RGDV6fm1JRR9QciutvijRBB7jVwvUKWH5D8cGRo5xYhD79RSyl8lYQUuj4uPofxIIks4pceTu27xSDANnNzHFmHufUTWluY3Xgfj1pZyA1vaOVCzxXAjUh6TzIwwoYSdvCyKaVqeQr",
+      "target_sale_price": "9.49",
+      "currency": "GBP",
+      "sales_volume": 1080,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.8541,
+      "product_score": 86.64,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005007476522951",
+      "product_title": "Car Armrest Cushion Universal Car Armrest Mats Wear-Resistant Pu Leather Auto Center Console Pad with 2 Side Storage Bag (Beige）",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S8db283fbe7f942ecaf28e5d2259397f5m.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxGQ5v0TDFJgB7qs3aPzzX3EjzL6Rd9SPWqGmg6HVuQVGUH3jViMRpbphIXZfCEc4jwZt8MhgCciH4q0bW6D67nCJqmurJGLuAgmW9dNFVDRspEYGuig3P27iZuHSQe9m1hF0UjOTMwz9OWmqS9RsI9UC4mnqx4WJCSBNU8m9rs9xBRbKA0F8oMKvSnv7RDi8yipx1hMHTgnhHdSc9P9qIlei78XcyDMYIyl9kDpf0Fi55wEtbo3WPSYxbr3ZxfWYXsI38Q2Xb3rB58RGE5aXEA5QNagmgo9boYF7tDDcop1ZW76LO31PakNmXrQZZ3YKzngfkCx4lOoPXcfx8yM2HlwLC6E2PFzo2fYs8CZPlY718QQAhNBWJ93FqKRYbO9ntIEfxKt0de49v56Si36S9zsbL6yvKF5INRLu71hvOPLDNv0eIswU2K6pU7cdMh8AmcfssolePkh5CusEHAwqAruZP1BSQjuikGmKplXvH2hPvYMm8eAseUGrzNEQ7BPkGMd2DiKKspFbLTez1YcVo4HDgygOO1hakAK8yOQIuJuhiTBcAaKy44eDyNkhpAQ1YaNJ7mLdsYAzQck63UJ3a4Kv3CVNXzzylp6bLNqbXhy3dhhezjik9qvpCZGRlcHrK919imEQbukvffnIerN70c6B",
+      "target_sale_price": "3.51",
+      "currency": "GBP",
+      "sales_volume": 1063,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.2457,
+      "product_score": 82.11,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005006967661017",
+      "product_title": "Universal Leather Car Armrest Cushion with Pocket Memory Foam Elbow Support Height Adjustable Pad with Armrest Box Storage for V",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa068e12c40df462d8b47e580e9893145h.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHuaGgwDAEpIdt5xLM5pM77QiAX7b3TT4mK8N7MR8AmCNpi17NjhsapxVBgvVtiMzObD2lAm3PerWBDcyjKFs5OUTB58lxHifEyDhPbjyDW7E0Rnqwu3XxCF6Ml8P7FKa3dn7EniUhJvQTXwxrbs1rPOLCeFCqhAFXIKuOnQZAJKeSTXBYDxdeNybwn0QVk6uDaU4c6EKplQuL3CEAPQjwivf7qsjEJeVWSEtG2oeNXApaemi17GpYDBPGLQyCth6pRwITjN6v1DCd3LWDpVcEcuKpxxL9WMm3nr0U2E2EPP9ttoWdVgzaXlqu5dAfC2h5bbdcJ9y6eWgVFCDws6N19i29LYuOGPDWabZbeikyvWBxzQ8CQeeWg9ouUu8PAx0Hfg8o3OUAlfMwzLebLxrQV9FDwtLUVYf5HQu54Zki1CD1naRnssdBEz92EVg5xlfnEm0qJA7KT91B3sdULN6C52VY9kKzOuxnu8BRc6xMFWfoI9GOgNKvoFfWaNf0ZZNizz9xcUXPoRGkZKwrNslt6BTSuS0e57hzMIa0VwwUK1I6G650hW0D1qpMYaKk2Aii7cy7xiS8dGWW8FyL2g5dqyVEfCafU1N70Ktdlz9zCuhU7zc8ZQteXQm2lCKMzR0J9NyDD2uj3BWSVu4srsXETD",
+      "target_sale_price": "5.93",
+      "currency": "GBP",
+      "sales_volume": 396,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.4151,
+      "product_score": 81.9,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005008406436220",
+      "product_title": "Universal Car Armrest Cushion, Beige Quilted Leather with Storage, Enhance Comfort on Drives, Fit Most Auto Consoles",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S976d996480c2485084f92ab0698cb2f4V.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhpD4nPUflBIEU64xXQnMICS2YM6Bdxkp6EHvDZDD8nGArv5PDsHOFWTxM7Fv4qvn7Ecf3U7NOyC9hCEG5S3Xn4krP4FkDj2ULbmP9XXc8yCgqUPfybY95ewmHsP1IBvyATRmHVqJFLHiXQet6nKszUtA5dXXBOheOp1uRYUhv9NSC0rEuKnVNVyGbdAMAen4oK4nR3FRuXeZg3nKU0jY5UEzDPiDXE3mPovsnU1ZnQuzHHlLkksYy5IUDy3OOr9TbRXbgy7wLrPzNMdZDNjx5pdOMZ29JZTRCUByfd2jV9tKacxszfOlDLfaGB7GkySVPMBfKzmT63uqnBqvyFQN6Z7ZpQc9AkS5SDuryjtVnPBcwAfaqwvt4KvuDlrlhjGVVASu7RJV3xPMSCYRF057cL3DJ65rRpV7lwabHcJq5E301dBKQA3Vay2hjsfOE2t559D3k6wMwrcN0YUSUJSQTkp9DJVBHjSLMl0sDAq5L5pwTQe8LuHyurpoQt4zli3h9Wg8VoSTF9LC7hpVVt830imTXIaJCyGtOUTGD4NlYnuz68rj8y46Rmvxkc4Tu0mCkcACmLBCPUa8w7IO6w1oZRj2XzYlJikArIlonLhedlYMIrZMSxM2imYVtj9ixYQJnpIadL6YnCdbEc4q2lnyZ2T",
+      "target_sale_price": "3.74",
+      "currency": "GBP",
+      "sales_volume": 446,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.2618,
+      "product_score": 80.6,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005011824872049",
+      "product_title": "2026 New Universal Memory Foam Car Armrest Booster Pad with Storage Pocket Comfort Cushion for Driver Auto Interior Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S591965748ccb4302b8c0ef2f6d6aa2fcg.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfvgjwwY59RAcgVUDjjgQr5Zdqbz33O0Jh5mMkIQLoYplk3KeNyNNzOrCMPAZvi7JyCHzFNUgGKSvMB3s2JBZHhqCgjNEwyGYlqHlv6vrqLzN3q7LnuZEhbFghh9czyb4SXmnMgE9YsDIruH807l2LMfNl9sXHtP9VaJfrRE6wgNAwul6G38iURRHFYI9GoGeWxVnuQamQ3KToz7iV9BeGSezELEP6WVPKl9N3TNakpo3hAdmPEdvMmKWavWq2NjaXls4MxoeEwO2CdClpbSYBHGjeNpo1UKJQss3nuShDTDuakM2T9oNCeZF46fI2sLnoI6wyEaRdFmos4Rk495ETT6CXMNVkkvYW8iRG2V5HPKO0JxErAH7JrpV2fjZIq6dL53gtIyC8jwFksTAVjtgWAKRkhj4MITEuPGVnhaxY1Z16cobLR3hHFNYnetCDEMorcKk57QG2y9KyB632UoRslFWXaUCZXDLJ2c6mbA8JnbKbMaqnaEV71gvBku3DyzxkdqLaX2bdVAaGez7ARiIf7XeivxqhYiWVrvEAh9cTux75IZHNaGOhfeeh8BEhoMw0yB588ihqqIneZ0z3ZUJ0Tb5BszCj6xEHrWDL2d75WVJVcjBOgHCaYtAl3KA3jVcNoCRuKeAeCpLviUWRRjsuML",
+      "target_sale_price": "6.45",
+      "currency": "GBP",
+      "sales_volume": 1380,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.5805,
+      "product_score": 79.06,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "7b8fb85ecb781293177c85d74704f6c52c5dd2cd350fcaecf4b82aaac3bb1b58"
+}

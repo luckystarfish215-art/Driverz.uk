@@ -1,0 +1,188 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.552104+00:00",
+  "topic": "car seat cushion",
+  "normalized_topic": "car seat cushion",
+  "final_opportunity_score": 77.08,
+  "production_action": "guide_cluster",
+  "content_type": "supporting_guide",
+  "routing_target": "car comfort accessories",
+  "source_identity": {
+    "source_queue_priority": 2,
+    "source_brief_priority": 2,
+    "brief_fingerprint": "ab6308a1ed946e71892b2a50a9a3e4d659648ac95ccffe26063feeda125aca3f"
+  },
+  "generation_fingerprint": "ca158f455bb3a717f92eeb5fa4db54f5ec1d5258ca2be3daec572b1ebac30566",
+  "brief_title": "Car Seat Cushion: What UK Drivers Should Know Before Buying",
+  "primary_keyword": "car seat cushion",
+  "secondary_keywords": [
+    "best car seat cushion uk",
+    "car seat cushion for uk drivers",
+    "car seat cushion buying guide",
+    "car seat cushion reviews",
+    "car seat cushion recommendations"
+  ],
+  "target_audience": [
+    "UK drivers researching a specific accessory type",
+    "Readers comparing comfort and convenience products",
+    "Visitors entering from a broader guide cluster"
+  ],
+  "content_objective": "Create a focused supporting guide for car seat cushion that adds topical depth to the parent content cluster, answers specific buying questions, and presents selected products where commercially relevant.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true,
+    "parent_cluster": "car comfort accessories"
+  },
+  "draft_schema": {
+    "draft_kind": "supporting_guide",
+    "page_creation_required": true,
+    "parent_content_target": "car comfort accessories",
+    "insertion_target": null
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Introduction",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Who should consider Car Seat Cushion",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "Key buying considerations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "Product comparison",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Selected product recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 6,
+      "section_title": "Common questions",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 7,
+      "section_title": "How this topic relates to the parent guide cluster",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 8,
+      "section_title": "Final recommendation",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 9,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005010585601178",
+      "product_title": "Universal Car Seat Cushion with Leg Support Extension Rest Padding - Car Seat Protection Cover, Relieve Driving Fatigue",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sab81a3f377e5450a9369bf8157cade4bi.png",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRpWU27xIrfKDP8wb6xfLdpPKRY3pIPQANnZfuPp6nIWO5a89uhrDSqtpydW9EF6jyQhdw0Fte7kWX4QZ3lqPqHIVLJbFJeX6QU86IZYb8RIwNUtyJJNJo13cXs9x4y1Wz4yZuqpsPK75dJ1xhn4utpyEIhTDvafbgS9eAX7SBB2NnoxiXvQZ10OqdrxJBxH7ZP83GztaGOFEInmIJv2ySQGmXh50pl49zVA7etygbYULjNmJo6aby1NGAdzHTPxn6y5MqhbchtVorPJ2DRDqmLv9draktgE6vI68B0eLr27UtnT9QcdGkluXZWrNCSr5it5oRuovW3cc8SqLeAZQjyPBVvxwhC4VIvAGxagB1LCQ8mDZg63z9TVN8gaXf3xc3F1MKMyERgbIq7m3JiHam9vMyam24ayZdnOPPhAVn0lw7z6XnTIjT3gDgZuhvXcXR3XaLLl7iLWvz7P1vVWVOrr8s12s0vDsc56yS78OPTw1mSDpAxi6fv9lyY9sFxp5FmSyxnBGG1mbaSSOZIcKzXNxoDt0fLUuZgxnx6znv8FYMb1ygqFYlCDYp32alhjrmSp0D8FC8B0sHjYDSSCPNIglxLk1CMQwvgMfEc4nufJczk3GLT7ctDm3f8kADwY1TuANNKfAxgRdvZiEkEDeDGJ",
+      "target_sale_price": "16.79",
+      "currency": "GBP",
+      "sales_volume": 6155,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 1.5111,
+      "product_score": 89.66,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005012011153348",
+      "product_title": "New Car Seat Cushion Leather Thin Breathable Hole Summer Car Interior Seat Cover Four Seasons Universal Automotive Parts",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S7c04781f09bb46deb00d975b19693eacv.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxknHLe1yYgzvpl7fRcvC7t1hEFk0BETKCyjh7NsZUevhEDaOtGB7DTlkiimeMYL38UZfGa0b1RV9f5d4GAbIRFJHvTD6vQsUQiclNjtlKPgmlRI9DVwklqWLVJnvvCyB9ZEXTUrd2cpy3jCsrdrcXDvOtzELqIPWTda9SYVLGyvIdJPkKU9rp1kZmvoIjjwYwBEsVvdu3wj5z15LqGMaDWZereGzRtzjAz2Vwa3l43YK8xq93U5ZKShr93ekDrtWIbu0z6uL75UDVXrqE5jJjBbh7WpYvp0681ZMQrI3BXUWYLtZbYTv5mZoDj1KOOW4p11PJDsJOzZJJFU46JVFhgsV9DL3w6hIpAy1Ed0YkAK4BFJJo4XLGUNnvSNIYX5CepK1pcQfXgxIMJADN3cMb7rVAN3cRturBgeH2qz86UFlrDlqUY8dToKlxnUoBp7tb1wlfHvy8cBC1FQWTcvtPo4Hs2YiFrYzHu3piJQ5d95wEI5X7iuUfNsMrYWHViqyV7NuhJYc6RmkwEfGea60RobyTuLzYxxJMNfGNQcUZXHXF9tCIJ5BY4LpIyDF2DKSaXgrln0C5VYRDfujjfxLJnkza3Nf03SXLXZaKdSn1TFQP9v5wZDPrfWzJmMMFSAcDMzBERIC1GOb8tz8uXTQ06B",
+      "target_sale_price": "10.89",
+      "currency": "GBP",
+      "sales_volume": 3136,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.9801,
+      "product_score": 88.49,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005007476770547",
+      "product_title": "Summer Car Seat Cushion Cover Breathable Ice Silk Non Slip Auto Seat Protector Pad Men Women Universal Car Interior Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa71719384c09453cbe458d933da0b77a0.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxw3GrMl8QnQ2zCcnBw75DgEyKamwWxfBShyd6wojKtRoYVa2mQ5BnVXzWmEKHcG9YLzLbtehcOaS50Avbyj5mWcFbNclxw0nbvWtR2Nyf1J6LwV6T9D2rUuOLzHVbAMuD5zE0WIwXzHWvQaELk7wCpMNHVAEhklMAAIHDKMbcjhfup47Q4zHWRbsuwsCe5o7uupuMEVKFppuTHXbA6M9D9JXZ15escrr07doJGEo2sIpYgMMl5k4PTBQjHArtNIyMnn9H588GlKRrJMiXb8lmXxyVvAdL64Rax4rzorkxR647yDGr9ZgdMOv16r8BoWwXguCCXb9BK6zENz0g6Z0KSrR8bN49mBPVN9CZUp0Gmdnf69gKKeRTjjKf2u1mgUYasaYlcGmPXmg00Lm8U0xlrx43RK2ojkAueyrVXN3etoRplBZt4WDflMUN8tKwcBxmOZaKaNr97wKK6dsLMNnhRAc5jKSIPpxTliQXW8jS6NlAYABGxFvvKXt7e4Mqpgzr6wM7djLDNRlYFNTfollncXibb9tNBqNLiMXmzRWPm9TPCFF9Xlxl1WspInqzpxpXlPWW2EAtPvP5aU2nRPtUhEbDj8u0JlKTZXaGMaNNJRXKuyK8ljwAYhsm1GlF34iuQhGrvtyVwCRe0yM40lZWje3",
+      "target_sale_price": "3.55",
+      "currency": "GBP",
+      "sales_volume": 6080,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.3195,
+      "product_score": 88.14,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005007476872323",
+      "product_title": "Universal Towel Car Seat Cushion Sweat Proof Washable Pet Seat Protector Four Season Car Covers",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sc00ba36fa97f43ddb6292520e74f1664X.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgMskIWCiGi81KXBk2NCRawP2p4JdEEuSTYxgXg9UGPavDtuvPzFNWM2DBJPu8WGT6JRwNIiZhq8w0svXybBVrKBNKlA4YWhpspFMzwSMIUB2X33Agi3bU5zIAJTovkNp8haIdWBWNEQ0NOqN072f9jnwUr0N7WN2BCRKk2hztYa9NzrSt4WlAVYfrPVjg2VkeXwYx9McGWe5ogfaZGAQPMIgjZWlPvvh2MzQhUGBtdqPYi4h7tFHIlg9Xp0jMEHcbfMvYjtzHq6HXlgVMQucGSCGPxh2jCvqr9SVwuYVLjbEA4pRi0eylVvRm2BqfUkYzP2R9nPMFP4x8KQDxcDwkNi5mRKG1yZ2r0qiR2y8VC5xu1ENhH9Mosyy14jocBacdjgXWsQ5z1UE0MleQl0Nqw7yBPaVboGQUIPJj157fgCRxeb8GwDvWDMC0nxV4XINqbNT8yFADX8Yc5giQnx2an1lFnzK9Sy9M3iLVxuLdc6nPAoAi16bjn1Xu2qeZmxZZtmhw1Uzbr4huv1QvriRdaeaSOyhJCIvKaztSv9kpSXw3aHIGAsPpagha8LoptfQFuYeewcDtCFWxiFf4G15t9BPQmlOM8wcxAx3jzOTj0qfJqvIu8QGofP5czYAi8pckvQXkC9QifLfyOU5zlsQep9",
+      "target_sale_price": "5.59",
+      "currency": "GBP",
+      "sales_volume": 2485,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.5031,
+      "product_score": 88.08,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005009054765572",
+      "product_title": "Car Seat Leveling Pad Memory Foam Car Seat Cushion Fatigue Relief Increase Height Pad Flattening The Rear Seats Of The Car",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb1d1c4369fc54302a331c2bccdc91a20q.png",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQQWe9RV7joKEq1MwrWAghIc6mwSBggHVAJw4Ml6VGfuiaB420IxHiChTEu8FJgDcIGIgjgyBjjItE2OihHPL6Zei4pnGRZtNt9SranviNzs5Tfl0EvJnA2KPhDDzL2c2Mm5N0iNpbl4LSviqBj6ETAsDzAdFLR0ZBCUBTqctI21gQRWcraDAYylBbxgyu08JAEOeLsNtu1LbBIRWOcKumM56AmgughGgsExJvE6R5jxTtJBeQukGgvaKjZEPVc4JyldndN8B4rIBqQfN7rqpuBxWDscehfAELuyrzIkOFGcmmgHPyo4r4fQoYveZpEHMRqenvvMhtA503jDVed7uDwHKMmdPpRG9Y0HVWXkX6CmBaQrsbO1wn4QUzxmspk8llfnm4Z3evW67ETSLSWVdMWq7a3CXyAUhHuUnbeIlw5Sl4NJ7AKPjts4NbsixfLfPBdAJ4L25ECgIddiwget66WmRGfaiTy3iO8IB8mMkeJOi2wZDJ09pmYH6qRdNQuSoTzO6j8mvxu134y5m289GbdNiZUm4vDToHVNr7gci0KYV6D38Fh8o2tjMKAWmOLpPb5PT1sj3wORvEuJ7cAzloQzyLfrN3fOpnKyYMBaWUbbOK9ZLOPRRwhSyuHPc7Fhx6sF9hpB4thujxnZkAMLJlvt",
+      "target_sale_price": "2.32",
+      "currency": "GBP",
+      "sales_volume": 3648,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.2088,
+      "product_score": 87.25,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "f304aa7d987650f1517c94304ad9e0ff1da63ca30baf0f2e3f57c67e728478e5"
+}

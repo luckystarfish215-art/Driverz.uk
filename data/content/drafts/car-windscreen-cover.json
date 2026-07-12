@@ -1,0 +1,187 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.555134+00:00",
+  "topic": "car windscreen cover",
+  "normalized_topic": "car windscreen cover",
+  "final_opportunity_score": 75.29,
+  "production_action": "new_guide",
+  "content_type": "guide",
+  "routing_target": null,
+  "source_identity": {
+    "source_queue_priority": 3,
+    "source_brief_priority": 3,
+    "brief_fingerprint": "edffca61f1d9f722bfec3dd09000c0d5b6d4eadf9093c0a80523da7e7e6cb645"
+  },
+  "generation_fingerprint": "3dac627d41e36f3477664278636607859cbd264fb4b343adce969eac6d74ed4a",
+  "brief_title": "Best Car Windscreen Cover for UK Drivers: Buying Guide",
+  "primary_keyword": "car windscreen cover",
+  "secondary_keywords": [
+    "best car windscreen cover uk",
+    "car windscreen cover for uk drivers",
+    "car windscreen cover buying guide",
+    "car windscreen cover reviews",
+    "car windscreen cover recommendations"
+  ],
+  "target_audience": [
+    "UK drivers researching products before purchase",
+    "Drivers comparing practical car accessories",
+    "Readers looking for product recommendations"
+  ],
+  "content_objective": "Create a useful UK-focused buying guide for car windscreen cover, explain key buying considerations, compare selected products, and help readers make an informed choice.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true
+  },
+  "draft_schema": {
+    "draft_kind": "standalone_guide",
+    "page_creation_required": true,
+    "parent_content_target": null,
+    "insertion_target": null
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Introduction and who this guide is for",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Quick recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "How we selected the products",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "What to consider when buying Car Windscreen Cover",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Product comparison",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 6,
+      "section_title": "Individual product recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 7,
+      "section_title": "Frequently asked questions",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 8,
+      "section_title": "Final recommendation",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 9,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005007170081125",
+      "product_title": "Car Windscreen Cover Front Cover Anti Snow Frost Ice Shield Dust Protector Heat Sun Mat Car Window Screen Frost Large Snow Cover",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa3ca27fd5fb941549d1ca35fb70ede10A.jpeg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRMmCzTbmRdA3NeoHrVvb8GDxrYG8GP6h2t1YVeAUkiNZ7L4ovOhdmWuXcTu3evKl7efeyjAMYnoec8eA82Wrk5Ah6HjzrebAlUy3pEYGqvoJof95KazTvtBI91hJUzQSQPmZ3NECNSJMfGrdUrbIAApyzju7BYogVDFYEgxnHBhFG3ocg3r1w8a24E2ZN4dGmtuhgDEJokzU3CM5U4Pp2FmdQEruuOg0eHquYEhOHsqlz1Qe1xUjd5ijOEz7OrDuTXdWl5NCQUVYAn8YuFHebGTqCIcmIPtGz6sQHvGSC5mDM5jQROyk0S6OPkOefP74fYwntBoueKzCLrRpdXgMaJYmvVGICpSHApV5sGuFJGCOEtxjpu2VEj0JoESlkN54Sk2LG3BjKbcfgJd8WGrkgv3xc4QXMPpIZ0ECyRUZZh2UAGXmwhXmaH2lkKuAq4cq87EWuppliKKAPqbv6FNMh8dZycSucNrgeyCP9eh5liNDkOS4PTDr5SE9cEpi35UFksSsd4ysQAKlo6tanvxtwJ0pxi1t0NzypGbOWQSR5ZockVwVewZv6vzDW5K3OZDWyaGbhTtrZSWUd16EytRjDjT58NnAMUQoYNvnB2INb9y8HrXiyw8SbC6p8oM5PSGhN59q4giLiGbO4in9qtZkCv5",
+      "target_sale_price": "2.32",
+      "currency": "GBP",
+      "sales_volume": 410,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.1624,
+      "product_score": 80.46,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005008248188066",
+      "product_title": "Sunshade Cover Car Windshield Snow Sun Shade Waterproof Protector Automobile Magnetic Cover Car Front Windscreen Cover",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2157a9706f6440798f88de63dad86ee6c.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxgd2wUQI8ionDKBawFnZvSSyVqGPVEDppj3wsWmqZidygVzku6LtZIufEYWV57O2LqmA2nl3ga1HaM25ruRnQ0dHJx6NoFbucUqSA2i74jWEckYbVyAV5ruBluU8vcaIDk57l4VPU56DkanelhkuBwJ8UNmAPrdPpTAFeCxdNwsU2JdObEwjdk7vbS8TaAAf497cEGF8qy49xz2nzXDbKxXPylGivgfbTum5LeRnsfR2NVo49Ct71FdwU5HcasktmWyH6iyMfEeAeUBq1Neb1acmgGYKFq4zIFEzoX8EJI4cTwSRf0PEoEZjTsCI8fIzwSPZIdmz61dCDfWRGhFhTTX1ZlvF4oJszPWIvZ1Mkms6BxagEgkszvI5Zoj5b9gLieFxOnSwvCeoGSpi9eLcHXg91GtRrMRIBCxJztYmDa8EEPOD45hK62FcXA9C6PevpO0s5ARAjvKHFbORKN7R4BpzB1R9VmAFdRCRfhxwJ8VNp0CI842jMDZbE2MzIh9YFqrN5awQgeuwQbXVFUXUSFH5V68su43oQgq4wAnYG6rdgb2w6jmzhyayf3UdpFXyAXo4n19U6kbxJ899XFrbC8TGFh2q0uBMHZZ3K0zHtBKOKPVFPcE46vyp20nkvRJk4S05itatwB9IISXiax0Kq7ax",
+      "target_sale_price": "7.25",
+      "currency": "GBP",
+      "sales_volume": 2359,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.5075,
+      "product_score": 76.99,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005007010027638",
+      "product_title": "Car Solar Protection 3 Colors Eyes Heated Windshield Sunshade Car Window Windscreen Cover Sun Shade Auto Sun Visor Car-covers",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S5152fb9158684670ac3f48d2de7e787ae.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxg6wr4tVLcEPtBh0cFu322jipM61RRJywsf7XFqD2tfDjNwKzUPPMMaQZjmuFrdypFu0U9RJdwq29laUPiaHve5s2Z0ziF2PJVqPqFQqp5ZbrzrSYWMoI3tTUXE3eyfqBna6J1ZuUs6dI4YRENHy3Ea2ihyahLB6sRswW0sQWRek4wgLtaTz2ZYeZBHiyGvHlDwDPVh4feOc9euBYgo2HP8uWqbv3WKoavVpaUQgIGkPpUg4P3hklmrgJfIf7GJEdeOlICHz4nnGDrP89kklG1QzuUWiZ0jOwvfMt6KfZFwtsKxZ5xzCZIIhQ86oWXewlMeBskBWXkPvzhALx96O3yvobWV3lnGBEYi1XyL1bdvmTFilYuK2XU8ksnm4wiWUZis5jhNLpHMfDmG6igAIEK4IF9LdvxltKASFbeGDNOqLf3Se0G5iuP06ltBYDZospumPVdQTtN1e2BavjmvcBuHv07DfYrvfe0vgQ38IUCf3pzPMYQIBk6HNg2y2VO6GxYlMlJkojvwRPnGDcef6UJaGmGYgS1MrLcufbYtFyVdJASO7vZrWK0t5MhnFKWIvx5QD4PWWgn3plpob4uvCeeDAzhHBn2UmZmECOrwiMwWHPSJ3xLiz2fXUsIWkco46EiBO5JKu9MolE3cjgJ9duBi7",
+      "target_sale_price": "6.40",
+      "currency": "GBP",
+      "sales_volume": 1269,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.448,
+      "product_score": 75.92,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005012061314570",
+      "product_title": "New Summer Car Front Window Sunshade Cover Sun Shade Windshield Visor Windscreen Folding Auto UV Protection Styling Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S220b5a0a922c4957860118c8c212dc91U.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRmRStsG3Y4QvhfkiqTvYVPK2eY6IbTpuMii5k23f8ydyv2HBVUPeTbLsoLL6PHMk4CQ1G1YZJob0hkzo8UfytV68tLugLyjwenZpAB5OwDjxoKy2lSVMLLUhFEOuVUv15quzgcHIYCSQZW52nvnquBEUwUeeB4zC6QEdty21Q8DyV2TmxyusGJx8eFqSoybpj5T87r9yOa3Edm2qCf7FgwLkhGpZeQuEfVBUqALrgm2VdESOnLZAqU3oY3s7JOwZ71m5jRjTmsar0jVj9S6rEmBBUTx3Opt1hOltKMhigr3pcP4OAjYvjnw0PGIjawUX6QKxIkAeVf1l4h8MsySxQtFo5nRyBYaTvEZreTfFEzZqiToDB5cNiJEVYPYJH7S7TYrWEib0J99BBHHwpksKIjHWrtCybvAsT6eeqGbk1DMeD8TfxHZzA5HMWrFUeyZnxP8r651ERcU0KDdNV8A0TSIc5ekqZg3sCRQyxX6sL8V5dwqhMjexqa2z7QW5YZOidltiCPuKCQHjcLeYFU0GVyYjhxhu9haNfc9TmBDwnIjubUfdA6Hkzr1Qe01CaBPjoampRnxBcWS7TVSn4nQQH2KIGB4LDCdJWZS5rjxZbEsSgTQmOvyXF8T4leoV9KsmOHHKUTYPv7jyBokNAdhqnV1",
+      "target_sale_price": "4.40",
+      "currency": "GBP",
+      "sales_volume": 2996,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.308,
+      "product_score": 75.91,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005007476890370",
+      "product_title": "SEAMETAL Car Windshield Snow Cover Winter Waterproof Windscreen Snow Shield Sun Shade Protection Cover Universal for Suv/Sedan",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sc1db39d14fdd464eaa616cbc71e7d4e2d.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxx3Wn3zABQdaLtsceQm9qaTrlEOHzALSuzIM99XFb8xwRODowbNmJQ7e3BugbrqAq3YsoeXgm2DXkiqsE5Ibtzzab31iVycXRh4RFwjib6zWX69mBdpDlhPyehboYX9HtuxbCPwAE4isKn5dYkJ3oE20C77ZQk4DzIBVy2uFikNTvoVB2zp1oPOtAbQsLWhqr2pSqvlpfKr1ErULm9bMicBn1NQuoIq3VdVYVMEICrdpcUymsHJ6RPf13CCXx6unKGFIwVFTutN9omeNNsn4jMEaCCHUOzjCu7znoYsqQLUySaPHN6mMLBaRmWpRqq1UXWLn09ZtmdaYUQiLxutd0MoshROZst0fz7pvswVz5YgjwK4XluuToEj7X1pddAt2wUxnzdw4hhRWthUPlVUUAgTklTq7MWumQ4hr6xQ0mgpNy9fYm6f4gfaybzjnxJQxiiTY4aweVB2i0tt4E31NK1MC6eV6ELfMxDPMxYIUT9AksBF6c3AtP88rDGzfSiB5IoTPeJluU4qUMWdfQUYCblN8dlCrOiaWavvr3v4Qw4G9nhlSGcQ6N3h7KzXqCBf1DOXGTEZHPI5vCYZ8scVfDzPaSAlVBRRPRBHz7H6HSaKt5WW3gehb3JbbkKdrZW2jzJebjKhjmvHwXYeWqdxQFCqJ",
+      "target_sale_price": "7.05",
+      "currency": "GBP",
+      "sales_volume": 963,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.4935,
+      "product_score": 75.44,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "0b1e9839d2c8b46b628892ecb9a1b3c8461ab936c5f826d0dee20e240d694a93"
+}

@@ -1,0 +1,188 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.558067+00:00",
+  "topic": "car travel pillow",
+  "normalized_topic": "car travel pillow",
+  "final_opportunity_score": 74.03,
+  "production_action": "guide_cluster",
+  "content_type": "supporting_guide",
+  "routing_target": "car comfort accessories",
+  "source_identity": {
+    "source_queue_priority": 4,
+    "source_brief_priority": 4,
+    "brief_fingerprint": "460e99ed7be648522729c4d411ffd5a214f1ccac319b1d832511b9d649357701"
+  },
+  "generation_fingerprint": "89c2158847bd081f9fd8193006cc1cf388302d54b0ac2b6e4272e9448ccedf9f",
+  "brief_title": "Car Travel Pillow: What UK Drivers Should Know Before Buying",
+  "primary_keyword": "car travel pillow",
+  "secondary_keywords": [
+    "best car travel pillow uk",
+    "car travel pillow for uk drivers",
+    "car travel pillow buying guide",
+    "car travel pillow reviews",
+    "car travel pillow recommendations"
+  ],
+  "target_audience": [
+    "UK drivers researching a specific accessory type",
+    "Readers comparing comfort and convenience products",
+    "Visitors entering from a broader guide cluster"
+  ],
+  "content_objective": "Create a focused supporting guide for car travel pillow that adds topical depth to the parent content cluster, answers specific buying questions, and presents selected products where commercially relevant.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true,
+    "parent_cluster": "car comfort accessories"
+  },
+  "draft_schema": {
+    "draft_kind": "supporting_guide",
+    "page_creation_required": true,
+    "parent_content_target": "car comfort accessories",
+    "insertion_target": null
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Introduction",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Who should consider Car Travel Pillow",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "Key buying considerations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "Product comparison",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Selected product recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 6,
+      "section_title": "Common questions",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 7,
+      "section_title": "How this topic relates to the parent guide cluster",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 8,
+      "section_title": "Final recommendation",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 9,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005010706919284",
+      "product_title": "Car Seat Headrest Universal Travel Rest 3D Neck Pillow Protect Neck Soft Fluffy Comfortable Neck Rest Car Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2f84b4717f5441599f46c132b33ed737y.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaeL8O86Nl8movc3OqOgRo1hlz1QPCkt1yM6Qi0aCIBFBM8icjyaVsTrWSIcBmnz3RAGVyORjaImCfefY9OHftMaXMpQEGHeGrebCNniJrBFZxgG3hs3ISK3sB3lOhI4vFgEaIEmk5r9MicWAOssPg3n9Rs9se5eYQEEQdrrwFse12xHLne4Zv0JMI9LweZteS50ZskJRxkrSKMsCu5Teqwual9lFzX6bTSFGRXknT1l6fpkUqfKdmhzUIFAnsYQYeC0sNFhWNx5L5b2UT6vdYQbQmG6o8lL46K3X0klrf0OCULj1IkHhQiV1Dt1jBzbSMmPWVydykcwV2egudBcyKvRH9pw7jcxQpQTTJVraiPEU2YO6PssZTBBkOzNSjZieDV5Fh7kyn9AfL8KsmwUqGv1AkPblzhVy6tntFKXCidzVA3YNzSOvI1U1ceBRc4WDuGw5Z2gjV2J5Bpd8pvkGMzE8XHo7U8ffypxjErrRYD3iIGuPsNPx3MBiXfKsJncht2MuBxwS4J3lJupNukdSiM1kbJv3Sba27FvHlAc4AWMj46A3wFLuyA8SnuwfBWd5fKTWmtEGgDo09vnoHJyPoxZrE2t6y71orxYH8nuw2U88s6rG9eKKopwnlcTqCoRSFUIJoolJXhPSZYQyHpUafCr",
+      "target_sale_price": "6.15",
+      "currency": "GBP",
+      "sales_volume": 5623,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.5535,
+      "product_score": 81.5,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005006678124330",
+      "product_title": "Car Headrest Pillow,Thickened Memory Foam Road Pal Headrest,Neck Support Pillow,180° Adjustable Car Headrest,Travel Car Sleeping",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sd7ba9b885493411e9c9379a5682a2da03.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQQ6Id94bgqVfBA2xHMyvA3wcAN3oHQT8loqQ9ObiPIimDzgSEzGCtAshLNRewTWJa8XDAdi04watXinYrcskIWUnzmpR3Wh3t6jy0UN0E1c043yJzl8al0hw8aZZq9mmccDEQpjBefoNOkGxeMug1gwvqv7r5tnUSmGxT7VvWiTP5yUZDOlTauZVqoomZCT446Dau9o2QTppKQj0hYOxtnFgLo4tB97jk32EdVExTOgvGKeGihehS7K2Z1ZQvrUepfH9vDMO3jhl0kuxwalQsGMy4CWJZC9H79VMNanLg6PiWsiwtoF2re5JucVe0cIgwfDNdX6nY9afQe6F6kBpjjI5itG6nNlyVHWfCkJ9QYdWEhw7WMnL6eohtjorlAoFKYouNEOcrg50PlBF9ujYT1Yu5xBbFjZbEudAWWSCVMn7xtmRMst3d2lLFHUU5prOYvrOUkulXYxiD7yM7uHfjuaCx3OT82oys4ijy6o4lJ7COS2VgeSYg4n9TaeISTHLUwHnNgeUv9xVH99JcfISsCZYIAQIdPw2uOnhgXQVYeHotmcpVxlBzBpnhpHF1PJKJh5oEDk3Rko6cZRxp8vYy4Z5SryRGQJVS59hKxynfbejDzR3EaD0sjiIrwBGM1cNHKmWJhrOzVlWvuWehS9TNBH",
+      "target_sale_price": "15.59",
+      "currency": "GBP",
+      "sales_volume": 1782,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 1.4031,
+      "product_score": 79.5,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005007170613291",
+      "product_title": "Ergonomic 360° Adjustable Auto Cervical Pillow with Memory Foam & Side Pads One-Click Sleep Headrest for Car Travel BMW Benz",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sf09727694fcc41aab27b0cf389d30ca8e.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwrVOQBAetNdHgSOr9XgS1OmkfzOydtRQl8DzLYWVvLqdvhsAxMKTecgouyR4qAXxM8RZEIflRBaxMtndZxxAZjpIft1FBzDG3dlyvSmigPGgECgAfVilYYydjFQ10sigG4nDybHwlzjXhW3XWPxFz0KbCHWpd13X9K416wbnTGZdIZkGDvDTBcuktx158Qyg7upXGNWH1I3ozIJRkjfkSZGrC8R7KRT2Uo1Yd7wbiVSuRGt3M0OWqTTRQ52CEtNycoW40IsrlzDuQyExy72cRwByxEz2MCMs97m402hdz1gdr8IbiElTAQUpETILEF10Tq7bDzK5jHCN0bIh9jlhehcrcs3rVf964cO33WLA8WhvuHPT7LbAoKIfsOy2s23yQS3EyWibzOVyBJhmKjFMvRyHmWLox6DT4zk5vBoDqujBY8aYSoTQz75O5zMehLwau3Oy6DHK0HrzRlLX7boYhFokY2B1VF8DtQAN7rtkuGyElEofL9SjTJ70YXrGxKA8LMa4IqGb8Ji6yzfWC2YAgNAdEU4ImHVh8nsZbcty76O8RUw7j7Th5fPYrMdVpuFus10ktSJWuvmmVn6GoICaFO8CJCY7kyfCmVM6vqL9UbmPHQYsPhhMBgv5u4mfknmzLJVQ7vHIW4cN5X6I078GaSn",
+      "target_sale_price": "14.79",
+      "currency": "GBP",
+      "sales_volume": 1330,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 1.3311,
+      "product_score": 79.0,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005007168672485",
+      "product_title": "Kids Flight Sleeping Footrest Pillow Resting Pillow On Airplane Car Bus Pillow Inflatable Travel Foot Rest Pillow Foot Pad",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S95a21442b00540daa98ed68a90304170Q.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwdkGceeJnGvr1wrjd7HpTE7oVWnovGZhdSG4nN3JORNhx7xAz6NKvRT2EXzzGmpyoAlsfMk2yxmSjuC94vkMWO1SbUoP5CFINeyu9cXjg3cbsvf2Gu8UYNNYnx3ae4Bz0Yg7rwhPhD5AKrFkBLPnEOsAv5CHy3RWOv3KULf3pEjPGZXSddOyQsb87iHMbr9ztYcBUqPvyJS0HqTf2xUU6bx4AGfvTQ8RUvFyDbyOe4fFIdtYcmBuGfYSZ68OZ9YOwvdjh6kolSvrny8GZHSsrT4Ts8cGLubgeCWV9idKIu677lQ1um5BcZpshMyG858fQ2TuiWgs9rWvmAUP2Nu1EhL9ZQNLGcUi0CaTmFDQMu6Mlss4cmDhU1jRbchzTkgDVDM2oGBOnTVnj1g3gaBO7D0ErxhajY4SCF1uDouPBsVZgh2lKafjaqGaBlEIf52zzmxg41L1IXdxtCj7sedNCcVeBVg6CUWZ9QtHOnpZMREkY5Fz38lzvRngHQxj0DpL51BJDIDYwacJiSbt2geGdHaqDL7l29ycObkwVTUYUvk8I0aLjQ1DgpdFqvE1E0jAF7fHWQN788dVebjA8LUd31CpCDBNZdSNwgz5H1x3JxgIvyCPL2SOMXeasv6V4NfBvqmKq90zbpL3NOgYnuFHTF5",
+      "target_sale_price": "7.69",
+      "currency": "GBP",
+      "sales_volume": 5694,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.5383,
+      "product_score": 78.52,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005007805758208",
+      "product_title": "For Tesla Model 3/Y/X/S Seat Headrest Travel Rest Neck Pillow PU Leather Neck Pillow Memory Foam Pillows Car Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S6ea5a9d321a9474d8fd81d47abfed2a2W.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxBWDTlGpei6pVNVvUiXRCHS69wyLjjXmHIZhYFyiQyKnwi15dB7NCfhfmUVr9j5xUUSOHZgJoXKEpR1DKfpk3FvaH0crsiwuFsHzVp4XVRKMRQLgfikmRJIVBwKvZdBlXzSELycGBrGiKP1NIY1aUTxMOIR9brhqY1D1vO6mssofbnIYV4wYcRx80GYrf5jbDWkY7sTVxswsbcs8o0KGhh2CchoEEBO1uQNWL4YdETwvDTnhisnDnaa6MCMrNo6sa2catE5A42bTpFjx8IuoPfHBNgbjq8qB0wCd97kCwWptNI5yu5XDNxdmAN97kDeD0UDYq9hfrFG6AmeOwCWva7OT58UsQAvi7Batafihis9ZYQkmV4twcAhgRhtYvO3FqXMKvh2jKgEIvBPItOD1IsocX2ixRqNOhkLCvKn12VJVFjYgNoquYhruhKtLHx4vedncX6zzFwQMVXVlS2M9sZ1r1xizSd5Zu4nXkVMsBGkFDgMwfI9jzWUJ6f3WQxK7dQf94wNM7BCovSXflQ1kRmePR5TViGwOAKo9ch7FvggZFN9L9c3CFs4w1FrsvRPGDhmhuTlXzL3Tfek3Iddny89sAG38Kz7K1klUbGh4KnqbXA9tdNCYqqVB7zpSSqIh7mYUAjc3CqwwaXngVRZf0Z9",
+      "target_sale_price": "9.39",
+      "currency": "GBP",
+      "sales_volume": 961,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.8451,
+      "product_score": 78.43,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "a4f1cd7d1bf5e167a988e22b9e16f07413a31d660766eb41400982dc1b637498"
+}

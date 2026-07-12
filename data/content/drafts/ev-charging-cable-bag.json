@@ -1,0 +1,164 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.569837+00:00",
+  "topic": "EV charging cable bag",
+  "normalized_topic": "ev charging cable bag",
+  "final_opportunity_score": 68.5,
+  "production_action": "product_block",
+  "content_type": "product_block",
+  "routing_target": "ev charging accessories",
+  "source_identity": {
+    "source_queue_priority": 8,
+    "source_brief_priority": 8,
+    "brief_fingerprint": "70c07247354d47f010a5eab111aa211c05b14d0da47cab632e3ff71dbabd6044"
+  },
+  "generation_fingerprint": "131b1b58d6383499e785d4eab8bc96b5f82f33d187dc5b4f53d4b36cf4c88e07",
+  "brief_title": "Recommended EV Charging Cable Bag for UK Drivers",
+  "primary_keyword": "ev charging cable bag",
+  "secondary_keywords": [
+    "best ev charging cable bag uk",
+    "ev charging cable bag for uk drivers",
+    "ev charging cable bag buying guide",
+    "ev charging cable bag reviews",
+    "ev charging cable bag recommendations"
+  ],
+  "target_audience": [
+    "Readers already viewing a related Driverz guide",
+    "Visitors looking for practical product recommendations",
+    "Users with stronger purchase intent"
+  ],
+  "content_objective": "Create a reusable recommendation block for ev charging cable bag that can be inserted into the configured target guide without requiring a standalone article.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true,
+    "insertion_target": "ev charging accessories"
+  },
+  "draft_schema": {
+    "draft_kind": "product_recommendation_block",
+    "page_creation_required": false,
+    "parent_content_target": null,
+    "insertion_target": "ev charging accessories"
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Short contextual introduction",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Recommended products",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "Why these products were selected",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "Buying considerations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005007476706609",
+      "product_title": "New Electric Vehicle Car Charging Cable Storage Carry Bag EV Charger Plugs Sockets Waterproof Fire Retardant Equipment Container",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sa8dd69add71d4d089cc89305bf758aa8h.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxH3Rek0f8lh1AMEL1VT5OdG2Ygt30H3DXGmUCESy7wwwgFqwDLJZbf6X47rQF8DFJZJYMOS2R67u1mLnMHUWeKP4DKi6gKN8t99pflBeYitsltmu3ArpweZQb4LKhmzf99kFLuyUt4XNtLPF7sugADjTmBnpXUQi9s6MKLPI6M8VPobSql0loUtLluXEDOIPX878tx0hpAQrRxM1Nsz9qxKso8ITk7sxPtrlGx3J8O2GfEnj20jSmMQADH2PSD5eQNlmWjmht2W1pHlw8S2BPERS1QcsQY81ewdejNMsR8SpBZaBt7L9w7sNAnSyRulnRWqe7mEpIC9UITeExt757PlkaoRjWtrdMvb2fv04Ru36BjAfM7MOX1XziImSal0ri3t5ZRLfyKaMckLOIH277Dirv5klUttUxytQGUcZzcNVVTzH8aU3a719c25v4I2JhOd3G1bIHQ5ZadCUVcj9vI0f4PWw6dZkZ9McR9CZD4ygMHBIhO82evt2Gea8Kbhmm2f6vJlN8syYFNoeXywBqSjMG07rHJaGo9sE1gcVgWSHBZV00FPe3OKGOKJ5vN07tatPnXtZxWXs0zM6UGuO78o8vYZbulm3aHWZzJKpb5b5oUSds2aVT1C6LkWBeup6KW7TQ5I2hu586ZimegQES34P",
+      "target_sale_price": "5.12",
+      "currency": "GBP",
+      "sales_volume": 798,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.4608,
+      "product_score": 78.11,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005010285568198",
+      "product_title": "EV Cable Organizer Bag Electric Car Charger Box Charging Organizer Jumper Cable Bag Electric Vehicle Charging Cable Case",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1c93263fb3e94ad79f93fa88ee3cf428X.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxh23frCZOJG0Y5RSCumd9zZFbDlYwrlBSFVBHpZzTDwhY7lYukP3VcoLg2dZ20Ic0Cu920uJIzObuW4iRPXPZ9QKxI2Da7t8YNQhXXO7aOLdcRfyH0SkpY1hLPu9sLDGjKqEwFOXvD10xoYYHePGvPovT7vNJ4Q6IAReO8vxY8yAdo5iRXggokHkt0Agyt0J3Ah4dHyIzdfCc4CR4i1YmZ9yk4HLcwxVXp3TiNsfOBlzt3GlQTipwZqMCcTVjpmd0aLw2ph8lVMaLcs4YoxGy4MFJFebbCAg83xDPtlPcFuWoiqQ2XknO4iy2dVS7pYeTE5Vzf24zq2tK0QSsrP1uxk5EKOBMYD2ROuQcUQ8iqpODPVxw93GXDRrc0ecxzGnPc6b7BrxGGfv8vSSeayDHROO0LpkYHkgPH5BWx2w1PEbbFPENulgyaTcM8rWtkcRDrHIiSnrphW3mklRQcyahyEJpAdQni0b10J4xfLyk6XuxxNhcqSwgwAEn3W152x8Fk7r3HIlKtzpoI8TCY0g5qMlbI8ER79eFknVgphQhD5aJa2sQ2PV05TDufKAScqGiSkUC1NOaxgfxbq851TVx41DdsnKBoCvLxGWi51cvMyHfnhftxxeFPMnXI5Zh0OGl8a0wqZLeOgpnLqEbc4zJZWT",
+      "target_sale_price": "3.80",
+      "currency": "GBP",
+      "sales_volume": 1489,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.342,
+      "product_score": 77.69,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005010182729190",
+      "product_title": "Car Charging Cable Storage Bag Car Charging Cable Sockets Charging Gun Organizer For Zeekr X 001 009 007 7X 2022 2023 2024 EV",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S9581e8cbef124b50adda614749fc5eb3P.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIBr9PddheminAMWvFuQSBHb7euWzDalc0KeyT4ArL4nTAV9joY7gaxYDIMBmZY6D6jLZV28FnpeK7PRVPrJeuyssxbnfusfd5mAA3AEZkrKeA0WujBh2wgazrbD3OGXolMVnu4FybwQhCP4FBfsBkYf1TIF5nKsalkcFxdAvu5AOc4Tz5UFg4TMRt0VqbDm6keL5soEzbKvvxuuhyAkzVASu854F2I2Gf25PgqlDq2kHgF2DvImpZWE01D3ZviZZcfJYLN8EAcGLt3W7sXbRzlqIu9Kj2ZnBzpfBiTi0dgt1Ty4vO3hRvanfSFlAKsz5Cevfwm3EWUzPr7ywuBGDGeXs5TWGEsqG0LClYV3zzNpxuQcqOVJKY7ibdSXzwbOtz5613tiQFY2tamsKn5e4wJ01u2XZBv1sbJtz4X42UvJmiHtIOMivh34oR9yTRfLfV24f5nDrY3KvROznOSb3Q0xSjFhrPLUlKsRi0vyUFRebjdAqdnyTlmwidTXQ2kMDu2K4rPvWOsGxLWBK4iNFum6YlV4zyeHBvoJpquBvrhGT5tIz0WYlrPBYEVhKcJlT3HsssmtIEz3nOWNsUKZw0F4OP7zqgriCiRuctaI9R57GAisI1eQGtXX5AAhifcHaikHwTSaKRlFSqkMU1GM00CT",
+      "target_sale_price": "7.99",
+      "currency": "GBP",
+      "sales_volume": 29,
+      "evaluate_rate": "100.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.7191,
+      "product_score": 76.41,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005009874251346",
+      "product_title": "Waterproof EV Charger Cable Storage Bag Oxford Cloth Zipper Closure Electric Vehicle Charging Organizer Case for Car Chargers",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S019c02f6072e490d885074fc0615fc68d.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxxk5LPkkqezfpztb975hqM3ZfrLKUgxjEchsYs1OWT9bIOm9exyc4FmDpd87rS48vUQDV3figJhMNChGqlngem7VCc6HH8hHxz0egvLXFhzTUWWnijRjQ5CosvqxL6wS1DnCxxHYBbDr7quiL35jEMA6l3FsxTZuoMhMBlc3Vl40SvzayvdAw4TYEGHsJ4j9oJ5P97Q9iUz1VV70z6qcgQhWHsK3embGuf1aKmKMKV3uwB8fz7qyL8wNYaaWR21p34Gl82EE6iqzFB2nzBmFaaUjLxEXKpD6VUkSxquJfH87ZnLrm2YuYMh81DOtRpNFE17JVxkEXkg0h0lAVB5urCJ7UfOxAiKkXL5oLh0ZNIFB2E5kB58TbMUOPd8CaZuuW69qSn4shdp8u4RVuL2dxIbYnMPXbkgmD5umzo1tzXqD6D7ui8Gv2l0TZMau43mDQbVMadphiOpriH23GpDypAayRlDqd7oDrHSj5tOry3mMI2B5rhdGP5j2chDkT1I5I3GWLYb58pH5KkugtMDudKs6zIDWHriCUTQawz4VGfy4UHAj8nxtYwtjhJum6BBhryqPd9NDnnCjM9NwDJzamAtQYtLrT4C1dBgb1mNdT2AL6LjdihUhCfmgJFslx9Ix5FvJc0sFfDKfmxyQ7szGhOVl",
+      "target_sale_price": "5.49",
+      "currency": "GBP",
+      "sales_volume": 267,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.4941,
+      "product_score": 76.21,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005012164523052",
+      "product_title": "New Energy Vehicle Charging Gun Storage Bag Portable EV Charger Cable Bag Waterproof Auto EV Charging Jumper Storage Bag",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sbe41be640e57467ebd8fb6ab06bdfbe2g.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxxEbRbDZHNrgHNxh7od3iNkAWn6Dk9ennn3NBaMMoAIxmQXTPcaFyWj4XsV6Gnhi527Ckwi3XEySX3xNOdhpVmHPI1Y1BXQFFerPcS5DgjjvaDuYOWKKdTK5ebIoitlEBxLxugdb1WAbZ96JD4KCZxyYeJWZAysisS2WsSAc47fBnMSFHqmHSv5nXblBfOK6Lz43z6cbAOtZuJxSUQiw7MNcmB3bwlDkxLWbB8Z528IRpA1y5ftamSJNDzOnY0wLVmRi9LzUBrOZspYQRzHSeBYi4V2XFNyKUbV6ymX2cEUSSs22TzP5P3T1seNjcAcXPBmPcFQEwmDU7zn8D6IWAxdjLfnXJswRc0O4AYPpFdaVdwTFwMHlFcqExHGjDrAXwiorvyngHJrOaRHZ1vIKKVBbPqj3FaB4oD1PHGLMjTaNnqUaTCky6iN3w234G1g8cQEQpc39Tw6WFIuWQtogYLwPZicyU7R2bI0FZNkDz2pwSXCBfIv7JbL6MSQjSukyztVK5DgEJOLP0whUEa89hTVQJ7gRd3P6ZrjLRadIFCJOEKWumxhF1b4o12jP0XkmG9RPJ5flczLrLzCMNz2vCcuKYvYE3Kuw7kdfmxm5Ezwca5gj6mB5NActpwlE0TfhI5GsbXcTqq7G9kbSLUrKN7Vt",
+      "target_sale_price": "5.99",
+      "currency": "GBP",
+      "sales_volume": 24,
+      "evaluate_rate": "100.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.5391,
+      "product_score": 76.09,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "950c73b85c9eba62a9e9c78cb073937a73d3e081aa4544ee563685e5b8a680b6"
+}

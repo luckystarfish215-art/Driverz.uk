@@ -1,0 +1,187 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.566947+00:00",
+  "topic": "car window sun shade",
+  "normalized_topic": "car window sun shade",
+  "final_opportunity_score": 70.24,
+  "production_action": "new_guide",
+  "content_type": "guide",
+  "routing_target": null,
+  "source_identity": {
+    "source_queue_priority": 7,
+    "source_brief_priority": 7,
+    "brief_fingerprint": "525a73e1caa671ddb12a02ccb71ba1be7e185b1b38f3a1b4b33f1d0d27edd650"
+  },
+  "generation_fingerprint": "2853fbe760f676207c44ed599e1cb27a703a13b2609e02f6bcf50f81b98aaa6d",
+  "brief_title": "Best Car Window Sun Shade for UK Drivers: Buying Guide",
+  "primary_keyword": "car window sun shade",
+  "secondary_keywords": [
+    "best car window sun shade uk",
+    "car window sun shade for uk drivers",
+    "car window sun shade buying guide",
+    "car window sun shade reviews",
+    "car window sun shade recommendations"
+  ],
+  "target_audience": [
+    "UK drivers researching products before purchase",
+    "Drivers comparing practical car accessories",
+    "Readers looking for product recommendations"
+  ],
+  "content_objective": "Create a useful UK-focused buying guide for car window sun shade, explain key buying considerations, compare selected products, and help readers make an informed choice.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true
+  },
+  "draft_schema": {
+    "draft_kind": "standalone_guide",
+    "page_creation_required": true,
+    "parent_content_target": null,
+    "insertion_target": null
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Introduction and who this guide is for",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Quick recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "How we selected the products",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "What to consider when buying Car Window Sun Shade",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Product comparison",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 6,
+      "section_title": "Individual product recommendations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 7,
+      "section_title": "Frequently asked questions",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 8,
+      "section_title": "Final recommendation",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 9,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005006982749702",
+      "product_title": "140x70CM Car Window Sun Shade Windshield Snow Ice Anti-UV Protection Front Rear Windshield Block Cover Visor Auto Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S1e3eaf9ea1fc493bbc9bb3d35f8f6b34I.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaDv43ghXf7rDs3GsFU6KfOXYY9dCLkkmWSxMZ3NyupXMzST22HLFVz6RbGlHw1ASm1yUkWwPkjP3mSLdRoEYw9qdkYq1HE6YMe6bDwFbjZJAoby7Qit1i5FM3IWDTtEbmJgs6tCVwpk1ipty8CgO5ZHwFEsya5EzIKMY6EFXdecMUFIaSGjyt1qmFRKp0kkZLI98Z4TJug88lsfHrVTnSTfaLiWO1D9CRCCSsnIULafu012J0FI5lnVoXxLAVdj9cHhxPjIH7ylkkkJvKDLBh7WPZgpyVL6RAcHks4yybNH9NRTSnZe2tKq9pZu9UPndzHoOCE1igpIkAojxxVjxvTgqFChqlABnQBpHGSSeu4SFoMeHRZUtq4LuJhBq0sbkbRwfF5GRigivEuSuJquQ3keSCcLsnHm1jkKvBk6jvo550nXKy59xrqYdutRCjnwWoJ9qNQi3RidxOihsNCTPrKnMHAeIzJBZpoqk9wLzcG6bNL3fcdnOaefTPE6OeZsHcLTZRNT0DGNFivC8dNU01va8zRact1KpzamsREJk17JSZUODDClxrLMJmD8YynFBzQY9uA79Aa1hZ2gzehFdfqNwGUCueIHPUrDE88qto4vuSKpT9aTuWkOmVKLv4clEXdfIE9V49K4mofk3pNkhr6j",
+      "target_sale_price": "2.14",
+      "currency": "GBP",
+      "sales_volume": 3730,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.1498,
+      "product_score": 84.29,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005009738164622",
+      "product_title": "5-Layer Car Windshield Sun Shade Cover Foldable Thicken Front Window UV Refletive Sunshade Curtain Sun Protection Cover",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S7c2a2ff6367b4513ab1711a8e17072ed9.png",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHLogF2Prqz5wpUJal9dUyi1ZngJLae0mcWee0Jexj6UPgUaHNN0GCetEd3EIqRiYWo1nQ4tlqum5iAcuNp629ZwOi9tZiLPQKQKKE4Ml3EduoTynXMZsKwgSehPPLawzHa0IJTWpgMsY5G6pYuHSndeK7gssJ34s8J3sCw9dYadL4uVSpIA8HXevxt4jYEHOUHDTMzAN7x27BbGzHo6mTPa3VrTLEHlc7YEqcbSilUKNidXHOYCiK7XZXByEFDndxv9SOg0SPWjdQBgSH55RRWAiLX54cFss6f2wizBcsFNxvT2AKKJXz71w09J9sENkIywpBNmHXPG2QKNk32diupn7z7kGMfcHetaUhvSbZuvqE4a6dUXUbQTYXfnS4vV9fKaI12108zEEaX6EMONVCsljPVw3hVWESGzvKYj550BdF3urawys6KkEwRpB2t1HyHlDFMcXPZ9IK8GGRklp1q0dzeLt9uzj5fbXMRG0Mk8iTbnkfkcmAcnzK13S2hFxYG4ojQ4B4uU7kQKFKJsW4O4aBOO9SszZPSH32jyQJtjYSol9Xr2zTgG76yhdOe77zQCsLf9SSrAK69M7c9TniqUV0WUsS1Bm4RZtw3jIYPYENrBTrupMD3F5MT9ZDqdEqDeNtjnuMIWkVqt7sO69mzN",
+      "target_sale_price": "3.94",
+      "currency": "GBP",
+      "sales_volume": 11469,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.2758,
+      "product_score": 78.24,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005007306695447",
+      "product_title": "SEAMETAL Car Windshield Sun Shade Cover Foldable Front Window Sun Visor Blocks UV Refletive Car Parasol Sunshade Protector Cover",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S45893dc9832f4e0695ade1c819573a199.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JyaFsojYzpse6DQLCY9Raem3SPiojRtvfTu4R1v3HTgPpSCo1bB8l2PaF3etbT8LIBGtmFbsFRtNDNmC2vDGFoBlmsQ4dSM0GTqAcZH1SItjdUieoZBoNfA5LiYQqRoIYLrI0ka6vDLNHDf0elKZhoz97WefpOdJTTHR01tNic5df09Vjq1ydz7vqPMYqNWabAJQjyz5kjkHm1FIURa5z07Axz4MftekdS3UtIxnscz88lZdm2qnfNNXuVq1yXf0GTJEuU4IH7r3b9sXmL4XN3dCtpMU58CNkzbdLUkvuFgCy5cYGMfv68Mego85yqU1cgMh36BZXcaFsbHfcBsFZEYGbXJPYzq1dufH02o3uWqG7jUKIBW7WU7sEsoamKJ1PiGLSQtBa2dqp8LY6qJlCWrQyZbi0TjKixoqhuYqWyVXJ70PNPKXfEmDuWfwBOILOmVia0CO8CgdQ93FjkK9OwvzPgc9fR0TFpvsMT4fP8JMNh21EhNMuaPyktVE4JPz8YCn3R2WCXOxgnfuzMGZILieo0EAQ5sLPv6yIVsS3nSTXA0X4kvnnJvQzss2ne5yNad3B37XWO83fkW7xUQBXpAQGuRKd4HEx3oOEi1KtStXxmt7MOW70h2WRHa8mEv5QJe5GhzlG1HKbW694aECm7vpD",
+      "target_sale_price": "2.59",
+      "currency": "GBP",
+      "sales_volume": 11463,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.1813,
+      "product_score": 78.24,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005012061746062",
+      "product_title": "Car Windshield Sun Shade Umbrella Foldable Car Sunshade Front Window Cover for UV Ray Block & Sun Heat Car Sunshade Umbrella New",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb2c99a7884d542098ae0c07b6e68d856f.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgYLP97uNiR8DdhExLXAKSk7ra48WsQfaBv5DdsKW6SHn9lMaatG7nKCTkZStbUngiUKGc5MOhlm9UGkhVqlkQPPy5CtSTQKgsdebvcFkbKCXp2LBYHIdDiXhDIC9DxF2fhlSdJXIkFenW9z5b472gkArqd4nhSD3wOm9mHXlWATx1HIHj31YCkGL3khK1FPF6wZDkXfEwaIB2zQ4y1jVPuCc5762s4dYT1chzC0xgsFr8ttfi5HDBdiPePGISXNLli0cS0m3mYQJ3T0hQ690GK3Gl3Bn92GKOzovDbEd9frvTPm7VCsRKFfw3Vpv6dnjMbABNXfyj2oeS77pAIS54T3G1J1CVtgLERa8ysDHk69E1pal18jE6FWeHgWIyctE6OUjnceWrAqQsXaBTM5IXGpn1FPUTUjN3rqZ4Nbs50SeCgV2SRwkpqdXNyzWHwYhHVOIb3xVKsD3okPo2GbFdYzaHdAxRQi2HEEBTQQWQ69um02bvG5hPuOxZtJLs0F5CDFzPrHIfUgGh3Em9BaMvE6X18hIZHeib9hpdxZMid8PBQ3otsegKt3mEHY3JhZ6DMzgWugWsRyhY14aagfijmHoQGlt6bWk7KlYN21MkBLZXeS8k71bELd3aOROojyDii3A5FlIYHMS6Z74sm58TDZ",
+      "target_sale_price": "7.09",
+      "currency": "GBP",
+      "sales_volume": 4645,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.4963,
+      "product_score": 78.17,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005006860973145",
+      "product_title": "BLALION Car Windshield Sun Shade Blocks UV Ray Reflector Auto Window Sun Shade Visor Shield Cover Protector Foldable Parasol",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S3ba6e536d16c4f378312c833760a1777b.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIBrqCceCJCOogCss98aFkCMBTlUpFj65gYAheVTyfJO1NyTEkSo1NNty5apM4KISuxP1Tf6yG4hwm23y0jmtRTrpF8brDPD3dYQC196OkdAkUhTz1492RRni6q2C1883tUZ45HhAv5AeoKpQrBtaIBwjmchysD3kgkMheTehroukN64RmBp3QJweEF4L7EyIwa6ugqf9uAwizz5kXMK5LYJY7GLADuovpbD5iA9DSyjUdN2ITuZLXQVAWEPC4xmUHiSTQK2ta9UUXdEeT3nIsesoiqtplMwk1G75K8kx2ekdoFbtEPgiPI7ZCAZ3ejPXNUlormOhKmE27lo59nttnG0DZB0URXNziyt3jm4QfIjjiYEwJyqScRkoD2GX9vtPC70JoDE0TCqDcWHcPKeE1obJjAotfWlBFRBpDUwwquvMzRquA1GjCMB3OpBADMQSUPkD6zIZdThfhKKtGYGS1WhFlZMOPsSEI0ncQfASlboO05Ig7wst6X3DzWaLQYXDiA4sWDOnepDEvBNUH9oJl0v4qt3jz3XSur16BO5pD3FZCHhjcyYhO6d3FsGnRNonLwC58rK0aLwlKah80oNkQXV0x2DaMqPjd5djXyxCgozdphEVpEHsNjpDVb8HQMGHgdIuVglIcNpP3dehneQ4Jm3",
+      "target_sale_price": "2.80",
+      "currency": "GBP",
+      "sales_volume": 8260,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "7.0%",
+      "estimated_commission_value": 0.196,
+      "product_score": 77.67,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "161a8d9e261d40a2600b37d14104158ee679a7333e065c375e5ffb76286103b2"
+}

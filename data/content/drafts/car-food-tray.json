@@ -1,0 +1,164 @@
+{
+  "source": "driverz_content_draft_generation",
+  "generator_version": 1,
+  "generated_at": "2026-07-12T15:41:56.564080+00:00",
+  "topic": "car food tray",
+  "normalized_topic": "car food tray",
+  "final_opportunity_score": 70.42,
+  "production_action": "product_block",
+  "content_type": "product_block",
+  "routing_target": "car travel accessories",
+  "source_identity": {
+    "source_queue_priority": 6,
+    "source_brief_priority": 6,
+    "brief_fingerprint": "9bbd430c33f7b68afe302b1d70f7deb807f1791742edef35afe7da8c1752e1bb"
+  },
+  "generation_fingerprint": "007fef78b990d5f4abc23c80fbf6c160ca513e2dd93e17c91a88068c9cc5004e",
+  "brief_title": "Recommended Car Food Tray for UK Drivers",
+  "primary_keyword": "car food tray",
+  "secondary_keywords": [
+    "best car food tray uk",
+    "car food tray for uk drivers",
+    "car food tray buying guide",
+    "car food tray reviews",
+    "car food tray recommendations"
+  ],
+  "target_audience": [
+    "Readers already viewing a related Driverz guide",
+    "Visitors looking for practical product recommendations",
+    "Users with stronger purchase intent"
+  ],
+  "content_objective": "Create a reusable recommendation block for car food tray that can be inserted into the configured target guide without requiring a standalone article.",
+  "internal_linking": {
+    "link_to_driverz_tools": true,
+    "link_to_relevant_guides": true,
+    "avoid_orphan_content": true,
+    "insertion_target": "car travel accessories"
+  },
+  "draft_schema": {
+    "draft_kind": "product_recommendation_block",
+    "page_creation_required": false,
+    "parent_content_target": null,
+    "insertion_target": "car travel accessories"
+  },
+  "sections": [
+    {
+      "section_order": 1,
+      "section_title": "Short contextual introduction",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 2,
+      "section_title": "Recommended products",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 3,
+      "section_title": "Why these products were selected",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 4,
+      "section_title": "Buying considerations",
+      "generation_status": "not_generated",
+      "content": null
+    },
+    {
+      "section_order": 5,
+      "section_title": "Affiliate disclosure",
+      "generation_status": "not_generated",
+      "content": null
+    }
+  ],
+  "selected_product_count": 5,
+  "products": [
+    {
+      "slot": 1,
+      "product_id": "1005012541024475",
+      "product_title": "Car Universal Laptop Stand Food and Beverage Stand Desk Steering Wheel Tray Table Stand Auto Interior Accessories Storage",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sb5704d7aac9a4b439c6dd736192ca4f4G.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxhbygesITc0hmM1OzTEVXaRAUYbl9kVK29linClfz9cvGh7HxqQjbdEh0FMZxhQ9BQ8a6FTheLm8QeFt1JGwZs7PqnKAQbjmIQzWOUOkua5x723VDVrskNN6j23tf9CBWyYAHTe5pJ8tJ5Mtzn96OgNytkVdZXBecOIyinInqP7HUhmDmSwFH1tI77JcPfq41MazxG7Nsd6HQax6Sw3p0w1shCTNuK32bwSarcpMG2kBFzzQhjgTq9QllALBZsGovmVo5vkvvxMkaGJoq7ciOHncWtcWWjg9SVUf1tubA3UZNQ77uOW12mBTxd6VpXfaG7EqqlB2ezdlaBD53D4rQBm8uXQMRh7mBgDA0YuyAsR5OIMyoK1RG0jbSUyCE1cpFppiC1PW7WXHsC3UWyy15R1wLVcVyVJsK6uuJssiHiO2zsJkJ8hbKKGPBa1UMBx3veT4Pa5mYhfexlHSI40IfYn9cFFOA8d1SXTJsHDAxaq8zwMqrkJ045qBalhM5tVuqf9OJTDvsFPWAPcluOgWbkqeYDFZ7bU2In14m0rQst4djK7EYV7tJ86u6GrNKIOU2x0NTPykGpXz90RuQds6VlMtacyLkgfVmStqTPtvPDOj3DW9gjzkg1e7rL7sszb75mOiNKEU7Pt5kOi1aLrqJdf5",
+      "target_sale_price": "5.01",
+      "currency": "GBP",
+      "sales_volume": 2409,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.4509,
+      "product_score": 80.03,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 2,
+      "product_id": "1005007938009567",
+      "product_title": "YZ For Tesla Model XS 3 Y Highland Juniper 2018-2025  Steering Wheel Laptop Tray Food Desk Portable Office Table Car Accessories",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S79e66dc82ab14ca88194bfe5de2b9cf3O.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxI2Oxf5GoEVX5909YfuOXdlGzUVXdqi6B8eeYTPZYrZwoRE6YOgqSp83U3EjJFBmwEUYApDWBsRW67QjXH4nZeh50sjzUNRPyd6hvbi9wcwRoMyCwcmxyb6kVLoS6FA27hZqxyUke7MyeYbq67es6sEAEkNmlYOrEpn7LycmxRfNVjYg1LR5lIlSuo5bwzB1feIZTD4jBXYOIC7WkAQj4y3mwKfUxGRRi20cGHxGNltiIn6WN5cKrNSeqttE6PCn8t842hrYNCz7uXrzH0p5IcCzr2V766UPa8oN7G4Y4gUdRJMLPbzhJKKkoh9TtN4z6Fs913oUhQ9uGePV8u9C3P16KysRYrHAvC6LpIA6Fi1k8TxE1Lst1pzEajl3P27rgfTPWbdsaZn6PthGT7VByaaSFYqYtMl3kBDQGcW9So4QserNJf7kafU1D1foAeHJQYcRGd6xR8yVOofIvAqAS4toCFNIo9nlVr72MmPP36f35d21GOTSW6MGspSyGV89KqpVdpYVNbbyf0279u2iRLkMaCtVU3zsy6hjYFSXBv4RMxN6UrVeKS5dIUBppdoDKiJKfHiStqc7jsvI0uGMfj6kRaA7Frsfg46me58aYJ7WPXpS5SjM4I9VBD2qeZiqdaEaPugubiBSPGtdWrgflDyP",
+      "target_sale_price": "38.19",
+      "currency": "GBP",
+      "sales_volume": 3423,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 3.4371,
+      "product_score": 78.64,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 3,
+      "product_id": "1005006111969615",
+      "product_title": "Car Cup Holder Expander Tray with Detachable Car Cup Holder Tray, Car Food Trays for Eating &Cup Holder Tray Table for Car",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S2bec85589dec41369face6a7e9c65514w.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwOfTw8u8UKS3vAAx1yfp2Azd3lKiRachcDwWasXHtOOpB8KbbzY29oIHnqzpSCeAqjjmIVr2RO23S8buyZ0o4AegNTGUvbctKrQKGMbcz1439hCRGFH6HxJuKlwTxiEap4LMJtQhaPKuBlLpjFCvwBuA2x7UO9w6kSC4jWECXreCK2rZIaTYnK9JfVmUrjFgMtFmYFbRs9b4ai3jh957igeE3308i68Qu2mfEq55ZFPKigpcglfOQixvYN3LR0JIoHB3spm8xEonU18At5v2HHOBqdQZOgjVSEisGzpN4VxIldcvvACJpRAgqGinxRtGek7fXgangQeRgsGPPw04949uVPJnnkJczAVm0tYG6gDr5q7L4B3ACR2faCFE2Xfu0N9ylKPvQfGtB0rHEFpfLWMSb1Ct4AaQ9yL0qUqpcKdawDpKp798hvYTS5nEZgYTuydXgjCYg24tIku4rxUBtl7peyar8dbfu0GtCn8Al6HLPeygaybXB2LVXrQdvRncwCOKgwfotqIhKTGg2kNRqQ5OGxon6uk6SMO0QrnSXEdNLDryME1Zi1ULiyjhd5b6rojPhNhnKg7blSNbr9zadXVFajLsQpT9zekNBj32jSdZwYbWIGJTZ6GG6INFmewiY4kgOSTbiM39g4DZYUlVuqJ",
+      "target_sale_price": "18.29",
+      "currency": "GBP",
+      "sales_volume": 384,
+      "evaluate_rate": "94.9%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 1.6461,
+      "product_score": 78.64,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 4,
+      "product_id": "1005010572828204",
+      "product_title": "Portable Car Laptop Computer Desk Mount Stand Foldable Steering Wheel Dining Table Bracket Drink Food Coffee Tray Board Amagi",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/S0cd57857c2a146c98ab6d143ac968cc6x.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwQnNKLrXo3TdjV8UeSbXQimn3GKAgXkL2JwfZPdftXPoMkvpEJbiVt5mbTVUaXVhPC4SyZM5XrEHYTD7cjMrmHSXuHufmVlH39hZtB9SDk2c5rujSBBOrXS30Yt8Lokwa8m0LHJfv77hCVX0xiUiJUZzYxs5ScPz8rxfpOt8n4wCjE5ogzGSUYBOphCFgetIhR4XC6ekEPMob0u25mpTzTaoFHfWQW1DpLvZcKK0VQ1wNvLFne8NL7jLyh8OFMcrFKZqzSIFgFxd3t7nOFKZWi5Qpmo7tpaxvGy4ytqN6vkuG8jcdLFHmflrJpJJwrCAWFkvjw1RRWA3ZqfqCdglqRSJW0YaycVsnZd0LvcFGLcMnPuur7f8lCOjG1P5LUl70ThJrqEUPWdoHIaASf0p2FnwNoScEwUmvRFwZrmT3wHbHDJi7KiLCKEylt8Qbomb0bORcfjR43jQI8PgezB3EIXSY3l8ajb3kew6k7NALG3mwKciZPNfwXRkgCo5S1rc3LgkB54xqgWfJ1BYZjTtCq0cxyLLf3GTc3BjGYDry05xFPvUmJlirZ0sOW6FiYfNtaRAKIx9BBh12HlSlPPeSVH4DIdsEUxZrtFJvLbWZAbBFy0mKd444fUZo7SJVRfKC4RsbK8t3kWxVCCsoinzjq7",
+      "target_sale_price": "8.61",
+      "currency": "GBP",
+      "sales_volume": 975,
+      "evaluate_rate": "98.0%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 0.7749,
+      "product_score": 78.46,
+      "selection_reason": "unique_priority"
+    },
+    {
+      "slot": 5,
+      "product_id": "1005010530083398",
+      "product_title": "Car Tray Table Food Tray Desk Folding Laptop Desk Auto Steering Wheel Tray Mount Adjustable Water Cup Computer Bracket",
+      "product_main_image_url": "https://ae-pic-a1.aliexpress-media.com/kf/Sbabd90cb0f5b41aa9ae51f0d7396400ed.jpg",
+      "promotion_link": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxg3yNofNRs3Q0uxFzQyEulIex92Lq9adTwNWcNxr7bqpGSIYwZHsQcHBCPnp0ykszZEJve2Jtm4weAVLxYCaFiaCYvmbTnwEoOsiVR9zLjImfdliWkX0yEISpmNmtpkngvwEGUNnufY0B6H39rCxemf1e2uP9rJfyK6hFg59WuFK9DCTB8ta5KpP2eVRUS9gKnc6bbJNOIPB9ExEkPkzha2jKF392o97E3l0HcjboOrdbQs3POrcsCzAbEyHpADZ7v9lluOaKJpXMsrzXSXvT5JxiTYVBvmospqE8MdYs5iw7Z9ER7KGcabhMe1paWoAEsysUNGSOnGFWZE2rbjVBUeIEiTBZUeTls2u7QfwkueuM2eFqQTxi2uc9WERCpNpJwduIIWGkD0wGcErypgacfeevefRaKeLc4RJ3pZFDub7QUEoXnKkXlkmzxQyTkCqq0X7nNcJo1oY0Z7qh09wSlOmiI5bFMma5pupW9Tpglat9U4B2mhbWdBYHoqmcNNH4ylauerOgoRQ0ziO1RpzgcSrpfhZCNZ0Vi5CAWu9yutgyXrzBUMNpW65GVxFOsjL6fp2ZZpd4E06aYA1OhBuKbqZIuWqXXiQSbSRyWGPkJdna0jKxZ1z4m8SLcVfgzt70s5mDmYO2ziGioA6tZb0LaOR",
+      "target_sale_price": "23.49",
+      "currency": "GBP",
+      "sales_volume": 447,
+      "evaluate_rate": "98.5%",
+      "commission_rate": "9.0%",
+      "estimated_commission_value": 2.1141,
+      "product_score": 78.11,
+      "selection_reason": "unique_priority"
+    }
+  ],
+  "generation_status": "skeleton_generated",
+  "draft_status": "generated",
+  "approval_status": "pending_review",
+  "publish_status": "not_published",
+  "workflow": {
+    "requires_human_review": true,
+    "automatic_generation_enabled": false,
+    "automatic_publishing_enabled": false
+  },
+  "draft_fingerprint": "48a8fba320b88819dcaa63f1c9f49094f47b9913ea93a41ba37e0e3f003403fb"
+}
