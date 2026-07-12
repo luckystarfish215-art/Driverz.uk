@@ -1,0 +1,148 @@
+{
+  "source": "driverz_production_topic_queue",
+  "queue_version": 1,
+  "generated_at": "2026-07-12T10:32:37.930216+00:00",
+  "source_final_scorer_version": 1,
+  "strategy_version": 1,
+  "input_eligible_topic_count": 8,
+  "queue_topic_count": 8,
+  "action_counts": {
+    "new_guide": 3,
+    "guide_cluster": 3,
+    "product_block": 2
+  },
+  "status_counts": {
+    "pending": 8
+  },
+  "topics": [
+    {
+      "topic": "wireless car charger",
+      "normalized_topic": "wireless car charger",
+      "source_final_priority": 1,
+      "final_opportunity_score": 79.07,
+      "source_final_status": "promote",
+      "categories": [
+        "technology"
+      ],
+      "seasonality": [],
+      "production_action": "new_guide",
+      "strategy_source": "default_rule",
+      "production_status": "pending",
+      "production_priority": 1
+    },
+    {
+      "topic": "car seat cushion",
+      "normalized_topic": "car seat cushion",
+      "source_final_priority": 2,
+      "final_opportunity_score": 77.08,
+      "source_final_status": "promote",
+      "categories": [
+        "comfort"
+      ],
+      "seasonality": [],
+      "production_action": "guide_cluster",
+      "strategy_source": "explicit_rule",
+      "production_status": "pending",
+      "cluster": "car comfort accessories",
+      "production_priority": 2
+    },
+    {
+      "topic": "car windscreen cover",
+      "normalized_topic": "car windscreen cover",
+      "source_final_priority": 3,
+      "final_opportunity_score": 75.29,
+      "source_final_status": "promote",
+      "categories": [
+        "seasonal"
+      ],
+      "seasonality": [
+        "winter"
+      ],
+      "production_action": "new_guide",
+      "strategy_source": "default_rule",
+      "production_status": "pending",
+      "production_priority": 3
+    },
+    {
+      "topic": "car travel pillow",
+      "normalized_topic": "car travel pillow",
+      "source_final_priority": 4,
+      "final_opportunity_score": 74.03,
+      "source_final_status": "approved",
+      "categories": [
+        "travel"
+      ],
+      "seasonality": [],
+      "production_action": "guide_cluster",
+      "strategy_source": "explicit_rule",
+      "production_status": "pending",
+      "cluster": "car comfort accessories",
+      "production_priority": 4
+    },
+    {
+      "topic": "car armrest cushion",
+      "normalized_topic": "car armrest cushion",
+      "source_final_priority": 5,
+      "final_opportunity_score": 73.06,
+      "source_final_status": "approved",
+      "categories": [
+        "comfort"
+      ],
+      "seasonality": [],
+      "production_action": "guide_cluster",
+      "strategy_source": "explicit_rule",
+      "production_status": "pending",
+      "cluster": "car comfort accessories",
+      "production_priority": 5
+    },
+    {
+      "topic": "car food tray",
+      "normalized_topic": "car food tray",
+      "source_final_priority": 6,
+      "final_opportunity_score": 70.42,
+      "source_final_status": "approved",
+      "categories": [
+        "travel"
+      ],
+      "seasonality": [],
+      "production_action": "product_block",
+      "strategy_source": "explicit_rule",
+      "production_status": "pending",
+      "target": "car travel accessories",
+      "production_priority": 6
+    },
+    {
+      "topic": "car window sun shade",
+      "normalized_topic": "car window sun shade",
+      "source_final_priority": 7,
+      "final_opportunity_score": 70.24,
+      "source_final_status": "approved",
+      "categories": [
+        "seasonal"
+      ],
+      "seasonality": [
+        "summer"
+      ],
+      "production_action": "new_guide",
+      "strategy_source": "default_rule",
+      "production_status": "pending",
+      "production_priority": 7
+    },
+    {
+      "topic": "EV charging cable bag",
+      "normalized_topic": "ev charging cable bag",
+      "source_final_priority": 8,
+      "final_opportunity_score": 68.5,
+      "source_final_status": "approved",
+      "categories": [
+        "ev"
+      ],
+      "seasonality": [],
+      "production_action": "product_block",
+      "strategy_source": "explicit_rule",
+      "production_status": "pending",
+      "target": "ev charging accessories",
+      "production_priority": 8
+    }
+  ]
+}

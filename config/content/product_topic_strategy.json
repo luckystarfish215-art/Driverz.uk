@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "default_action": "new_guide",
+  "rules": [
+    {
+      "topic": "car seat cushion",
+      "action": "guide_cluster",
+      "cluster": "car comfort accessories"
+    },
+    {
+      "topic": "car travel pillow",
+      "action": "guide_cluster",
+      "cluster": "car comfort accessories"
+    },
+    {
+      "topic": "car armrest cushion",
+      "action": "guide_cluster",
+      "cluster": "car comfort accessories"
+    },
+    {
+      "topic": "car food tray",
+      "action": "product_block",
+      "target": "car travel accessories"
+    },
+    {
+      "topic": "EV charging cable bag",
+      "action": "product_block",
+      "target": "ev charging accessories"
+    }
+  ]
+}
