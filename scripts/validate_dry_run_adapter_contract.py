@@ -302,6 +302,22 @@ def validate_document(document):
             "Payload/execution topic mismatch"
         )
 
+    if (
+        document["input_generation_request_count"]
+        != len(payloads)
+    ):
+        raise ValueError(
+            "Input generation request count mismatch"
+        )
+
+    if (
+        document["input_generation_request_count"]
+        != len(executions)
+    ):
+        raise ValueError(
+            "Input generation request/execution count mismatch"
+        )
+
     payload_fingerprints = [
         payload["provider_payload_fingerprint"]
         for payload in payloads
