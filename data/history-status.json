@@ -1,15 +1,15 @@
 {
   "schema_version": 2,
   "status": "success",
-  "last_checked_date": "2026-07-21",
-  "today_snapshot": "history/daily/2026-07-21.json",
-  "station_count": 7958,
-  "daily_snapshot_count": 62,
-  "newest_snapshot": "2026-07-21",
+  "last_checked_date": "2026-07-22",
+  "today_snapshot": "history/daily/2026-07-22.json",
+  "station_count": 7934,
+  "daily_snapshot_count": 63,
+  "newest_snapshot": "2026-07-22",
   "newest_snapshot_age_days": 0,
   "days_available": 30,
-  "history_summary_station_count": 7935,
-  "history_summary_latest_station_count": 7958,
+  "history_summary_station_count": 6491,
+  "history_summary_latest_station_count": 7934,
   "history_summary_valid_days": 30,
   "monthly_summaries": {
     "files_found": 3,
@@ -25,6 +25,6 @@
   "errors": [],
   "warnings": [
     "First collection month is partial: 2026-05.json (11/31 days)",
-    "Current month summary is partial: 2026-07.json (21/31 days)"
+    "Current month summary is partial: 2026-07.json (22/31 days)"
   ]
 }
