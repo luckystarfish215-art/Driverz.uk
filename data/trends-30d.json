@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-08-21T11:13:39.447096+00:00",
-  "latest_snapshot_date": "2026-08-21",
+  "generated_at": "2026-08-22T11:08:33.674859+00:00",
+  "latest_snapshot_date": "2026-08-22",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 178.7,
-      "previous": 173.01,
-      "change": 5.69,
-      "today_snapshot_date": "2026-08-21",
-      "previous_snapshot_date": "2026-07-23",
+      "today": 178.77,
+      "previous": 173.46,
+      "change": 5.31,
+      "today_snapshot_date": "2026-08-22",
+      "previous_snapshot_date": "2026-07-24",
       "valid_days_for_fuel": 30,
       "priced_station_count": 6205
     },
     "e10": {
-      "today": 161.28,
-      "previous": 155.29,
-      "change": 5.99,
-      "today_snapshot_date": "2026-08-21",
-      "previous_snapshot_date": "2026-07-23",
+      "today": 161.35,
+      "previous": 155.78,
+      "change": 5.57,
+      "today_snapshot_date": "2026-08-22",
+      "previous_snapshot_date": "2026-07-24",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7835
+      "priced_station_count": 7838
     },
     "b7": {
-      "today": 182.38,
-      "previous": 171.56,
-      "change": 10.82,
-      "today_snapshot_date": "2026-08-21",
-      "previous_snapshot_date": "2026-07-23",
+      "today": 182.53,
+      "previous": 172.46,
+      "change": 10.07,
+      "today_snapshot_date": "2026-08-22",
+      "previous_snapshot_date": "2026-07-24",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7932
+      "priced_station_count": 7937
     },
     "sdv": {
-      "today": 199.86,
-      "previous": 191.34,
-      "change": 8.52,
-      "today_snapshot_date": "2026-08-21",
-      "previous_snapshot_date": "2026-07-23",
+      "today": 200.09,
+      "previous": 192.02,
+      "change": 8.07,
+      "today_snapshot_date": "2026-08-22",
+      "previous_snapshot_date": "2026-07-24",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4135
     }
