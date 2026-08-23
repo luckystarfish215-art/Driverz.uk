@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-08-22T11:08:33.674859+00:00",
-  "latest_snapshot_date": "2026-08-22",
+  "generated_at": "2026-08-23T11:09:23.455480+00:00",
+  "latest_snapshot_date": "2026-08-23",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 178.77,
-      "previous": 173.46,
-      "change": 5.31,
-      "today_snapshot_date": "2026-08-22",
-      "previous_snapshot_date": "2026-07-24",
+      "today": 178.84,
+      "previous": 174.19,
+      "change": 4.65,
+      "today_snapshot_date": "2026-08-23",
+      "previous_snapshot_date": "2026-07-25",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 6205
+      "priced_station_count": 6206
     },
     "e10": {
-      "today": 161.35,
-      "previous": 155.78,
-      "change": 5.57,
-      "today_snapshot_date": "2026-08-22",
-      "previous_snapshot_date": "2026-07-24",
+      "today": 161.38,
+      "previous": 156.7,
+      "change": 4.68,
+      "today_snapshot_date": "2026-08-23",
+      "previous_snapshot_date": "2026-07-25",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7838
+      "priced_station_count": 7839
     },
     "b7": {
-      "today": 182.53,
-      "previous": 172.46,
-      "change": 10.07,
-      "today_snapshot_date": "2026-08-22",
-      "previous_snapshot_date": "2026-07-24",
+      "today": 182.63,
+      "previous": 173.97,
+      "change": 8.66,
+      "today_snapshot_date": "2026-08-23",
+      "previous_snapshot_date": "2026-07-25",
       "valid_days_for_fuel": 30,
       "priced_station_count": 7937
     },
     "sdv": {
-      "today": 200.09,
-      "previous": 192.02,
-      "change": 8.07,
-      "today_snapshot_date": "2026-08-22",
-      "previous_snapshot_date": "2026-07-24",
+      "today": 201.39,
+      "previous": 193.01,
+      "change": 8.38,
+      "today_snapshot_date": "2026-08-23",
+      "previous_snapshot_date": "2026-07-25",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4135
     }
