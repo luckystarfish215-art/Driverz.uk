@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T14:45:22.888024+00:00",
+  "generated_at": "2026-09-03T14:45:26.815891+00:00",
   "mode": "dry-run",
-  "as_of": "2026-09-02",
+  "as_of": "2026-09-03",
   "retention_days": 90,
-  "cutoff_date": "2026-06-04",
-  "daily_snapshots_found": 105,
+  "cutoff_date": "2026-06-05",
+  "daily_snapshots_found": 106,
   "retained_count": 91,
-  "eligible_count": 3,
+  "eligible_count": 4,
   "blocked_count": 11,
   "deleted_count": 0,
   "invalid_files": [],
@@ -25,6 +25,11 @@
     {
       "file": "2026-06-03.json",
       "date": "2026-06-03",
+      "monthly_summary": "2026-06.json"
+    },
+    {
+      "file": "2026-06-04.json",
+      "date": "2026-06-04",
       "monthly_summary": "2026-06.json"
     }
   ],
