@@ -1,0 +1,20 @@
+---
+description: Driverz.uk Project Context & Architecture
+globs: *
+alwaysApply: true
+---
+
+# Driverz.uk System Context
+
+## Project History & Hosting
+- Initial codebase structure was generated via ChatGPT.
+- Hosted on GitHub and deployed on Vercel.
+
+## Core Data & Automation Pipeline
+- **Daily Fuel Data Script:** `/var/services/homes/Mark/driverz-automation/sync_driverz_fuel.sh` runs daily on a local Synology NAS (`/homes/Mark/driverz-automation/Driverz.uk`).
+- The script pulls live GOV.UK fuel API data and updates local JSON/data files.
+- **DO NOT** modify the key data structure or relative file paths consumed by the NAS sync script without explicit warning.
+
+## Development Rules
+- Keep existing code styles and framework conventions intact.
+- When creating new affiliate pages or components, follow the existing page layouts in the repo.
