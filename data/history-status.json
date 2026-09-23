@@ -1,14 +1,14 @@
 {
   "schema_version": 2,
   "status": "success",
-  "last_checked_date": "2026-09-22",
-  "today_snapshot": "history/daily/2026-09-22.json",
+  "last_checked_date": "2026-09-23",
+  "today_snapshot": "history/daily/2026-09-23.json",
   "station_count": 8073,
-  "daily_snapshot_count": 125,
-  "newest_snapshot": "2026-09-22",
+  "daily_snapshot_count": 126,
+  "newest_snapshot": "2026-09-23",
   "newest_snapshot_age_days": 0,
   "days_available": 30,
-  "history_summary_station_count": 8037,
+  "history_summary_station_count": 8047,
   "history_summary_latest_station_count": 8073,
   "history_summary_valid_days": 30,
   "monthly_summaries": {
@@ -25,7 +25,7 @@
   "errors": [],
   "warnings": [
     "First collection month is partial: 2026-05.json (11/31 days)",
-    "Current month summary is partial: 2026-09.json (22/30 days)",
+    "Current month summary is partial: 2026-09.json (23/30 days)",
     "Retention has 11 blocked snapshot(s)."
   ]
 }
