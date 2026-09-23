@@ -1,8 +1,8 @@
 {
   "status": "success",
-  "started_at": "2026-09-22T15:03:07.358966+00:00",
-  "finished_at": "2026-09-22T15:04:09.089339+00:00",
-  "price_records": 8061,
+  "started_at": "2026-09-23T15:03:07.549714+00:00",
+  "finished_at": "2026-09-23T15:03:36.271721+00:00",
+  "price_records": 8067,
   "info_records": 8073,
   "csv_rows": 8073,
   "csv_file": "data/fuel_data.csv",
