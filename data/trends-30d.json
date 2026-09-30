@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-09-29T16:39:34.179545+00:00",
-  "latest_snapshot_date": "2026-09-29",
+  "generated_at": "2026-09-30T16:31:39.148495+00:00",
+  "latest_snapshot_date": "2026-09-30",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 191.98,
-      "previous": 179.17,
+      "today": 192.04,
+      "previous": 179.23,
       "change": 12.81,
-      "today_snapshot_date": "2026-09-29",
-      "previous_snapshot_date": "2026-08-31",
+      "today_snapshot_date": "2026-09-30",
+      "previous_snapshot_date": "2026-09-01",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 6218
+      "priced_station_count": 6219
     },
     "e10": {
-      "today": 174.52,
-      "previous": 161.82,
-      "change": 12.7,
-      "today_snapshot_date": "2026-09-29",
-      "previous_snapshot_date": "2026-08-31",
+      "today": 174.59,
+      "previous": 161.92,
+      "change": 12.67,
+      "today_snapshot_date": "2026-09-30",
+      "previous_snapshot_date": "2026-09-01",
       "valid_days_for_fuel": 30,
       "priced_station_count": 7865
     },
     "b7": {
-      "today": 199.69,
-      "previous": 183.53,
-      "change": 16.16,
-      "today_snapshot_date": "2026-09-29",
-      "previous_snapshot_date": "2026-08-31",
+      "today": 199.81,
+      "previous": 183.58,
+      "change": 16.23,
+      "today_snapshot_date": "2026-09-30",
+      "previous_snapshot_date": "2026-09-01",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7975
+      "priced_station_count": 7976
     },
     "sdv": {
-      "today": 218.28,
-      "previous": 202.06,
-      "change": 16.22,
-      "today_snapshot_date": "2026-09-29",
-      "previous_snapshot_date": "2026-08-31",
+      "today": 218.34,
+      "previous": 202.1,
+      "change": 16.24,
+      "today_snapshot_date": "2026-09-30",
+      "previous_snapshot_date": "2026-09-01",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4141
     }
