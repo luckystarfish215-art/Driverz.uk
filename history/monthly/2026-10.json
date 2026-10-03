@@ -1,51 +1,51 @@
 {
   "schema_version": 1,
   "month": "2026-10",
-  "generated_at": "2026-10-02T16:23:48.533357+00:00",
-  "snapshot_files_found": 2,
-  "snapshot_files_processed": 2,
+  "generated_at": "2026-10-03T14:57:42.002173+00:00",
+  "snapshot_files_found": 3,
+  "snapshot_files_processed": 3,
   "first_snapshot": "2026-10-01",
-  "last_snapshot": "2026-10-02",
+  "last_snapshot": "2026-10-03",
   "fuel_types": {
     "e10": {
-      "days_available": 2,
-      "average": 174.676,
+      "days_available": 3,
+      "average": 174.678,
       "minimum_daily_average": 174.669,
       "maximum_daily_average": 174.683,
       "start_average": 174.669,
       "end_average": 174.683,
       "change": 0.014,
-      "valid_station_prices": 15776
+      "valid_station_prices": 23687
     },
     "e5": {
-      "days_available": 2,
-      "average": 192.12,
+      "days_available": 3,
+      "average": 192.118,
       "minimum_daily_average": 192.114,
       "maximum_daily_average": 192.127,
       "start_average": 192.127,
       "end_average": 192.114,
       "change": -0.013,
-      "valid_station_prices": 12472
+      "valid_station_prices": 18725
     },
     "b7": {
-      "days_available": 2,
+      "days_available": 3,
       "average": 199.868,
       "minimum_daily_average": 199.867,
       "maximum_daily_average": 199.87,
       "start_average": 199.87,
       "end_average": 199.867,
       "change": -0.003,
-      "valid_station_prices": 16002
+      "valid_station_prices": 24026
     },
     "sdv": {
-      "days_available": 2,
-      "average": 218.393,
+      "days_available": 3,
+      "average": 218.389,
       "minimum_daily_average": 218.38,
       "maximum_daily_average": 218.406,
       "start_average": 218.406,
       "end_average": 218.38,
       "change": -0.026,
-      "valid_station_prices": 8305
+      "valid_station_prices": 12470
     }
   },
   "skipped_files": []
