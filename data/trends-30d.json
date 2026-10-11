@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-10-10T15:58:21.797963+00:00",
-  "latest_snapshot_date": "2026-10-10",
+  "generated_at": "2026-10-11T16:26:23.989387+00:00",
+  "latest_snapshot_date": "2026-10-11",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 192.07,
-      "previous": 185.88,
-      "change": 6.19,
-      "today_snapshot_date": "2026-10-10",
-      "previous_snapshot_date": "2026-09-11",
+      "today": 192.06,
+      "previous": 186.64,
+      "change": 5.42,
+      "today_snapshot_date": "2026-10-11",
+      "previous_snapshot_date": "2026-09-12",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 6259
+      "priced_station_count": 6258
     },
     "e10": {
-      "today": 174.6,
-      "previous": 168.21,
-      "change": 6.39,
-      "today_snapshot_date": "2026-10-10",
-      "previous_snapshot_date": "2026-09-11",
+      "today": 174.58,
+      "previous": 168.99,
+      "change": 5.59,
+      "today_snapshot_date": "2026-10-11",
+      "previous_snapshot_date": "2026-09-12",
       "valid_days_for_fuel": 30,
       "priced_station_count": 7914
     },
     "b7": {
-      "today": 199.69,
-      "previous": 189.72,
-      "change": 9.97,
-      "today_snapshot_date": "2026-10-10",
-      "previous_snapshot_date": "2026-09-11",
+      "today": 199.68,
+      "previous": 190.71,
+      "change": 8.97,
+      "today_snapshot_date": "2026-10-11",
+      "previous_snapshot_date": "2026-09-12",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 8031
+      "priced_station_count": 8030
     },
     "sdv": {
-      "today": 218.37,
-      "previous": 208.72,
-      "change": 9.65,
-      "today_snapshot_date": "2026-10-10",
-      "previous_snapshot_date": "2026-09-11",
+      "today": 218.36,
+      "previous": 209.63,
+      "change": 8.73,
+      "today_snapshot_date": "2026-10-11",
+      "previous_snapshot_date": "2026-09-12",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4171
     }
