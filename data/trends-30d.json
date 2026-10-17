@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-10-16T15:01:29.014116+00:00",
-  "latest_snapshot_date": "2026-10-16",
+  "generated_at": "2026-10-17T13:58:51.014924+00:00",
+  "latest_snapshot_date": "2026-10-17",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 191.99,
-      "previous": 189.0,
-      "change": 2.99,
-      "today_snapshot_date": "2026-10-16",
-      "previous_snapshot_date": "2026-09-17",
+      "today": 191.94,
+      "previous": 189.09,
+      "change": 2.85,
+      "today_snapshot_date": "2026-10-17",
+      "previous_snapshot_date": "2026-09-18",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 6264
+      "priced_station_count": 6265
     },
     "e10": {
-      "today": 174.27,
-      "previous": 171.95,
-      "change": 2.32,
-      "today_snapshot_date": "2026-10-16",
-      "previous_snapshot_date": "2026-09-17",
+      "today": 174.18,
+      "previous": 172.13,
+      "change": 2.05,
+      "today_snapshot_date": "2026-10-17",
+      "previous_snapshot_date": "2026-09-18",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7918
+      "priced_station_count": 7920
     },
     "b7": {
-      "today": 199.22,
-      "previous": 195.07,
-      "change": 4.15,
-      "today_snapshot_date": "2026-10-16",
-      "previous_snapshot_date": "2026-09-17",
+      "today": 199.12,
+      "previous": 195.54,
+      "change": 3.58,
+      "today_snapshot_date": "2026-10-17",
+      "previous_snapshot_date": "2026-09-18",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 8033
+      "priced_station_count": 8035
     },
     "sdv": {
-      "today": 218.33,
-      "previous": 214.39,
-      "change": 3.94,
-      "today_snapshot_date": "2026-10-16",
-      "previous_snapshot_date": "2026-09-17",
+      "today": 218.3,
+      "previous": 214.75,
+      "change": 3.55,
+      "today_snapshot_date": "2026-10-17",
+      "previous_snapshot_date": "2026-09-18",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 4171
+      "priced_station_count": 4172
     }
   }
 }
