@@ -1,10 +1,10 @@
 {
   "status": "success",
-  "started_at": "2026-10-31T16:03:09.319966+00:00",
-  "finished_at": "2026-10-31T16:04:45.021639+00:00",
-  "price_records": 8143,
-  "info_records": 8148,
-  "csv_rows": 8148,
+  "started_at": "2026-11-01T16:03:13.564507+00:00",
+  "finished_at": "2026-11-01T16:06:06.591741+00:00",
+  "price_records": 8144,
+  "info_records": 8149,
+  "csv_rows": 8149,
   "csv_file": "data/fuel_data.csv",
   "latest_json": "data/latest.json"
 }
