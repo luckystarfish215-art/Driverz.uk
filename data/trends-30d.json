@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-11-14T16:45:30.767594+00:00",
-  "latest_snapshot_date": "2026-11-14",
+  "generated_at": "2026-11-15T17:28:05.578430+00:00",
+  "latest_snapshot_date": "2026-11-15",
   "days_available": 30,
   "valid_snapshot_days": 30,
   "skipped_snapshot_days": 0,
   "uk_average": {
     "e5": {
-      "today": 185.21,
-      "previous": 191.99,
-      "change": -6.78,
-      "today_snapshot_date": "2026-11-14",
-      "previous_snapshot_date": "2026-10-16",
+      "today": 184.97,
+      "previous": 191.94,
+      "change": -6.97,
+      "today_snapshot_date": "2026-11-15",
+      "previous_snapshot_date": "2026-10-17",
       "valid_days_for_fuel": 30,
       "priced_station_count": 6274
     },
     "e10": {
-      "today": 165.77,
-      "previous": 174.27,
-      "change": -8.5,
-      "today_snapshot_date": "2026-11-14",
-      "previous_snapshot_date": "2026-10-16",
+      "today": 165.41,
+      "previous": 174.18,
+      "change": -8.77,
+      "today_snapshot_date": "2026-11-15",
+      "previous_snapshot_date": "2026-10-17",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 7929
+      "priced_station_count": 7930
     },
     "b7": {
-      "today": 195.75,
-      "previous": 199.22,
-      "change": -3.47,
-      "today_snapshot_date": "2026-11-14",
-      "previous_snapshot_date": "2026-10-16",
+      "today": 195.49,
+      "previous": 199.12,
+      "change": -3.63,
+      "today_snapshot_date": "2026-11-15",
+      "previous_snapshot_date": "2026-10-17",
       "valid_days_for_fuel": 30,
-      "priced_station_count": 8050
+      "priced_station_count": 8051
     },
     "sdv": {
-      "today": 215.99,
-      "previous": 218.33,
-      "change": -2.34,
-      "today_snapshot_date": "2026-11-14",
-      "previous_snapshot_date": "2026-10-16",
+      "today": 215.9,
+      "previous": 218.3,
+      "change": -2.4,
+      "today_snapshot_date": "2026-11-15",
+      "previous_snapshot_date": "2026-10-17",
       "valid_days_for_fuel": 30,
       "priced_station_count": 4174
     }
