@@ -1,7 +1,7 @@
 {
   "status": "success",
   "message": "Fuel trend analysis generated. Invalid or price-empty snapshots are ignored per fuel type.",
-  "generated_at": "2026-11-24T20:54:24.477544+00:00",
+  "generated_at": "2026-11-25T20:14:41.906447+00:00",
   "history_files_checked": 30,
   "readable_snapshot_days": 30,
   "valid_snapshot_days": 30,
